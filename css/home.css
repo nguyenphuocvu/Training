@@ -520,3 +520,51 @@
     display: block;
     margin: 10px auto;
 }
+
+/* Part 7 */
+.part-seven{
+    text-align: center;
+}
+.part-seven h5 {
+    font-size: 25px;
+}
+.part-seven p {
+   font-family: "Apercu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.seven-design {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    width: 80%; 
+    margin: 0 auto;
+}
+
+.seven-design img {
+    width: 64px;
+    height: 64px;
+}
+
+.seven-respon {
+    font-weight: bold;
+}
+
+.seven-vendy {
+    color: #555;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item img {
+    margin-right: 20px; 
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
