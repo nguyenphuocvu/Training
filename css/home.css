@@ -355,16 +355,16 @@ justify-content: flex-end;
  }
  .part-two .homepages {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cột có độ rộng bằng nhau */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
-    width: 80%; /* Chiều rộng của lưới */
-    margin: 0 auto; /* Canh giữa */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    width: 80%; 
+    margin: 0 auto; 
 }
 
 .part-two .homepages .two-caption {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+    align-items: center; 
 }
 
 .part-two .homepages .grid-item {
@@ -379,7 +379,7 @@ justify-content: flex-end;
 .part-two .homepages .grid-item img {
     width: 100%;
     height: auto;
-    border-radius: 10px; /* Làm tròn góc cho ảnh */
+    border-radius: 10px; 
 }
 
 .part-two .homepages .caption {
@@ -551,7 +551,7 @@ justify-content: flex-end;
 .part-five {
     text-align: center;
     width: 80%;
-    margin: 0 auto; /* Canh giữa phần tử .part-five */
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
@@ -574,14 +574,14 @@ justify-content: flex-end;
 .part-five .text-five {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px; /* Tăng khoảng cách giữa các phần tử con */
+    gap: 25px; 
     margin: 0 auto;
     width: 100%;
     max-width: 1100px;
 }
 
 .part-five .text-five > div {
-    flex: 1 1 25%; /* Thiết lập chiều rộng các phần tử con */
+    flex: 1 1 25%; 
     box-sizing: border-box;
     padding: 20px;
     background-color: white;
@@ -617,11 +617,11 @@ justify-content: flex-end;
 .part-five .text-five .side-by-side img:last-child {
     max-width: 30%;
 }
-
 .part-five .text-five p {
     text-align: center;
     font-weight: bold;
     margin-bottom: 10px;
+    color: black;
 }
 
 .part-five .text-five .custom-tabs img {
@@ -630,12 +630,25 @@ justify-content: flex-end;
     margin: 10px auto;
     
 }
-.text-five .custom-tabs{
+.part-five .text-five .custom-tabs{
     width: 50px;
 }
-.wishlist-popup .side-by-side {
+.part-five .text-five .wishlist-popup .side-by-side ,
+.part-five .text-five .wishlist-popup .side-by
+ {
     width: 400px;
 }
+
+.part-five .text-five .wishlist-popup .side img
+ {
+    width: 100%;
+    height: 300px;
+}
+.part-five .text-five .product-cards-views {
+  
+    border-radius: 8px;
+}
+
 
 
 
@@ -694,7 +707,7 @@ justify-content: flex-end;
 /* Part 9 */
 .part-nine {
     text-align: center;
-    margin-bottom: 30px; /* corrected from margin-button */
+    margin-bottom: 30px; 
 }
 
 .part-nine h5 {
@@ -709,124 +722,128 @@ justify-content: flex-end;
     margin-bottom: 20px;
 }
 
-.pricing-table {
+.part-nine .pricing-table {
     width: 70%;
     border-collapse: collapse;
-    margin: 20px auto; /* center the table horizontally */
+    margin: 20px auto; 
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
     background-color: #f9f9f9;
-    text-align: center; /* center all content inside the table */
+    text-align: center; 
 }
 
-.pricing-row {
+.part-nine .pricing-table .pricing-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
-    position: relative; /* add position relative to contain the pseudo-elements */
+    position: relative; 
 }
 
-.pricing-row-color {
+.part-nine .pricing-table .pricing-row-color {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
     background-color: var(--blue);
     color: #fff; 
-    position: relative; /* add position relative to contain the pseudo-elements */
+    position: relative; 
 }
 
-.pricing-row:nth-child(even) {
+.part-nine .pricing-table .pricing-row:nth-child(even) {
     background-color: #f1f1f1;
 }
 
-.pricing-feature, .pricing-cost, .pricing-included {
+.part-nine .pricing-table  .pricing-row .pricing-feature,
+.part-nine .pricing-table  .pricing-row  .pricing-cost,
+.part-nine .pricing-table  .pricing-row  .pricing-included {
     font-size: 16px;
     text-align: center;
-    position: relative; /* add position relative to contain the pseudo-elements */
+    position: relative; 
 }
 
-.pricing-feature-color, .pricing-cost-color, .pricing-included-color {
+.part-nine .pricing-table  .pricing-feature-color, 
+.part-nine .pricing-table .pricing-cost-color, 
+.part-nine .pricing-table .pricing-included-color {
     font-size: 20px;
     text-align: center;
     font-weight: bold;
-    position: relative; /* add position relative to contain the pseudo-elements */
+    position: relative; 
 }
 
-.pricing-feature {
+.part-nine .pricing-table  .pricing-row .pricing-feature {
     font-weight: bold;
-    text-align: left; /* align text to the left */
-    margin-left: 5px; /* add left margin */
+    text-align: left; 
+    margin-left: 5px; 
 }
 
-.pricing-feature-color {
-    text-align: left; /* align text to the left */
-    margin-left: 5px; /* add left margin */
+.part-nine .pricing-table .pricing-feature-color {
+    text-align: left; 
+    margin-left: 5px;
 }
 
-.pricing-cost {
+.part-nine .pricing-table  .pricing-row .pricing-cost {
     color: black;
     font-weight: bold;
 }
-.pricing-cost span {
+.part-nine .pricing-table  .pricing-row  .pricing-cost span {
     color: black;
 }
-.pricing-included {
+.part-nine .pricing-table  .pricing-row  .pricing-included {
     color: #f06;
     font-weight: bold;
 }
 
-.pricing-button {
+.part-nine .pricing-table .total-row  .pricing-button {
     background-color: #f06; 
     color: white; 
     border: none;
-    padding: 5px 10px; /* keep the padding for a comfortable click area */
+    padding: 5px 10px; 
     border-radius: 5px;
-    font-size: 23px; /* font size */
+    font-size: 23px; 
     cursor: pointer; 
     font-weight: bold; 
     display: inline-block;
-    width: 200px; /* fixed width */
-    height: 50px; /* fixed height */
-    margin: 0 auto; /* center the button */
+    width: 200px; 
+    height: 50px; 
+    margin: 0 auto; 
 }
 
-.pricing-button:hover {
+.part-nine .pricing-table .total-row .pricing-button:hover {
     background-color: black; 
 }
 
-.total-row .pricing-feature {
+.part-nine .pricing-table .total-row .pricing-feature {
     font-weight: bold;
     font-size: 23px;
 }
 
-.total-row .pricing-cost {
+.part-nine .pricing-table .total-row .pricing-cost {
     font-weight: bold;
     font-size: 23px;
     color: #f06;
 }
 
-.total-row .pricing-included {
+.part-nine .pricing-table .total-row .pricing-included {
     font-size: 18px;
     color: #f06;
 }
 
-.with {
+.part-nine .pricing-table .with {
     background: var(--blue);
     width: 100%;
     height: 80px;
     display: flex;
-    align-items: center; /* vertically center */
-    justify-content: center; /* horizontally center */
+    align-items: center; 
+    justify-content: center; 
 }
 
-.with p {
+.part-nine .pricing-table .with p {
     font-size: 25px;
     font-weight: bold;
     color: white;
-    margin: 0; /* remove default margin */
+    margin: 0; 
 }
 
 .part-nine .pricing-table .with span {
@@ -840,8 +857,8 @@ justify-content: flex-end;
     background-color: var(--pink);
 }
 
-/* Add vertical dividers */
-.pricing-row > div:not(:last-child)::after {
+
+.part-nine .pricing-table .pricing-row .pricing-row > div:not(:last-child)::after {
     content: "";
     position: absolute;
     right: 0;
@@ -851,7 +868,7 @@ justify-content: flex-end;
     background-color: #ddd;
 }
 
-.pricing-row-color > div:not(:last-child)::after {
+.part-nine .pricing-table .pricing-row .pricing-row-color > div:not(:last-child)::after {
     content: "";
     position: absolute;
     right: 0;
