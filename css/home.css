@@ -9,10 +9,12 @@
     justify-content: center;
     align-items: center;
 }
+.container{
+   width: 80%;
+}
 .menu {
     height: 80px;
     display: flex;
-    width: 80%;
     justify-content: space-between;
     align-items: center;
 }
@@ -74,20 +76,23 @@
 }
 /* Header */
 /* Footer */
-.containerFooter{
+.containerFooter {
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 80px;
     box-sizing: border-box; 
+    margin: 0 auto; 
+    
+    
 }
 .containerFooter .footer{
-    height: auto;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: flex-start;
+    width: 100%; 
 }
 
 .containerFooter .footer > div{
@@ -159,16 +164,22 @@
  margin-right: 600px;
 }
 .copy img {
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .copy span {
-    margin-right: 60px; 
+    margin-left: 50px; 
+    color: var(--gray);
 }
+.copy p{
+    color: var(--gray);
+}
+
 
 .icon{
     display: flex;
     gap: 20px;
+    padding-top: 30px;
 }
 .footer .zeme .icon .facebook-icon, .youtube-icon {
     width: 35px;
@@ -202,10 +213,12 @@
     overflow: hidden; 
     width: 100%;
     max-width: 100%;
+    padding-top: 20px;
 }
 
 .part-eight img {
     display: block;
+    padding-top: 20px;
 }
 
 .part-eight .overlay-image {
@@ -216,20 +229,18 @@
 /* Part 8 */
 
 /* Part 1 */
-.part-one{
+.part-one {
     background-color: width;
     padding: 20px;
-    width: 90%;
     margin: 0 auto;
-    height:600px;
+    height:700px;
    
 }
 .part-one .image-slider{
- 
   position: relative; 
   padding: 20px;
   display: flex;
-justify-content: flex-end;
+   justify-content: flex-end;
   align-items: center;
 }
 .part-one .image-slider img {
@@ -339,7 +350,7 @@ justify-content: flex-end;
 }
 
 .part-two .hot-skin .all-demo {
-    background-color: blue;
+    background-color: var(--blue);
     color: white;
 }
 
@@ -358,7 +369,6 @@ justify-content: flex-end;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    width: 75%;
     margin: 0 auto;
     position: relative; 
 }
@@ -401,16 +411,15 @@ justify-content: flex-end;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
     transition: opacity 0.3s;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
 .part-two .two-caption:hover .overlay {
-    opacity: 1;
+    display: flex;
 }
 
 
@@ -507,39 +516,42 @@ justify-content: flex-end;
 }
 
     /* Part 4 */
-.part-for {
+.part-for  {
    display: flex;
    flex-direction: column;
    align-items: center;
    text-align: center;
+   padding-top: 230px;
 
 }
 
 .part-for h5 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 30px;
+    margin-top: 15px;
 }  
 .part-for p {
     font-weight: bold;
-    f
+    padding-top: 15px;
 }
 .part-for .support-links {
     display: flex;
     justify-content: center;
     gap: 10px;
-    width: 100%; 
+    width: 80%; 
     flex-wrap: wrap;
   
 }
 
 .part-for .support-links div {
-    padding: 10px 15px;
+    padding: 15px 20px;
+    padding-top: 30px;
     color: var(--blue);
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     font-weight: bold;
     flex: 0 1 auto;
+    font-size: 20px;
 }
 .part-for .support-links div:hover {
   color: black;
@@ -560,20 +572,21 @@ justify-content: flex-end;
     justify-content: center; 
     flex-wrap: wrap;
     gap: 20px; 
-    margin-bottom: 50px;
 }
 
 .part-six .composer button {
     display: flex;
     align-items: center;
-    padding: 15px 45px;
-    border: 1px solid  ; 
+    padding: 15px 15px;
+    border: 1px   ; 
     background-color: transparent; 
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    
-   
+}
+
+.part-six .composer .composer-button{
+    background-color: var(--palegray);  
 }
 .part-six .composer button:hover {
     background-color: var(--palegray);  
@@ -590,10 +603,11 @@ justify-content: flex-end;
     
 }
 .part-six  .free-ecomposer h5{
-    margin-top : 50px;
+   padding-top:50px;
 }
 .part-six  .free-ecomposer p {
     margin-bottom: 20px;
+    color: var(--gray);
 }
 .part-six  .free-ecomposer button{
     background-color: var(--blue);
@@ -615,6 +629,10 @@ justify-content: flex-end;
 .part-six  .free-ecomposer img {
     margin-bottom: 30px
 }
+.part-six .composer .six-one{
+
+    border: 1px solid var(--gray-one)
+}
 /* Part 5 */
 
 .part-five {
@@ -623,17 +641,14 @@ justify-content: flex-end;
     margin: 0 auto;
     margin-bottom: 20px;
 }
-
 .part-five div {
     font-weight: bold;
     font-size: 28px;
     margin-bottom: 20px;
 }
-
 .part-five div span {
     color: var(--blue);
 }
-
 .part-five p {
     font-size: 14px;
     margin-bottom: 20px;
@@ -641,7 +656,6 @@ justify-content: flex-end;
 }
 
 .part-five .text-five {
-    display: flex;
     flex-wrap: wrap;
     gap: 25px; 
     margin: 0 auto;
@@ -652,17 +666,14 @@ justify-content: flex-end;
 
 .part-five .text-five > div {
     flex: 1 1 25%; 
-    box-sizing: border-box;
-    padding: 20px;
     background-color: white;
-    
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
 }
 
 .part-five .text-five .side-by-side {
     display: flex;
     align-items: center;
+    margin: 0;
 }
 
 .part-five .text-five img {
@@ -673,18 +684,12 @@ justify-content: flex-end;
     
 }
 
-.part-five .text-five .side-by-side img {
-    max-width: 45%;
-    height: auto;
-    margin: 0;
-}
-
 .part-five .text-five .side-by-side img:first-child {
-    max-width: 45%;
+    max-width: 50%;
 }
 
 .part-five .text-five .side-by-side img:last-child {
-    max-width: 30%;
+    max-width: 35%;
 }
 .part-five .text-five p {
     text-align: center;
@@ -692,41 +697,55 @@ justify-content: flex-end;
     margin-bottom: 10px;
     color: black;
 }
-
-.part-five .text-five .custom-tabs img {
-    max-width: 100%;
-    display: block;
-    margin: 10px auto;
-    
-}
-.part-five .text-five .custom-tabs{
-    width: 50px;
-}
-.part-five .text-five .wishlist-popup .side-by-side ,
-.part-five .text-five .wishlist-popup .side-by
- {
-    width: 400px;
-}
-
-.part-five .text-five .wishlist-popup .side img
- {
+.five-whish {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+    margin: 0 auto;
     width: 100%;
+    max-width: 1100px;
+}
+
+.five-whish-one, .five-whish-two, .five-whish-there {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: white;
     height: 300px;
 }
-.part-five  .product-cards-views {
-   background: var(--blue);
-    border-radius: 1px solid;
+.drawer, .cards, .color , .there {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: white;
+    height: 300px; 
+}
+.drawer, .cards, .color , .there {
+    flex-basis: 25%; 
 }
 
+.five-whish-one{
+    flex-basis: 50%; 
+}
 
+.five-whish-two {
+    flex-basis: 20%; 
+}
 
-
+.five-whish-there {
+    flex-basis: 30%; 
+}
+.five-whish-one img,
+.five-whish-two img,
+.five-whish-there img {
+    max-width: 100%; /* Ensure images don't exceed their container width */
+}
 /* Part 7 */
 .part-seven {
     text-align: center;
 }
 
 .part-seven h5 {
+    padding-top: 40px;
     font-size: 30px;
     margin-bottom: 20px;
 }
@@ -744,7 +763,7 @@ justify-content: flex-end;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px; 
-    width: 77%; 
+    width: 80%; 
     margin: 0 auto;
     margin-bottom: 40px;
 }
@@ -753,12 +772,20 @@ justify-content: flex-end;
     width: 55px;
     height: 55px;
 }
+.part-seven .seven-design .item .text {
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0; 
+}
 
+.part-seven .seven-design .item .text p {
+    margin: 0; 
+}
 .part-seven .seven-design .item .text .seven-respon {
     font-weight: bold;
     font-size: 17px;
     margin: 0; 
-    margin-left: -20px
+   
 }
 
 .part-seven .seven-design .item .text .seven-vendy {
@@ -801,12 +828,11 @@ justify-content: flex-end;
 }
 
 .part-nine .pricing-table {
-    width:77%;
+    width:80%;
     border-collapse: collapse;
-    margin: 20px auto; 
+    margin: 40px auto; 
     padding: 0px;
     border: 1px solid #ddd; 
-  
     background-color: #f9f9f9;
     text-align: center; 
     position: relative; 
@@ -833,7 +859,11 @@ justify-content: flex-end;
 }
 
 .part-nine .pricing-table .pricing-row:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: white;  
+}
+.part-nine .pricing-table .pricing-row:nth-child(odd) {
+  
+    background: var(--palegray);
 }
 
 .part-nine .pricing-table  .pricing-row .pricing-feature,
@@ -856,12 +886,12 @@ justify-content: flex-end;
 .part-nine .pricing-table  .pricing-row .pricing-feature {
     font-weight: bold;
     text-align: left; 
-    padding-left: 20px; /* Added padding */
+    padding-left: 56px
 }
 
 .part-nine .pricing-table .pricing-feature-color {
     text-align: left; 
-    padding-left: 20px; /* Added padding */
+    padding-left:55px; 
 }
 
 .part-nine .pricing-table  .pricing-row .pricing-cost {
@@ -976,7 +1006,7 @@ justify-content: flex-end;
 
 .part-nine .view-button {
     background-color: transparent;
-    color: blue;
+    color: var(--blue);
     border: none;
     cursor: pointer;
     font-size: 22px;
