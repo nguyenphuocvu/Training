@@ -32,7 +32,7 @@
 .menu .right li a {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: var(--black);
 
 }
 .menu .right li a:hover,
@@ -54,7 +54,7 @@
 }
 .one{
    background:var(--blue); 
-   color:white;
+   color:var(--white);
    width: 130px;
    text-align: center;
    font-size: 16px;
@@ -62,7 +62,7 @@
 }
 .two {
     background: var(--pink); 
-    color:white;
+    color:var(--white);
     width: 130px;
     text-align: center;
     font-size: 16px;
@@ -71,87 +71,77 @@
 }
 .one:hover, .one:active,
 .two:hover, .two:active {
-    background-color: black;
-    color: white; 
+    background-color: var(--black);
+    color: var(--white); 
 }
 /* Header */
 /* Footer */
 .containerFooter {
-    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 80px;
-    box-sizing: border-box; 
-    margin: 0 auto; 
-    
-    
-}
-.containerFooter .footer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    align-items: flex-start;
-    width: 100%; 
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 95%;
 }
 
-.containerFooter .footer > div{
-    flex: 1;
-    padding:10px;
-    
-  
+.containerFooter .footer {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-between; 
+    align-items: flex-start;
 }
-.containerFooter .footer > div h5{
+
+.containerFooter .footer > div {
+    flex: 1;
+    padding: 50px;
+}
+.containerFooter .footer > div h5 {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 .containerFooter .footer > div ul {
-   padding: 0;
-   list-style-type: none;
+    padding: 0;
+    list-style-type: none;
 }
 .containerFooter .footer > div ul li {
     margin-bottom: 10px;
 }
 .containerFooter .footer > div ul li a {
-   text-decoration: none;
+    text-decoration: none;
 }
-.containerFooter .footer> div ul li a:hover {
+.containerFooter .footer > div ul li a:hover {
     text-decoration: underline;
 }
- 
-.containerFooter .footer .zeme { 
+.containerFooter .footer .zeme {
     align-items: flex-start;
-  
-}
+} 
 .containerFooter .footer .zeme img {
-    width: 135px; 
-    height: auto; 
+    width: 135px;
+    height: auto;
     align-self: flex-start;
-    margin-left: 30px
+    margin-left: 30px;
 }
 
 .containerFooter .footer .zeme ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
-
 .containerFooter .footer .zeme ul li {
     display: flex;
     align-items: center;
 }
 .containerFooter .footer .zeme p {
     font-weight: bold;
-    font-size: 18px
+    font-size: 18px;
 }
 .containerFooter .footer .zeme p span {
-    color:var(--blue) ;
+    color: var(--blue);
 }
 .containerFooter .footer .zeme .facebook-icon {
     margin-bottom: 10px;
 }
-
 .jet{
   display: flex;
   align-items: center;
@@ -174,8 +164,6 @@
 .copy p{
     color: var(--gray);
 }
-
-
 .icon{
     display: flex;
     gap: 20px;
@@ -208,7 +196,7 @@
 /* Footer */
 
 /* Part 8 */
-.part-eight {
+.part-eight  {
     position: relative;
     overflow: hidden; 
     width: 100%;
@@ -261,7 +249,7 @@
     background-color: #0dcaf0;
     border-radius: 25px;
     border: 1px  ;
-    color: white;
+    color: var(--white);
     font-weight: bold;
     margin: 20px 0;
 }
@@ -272,13 +260,13 @@
     font-size: 16px;
     border-radius: 5px;
     border: 1px  ;
-    color: white;
+    color: var(--white);
     font-weight: bold;
     margin: 10px 0;
 }
 .part-one .all-slider .buy-now:hover{
-    background-color:  black; 
-   color: white;
+    background-color:  var(--black); 
+   color: var(--white);
 }
 .part-one .all-slider .list-nice, .nice-fire {
    color: var(--pink);
@@ -323,9 +311,8 @@
 /* Part 2 */
 
 .part-two {
-    text-align: center;
+    text-align: center; 
 }
-
 .part-two h5 {
     font-size: 30px;
     margin-bottom: 20px;
@@ -351,7 +338,7 @@
 
 .part-two .hot-skin .all-demo {
     background-color: var(--blue);
-    color: white;
+    color: var(--white);
 }
 
 .part-two .hot-skin .bonus-skin {
@@ -362,7 +349,7 @@
 .part-two .hot-skin .bonus-skin:hover,
 .part-two .hot-skin .two-home:hover {
     background-color: var(--blue);
-    color: white;
+    color: var(--white);
 }
 
 .part-two .homepages {
@@ -378,23 +365,20 @@
     align-items: center;
     position: relative;
     display: inline-block;
-    m
 }
 
 .part-two .homepages .grid-item {
     position: relative;
-    background-color: white;
+    background-color: var(--white);
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .part-two .homepages .grid-item img {
     width: 100%;
     height: auto;
     display: block;
 }
-
 .part-two .homepages .caption {
     padding: 10px;
     font-size: 16px;
@@ -403,7 +387,6 @@
     margin-top: 10px;
     margin-bottom: 30px;
 }
-
 .part-two .overlay {
     position: absolute;
     top: 0;
@@ -415,7 +398,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--white);
 }
 
 .part-two .two-caption:hover .overlay {
@@ -425,7 +408,7 @@
 
 .part-two .demo-button {
     background-color: var(--blue);
-    color: white;
+    color: var(--white);
     border: none;
     padding: 8px 39px;
     cursor: pointer;
@@ -434,7 +417,7 @@
     border-radius: 5px;
 }
 .part-two .demo-button:hover {
-    background-color: black;
+    background-color: var(--black);
 }
 .part-two .special-overlay {
     position: absolute;
@@ -471,7 +454,7 @@
 
 .part-thereimg {
     width: 100%;
-    height: 70vh; 
+    height: 60vh; 
     display: block;
     margin-bottom: 50px;
 }
@@ -504,14 +487,14 @@
     border: none;
     border-radius: 5px;
     background-color: var(--blue);
-    color: white;
+    color: var(--white);
     font-size: 16px;
     cursor: pointer;
     
 }
 .part-there .save-now:hover {
-   background-color: black;
-   color: white;
+   background-color: var(--black);
+   color: var(--white);
     
 }
 
@@ -521,7 +504,7 @@
    flex-direction: column;
    align-items: center;
    text-align: center;
-   padding-top: 230px;
+   padding-top: 70px;
 
 }
 
@@ -554,7 +537,7 @@
     font-size: 20px;
 }
 .part-for .support-links div:hover {
-  color: black;
+  color: var(--black);
   
 }
 
@@ -611,7 +594,7 @@
 }
 .part-six  .free-ecomposer button{
     background-color: var(--blue);
-    color: white;
+    color: var(--white);
     font-weight: bold;
     padding: 15px 40px;
     border: none;
@@ -621,8 +604,8 @@
   
 }
 .part-six  .free-ecomposer button:hover{
-    background-color: black;
-    color: white;
+    background-color: var(--black);
+    color: var(--white);
    
   
 }
@@ -666,7 +649,7 @@
 
 .part-five .text-five > div {
     flex: 1 1 25%; 
-    background-color: white;
+    background-color: var(--white);
     margin: 10px;
 }
 
@@ -695,7 +678,7 @@
     text-align: center;
     font-weight: bold;
     margin-bottom: 10px;
-    color: black;
+    color: var(--black);
 }
 .five-whish {
     display: flex;
@@ -710,13 +693,13 @@
 .five-whish-one, .five-whish-two, .five-whish-there {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: white;
+    background-color: var(--white);
     height: 300px;
 }
 .drawer, .cards, .color , .there {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: white;
+    background-color: var(--white);
     height: 300px; 
 }
 .drawer, .cards, .color , .there {
@@ -737,7 +720,7 @@
 .five-whish-one img,
 .five-whish-two img,
 .five-whish-there img {
-    max-width: 100%; /* Ensure images don't exceed their container width */
+    max-width: 100%; 
 }
 /* Part 7 */
 .part-seven {
@@ -806,13 +789,10 @@
     display: flex;
     flex-direction: column;
 }
-
-
 /* Part 9 */
 .part-nine {
     text-align: center;
     margin-bottom: 40px; 
-    
 }
 
 .part-nine h5 {
@@ -828,7 +808,7 @@
 }
 
 .part-nine .pricing-table {
-    width:80%;
+    width: 80%;
     border-collapse: collapse;
     margin: 40px auto; 
     padding: 0px;
@@ -838,78 +818,80 @@
     position: relative; 
 }
 
-.part-nine .pricing-table .pricing-row {
+.part-nine .pricing-table .pricing-row,
+.part-nine .pricing-table .pricing-row-color {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
     position: relative; 
 }
 
 .part-nine .pricing-table .pricing-row-color {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 20px 10;
     background-color: var(--blue);
     color: #fff; 
-    position: relative; 
-  
-    
+    border-radius: 5px 5px 0 0;
 }
 
-.part-nine .pricing-table .pricing-row:nth-child(even) {
-    background-color: white;  
+.part-nine .pricing-table .pricing-row {
+    border-bottom: 1px solid #ddd;
 }
+
+
+
+.part-nine .pricing-table .pricing-row:nth-child(even) {
+    background-color: var(--white);  
+}
+
 .part-nine .pricing-table .pricing-row:nth-child(odd) {
-  
     background: var(--palegray);
 }
 
-.part-nine .pricing-table  .pricing-row .pricing-feature,
-.part-nine .pricing-table  .pricing-row  .pricing-cost,
-.part-nine .pricing-table  .pricing-row  .pricing-included {
+.part-nine .pricing-table .pricing-row .pricing-feature,
+.part-nine .pricing-table .pricing-row .pricing-cost,
+.part-nine .pricing-table .pricing-row .pricing-included {
     font-size: 16px;
     text-align: center;
-    position: relative; 
 }
 
-.part-nine .pricing-table  .pricing-feature-color, 
+.part-nine .pricing-table .pricing-feature-color, 
 .part-nine .pricing-table .pricing-cost-color, 
 .part-nine .pricing-table .pricing-included-color {
     font-size: 20px;
     text-align: center;
     font-weight: bold;
-    position: relative; 
+    padding: 20px 0;
 }
 
-.part-nine .pricing-table  .pricing-row .pricing-feature {
+.part-nine .pricing-table .pricing-row .pricing-feature {
     font-weight: bold;
     text-align: left; 
-    padding-left: 56px
+    padding-left: 56px;
+    padding-top: 20px
 }
 
 .part-nine .pricing-table .pricing-feature-color {
     text-align: left; 
-    padding-left:55px; 
+    padding-left: 55px; 
 }
 
-.part-nine .pricing-table  .pricing-row .pricing-cost {
-    color: black;
+.part-nine .pricing-table .pricing-row .pricing-cost {
+    color: var(--black);
     font-weight: bold;
 }
-.part-nine .pricing-table  .pricing-row  .pricing-cost span {
-    color: black;
+
+.part-nine .pricing-table .pricing-row .pricing-cost span {
+    color: var(--black);
 }
-.part-nine .pricing-table  .pricing-row  .pricing-included {
-    color: #f06;
+
+.part-nine .pricing-table .pricing-row .pricing-included {
+    color: var(--pink);
     font-weight: bold;
     font-size: 20px;
 }
 
-.part-nine .pricing-table .total-row  .pricing-button {
-    background-color: #f06; 
-    color: white; 
+.part-nine .pricing-table .total-row .pricing-button {
+    background-color: var(--pink); 
+    color: var(--white); 
     border: none;
     padding: 5px 10px; 
     border-radius: 5px;
@@ -919,11 +901,11 @@
     display: inline-block;
     width: 200px; 
     height: 50px; 
-    margin: 0 auto; 
+    margin: 20px auto 0; 
 }
 
 .part-nine .pricing-table .total-row .pricing-button:hover {
-    background-color: black; 
+    background-color: var(--black); 
 }
 
 .part-nine .pricing-table .total-row .pricing-feature {
@@ -934,12 +916,12 @@
 .part-nine .pricing-table .total-row .pricing-cost {
     font-weight: bold;
     font-size: 23px;
-    color: #f06;
+    color: var(--pink);
 }
 
 .part-nine .pricing-table .total-row .pricing-included {
     font-size: 18px;
-    color: #f06;
+    color: var(--pink);
 }
 
 .part-nine .pricing-table .with {
@@ -954,7 +936,7 @@
 .part-nine .pricing-table .with p {
     font-size: 29px;
     font-weight: bold;
-    color: white;
+    color: var(--white);
     margin: 0; 
 }
 
@@ -969,29 +951,9 @@
     background-color: var(--pink);
 }
 
-.part-nine .pricing-table .pricing-row .pricing-row > div:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: #ddd;
-}
-
-.part-nine .pricing-table .pricing-row .pricing-row-color > div:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: #fff;
-}
-
 .part-nine .special-overlay {
     position: absolute;
-    bottom: 150px; 
+    bottom: 165px; 
     left: 0;
     right: 0;
     background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
@@ -1020,4 +982,44 @@
 .part-nine .view-button:hover {
     text-decoration: underline;
     color: var(--pink);
+}
+
+
+.pricing-feature,
+.pricing-cost,
+.pricing-included {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+
+.pricing-feature-color,
+.pricing-cost-color,
+.pricing-included-color {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid #ccc; 
+}
+
+
+
+.pricing-row .pricing-feature,
+.pricing-row .pricing-cost,
+.pricing-row .pricing-included {
+    border-right: 1px solid #ccc; 
+}
+
+
+.total-row .pricing-feature,
+.total-row .pricing-cost {
+    border-right: none; 
+}
+
+.pricing-row .pricing-feature:last-child,
+.pricing-row .pricing-cost:last-child,
+.pricing-row .pricing-included:last-child {
+    border-right: none;
 }
