@@ -1,0 +1,89 @@
+@media only screen and (max-width: 46.1875em) {
+    .container-partone {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .customers {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .vendy {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .shopify {
+        font-size: 5px;
+    }
+
+    .shopify span {
+        color: green;
+        font-weight: bold;
+    }
+
+    .nice-fire {
+        text-align: center;
+        font-size: 40px;
+        color: #ff3d7f;
+        font-weight: bold;
+    }
+
+    .buy-now {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .arrow {
+        font-size: 14px;
+        color: #007bff;
+        margin-left: 5px;
+    }
+
+    .all-slider,
+    .image-slider {
+        width: 100%;
+    }
+
+    .all-slider p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .all-slider p img {
+        display: flex;
+        max-width: 30%;
+    }
+
+    .image-slider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px; /* Add margin-top to push the slider below */
+    }
+
+    .image-slider img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .slide-image {
+        max-width: 80%;
+        height: auto;
+        margin-top: 20px; /* Ensure proper spacing for the second image */
+    }
+}

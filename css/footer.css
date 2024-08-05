@@ -1,0 +1,117 @@
+/* Footer */
+.containerFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 85%;
+}
+.containerFooter .footer {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    flex: 1;
+}
+
+.containerFooter .footer > div h5 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.containerFooter .footer > div ul {
+    padding: 0;
+    list-style-type: none;
+}
+.containerFooter .footer > div ul li {
+    margin-bottom: 10px;
+}
+.containerFooter .footer > div ul li a {
+    text-decoration: none;
+}
+.containerFooter .footer > div ul li a:hover {
+    text-decoration: underline;
+}
+.containerFooter .footer .zeme {
+    align-items: flex-start;
+    max-width: 25%;
+
+} 
+.containerFooter .footer .zeme img {
+    width: 135px;
+    height: auto;
+    align-self: flex-start;
+    margin-left: 30px;
+}
+
+.containerFooter .footer .zeme ul {
+    list-style: none;
+}
+.containerFooter .footer .zeme ul li {
+    display: flex;
+    align-items: center;
+}
+.containerFooter .footer .zeme p {
+    font-weight: bold;
+    font-size: 18px;
+}
+.containerFooter .footer .zeme p span {
+    color: var(--blue);
+}
+.containerFooter .footer .zeme .facebook-icon {
+    margin-bottom: 10px;
+}
+.jet{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.copy{
+ display: flex;
+ align-items: center;
+ margin-right: 600px;
+}
+.copy img {
+    margin-left: 50px;
+}
+
+.copy span {
+    margin-left: 50px; 
+    color: var(--gray);
+}
+.copy p{
+    color: var(--gray);
+}
+.icon{
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+}
+.footer .zeme .icon .facebook-icon, .youtube-icon {
+    width: 35px;
+    height: 40px;
+    display: flex;
+    align-items:center;
+    justify-content:center; 
+   
+}
+.footer .zeme .icon .facebook-icon{
+   color: #3b5998;
+}
+.footer .zeme .icon .youtube-icon {
+ color: #ff0000;
+}
+.footer .zeme .icon .instagram-icon,.pinterest, .dribbble, .linkedin, .facebook-icon, .youtube-icon{
+    font-size: 30px
+}
+.footer .zeme .icon .pinterest{
+    color: red;
+}
+.footer .zeme .icon .linkedin{
+    color: blue;
+}
+
+/* Footer */

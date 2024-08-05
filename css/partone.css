@@ -1,0 +1,106 @@
+/* Part 1 */
+.container-partone{
+    background:#E6E6FA;
+    height: auto;
+    width:100%;
+}
+
+.part-one {
+    padding: 20px;
+    margin: 0 auto;
+    height: auto; 
+    display: flex;
+    align-items: flex-start;
+}
+
+.part-one .all-slider {
+    flex-basis: 35%; 
+    padding: 35px;
+}
+
+.part-one .image-slider {
+    display: flex;
+    flex-basis: 65%; 
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+
+.part-one .image-slider img {
+   max-width: 100%;
+    height: auto;
+}
+.part-one .slide-image{
+    position: absolute;
+    left:630px;
+    top: 50%;
+    width: 20%
+ 
+  }
+.part-one .all-slider .cusomers {
+    width: 120px;
+    height: 35px;
+    font-size: 15px;
+    background-color: #0dcaf0;
+    border-radius: 25px;
+    border: 1px;
+    color: var(--white);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+
+.part-one .all-slider .buy-now {
+    background-color: var(--blue);
+    width: 180px;
+    height: 55px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px;
+    color: var(--white);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.part-one .all-slider .buy-now:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.part-one .all-slider .list-nice, .nice-fire {
+    color: var(--pink);
+    font-size: 57px;
+    font-weight: bold;
+}
+
+.part-one .all-slider .shopify {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.part-one .all-slider .shopify span {
+    color: #95BF46;
+}
+
+.part-one .all-slider p {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.part-one .all-slider .arrow {
+    font-size: 24px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.part-one .all-slider .right-arrow {
+    color: var(--blue);
+}
+
+.part-one .all-slider .vendy {
+    display: block;
+    margin: 5px 0;
+}
+
