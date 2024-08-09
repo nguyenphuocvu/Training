@@ -1,397 +1,52 @@
 /* Tablet View */
-@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
-    .container-partone {
-        background: #E6E6FA;
-        height: auto;
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .part-one {
-        padding: 20px;
-        margin: 0 auto;
-        height: auto; 
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .part-one .all-slider {
-
-        padding: 35px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .part-one .image-slider {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 20px;
-        padding: 20px;
-        width: 70%;
-    }
-    .slide-image{
-        flex-direction: column;
-    }
-    .part-one .image-slider img {
-        max-width: 100%;
-        height: auto;
-    }
-
-  
-
-    .container-partone .part-one .all-slider .cusomers {
-        width: 120px;
-        height: 35px;
-        font-size: 15px;
-        background-color: #0dcaf0;
-        border-radius: 25px;
-        border: 1px;
-        color: var(--white);
-        font-weight: bold;
-        margin: 20px 0;
-        text-align: center;
-    }
-
-    .container-partone .part-one .all-slider .buy-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .container-partone .part-one .all-slider .buy-now {
-        background-color: var(--blue);
-        width: 140px;
-        height: 35px;
-        padding: 5px 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid transparent;
-        color: var(--white);
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .container-partone .part-one .all-slider .buy-now:hover {
-        background-color: var(--black);
-        color: var(--white);
-    }
-
-    .container-partone .part-one .all-slider .list-nice, .nice-fire {
-        color: var(--pink);
-        font-size: 57px;
-        font-weight: bold;
-    }
-
-    .container-partone .part-one .all-slider .shopify {
-        font-weight: bold;
-        font-size: 23px;
-    }
-
-    .container-partone .part-one .all-slider .shopify span {
-        color: #95BF46;
-    }
-
-    .container-partone .part-one .all-slider p {
-        color: var(--blue);
-        font-weight: bold;
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .container-partone .part-one .all-slider .arrow {
-        font-size: 24px;
-        margin-left: 10px;
-        display: inline-block;
-    }
-
-    .container-partone .part-one .all-slider .right-arrow {
-        color: var(--blue);
-    }
-
-    .container-partone .part-one .all-slider .vendy {
-        display: block;
-        margin: 5px 0;
-    }
-    
-    .see {
-        padding-top: 20px;
-    }
 
 
- 
-    /* Part 2 */
-    .part-two .homepages .two-caption {
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        display: block; /* Changed from inline-block to block for full-width items */
-        width: 100%; /* Ensure the items take full width of the grid cell */
-    }
+@media only screen and  (max-width: 900px) {
+.part-five{
+    margin-left: 90px;
 
-    .part-two .homepages .grid-item {
-        background-color: var(--white);
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 100%; /* Ensure the item takes full width of its container */
-    }
-
-    .part-two .homepages .grid-item img {
-        width: 100%;
-        height: auto;
-    }
-    .part-two .homepages.container {
-        grid-template-columns: repeat(2, 1fr); /* Show 2 items per row */
-        width: 85%; /* Adjust width to fit the new layout */
-    }
-.container-parttwo{
-    background:#E6E6FA;
-    height: auto;
-    width:100%;
-}
-.part-two {
-    text-align: center; 
-}
-.part-two h5 {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.part-two .hot-skin {
-    justify-content: flex-start;
-    gap: 10px; 
-    padding-left: 10px; 
-    padding-right: 10px; 
-}
-
-.part-two .hot-skin button {
-    padding: 5px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.part-two .hot-skin .all-demo {
-    background-color: var(--blue);
-    color: var(--white);
-}
-
-.part-two .hot-skin .bonus-skin {
-    color: var(--pink);
-}
-
-.part-two .hot-skin .two-hot:hover,
-.part-two .hot-skin .bonus-skin:hover,
-.part-two .hot-skin .two-home:hover {
-    background-color: var(--blue);
-    color: var(--white);
-}
-
-.part-two .homepages {
-    display: grid;
-    gap: 30px;
-    margin: 0 auto;
-    position: relative; 
-
-}
-
-.part-two .homepages .two-caption {
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    display: inline-block;
-}
-
-.part-two .homepages .grid-item {
-    position: relative;
-    background-color: var(--white);
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-.part-two .homepages .grid-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.part-two .homepages .caption {
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-.part-two .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: opacity 0.3s;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-}
-
-.part-two .two-caption:hover .overlay {
-    display: flex;
-}
-
-
-.part-two .demo-button {
-    background-color: var(--blue);
-    color: var(--white);
-    border: none;
-    padding: 8px 39px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-.part-two .demo-button:hover {
-    background-color: var(--black);
-}
-.part-two .special-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 250px; 
-    width: 100%;
-    background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.part-two .view-button {
-    background-color: transparent;
-    color: blue;
-    border: none;
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 0;
-    text-decoration: none;
-}
-
-/* Part 3 */
-.part-there {
-    position: relative;
-    text-align: center;
-    background-color: #E6E6FA; /* Thay đổi màu nền theo ý bạn */
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.part-thereimg {
-    display: none; /* Ẩn ảnh */
-}
-
-.part-there .overlay-text {
-    color: var(--blue);
-    font-size: 24px; /* Chữ nhỏ hơn */
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
-    width: 90%; 
-    line-height: 1.4; 
-    text-align: center;
-    margin-bottom: 10px; /* Khoảng cách ngắn hơn */
-}
-
-.part-there .overlay-text span {
-    color: var(--pink);
-}
-
-.part-there .save-now {
-    font-weight: bold;
-    padding: 10px 30px; /* Điều chỉnh padding của nút */
-    border: none;
-    border-radius: 5px;
-    background-color: var(--blue);
-    color: var(--white);
-    font-size: 14px; /* Kích thước chữ nhỏ hơn */
-    cursor: pointer;
-    margin-top: 10px; /* Khoảng cách ngắn hơn */
-}
-
-.part-there .save-now:hover {
-    background-color: var(--black);
-    color: var(--white);
-}
-
-
-.five-container {
-    display: flex;
-    justify-content: center;
-}
-
-.part-five {
-    width: 90%; 
-    margin: 0 auto;
-    text-align: center;
 }
 .part-five div {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 23px;
+        margin-bottom: 20px;
 }
-.part-five div span {
-    color: var(--blue);
-}
-.part-five p {
-    font-size: 13px;
-    margin-bottom: 20px;
-    color: var(--gray);
-}
+
 .text-five {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Khoảng cách giữa các phần tử */
+    flex-direction: column;
+    align-items: center;
 }
 
 .five-whish {
-    flex-basis: 45%; /* Điều chỉnh kích thước khung con nếu cần */
-    margin-bottom: 20px; /* Khoảng cách dưới */
-    text-align: center;
+    flex-basis: 100%; 
+    margin-bottom: 20px;
 }
-
-.side-by-side, .img-custom, .side-by {
-    display: flex;
-    justify-content: center;
+.five-whish-one {
+    flex-basis: 80%;
+    flex-direction: column;
 }
-
-.side-by-side img, .img-custom img, .side-by img {
-    max-width: 100%;
-    height: auto;
+.five-whish-two {
+    flex-basis: 30%;
 }
-
-
-
+.five-whish-one, .five-whish-two, .five-whish-there {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: var(--white);
+    height: 400px;
+}
+.part-five .text-five .side-by-side {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
 /* Part 7 */
 .part-seven h5 {
-    font-size: 24px; /* Reduced font size */
+    font-size: 24px; 
 }
 
 .part-seven .seven-design {
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    width: 90%; /* Adjust width to allow for more space */
+    grid-template-columns: repeat(3, 1fr); 
+    width: 90%; 
 }
 
 .part-seven .seven-design .item {
@@ -417,8 +72,8 @@
 .part-nine h5 {
     font-size: 22px;
 }
-.part-nine p {
-    font-size: 17px
+.part-nine .pricing-table .with p {
+    font-size: 18px;
 }
 .part-nine .pricing-table {
     width: 90%; /* Tăng chiều rộng của bảng giá */
@@ -439,17 +94,56 @@
     position: relative; 
 }
 .part-nine .pricing-table .pricing-row .pricing-feature {
-    font-size: 14px; /* Giảm kích thước chữ */
     font-weight: bold;
     text-align: left; /* Đảm bảo chữ căn trái */
     padding-left: 20px; /* Thêm khoảng cách bên trái để tạo khoảng trống */
 }
+
 
 .part-nine .pricing-table .pricing-feature-color {
     font-size: 18px; /* Giảm kích thước chữ cho tiêu đề cột */
     text-align: left; /* Đảm bảo chữ căn trái */
     padding-left: 20px; /* Thêm khoảng cách bên trái để tạo khoảng trống */
 }
-
+.pricing-feature{
+    font-size: 24px;
 }
 
+
+/* Part 6 */
+.part-six h5 {
+    font-size: 20px;
+}
+.part-six .composer {
+    gap: 10px;
+}
+
+.part-six  .composer button img {
+    margin-left: 10px;
+    height: 20px; 
+    width: 20px; 
+   
+}
+.part-six .free-ecomposer img {
+    width: 90%;
+    height: auto;
+}
+.free-ecomposer p {
+  font-size: 14px;
+}
+.part-six  .free-ecomposer button {
+    padding: 15px 35px;
+}
+
+.part-six .composer  button  {
+    padding: 10px 40px;
+    align-items: center;
+    background-color: transparent; 
+    cursor: pointer;
+    flex-direction: column;
+ 
+}
+
+
+
+}

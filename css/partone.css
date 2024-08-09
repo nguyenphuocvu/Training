@@ -18,25 +18,13 @@
     padding: 35px;
 }
 
-.part-one .image-slider {
-    display: flex;
-    flex-basis: 65%; 
-    justify-content: space-between;
-    padding: 20px;
-    
-}
+
 
 .part-one .image-slider img {
-   max-width: 100%;
+    max-width: 100%;
     height: auto;
 }
-.part-one .slide-image{
-    position: absolute;
-    left:630px;
-    top: 50%;
-    width: 20%
- 
-  }
+
 .part-one .all-slider .cusomers {
     width: 120px;
     height: 35px;
@@ -104,3 +92,109 @@
     margin: 5px 0;
 }
 
+
+
+@media only screen and (max-width: 900px) {
+  .part-one {
+    flex-direction: column;
+  }
+  /* Part 1 */
+  .all-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+  }
+  .part-one .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .all-slider {
+    width: 60%;
+    position: relative;
+  }
+  .part-one .all-slider .cusomers {
+      width: 120px;
+      height: 40px;
+      font-size: 16px;
+      background-color: #0dcaf0;
+      border-radius: 20px;
+      border: 1px;
+      color: var(--white);
+      font-weight: bold;
+      margin: 20px 0;
+  }
+  .vendy {
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: auto; 
+  }
+  .part-one .all-slider .shopify {
+      font-weight: bold;
+      font-size: 16px;
+  }
+  
+  .part-one .all-slider .shopify span {
+      color: #95BF46;
+  }
+  .part-one .all-slider .list-nice, .nice-fire {
+      color: var(--pink);
+      font-size: 50px;
+      font-weight: bold;
+  }
+  .buy-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .part-one .all-slider .buy-now {
+  background-color: var(--blue);
+  width: 130px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px;
+  color: var(--white);
+  font-weight: bold;
+  margin: 10px 0;
+  }
+  .part-one .all-slider p {
+      font-size: 15px;
+  }
+  .arrow {
+    color: #0000ff;
+  }
+  .see {
+    width: 230px;
+    height: auto;
+  }
+  .image-slider {
+      margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      
+  }
+
+  .image-slider img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+  }
+
+
+  .buy-container {
+    gap: 10px; 
+  }
+
+  .buy-container p {
+    white-space: nowrap;
+  }
+  
+}
+
+
+ 

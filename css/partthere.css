@@ -1,0 +1,135 @@
+/* Part 3 */
+.part-there {
+    position: relative;
+    text-align: center;  
+}
+.part-thereimg {
+    width: 100%;
+    height: 60vh; 
+    display: block;
+}
+.part-there .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--blue);
+    font-size: 45px; 
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%; 
+    line-height: 1.4; 
+}
+
+.part-there .overlay-text span {
+    color: var(--pink);
+}
+
+.part-there .save-now {
+    position: absolute;
+    font-weight: bold;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 55px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+.part-there .save-now:hover {
+   background-color: var(--black);
+   color: var(--white);
+    
+}
+
+
+@media only screen and  (max-width: 900px) {
+/* Part 3 */
+.part-there {
+    position: relative;
+    text-align: center;
+    background: #E6E6FA;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+
+}
+
+.part-thereimg {
+    display: none; 
+}
+
+.part-there .overlay-text {
+    color: var(--blue);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%; 
+    line-height: 1.4; 
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+.part-there .overlay-text span {
+    color: var(--pink);
+}
+
+.part-there .save-now {
+    font-weight: bold;
+    padding: 15px 40px; 
+    border: none;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 14px; 
+    cursor: pointer;
+    margin-top: -10px; 
+}
+
+.part-there .save-now:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .part-there {
+    width: 93,5%;
+      height: 200px;
+      display: flex;
+      flex-direction: column; 
+      justify-content: flex-start; 
+      align-items: center; 
+      position: relative; 
+    }
+
+    .part-there .overlay-text {
+      font-size: 20px; 
+      text-align: center; 
+      margin-bottom: 10px; 
+
+    }
+
+    .part-there .overlay-text span {
+      font-size: 1em; 
+    }
+
+    .part-there .save-now {
+        padding-top: 40px;
+      font-size: 16px; 
+      padding: 13px 35px; 
+    }
+  }

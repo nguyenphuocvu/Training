@@ -67,4 +67,143 @@
     background-color: var(--black);
     color: var(--white); 
 }
+
+#toggle-menu {
+    display: none;
+}
 /* Header */
+
+@media only screen and (max-width: 600px) {
+    .containerMenu .menu .right{
+        display:none;
+      
+    }
+    /* Header */
+    .containerMenu {
+        display: flex;
+       
+        height: auto;
+        width: 100%;
+    }
+    .menu .left div {
+        border-radius: 5px;
+        padding: 7px;
+    }
+    .menu .left  {
+        display: flex;
+        justify-center: center;
+        gap:1px;
+        height: 40px;
+        width: 200px;
+        justify-content: flex-start;
+   
+    }
+    .one{
+       background:var(--blue); 
+       color:var(--white);
+       text-align: center;
+       font-size: 12px;
+       padding: 20px 20px;
+    }
+    .two {
+        background: var(--pink); 
+        color:var(--white);
+        text-align: center;
+        font-size: 12px;
+        padding: 3px;
+        margin-left: 5px;
+    }
+  
+}
+
+@media only screen and (max-width: 900px) {
+  
+        .containerMenu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+    
+        .menu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+         
+        }
+    
+        .menu .left {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            width: auto;
+            margin-top: 15px;
+            margin-left: 100px;
+        }
+    
+        .menu .left div {
+            border-radius: 5px;
+            text-align: center;
+        }
+    
+        .one {
+            background: var(--blue);
+            color: var(--white);
+            font-size: 15px;
+            padding: 7px 20px;
+        }
+    
+        .two {
+            background: var(--pink);
+            color: var(--white);
+            font-size: 15px;
+            padding: 7px 20px;
+            margin-left: 5px;
+        }
+    
+
+        .navbar {
+            order: 1;
+            display: block;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-left: 100px;
+            width: 100%;
+            text-align: left;
+            
+        }
+ 
+        .containerMenu .menu .right {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+    
+    
+        #toggle-menu:checked + .navbar + .right {
+            display: block; 
+        }
+    
+       .right {
+        padding-left: 100px;
+        flex-direction: column;
+
+       }
+        .right li {
+            padding: 2px 0;
+            font-size: 14px; 
+            color: var(--gray);
+            width: 100%;
+            background: white;
+            width: 150px;
+            height: auto;
+            flex-direction: column;
+          
+        }
+        .right li a:hover {
+            background-color: #f0f0f0;
+        }
+
+    }
+    

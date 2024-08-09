@@ -1,0 +1,69 @@
+@media only screen and (max-width: 600px) {
+    .five-container {
+        background: #E6E6FA;
+        width: 100%;
+        height: auto;
+    }
+
+    .part-five div {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .part-five p {
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: var(--gray);
+    }
+
+    .part-five {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        height: auto;
+        margin-left: auto;
+        margin-right: 35px;
+    }
+
+    .text-five {
+        align-items: center;
+    }
+
+    .five-whish {
+        display: flex;
+        flex-direction: column; 
+        margin-bottom: 20px;
+    }
+
+    .five-whish-one {
+       flex-basis: 100%;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       padding: 20px;
+       background-color: var(--white);
+       height: auto;
+       margin-bottom: 20px; 
+    }
+
+    .five-whish-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .five-whish-two, .five-whish-there {
+        flex-basis: 48%; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: var(--white);
+        height: auto;
+    }
+
+    .part-five .text-five .side-by-side {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+}

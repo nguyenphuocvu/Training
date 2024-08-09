@@ -1,0 +1,61 @@
+
+/* Part 8 */
+
+@media only screen and  (max-width: 900px) {   
+    .part-eight {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 20px;
+        height: 400px;
+    }
+    
+    .part-eight img {
+        display: block;
+        padding-top: 20px;
+    }
+    
+    .part-eight img:first-child {
+        /* filter: blur(2px);  */
+        width: 140%;
+        height: 400px;
+    }
+    
+    .part-eight .overlay-image {
+        position: absolute;
+        top: 100px;
+        height: 190px;
+        left: 5%;
+        z-index: 1; 
+    }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .part-eight .overlay-image {
+            position: absolute;
+            top: 100px;
+            height: 150px;
+            left: 5%;
+            z-index: 1; 
+        }
+        .part-eight {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            padding-top: 20px;
+            height: 300px;
+        }
+        
+        .part-eight img {
+            display: block;
+            padding-top: 20px;
+        }
+        
+        .part-eight img:first-child {
+            /* filter: blur(2px);  */
+            width: 130%;
+            height: 400px;
+        }
+    }

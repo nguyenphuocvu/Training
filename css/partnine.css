@@ -1,0 +1,72 @@
+@media only screen and (max-width: 600px) {
+.part-nine {
+    text-align: center;
+}
+
+.part-nine h5 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+}
+
+ 
+@media only screen and (max-width: 600px) {
+    .part-one {
+      flex-direction: column;
+  
+    }
+    .all-slider{
+        margin-left: 60px;
+    }
+    .part-one .all-slider .shopify {
+      font-weight: bold;
+      font-size: 18px;
+      
+    }
+   
+    .part-one .all-slider .list-nice, .nice-fire {
+        color: var(--pink);
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .see {
+      width: 250px;
+    }
+    .part-one .all-slider .cusomers {
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+        background-color: #0dcaf0;
+        border-radius: 20px;
+        border: 1px;
+        color: var(--white);
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    .vendy {
+        width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+        margin-left: auto;
+    }
+    .part-one .all-slider .buy-now {
+        background-color: var(--blue);
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px;
+        color: var(--white);
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .part-one .all-slider p {
+        color: var(--blue);
+        font-weight: bold;
+        font-size: 17px;
+        margin: 20px 0;
+    }
+}
+
+  

@@ -1,89 +1,85 @@
-@media only screen and (max-width: 46.1875em) {
-    .container-partone {
-        text-align: center;
+
+@media only screen and (max-width: 600px) {
+    .containerMenu .menu .right{
+        display:none;
+    }
+    /* Header */
+    .containerMenu {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .customers {
-        background-color: #f0f0f0;
-        border: none;
-        padding: 8px 16px;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 20px;
-    }
-
-    .vendy {
-        max-width: 80%;
         height: auto;
-    }
-
-    .shopify {
-        font-size: 5px;
-    }
-
-    .shopify span {
-        color: green;
-        font-weight: bold;
-    }
-
-    .nice-fire {
-        text-align: center;
-        font-size: 40px;
-        color: #ff3d7f;
-        font-weight: bold;
-    }
-
-    .buy-now {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .arrow {
-        font-size: 14px;
-        color: #007bff;
-        margin-left: 5px;
-    }
-
-    .all-slider,
-    .image-slider {
         width: 100%;
     }
-
-    .all-slider p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 10px 0;
+    .menu .left div {
+        border-radius: 5px;
+        padding: 7px;
     }
-
-    .all-slider p img {
+    .menu .left  {
         display: flex;
-        max-width: 30%;
+        justify-center: center;
+        gap:1px;
+        height: 40px;
+        width: 250px;
+        justify-content: flex-start;
+   
     }
-
-    .image-slider {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px; /* Add margin-top to push the slider below */
+    .one{
+       background:var(--blue); 
+       color:var(--white);
+       text-align: center;
+       font-size: 15px;
+       padding: 20px 20px;
     }
+    .two {
+        background: var(--pink); 
+        color:var(--white);
+        text-align: center;
+        font-size: 15px;
+        padding: 3px;
+        margin-left: 5px;
+    }
+  
 
-    .image-slider img {
-        max-width: 100%;
+
+
+
+    .container-parttwo{
+        background:#E6E6FA;
         height: auto;
+        width:100%;
     }
-
-    .slide-image {
-        max-width: 80%;
+    .part-two .homepages.container {
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+    }
+    .part-two h5 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .part-two .hot-skin {
+    justify-content: flex-start;
+    gap: 10px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    }
+    
+    .part-two .hot-skin button {
+        padding: 10px 12px;
+        font-size: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .part-two .homepages {
+        display: grid;
+        width: 90%;
         height: auto;
-        margin-top: 20px; /* Ensure proper spacing for the second image */
+       
+        position: relative; 
+    
     }
+    
 }
+
+
+

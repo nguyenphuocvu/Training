@@ -1,0 +1,49 @@
+@media only screen and (max-width: 600px) {
+    .part-seven {
+        text-align: center;
+        width: 100%;
+        height: auto;
+    }
+    .part-seven h5 {
+        font-size: 20px;
+    }
+    .part-seven p {
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .part-seven .seven-design .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .part-seven .seven-design .item img {
+        width: 60px;
+        height: auto;
+        margin-right: 20px;
+        margin-top: -20px;
+    }
+    .part-seven .seven-design .item .text .seven-respon {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0;
+    }
+    .part-seven .seven-design {
+        grid-template-columns: repeat(2, 1fr); 
+        width: 90%; 
+    }
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .item img {
+        margin: 0 0 10px 0;
+    }
+}
+
+

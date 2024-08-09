@@ -85,11 +85,17 @@
 .copy p{
     color: var(--gray);
 }
+.copy .text-wrapper {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
 .icon{
     display: flex;
     gap: 20px;
     padding-top: 30px;
 }
+
 .footer .zeme .icon .facebook-icon, .youtube-icon {
     width: 35px;
     height: 40px;
@@ -115,3 +121,230 @@
 }
 
 /* Footer */
+
+@media only screen and  (max-width: 900px) {
+    .containerFooter {
+      
+        display: flex;
+        flex-direction: column;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .containerFooter .footer {
+        display: flex;
+        flex-wrap: wrap; /
+        justify-content: space-between; 
+        flex: 1;
+        padding-top: 50px;
+        padding-left: 30px;
+    }
+
+    .containerFooter .footer > div {
+        flex: 0 0 48%; 
+        margin-bottom: 20px; 
+    }
+
+    .containerFooter .footer > div h5 {
+        font-weight: bold;
+        font-size: 20px; 
+        margin-bottom: 15px; 
+    }
+
+    .containerFooter .footer > div ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .containerFooter .footer > div ul li {
+        margin-bottom: 10px;
+        word-break: break-word; 
+    }
+
+    .containerFooter .footer > div ul li a {
+        text-decoration: none;
+    }
+
+    .containerFooter .footer > div ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .containerFooter .footer .zeme {
+        width: 100%; 
+        margin-bottom: 30px; 
+    }
+    
+
+    .containerFooter .footer .zeme img {
+        width: 135px;
+        height: auto;
+        margin: 0 auto; 
+    }
+
+    .zeme ul li {
+        display: flex;
+        word-break: break-word;
+        width: 400%;
+        color: gray;
+    }
+    .containerFooter .footer .zeme p {
+        font-weight: bold;
+        font-size: 18px; 
+        padding-top: 18px;
+        display: flex;
+    }
+
+    .jet {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /
+        margin-top: 5px;
+        width: 100%; 
+    }
+    
+    .copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        margin-left: 0px; 
+        gap: 10px; 
+        width: 100%; 
+    }
+    
+    .copy img {
+        padding-top: 10px;
+    }
+    
+    .copy .text-wrapper {
+        display: flex;
+        align-items: center; 
+        gap: 10px; 
+    }
+    
+   
+    .icon {
+        display: flex;
+        gap: 15px; 
+        padding-top: 20px; 
+    }
+
+    .footer .zeme .icon .facebook-icon, .youtube-icon {
+        width: 30px; 
+        height: 35px; 
+        display: flex;
+    }
+
+    .footer .zeme .icon .instagram-icon, .pinterest, .dribbble, .linkedin, .facebook-icon, .youtube-icon {
+        font-size: 25px; 
+    }
+
+    .footer .zeme ul li {
+        word-break: break-word;
+     }
+
+
+    
+}
+
+@media only screen and (max-width: 600px) {
+.zeme ul li {
+    display: flex;
+    word-break: break-word;
+    width: 400%;
+    color: gray;
+}
+.containerFooter .footer > div {
+    flex: 0 0 48%; 
+
+}
+
+.containerFooter .footer > div h5 {
+    font-weight: bold;
+    font-size: 18px; 
+
+}
+
+.containerFooter .footer > div ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.containerFooter .footer > div ul li {
+    margin-bottom: 10px;
+    word-break: break-word; 
+    font-size: 15px;
+}
+.containerFooter .footer .zeme img {
+    width: 120px;
+    height: auto;
+  
+}
+.containerFooter .footer .zeme ul {
+    list-style: none;
+    width: 70%;
+}
+.containerFooter .footer .zeme ul li {
+    display: flex;
+
+    font-size: 15px;
+}
+.containerFooter .footer .zeme p {
+    font-weight: bold;
+    font-size: 18px;
+}
+.containerFooter .footer .zeme p span {
+    color: var(--blue);
+}
+.footer .zeme .icon .facebook-icon, .youtube-icon {
+    width: 20px; 
+    height: 35px; 
+    display: flex;
+}
+.jet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /
+    margin-top: 5px;
+    width: 100%; 
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-left: 0px; 
+    gap: 10px; 
+    width: 100%; 
+}
+
+.copy img {
+    padding-top: 10px;
+}
+
+.copy .text-wrapper {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
+.copy span {
+    margin-left: 50px;
+    color: var(--gray);
+    font-size: 14px;
+}
+  .copy p{
+      color: var(--gray);
+      font-size: 12px;
+  }
+  .copy .text-wrapper {
+      display: flex;
+      align-items: center; 
+      gap: 10px; 
+  }
+
+}
+
+
+
+

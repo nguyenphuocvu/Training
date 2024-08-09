@@ -1,0 +1,346 @@
+/* Part 2 */
+.container-parttwo{
+    background:#E6E6FA;
+    height: auto;
+    width:100%;
+}
+.part-two {
+    text-align: center; 
+}
+.part-two h5 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.part-two .hot-skin {
+    font-weight: bold;
+    font-size: 18x;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.part-two .hot-skin button {
+    padding: 13px 45px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.part-two .hot-skin .all-demo {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.part-two .hot-skin .bonus-skin {
+    color: var(--pink);
+}
+
+.part-two .hot-skin .two-hot:hover,
+.part-two .hot-skin .bonus-skin:hover,
+.part-two .hot-skin .two-home:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.part-two .homepages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    position: relative; 
+    width: 76%;
+}
+
+.part-two .homepages .two-caption {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+.part-two .homepages .grid-item {
+    position: relative;
+    background-color: var(--white);
+    overflow: hidden;
+   
+    text-align: center;
+}
+.part-two .homepages .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.part-two .homepages .caption {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.part-two .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.part-two .two-caption:hover .overlay {
+    display: flex;
+}
+
+
+.part-two .demo-button {
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 8px 39px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.part-two .demo-button:hover {
+    background-color: var(--black);
+}
+.part-two .special-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 250px; 
+    width: 100%;
+    background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.part-two .view-button {
+    background-color: transparent;
+    color: blue;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+}
+
+@media only screen and  (max-width: 900px) {
+
+    /* Part 2 */
+    .part-two .homepages .two-caption {
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        display: block; 
+        width: 100%; 
+    }
+
+    .part-two .homepages .grid-item {
+        background-color: var(--white);
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%; 
+    }
+
+    .part-two .homepages .grid-item img {
+        width: 100%;
+        height: auto;
+    }
+    .part-two .homepages.container {
+        grid-template-columns: repeat(2, 1fr); 
+        width: 90%;
+    }
+
+
+
+.container-parttwo{
+    background:#E6E6FA;
+    height: auto;
+    width:100%;
+}
+.part-two {
+    text-align: center; 
+}
+.part-two h5 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.part-two .hot-skin {
+    justify-content: flex-start;
+    gap: 10px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+.part-two .hot-skin button {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.part-two .hot-skin .all-demo {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.part-two .hot-skin .bonus-skin {
+    color: var(--pink);
+}
+
+.part-two .hot-skin .two-hot:hover,
+.part-two .hot-skin .bonus-skin:hover,
+.part-two .hot-skin .two-home:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.part-two .homepages {
+    display: grid;
+    gap: 30px;
+    margin: 0 auto;
+    position: relative; 
+
+}
+
+.part-two .homepages .two-caption {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+.part-two .homepages .grid-item {
+    position: relative;
+    background-color: var(--white);
+    overflow: hidden;
+   
+    text-align: center;
+}
+.part-two .homepages .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.part-two .homepages .caption {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.part-two .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.part-two .two-caption:hover .overlay {
+    display: flex;
+}
+
+
+.part-two .demo-button {
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 8px 39px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.part-two .demo-button:hover {
+    background-color: var(--black);
+}
+.part-two .special-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 250px; 
+    width: 100%;
+    background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.part-two .view-button {
+    background-color: transparent;
+    color: blue;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+}
+}
+
+
+
+@media only screen and (max-width: 600px) {
+.container-parttwo{
+    background:#E6E6FA;
+    height: auto;
+    width:100%;
+}
+.part-two .homepages.container {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+}
+.part-two h5 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.part-two .hot-skin {
+justify-content: flex-start;
+gap: 10px; 
+padding-left: 10px; 
+padding-right: 10px; 
+}
+
+.part-two .hot-skin button {
+    padding: 10px 30px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.part-two .homepages {
+    display: grid;
+    width: 90%;
+    height: auto;
+   
+    position: relative; 
+
+}
+}
