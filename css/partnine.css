@@ -1,72 +1,361 @@
-@media only screen and (max-width: 600px) {
+
+/* Part 9 */
 .part-nine {
     text-align: center;
+   
 }
 
 .part-nine h5 {
-    font-size: 20px;
+    font-size: 50px;
     color: #333;
     margin-bottom: 20px;
 }
+
+.part-nine p {
+    font-size: 18px;
+    color: var(--gray);
+    margin-bottom: 20px;
 }
 
- 
-@media only screen and (max-width: 600px) {
-    .part-one {
-      flex-direction: column;
+.part-nine .pricing-table {
+    width: 76%;
+    border-collapse: collapse;
+    margin: 40px auto; 
+    padding: 0px;
+    border: 1px solid #ddd; 
+    background-color: #f9f9f9;
+    text-align: center; 
+    position: relative; 
+   
+}
+
+.part-nine .pricing-table .pricing-row,
+.part-nine .pricing-table .pricing-row-color {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative; 
+    
+}
+
+.part-nine .pricing-table .pricing-row-color {
+    padding: 20px 10;
+    background-color: var(--blue);
+    color: #fff; 
+    border-radius: 5px 5px 0 0;
+}
+
+.part-nine .pricing-table .pricing-row {
+    border-bottom: 1px solid #ddd;
+   
+}
+
+
+
+.part-nine .pricing-table .pricing-row:nth-child(even) {
+    background-color: var(--white);  
+   
+}
+
+.part-nine .pricing-table .pricing-row:nth-child(odd) {
+    background: var(--palegray);
+}
+
+.part-nine .pricing-table .pricing-row .pricing-feature,
+.part-nine .pricing-table .pricing-row .pricing-cost,
+.part-nine .pricing-table .pricing-row .pricing-included {
+    font-size: 16px;
+    text-align: center;
+}
+
+.part-nine .pricing-table .pricing-feature-color, 
+.part-nine .pricing-table .pricing-cost-color, 
+.part-nine .pricing-table .pricing-included-color {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.part-nine .pricing-table .pricing-row .pricing-feature {
+    font-weight: bold;
+    text-align: left; 
+    padding: 9px 52px;
+    padding-left: 56px;
+    padding-top: 20px
+}
+
+.part-nine .pricing-table .pricing-feature-color {
+    text-align: left; 
+    padding-left: 55px; 
+}
+
+.part-nine .pricing-table .pricing-row .pricing-cost {
+    color: var(--black);
+    font-weight: bold;
+}
+
+.part-nine .pricing-table .pricing-row .pricing-cost span {
+    color: var(--black);
+}
+
+.part-nine .pricing-table .pricing-row .pricing-included {
+    color: var(--pink);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.part-nine .pricing-table .total-row .pricing-button {
+    background-color: var(--pink); 
+    color: var(--white); 
+    border: none;
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 23px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    display: inline-block;
+    width: 200px; 
+    height: 50px; 
+    margin: 20px auto 0; 
+}
+
+.part-nine .pricing-table .total-row .pricing-button:hover {
+    background-color: var(--black); 
+}
+
+.part-nine .pricing-table .total-row .pricing-feature {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.part-nine .pricing-table .total-row .pricing-cost {
+    font-weight: bold;
+    font-size: 23px;
+    color: var(--pink);
+}
+
+.part-nine .pricing-table .total-row .pricing-included {
+    font-size: 18px;
+    color: var(--pink);
+}
+
+.part-nine .pricing-table .with {
+    background: var(--blue);
+    width: 100%;
+    height: 80px;
   
+    align-items: center; 
+    justify-content: center; 
+}
+
+.part-nine .pricing-table .with p {
+    font-size: 29px;
+    font-weight: bold;
+    color: var(--white);
+    margin: 0; 
+}
+
+.part-nine .pricing-table .with span {
+    background-color: #07c2ff;
+    color: #fff;
+    padding: 0.7px 5px;
+    border-radius: 5px;
+}
+
+.part-nine .pricing-table .with span:hover {
+    background-color: var(--pink);
+}
+
+.part-nine .special-overlay {
+    position: absolute;
+    bottom: 160px; 
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    width: 100%;
+    height: 150px; 
+    z-index: 0;
+}
+
+
+.part-nine .view-button {
+    background-color: transparent;
+    color: var(--blue);
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    text-transform: none;
+    pointer-events: all;
+    padding: 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.part-nine .view-button:hover {
+    text-decoration: underline;
+    color: var(--pink);
+}
+
+
+.pricing-feature,
+.pricing-cost,
+.pricing-included {
+    flex: 1;
+   
+    text-align: center;
+    position: relative;
+}
+
+
+.pricing-feature-color,
+.pricing-cost-color,
+.pricing-included-color {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid #ccc; 
+}
+
+
+
+.pricing-row .pricing-feature,
+.pricing-row .pricing-cost,
+.pricing-row .pricing-included {
+    border-right: 1px solid #ccc; 
+}
+
+
+.total-row .pricing-feature,
+.total-row .pricing-cost {
+    border-right: none; 
+}
+
+.pricing-row .pricing-feature:last-child,
+.pricing-row .pricing-cost:last-child,
+.pricing-row .pricing-included:last-child {
+    border-right: none;
+}
+
+
+
+.table, td, th {
+    border: 1px ;
+   
+    word-break: break-word;
+  }
+  
+ .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .th {
+    height: 70px;
+  }
+
+@media only screen and  (max-width: 900px) {
+    /* Part 9  */
+    
+   .part-nine h5 {
+       font-size: 22px;
+   }
+   .part-nine .pricing-table .with p {
+       font-size: 18px;
+       padding-top: 25px;
+   }
+   .part-nine .pricing-table {
+       max-width: 1200px; 
+       border-collapse: collapse;
+       margin: 40px auto; 
+       padding: 0px;
+       border: 1px solid #ddd; 
+       background-color: #f9f9f9;
+       text-align: center; 
+       position: relative; 
+   }
+   
+   .part-nine .pricing-table .pricing-row,
+   .part-nine .pricing-table .pricing-row-color {
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       position: relative; 
+   }
+   .part-nine .pricing-table .pricing-row .pricing-feature {
+       font-weight: bold;
+       text-align: left; 
+       padding-left: 20px; 
+   }
+   
+   
+   .part-nine .pricing-table .pricing-feature-color {
+       font-size: 18px; 
+       text-align: left;
+       padding-left: 20px; 
+       
+   }
+   .pricing-feature{
+       font-size: 24px;
+   }
+}   
+@media only screen and (max-width: 600px) {
+    
+    .home-nine {
+        overflow-x: auto; 
+        white-space: nowrap; 
     }
-    .all-slider{
-        margin-left: 60px;
-    }
-    .part-one .all-slider .shopify {
-      font-weight: bold;
-      font-size: 18px;
-      
+    .part-nine .pricing-table .pricing-feature-color,
+    .part-nine .pricing-table .pricing-cost-color,
+    .part-nine .pricing-table .pricing-included-color {
+        font-size: 25px;
+        text-align: left;
+        padding-left: 20px;
+        width: 300px;
     }
    
-    .part-one .all-slider .list-nice, .nice-fire {
-        color: var(--pink);
-        font-size: 50px;
+    .part-nine .pricing-table .pricing-row .pricing-feature {
         font-weight: bold;
+        text-align: left;
+        padding-left: 20px;
+        flex-wrap: wrap; 
+        width: 247px;
+       
     }
-    .see {
-      width: 250px;
+   
+    .part-nine .pricing-table .with p {
+        font-size: 18px;
+        padding-top: 10px;
     }
-    .part-one .all-slider .cusomers {
-        width: 130px;
-        height: 40px;
-        font-size: 16px;
-        background-color: #0dcaf0;
-        border-radius: 20px;
-        border: 1px;
-        color: var(--white);
-        font-weight: bold;
-        margin: 20px 0;
+    .part-nine .special-overlay {
+        position: absolute;
+        bottom: 160px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        width: 100%;
+        height: 150px;
+        z-index: 0;
     }
-    .vendy {
-        width: 80%;
-        height: auto;
-        margin-bottom: 20px;
-        margin-left: auto;
-    }
-    .part-one .all-slider .buy-now {
-        background-color: var(--blue);
-        width: 130px;
-        height: 40px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px;
-        color: var(--white);
-        font-weight: bold;
-        margin: 10px 0;
-    }
-    .part-one .all-slider p {
-        color: var(--blue);
-        font-weight: bold;
-        font-size: 17px;
-        margin: 20px 0;
-    }
+   
+        .pricing-table .pricing-feature-color,
+        .pricing-table .pricing-row .pricing-feature {
+            width: auto; 
+            padding-left: 20px;
+            text-align: left;
+        }
+    
 }
+   
+
+    
+
+ 
 
   

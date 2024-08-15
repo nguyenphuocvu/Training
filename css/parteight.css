@@ -1,3 +1,30 @@
+.part-eight {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 20px;
+    height: 400px;
+}
+
+.part-eight img {
+    display: block;
+    padding-top: 20px;
+}
+
+.part-eight img:first-child {
+    /* filter: blur(2px);  */
+    width: 120%;
+    height: 400px;
+}
+
+.part-eight .overlay-image {
+    position: absolute;
+    top: 100px;
+    height: 190px;
+    left: 5%;
+    z-index: 1; 
+}
 
 /* Part 8 */
 
@@ -17,7 +44,7 @@
     }
     
     .part-eight img:first-child {
-        /* filter: blur(2px);  */
+        filter: blur(2px); 
         width: 140%;
         height: 400px;
     }
@@ -41,8 +68,8 @@
         }
         .part-eight {
             position: relative;
-            overflow: hidden;
-            width: 100%;
+            /* overflow: hidden; */
+           
             max-width: 100%;
             padding-top: 20px;
             height: 300px;
@@ -54,8 +81,8 @@
         }
         
         .part-eight img:first-child {
-            /* filter: blur(2px);  */
-            width: 130%;
+            filter: blur(2px); 
+            width: 150%;
             height: 400px;
         }
     }

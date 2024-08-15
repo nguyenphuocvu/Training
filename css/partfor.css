@@ -84,9 +84,18 @@
      }
      .part-for .support-links {
         flex-wrap: nowrap; 
+        word-break: break-word;
     }
+   
     .part-for .support-links div {
+        padding: 5px 5px;
+        color: var(--blue);
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        flex: 0 1 auto;
         font-size: 16px;
-        flex: 1 0 auto; 
+        
     }
 }

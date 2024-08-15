@@ -144,7 +144,6 @@
 
     .containerFooter .footer > div {
         flex: 0 0 48%; 
-        margin-bottom: 20px; 
     }
 
     .containerFooter .footer > div h5 {
@@ -249,12 +248,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-.zeme ul li {
-    display: flex;
-    word-break: break-word;
-    width: 400%;
-    color: gray;
-}
+
+
 .containerFooter .footer > div {
     flex: 0 0 48%; 
 
@@ -283,10 +278,11 @@
 }
 .containerFooter .footer .zeme ul {
     list-style: none;
-    width: 70%;
+    width: 90%;
 }
 .containerFooter .footer .zeme ul li {
     display: flex;
+
 
     font-size: 15px;
 }
@@ -316,7 +312,7 @@
     align-items: flex-start; 
     margin-left: 0px; 
     gap: 10px; 
-    width: 100%; 
+    width: 80%; 
 }
 
 .copy img {

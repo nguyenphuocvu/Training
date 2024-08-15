@@ -2,6 +2,7 @@
 .part-there {
     position: relative;
     text-align: center;  
+    background: none;
 }
 .part-thereimg {
     width: 100%;
@@ -53,7 +54,7 @@
 .part-there {
     position: relative;
     text-align: center;
-    background: #E6E6FA;
+    background: none;
     height: 250px;
     display: flex;
     flex-direction: column;
