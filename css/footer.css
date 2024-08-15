@@ -6,7 +6,8 @@
     padding: 80px;
     box-sizing: border-box;
     margin: 0 auto;
-    width: 85%;
+    width: 100%;
+    max-width: 74%;
 }
 .containerFooter .footer {
     display: flex;
@@ -19,14 +20,15 @@
 .containerFooter .footer > div h5 {
     font-weight: bold;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .containerFooter .footer > div ul {
+
     padding: 0;
     list-style-type: none;
 }
 .containerFooter .footer > div ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .containerFooter .footer > div ul li a {
     text-decoration: none;
@@ -48,6 +50,8 @@
 
 .containerFooter .footer .zeme ul {
     list-style: none;
+    padding-top: 20px;
+    color: gray;
 }
 .containerFooter .footer .zeme ul li {
     display: flex;
@@ -56,12 +60,13 @@
 .containerFooter .footer .zeme p {
     font-weight: bold;
     font-size: 18px;
+    padding-top: 30px;
 }
 .containerFooter .footer .zeme p span {
     color: var(--blue);
 }
 .containerFooter .footer .zeme .facebook-icon {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .jet{
   display: flex;
@@ -72,14 +77,14 @@
 .copy{
  display: flex;
  align-items: center;
- margin-right: 600px;
+ margin-right: 700px;
 }
 .copy img {
     margin-left: 50px;
 }
 
 .copy span {
-    margin-left: 50px; 
+  
     color: var(--gray);
 }
 .copy p{

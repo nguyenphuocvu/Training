@@ -1,6 +1,7 @@
 /* Part 5 */
 .five-container{
     background: #E6E6FA;
+    height: 2250px;
 }
 .part-five {
     text-align: center;
@@ -17,14 +18,14 @@
 .part-five div {
     font-weight: bold;
     font-size: 28px;
-    margin-bottom: 20px;
+    padding-top: 50px;
 }
 .part-five div span {
     color: var(--blue);
 }
 .part-five p {
     font-size: 14px;
-    margin-bottom: 20px;
+    padding-top: 20px;
     color: var(--gray);
 }
 
@@ -76,13 +77,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background-color: var(--white);
-    height: 300px;
+  
 }
 .drawer, .cards, .color , .there {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background-color: var(--white);
-    height: 300px; 
 }
 .drawer, .cards, .color , .there {
     flex-basis: 30%; 

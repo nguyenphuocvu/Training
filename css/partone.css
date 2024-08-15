@@ -13,16 +13,13 @@
     align-items: flex-start;
 }
 
-.part-one .all-slider {
-    flex-basis: 35%; 
-    padding: 35px;
-}
 
 
 
 .part-one .image-slider img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+
+    padding: 35px;
 }
 
 .part-one .all-slider .cusomers {

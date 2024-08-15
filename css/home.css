@@ -5,7 +5,8 @@
     
 }
 .container{
-    width: 80%;
+    width: 100%;
+    max-width: 70%;
     
  }
  .navbar{
@@ -14,7 +15,9 @@
 
 
 
-
+.confive {
+    max-width: 80%;
+}
 
 
 

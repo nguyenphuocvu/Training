@@ -22,8 +22,8 @@
 .part-seven .seven-design {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 20px; 
-    width: 76%; 
+    gap: 50px; 
+    width: 70%; 
     margin: 0 auto;
     margin-bottom: 40px;
 }

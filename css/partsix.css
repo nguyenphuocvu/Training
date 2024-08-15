@@ -17,8 +17,8 @@
 .part-six .composer button {
     display: flex;
     align-items: center;
-    padding: 15px 15px;
-    border: 1px   ; 
+    padding: 15px 20px;
+    border: 1px ; 
     background-color: transparent; 
     cursor: pointer;
     border-radius: 5px;
@@ -40,7 +40,6 @@
 .part-six  .free-ecomposer {
     margin-bottom: 20px;
     background-color: var(--palegray);
-    
 }
 .part-six  .free-ecomposer h5{
    padding-top:50px;
@@ -48,6 +47,9 @@
 .part-six  .free-ecomposer p {
     margin-bottom: 20px;
     color: var(--gray);
+    max-width: 50%;
+    margin-left: 500px;
+    font-size: 14px;
 }
 .part-six  .free-ecomposer button{
     background-color: var(--blue);
@@ -70,7 +72,7 @@
     margin-bottom: 30px
 }
 .part-six .composer .six-one{
-
+    margin: 10px;
     border: 1px solid var(--gray-one)
 }
 
