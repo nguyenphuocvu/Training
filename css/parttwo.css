@@ -370,13 +370,27 @@ padding-right: 10px;
         right: -13%;
         bottom: 0;
         height: 200px;
-        width: 435px;
+        width: 400px;
+      
       
        
     }
-    .part-five .text-five {
+    .part-two .homepages.container {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 90%;
+        flex-direction: column;
+    }
+    /* .part-five .text-five {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+    } */
+    .part-two .hot-skin {
+            justify-content: flex-start;
+            gap: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
     }
+    
 }

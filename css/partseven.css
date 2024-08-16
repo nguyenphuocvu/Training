@@ -2,6 +2,7 @@
 /* Part 7 */
 .part-seven {
     text-align: center;
+  
 }
 
 .part-seven h5 {
@@ -31,6 +32,7 @@
 .part-seven .seven-design img {
     width: 55px;
     height: 55px;
+    margin-bottom: 15px;
 }
 .part-seven .seven-design .item .text {
     text-align: left;
@@ -49,7 +51,8 @@
 }
 
 .part-seven .seven-design .item .text .seven-vendy {
-    color: var(--gray);
+    color: #797A84
+    ;
     margin-top: 5px;
 }
 

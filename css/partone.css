@@ -292,17 +292,21 @@
       margin-right: 10px;
   }
   .all-slider {
-    max-width: 30%;
-    position: relative; 
+    max-width: 10%;
+    position: relative;
+    height: auto;
 }
 .vendy {
   max-width: 100%;
   width: 100%;
   height: auto;
-  margin-left: auto;
+
 }
 .container-partone {
   height: 550px;
+}
+.part-one .all-slider .shopify {
+  font-size: 16px;
 }
 }
  

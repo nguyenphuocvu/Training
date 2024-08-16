@@ -8,29 +8,27 @@
     margin-bottom: 20px;
 }
 .part-six .composer {
+ 
     display: flex;
     justify-content: center; 
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     gap: 20px; 
 }
 
-.part-six .composer button {
+
+.part-six .composer .composer-button{
+    background-color: var(--palegray);  
     display: flex;
     align-items: center;
     padding: 15px 20px;
     border: 1px ; 
-    background-color: transparent; 
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
+  
+   
 }
 
-.part-six .composer .composer-button{
-    background-color: var(--palegray);  
-}
-.part-six .composer button:hover {
-    background-color: var(--palegray);  
-}
 .part-six  .composer button img {
     margin-right: 10px;
     height: 30px; 
@@ -71,9 +69,17 @@
 .part-six  .free-ecomposer img {
     margin-bottom: 30px
 }
-.part-six .composer .six-one{
+ .six-one{
+
     margin: 10px;
-    border: 1px solid var(--gray-one)
+    border: 1px solid var(--gray-one);
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent; 
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 @media only screen and  (max-width: 900px) {
