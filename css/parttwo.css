@@ -370,9 +370,6 @@ padding-right: 10px;
         bottom: 0;
         height: 200px;
         width: 415px;
-      
-      
-       
     }
     .part-two .homepages.container {
         grid-template-columns: repeat(1, 1fr);
@@ -385,7 +382,9 @@ padding-right: 10px;
             gap: 10px;
             padding-left: 10px;
             padding-right: 10px;
-            
+            max-width: 100%;
+            overflow-x: auto; 
+            white-space: nowrap; 
     }
     
 }

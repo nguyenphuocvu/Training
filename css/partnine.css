@@ -404,6 +404,14 @@
         align-items: center;
         justify-content: center;
     }
+    .part-nine .pricing-table{
+        max-width: 90%;
+       
+    }
+
+    .part-nine .special-overlay {
+        bottom: 220px;
+    }
 }
 
    
