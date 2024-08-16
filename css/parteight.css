@@ -20,8 +20,8 @@
 .part-eight .overlay-image {
     position: absolute;
     top: 100px;
-    height: 190px;
-    left: 17%;
+    height: 230px;
+    left: 15%;
     z-index: 1; 
 }
 
@@ -43,7 +43,8 @@
     }
     
     .part-eight img:first-child {
-        filter: blur(2px); 
+        opacity: 0.5;  
+        filter: alpha(opacity=50);
         width: 140%;
         height: 400px;
     }
@@ -68,8 +69,6 @@
         }
         .part-eight {
             position: relative;
-            /* overflow: hidden; */
-           
             max-width: 100%;
             padding-top: 20px;
             height: 300px;
@@ -92,8 +91,8 @@
             position: absolute;
             top: 70px;
             height: 200px;
-            max-width: 50%;
-            left: 0%;
+            max-width: 90%;
+            left: 5%;
             z-index: 1;
         }
     }

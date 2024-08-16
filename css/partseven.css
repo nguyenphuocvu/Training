@@ -154,7 +154,18 @@
 @media only screen and (max-width: 400px) {
     .part-seven .seven-design {
         grid-template-columns: repeat(1, 1fr);
-        width: 70%;
+    
+    }   
+     .part-seven p {
+        max-width: 90%;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .part-seven .seven-design .item .text .seven-vendy {
+        color: #797A84;
+        margin-top: 5px;
+        max-width: 60%;
     }
 }
 

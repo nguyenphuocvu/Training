@@ -366,11 +366,10 @@ padding-right: 10px;
 
 @media only screen and (max-width: 400px) {
     .part-two .special-overlay {
-        left: -15%;
         right: -13%;
         bottom: 0;
         height: 200px;
-        width: 400px;
+        width: 415px;
       
       
        
@@ -380,11 +379,7 @@ padding-right: 10px;
         max-width: 90%;
         flex-direction: column;
     }
-    /* .part-five .text-five {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    } */
+  
     .part-two .hot-skin {
             justify-content: flex-start;
             gap: 10px;

@@ -78,7 +78,7 @@
 .copy{
  display: flex;
  align-items: center;
- margin-right: 700px;
+ margin-right: 770px;
 }
 .copy img {
     margin-left: 50px;
@@ -380,6 +380,32 @@
      }
 
 
+}
+
+
+@media only screen and (max-width: 400px) {
+    .containerFooter .footer > div {
+        flex: 0 0 100%;
+    }
+    .copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 15px;
+        gap: 10px;
+        width: 100%;
+        max-width: 80%;
+    }
+    .containerFooter {
+        /* margin-left: 20px; */
+        display: flex;
+        flex-direction: column;
+        /* padding: 40px 20px; */
+        box-sizing: border-box;
+        /* margin: 0 auto; */
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 

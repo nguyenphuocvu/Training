@@ -135,7 +135,7 @@
     }
   
     .part-six .composer  button  {
-        padding: 10px 37px;
+        padding: 8px 37px;
         align-items: center;
         background-color: transparent; 
         cursor: pointer;
@@ -168,7 +168,7 @@
         background-color: var(--blue);
         color: var(--white);
         font-weight: bold;
-        padding: 15px 30px;
+        padding: 15px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -182,13 +182,18 @@
         flex-wrap: wrap;
    
     }
+    .six-one{
+        padding: 30px;
+        margin-bottom: 20px;
+    }
 }
 @media only screen and (max-width:400px) {
     .part-six .composer button {
-        padding: 10px 19px;
-        align-items: center;
-        background-color: transparent;
-        cursor: pointer;
-        flex-direction: column;
+        padding: 7px 19px;
     }
+        .part-six .free-ecomposer p {
+        max-width: 90%;
+     
+    }
+  
 }
