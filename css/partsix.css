@@ -77,14 +77,9 @@
 }
 
 @media only screen and  (max-width: 900px) {
-
-
-
-
-
     /* Part 6 */
     .part-six h5 {
-        font-size: 20px;
+        font-size: 22px;
     }
     .part-six .composer {
         gap: 10px;
@@ -106,16 +101,23 @@
     .part-six  .free-ecomposer button {
         padding: 15px 35px;
     }
-    
+   
     .part-six .composer  button  {
-        padding: 10px 50px;
+        padding: 10px 60px;
         align-items: center;
         background-color: transparent; 
         cursor: pointer;
         flex-direction: column;
      
     }
-    
+    .part-six .free-ecomposer p {
+        margin-bottom: 20px;
+        color: var(--gray);
+        width: 100%;
+        max-width: 95%;
+        margin-left: 20px;
+        font-size: 14px;
+    }
     
     
 }
@@ -126,11 +128,12 @@
         height: auto;
      }
     .part-six h5 {
-        font-size: 20px;
+        font-size: 22px;
+        padding-top: 20px;
     }
   
     .part-six .composer  button  {
-        padding: 10px 25px;
+        padding: 10px 37px;
         align-items: center;
         background-color: transparent; 
         cursor: pointer;

@@ -92,6 +92,11 @@
 
 
 @media only screen and (max-width: 900px) {
+  .container-partone {
+    background: #E6E6FA;
+    height: 800px;
+    width: 100%;
+}
   .part-one {
     flex-direction: column;
   }
@@ -100,7 +105,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 100px;
+    margin-left: 130px;
   }
   .part-one .container {
     display: flex;
@@ -151,7 +156,7 @@
   .part-one .all-slider .buy-now {
   background-color: var(--blue);
   width: 130px;
-  height: 40px;
+  height: 38px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px;
@@ -198,14 +203,16 @@
     background: #E6E6FA;
     height: 700px;
     width: 100%;
+    max-width: 100%;
 }
   .part-one {
     flex-direction: column;
 
   }
-  .all-slider{
-      margin-left: 40px;
-  }
+  .all-slider {
+    max-width: 40%;
+    position: relative;
+}
   .part-one .all-slider .shopify {
     font-weight: bold;
     font-size: 18px;
@@ -265,8 +272,37 @@
 .see{
     padding-top: 5px;
 }
+
+.part-one .image-slider img {
+  width: 100%;
+  padding: 30px;
+}
+
+.part-one .all-slider .arrow {
+  font-size: 24px;
+  margin-left: 0px;
+  display: inline-block;
+}
+
 }
 
 
-
+@media only screen and (max-width: 400px) {
+  .shopify {
+      margin-right: 10px;
+  }
+  .all-slider {
+    max-width: 30%;
+    position: relative; 
+}
+.vendy {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+}
+.container-partone {
+  height: 550px;
+}
+}
  

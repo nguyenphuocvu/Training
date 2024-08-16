@@ -1,7 +1,7 @@
 /* Part 5 */
 .five-container{
     background: #E6E6FA;
-    height: 2250px;
+    height: 2100px;
 }
 .part-five {
     text-align: center;
@@ -69,8 +69,9 @@
     align-items: stretch;
     gap: 40px;
     margin: 0 auto;
-    width: 95%;
+    width: 60%;
     height: auto;
+    grid-template-columns: repeat(3, 1fr); 
 }
 
 .five-whish-one, .five-whish-two, .five-whish-there {
@@ -107,33 +108,45 @@
 
 
 @media only screen and  (max-width: 900px) {
+    .five-container{
+        background: #E6E6FA;
+        height: 1800px;
+    }
     .part-five{
         margin-left: 90px;
+ 
     
     }
     .part-five div {
             font-weight: bold;
             font-size: 23px;
-            margin-bottom: 20px;
+            padding-top: 30px;
+            max-width: 90%;
     }
     
     .text-five {
         flex-direction: column;
         align-items: center;
+        
     }
     
     .five-whish {
         flex-basis: 100%; 
         margin-bottom: 20px;
+        max-width: 100%;
+        width: 100%;
     }
     .five-whish-one {
-        flex-basis: 80%;
+        flex-basis: 60%;
         flex-direction: column;
     }
-    .five-whish-two, .five-whish-there {
-        flex-basis: 35%;
+    .five-whish-two, {
+        flex-basis: 20%;
     }
     
+   .five-whish-there {
+        flex-basis: 30%;
+    }
 
     .five-whish-one, .five-whish-two, .five-whish-there {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -148,21 +161,34 @@
     }
 }
 @media only screen and (max-width: 600px) {
+    .five-container{
+        background: #E6E6FA;
+        height: 4050px;
+    }
+    .five-container .part-five .online {
+        padding-top: 50px;
+    }
     .part-five div {
         font-weight: bold;
         font-size: 20px;
-   
+       max-width: 97%;
     }
 
-    .part-five {
-        text-align: center;
-        max-width: 100%;
-        margin: 0 auto;
-        height: auto;
-        padding-top: 50px;
+    .part-five{
+        margin-left: 40px;
+ 
+    
     }
     .five-whish-one {
         flex-basis: 100%;
+    }
+    .five-whish-one, .five-whish-two, .five-whish-there {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: var(--white);
+        height: 420px;
+        
+        max-width: 100%;
     }
     .part-five .text-five .side-by-side img:first-child,
     .part-five .text-five .side-by-side img:last-child {
@@ -195,6 +221,18 @@
     }
     .drawer, .cards, .color , .there {
         flex-basis: 105%; 
+    }
+   
+    .part-five {
+            margin-left: 30px;
+        
+    }
+   
+        .five-container {
+            background: #E6E6FA;
+            height: auto;
+            
+        
     }
 }
 

@@ -146,6 +146,7 @@
         position: relative;
         display: block; 
         width: 100%; 
+       
     }
 
     .part-two .homepages .grid-item {
@@ -162,7 +163,8 @@
     }
     .part-two .homepages.container {
         grid-template-columns: repeat(2, 1fr); 
-        width: 90%;
+        width: 100%;
+        max-width: 90%;
     }
 
 
@@ -280,11 +282,11 @@
 }
 .part-two .special-overlay {
     position: absolute;
-    left: -15%; 
-    right: -13%; 
+    left: -10%; 
+    right: -20%; 
     bottom: 0;
     height: 200px;
-    width: 975px; 
+    width: 935px; 
     background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
     display: flex;
     justify-content: center;
@@ -299,10 +301,11 @@
     font-weight: bold;
     padding: 0;
     text-decoration: none;
-}
+    
 }
 
 
+}
 
 @media only screen and (max-width: 600px) {
 .container-parttwo{
@@ -312,7 +315,8 @@
 }
 .part-two .homepages.container {
     grid-template-columns: repeat(2, 1fr);
-    width: 90%;
+    max-width: 93%;
+    
 }
 .part-two h5 {
     font-size: 20px;
@@ -347,11 +351,11 @@ padding-right: 10px;
   
   .part-two .special-overlay {
     position: absolute;
-    left: -15%; 
-    right: -13%; 
+    left: -10%; 
+    right: -15%; 
     bottom: 0;
     height: 200px;
-    width: 650px; 
+    width: 635px; 
     background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
     display: flex;
     justify-content: center;
@@ -362,15 +366,17 @@ padding-right: 10px;
 
 @media only screen and (max-width: 400px) {
     .part-two .special-overlay {
-        position: absolute;
         left: -15%;
         right: -13%;
         bottom: 0;
         height: 200px;
         width: 435px;
-        background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+      
+       
+    }
+    .part-five .text-five {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 }

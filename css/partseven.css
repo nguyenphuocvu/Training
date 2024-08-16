@@ -75,7 +75,8 @@
     
     .part-seven .seven-design {
         grid-template-columns: repeat(3, 1fr); 
-        width: 90%; 
+        width: 100%;
+        max-width: 80%; 
     }
     
     .part-seven .seven-design .item {
@@ -86,8 +87,8 @@
     }
     
     .part-seven .seven-design .item img {
-        width: 60px; 
-        height: 60px;
+        width: 50px; 
+        height: auto;
         margin-right: 20px; 
         margin-top: -40px; 
     }
@@ -105,6 +106,7 @@
     }
     .part-seven h5 {
         font-size: 20px;
+        padding-top: 60px;
     }
     .part-seven p {
         margin-bottom: 20px;
@@ -118,7 +120,7 @@
         width: 100%;
     }
     .part-seven .seven-design .item img {
-        width: 60px;
+        width: 50px;
         height: auto;
         margin-right: 20px;
         margin-top: -20px;
@@ -130,7 +132,9 @@
     }
     .part-seven .seven-design {
         grid-template-columns: repeat(2, 1fr); 
-        width: 90%; 
+        width: 100%;
+        max-width: 85%; 
+        gap: 20px;
     }
     .item {
         display: flex;
@@ -138,7 +142,7 @@
         align-items: center;
         text-align: center;
         padding: 10px;
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
     }
     .item img {
         margin: 0 0 10px 0;
