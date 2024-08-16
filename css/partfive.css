@@ -1,7 +1,7 @@
 /* Part 5 */
 .five-container{
     background: #E6E6FA;
-    height: 2100px;
+    height: 2300px;
 }
 .part-five {
     text-align: center;
@@ -34,6 +34,9 @@
 
 .part-five .text-five > div {
     flex: 1 1 25%; 
+    width: 100%;
+    max-width: 74%;
+   
 }
 
 .part-five .text-five .side-by-side {
