@@ -1,0 +1,285 @@
+.part-nine {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 40px;
+    margin-left: 18px;
+
+}
+.nine-product,
+.nine-product-there {
+    border: 1px solid var(--border);
+    width: 369px;
+    height: 440px;
+    padding-top: 15px;
+  
+  
+}
+.nine-one,
+.nine-two,
+.nine-there {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.nine-one .next,
+.nine-two .next,
+.nine-there .next {
+    display: flex;
+
+}
+.nine-one .next h4,
+.nine-two .next h4,
+.nine-there .next h4 {
+    font-size: 18px;
+}
+.nine-one .next .next-header ,
+.nine-two .next .next-header,
+.nine-there .next .next-header{
+    margin-left: 220px;
+}
+.nine-one .next .next-header i,
+.nine-two .next .next-header i ,
+.nine-there .next .next-header i  {
+font-size: 18px;
+}
+.nine-one .next .next-header i:hover,
+.nine-two .next .next-header i:hover ,
+.nine-there .next .next-header i:hover  {
+ color: var(--yellow);
+}
+.nine-flex-one,
+.nine-flex-two,
+.nine-flex-there,
+.nine-flex-for,
+.nine-flex-five,
+.nine-flex-six,
+.nine-flex-seven,
+.nine-flex-eight,
+.nine-flex-nine{
+    display: flex;
+    flex-wrap: wrap;
+     margin: 20px;
+}
+
+
+.nine-right  {
+    line-height: 25px;
+    margin-left: 20px;
+    
+}
+ .nine-right p  {
+   font-size: 14px;;
+}
+.nine-right span {
+    font-weight: bold;
+}
+ .nine-right button {
+   padding-top: 5px;
+    width: 100px;
+    background-color: var(--black-mo);
+    color: var(--white);
+    border: 1px;
+    border-radius: 5px;
+}
+
+ .nine-right button  i{
+     padding-right: 5px; 
+    font-size: 12px;
+     color: var(--white);
+ }
+.nine-one img {
+    height: 100px;
+    width: 100px;
+}
+.nine-product hr,
+.nine-product-there hr{
+    width: 330px;
+    margin-left: 20px;
+}
+.next h4 hr {
+   margin-top: 10px;
+}
+.nine-flex-one .call,
+.nine-flex-two .call,
+.nine-flex-there .call,
+.nine-flex-for .call,
+.nine-flex-there .call,
+.nine-flex-six .call,
+.nine-flex-seven .call,
+.nine-flex-eight .call,
+.nine-flex-nine .call {
+    display: flex;
+    gap: 10px;
+    color:var(--red) ;
+}
+.call i {
+    padding-top: 7px;
+    color:var(--red) ;
+}
+.fales-nine {
+    font-size: 12px;
+    color: var(--gray);
+}
+.hover-nine{
+    margin-left: 30px;
+}
+.hover-nine button {
+    padding-top: 5px;
+     width: 130px;
+     background-color: var(--black-mo);
+     color: var(--white);
+     border: 1px;
+     border-radius: 5px;
+     margin-left: 30px;
+ 
+ }
+ .hover-nine button  i{
+    padding-right: 5px; 
+   font-size: 12px;
+    color: var(--white);
+}
+.nine-flex-one .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3580px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-two .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3720px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-there .hover-nine {
+  position: absolute;
+  display: flex;
+  top: 3865px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-for .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3580px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-five .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3720px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-six .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3865px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-seven .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3580px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-eight .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3720px;
+    opacity: 0;
+    transform: translateY(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-nine .hover-nine {
+    position: absolute;
+    display: flex;
+    top: 3865px;
+  opacity: 0;
+  transform: translateY(1%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nine-flex-one:hover .hover-nine,
+.nine-flex-two:hover .hover-nine,
+.nine-flex-there:hover .hover-nine,
+.nine-flex-for:hover .hover-nine,
+.nine-flex-five:hover .hover-nine,
+.nine-flex-six:hover .hover-nine,
+.nine-flex-seven:hover .hover-nine,
+.nine-flex-eight:hover .hover-nine,
+.nine-flex-nine:hover .hover-nine
+{
+    opacity: 1;
+    transform: translateY(-10%);
+} 
+ .hover-nine .regu i{
+    background-color: var(--gray);
+    color: var(--white);
+   z-index: 999;
+   height: 15px;
+   width: 20px;
+   font-size: 12px;
+   border-radius: 4px;
+   padding: 10px ;
+   padding-left: 13px;
+   gap: 5px;
+ }
+ .to i {
+    background-color: var(--gray);
+    color: var(--white);
+    height: 15px;
+    width: 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 10px ;
+    padding-left: 13px;
+    gap: 5px;
+ }
+ .hover-nine {
+    
+    gap: 10px;
+}
+
+
+
+
+@media only screen and  (max-width: 900px){
+.part-nine {
+    display: flex;
+    gap: 30px;
+    padding-top: 40px;
+    margin-left: 1px;
+    flex-wrap: wrap;
+}
+.nine-product {
+    border: 1px solid var(--border);
+    width: 350px;
+    height: 440px;
+    padding-top: 15px;
+}
+.nine-product-there {
+    border: 1px solid var(--border);
+    width: 740px;
+    height: 440px;
+    padding-top: 15px;
+}
+.nine-one .next .next-header, .nine-two .next .next-header{
+
+    margin-left: 205px;
+}
+.nine-there .next .next-header {
+    margin-left: 590px;
+}
+}

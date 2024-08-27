@@ -1,0 +1,109 @@
+.part-ten {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    width: 100%;
+    height: 150px;
+    max-width: 1170px;
+    margin-left: 370px;
+    gap: 60px;
+    justify-content: center;
+
+}
+.part-ten img {
+    opacity: 0.5;
+    padding-top: 40px;
+    max-width: 150px;
+    margin-left: 46px;
+}
+.part-ten img:hover{
+    opacity: 1;
+}
+.ten-right {
+    border: 1px solid var(--gray);
+    text-align: center;
+    border-radius: 50%;
+    color: var(--gray);
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    z-index: 2;
+    text-transform: uppercase;
+    left: 1520px;
+    font-size: 17px;
+    bottom: -3220px
+}
+.ten-left{
+    border: 1px solid var(--gray);
+    text-align: center;
+    border-radius: 50%;
+    color: var(--gray);
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    right: 1510px;
+    font-size: 16px;
+    bottom: -3220px
+}
+
+
+@media only screen and  (max-width: 900px) {
+.part-ten {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    width: 100%;
+    height: 130px;
+    max-width: 400px;
+    margin-left: 80px;
+    gap: 60px;
+    justify-content: center;
+    border-radius: 3px;
+    
+}
+.part-ten img:hover{
+    opacity: 1;
+}
+.part-ten img{
+    opacity: 0.5;
+    width: 100px;
+    margin-left: 20px;
+}
+.ten{
+    display: none;
+}
+.ten-right {
+    border: 1px solid var(--gray);
+    text-align: center;
+    border-radius: 50%;
+    color: var(--gray);
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    z-index: 2;
+    text-transform: uppercase;
+    left: 460px;
+    font-size: 17px;
+    bottom: -3900px;
+}
+.ten-left {
+    border: 1px solid var(--gray);
+    text-align: center;
+    border-radius: 50%;
+    color: var(--gray);
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    right: 800px;
+    font-size: 16px;
+    bottom: -3900px;
+}
+}

@@ -1,0 +1,432 @@
+.for-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.part-for h4 {
+    text-align: center;
+    padding-top: 40px;
+    margin-right: 1020px;
+}
+.part-for h4 hr {
+    margin-top: 20px;
+    width: 150px;
+    margin-left: 370px;
+}
+.part-for .for-container {
+    border: 1px solid var(--border);
+    max-width: 1170px ;
+    margin-left: 370px;
+
+}
+.for-one{
+    padding: 30px ;
+}
+.for-one img {
+    height: auto;
+    width: 350px;
+
+}
+.for-basic {
+    flex-basis: 100%;
+}
+.for-two, .for-there {
+    flex-basis: 100%;
+   padding: 30px;
+    
+}
+ .twochick{
+    display: flex;
+    margin-left: 30px ;
+} 
+.kevinone{
+    flex-wrap: wrap;
+    line-height: 35px;
+}
+.kevin{
+    flex-wrap: wrap;
+    padding-left: 20px;
+    line-height: 35px;
+    padding-top: 20px;
+}
+.kevin .pone ,
+.kevinone .pone{
+    font-weight: bold;
+}
+.avai {
+    display: flex;
+}
+.avai .lable ,
+.avai .sold {
+    font-size: 13px;
+
+}
+.lable span {
+    color: var(--yellow);
+
+}
+.sold{
+    padding-left: 200px;
+}
+.sold span {
+    font-weight: bold;
+   
+}
+.load{
+    background-color: var(--border);
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    height: 10px;
+}
+ .price .price-new {
+    font-weight: bold;
+ }
+ .price .price-old{
+   font-size: 12px;
+   color: var(--gray)
+ }
+
+.for-two img , 
+.for-there img {
+    width: 270px;
+    height: auto;
+}
+
+.for-sale {
+    background: var(--yellow);
+   
+
+ }
+ .for-sale .sale {
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    display:block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 2;
+    left: 1070px;
+    font-size: 12px; 
+    top: 1640px;
+ }
+ .forchi-sale .salechi{
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    display:block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 2;
+    left: 1070px;
+    font-size: 12px; 
+    top: 1975px;
+ }
+ .forone-sale .saleone {
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    display:block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 2;
+    left: 695px;
+    font-size: 12px; 
+    top: 1640px;
+ }
+
+.for-up,.time-for {
+    display: flex ;
+ }
+ .hurry , .time-for{
+    padding-top: 20px;
+ }
+ .hurry .hurry-up{
+    font-weight: bold;
+    font-size: 18px;
+ }
+ .hurry .in {
+    font-size: 13px;
+ }
+ .time-for {
+    margin-left: 50px;
+    gap: 10px;
+ }
+
+ .number {
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--border);
+    height: 34px;
+    width: 38px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+ .day{
+    font-size: 9px;
+    padding-left: 7px;
+ }
+ .for-basic hr {
+    margin-left: 45px;
+    border: 1px solid var(--border);
+ }
+ 
+ .forline{
+    border: 1px solid var(--border);
+    height: 600px; 
+    margin: 0 5px; 
+
+}
+
+
+.for-two .sub-six{
+    position: absolute;
+    top:1650px;
+    display: flex;
+    flex-direction: column;
+    left: 850px;
+    opacity: 0;
+    transform: translateX(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+.for-there .sub-six{
+    position: absolute;
+    top:1980px;
+    display: flex;
+    flex-direction: column;
+    left: 850px;
+    opacity: 0;
+    transform: translateX(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.for-one .sub-six{
+    position: absolute;
+    top:1700px;
+    display: flex;
+    flex-direction: column;
+    /* left: 20px; */
+    opacity: 0;
+    transform: translate(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.for-one:hover .sub-six,
+.for-two:hover .sub-six,
+.for-there:hover .sub-six{
+    opacity: 1;
+    transform: translate(50%);
+}
+
+.for-one .sub-six i,
+.for-two .sub-six i,
+.for-there .sub-six i{
+    background-color: var(--gray);
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 12px;
+    border-radius: 5px;
+}
+.for-basic hr {
+    width: 700px;
+}
+@media only screen and  (max-width: 900px) {
+    .part-for h4 {
+        text-align: center;
+        padding-top: 40px;
+        margin-right: 590px;
+    }
+    .part-for h4 hr {
+        margin-top: 20px;
+        width: 150px;
+       margin-left: 80px;
+    }
+    .part-for .for-container {
+        border: 1px solid var(--border);
+        max-width: 745px;
+        margin-left:80px;
+        overflow: value;
+        height: 600px;
+    }
+    .for-basic {
+        flex-basis: 0%;
+        margin-top: 20px;
+    }
+    .for-two, .for-there {
+        flex-basis: 40%;
+       padding: 10px;
+       margin-bottom: 25px;
+
+        
+    }
+.kevin {
+    line-height: 35px;
+    margin-bottom: 4px;
+}
+.for-one {
+    padding: 20px;
+    margin-left: 10px;
+    margin-bottom: 73px;
+}
+.kevin .pone, .kevinone .pone {
+    font-weight: bold;
+    font-size: 20px;
+}
+.for-one img {
+    height: auto;
+    width: 220px;
+}
+.for-two img, .for-there img {
+    padding-top: 28px;
+    width: 180px;
+    height: 180px;
+}
+.hurry{
+    display: none;
+}
+.load {
+    background-color: var(--border);
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    height: 10px;
+    width: 220px;
+}
+.avai .lable {
+    flex-direction: column;
+}
+.sold {
+    padding-left: 100px;
+}
+.time-for {
+    margin-left: 0px;
+    gap: 10px;
+}
+.twochick {
+    display: flex;
+    margin-left: 0px;
+}
+.for-basic hr {
+    width: 450px;
+    margin-left: 10px;
+}
+.price .price-new {
+    font-weight: bold;
+    font-size: 20px;
+}
+.forline {
+   margin-top: 10px;
+    border: 1px solid var(--border);
+    height: 600px;
+    margin: 0 5px;
+}
+.forone-sale .saleone {
+        background-color: var(--yellow);
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+        left: 270px;
+        font-size: 12px;
+        top: 1690px;
+}
+.for-sale .sale {
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 2;
+    left: 490px;
+    font-size: 12px;
+    top: 1680px;
+}
+.forchi-sale .salechi {
+    background-color: var(--yellow);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 2;
+    left: 490px;
+    font-size: 12px;
+    top: 1995px;
+}
+
+
+/* Hover */
+.for-one .sub-six {
+    position: absolute;
+    top: 1690px;
+    display: flex;
+    flex-direction: column;
+    left: 120px;
+    opacity: 0;
+    transform: translate(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+.for-two .sub-six {
+    position: absolute;
+    top: 1680px;
+    display: flex;
+    flex-direction: column;
+    left: 390px;
+    opacity: 0;
+    transform: translateX(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+.for-there .sub-six {
+    position: absolute;
+    top: 1996px;
+    display: flex;
+    flex-direction: column;
+    left: 390px;
+    opacity: 0;
+    transform: translateX(1%);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.for-one .sub-six i, .for-two .sub-six i, .for-there .sub-six i {
+    background-color: var(--gray);
+    padding: 10px;
+    margin-bottom: 5px;
+    color: var(--white);
+    font-size: 10px;
+    border-radius: 5px;
+}
+.for-one:hover .sub-six,
+.for-two:hover .sub-six,
+.for-there:hover .sub-six{
+    opacity: 1;
+    transform: translate(50%);
+}
+}

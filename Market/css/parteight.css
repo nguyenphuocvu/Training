@@ -1,0 +1,15 @@
+.part-eight{
+    justify-content: center;
+    margin-left: 370px;
+    padding-top: 30px;
+}
+@media only screen and  (max-width: 900px) {
+    .part-eight{
+        justify-content: center;
+        margin-left: 80px;
+        padding-top: 30px;
+    }
+    .part-eight img{
+        width: 91%;
+    };
+}
