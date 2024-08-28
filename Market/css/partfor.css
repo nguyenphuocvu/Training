@@ -347,7 +347,7 @@
         z-index: 2;
         left: 270px;
         font-size: 12px;
-        top: 1690px;
+        top: 1780px;
 }
 .for-sale .sale {
     background-color: var(--yellow);
@@ -363,7 +363,7 @@
     z-index: 2;
     left: 490px;
     font-size: 12px;
-    top: 1680px;
+    top: 1780px;
 }
 .forchi-sale .salechi {
     background-color: var(--yellow);
@@ -379,7 +379,7 @@
     z-index: 2;
     left: 490px;
     font-size: 12px;
-    top: 1995px;
+    top: 2095px;
 }
 
 
@@ -429,4 +429,115 @@
     opacity: 1;
     transform: translate(50%);
 }
+}
+
+@media only screen and  (max-width: 600px) {
+    .part-for h4 {
+        text-align: center;
+        padding-top: 40px;
+        margin-right: 360px;
+    }
+    .part-for h4 hr {
+        margin-top: 20px;
+        width: 150px;
+        margin-left: 47px;
+    }
+    .part-for .for-container {
+        border: 1px solid var(--border);
+        max-width: 503px;
+        margin-left: 47px;
+        overflow: value;
+        height: auto;
+        flex-wrap: wrap;
+    }
+    .forline {
+        display: none;
+    }
+    .for-basic hr {
+       display: none;
+    }
+    .for-one {
+        padding: 20px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+      
+    }
+    .for-one img {
+        padding-top: 15px;
+        height: auto;
+        width: 380px;
+    }
+    .sold {
+        padding-left: 0px;
+       margin-left: 330px;
+    }
+    .load {
+        background-color: var(--border);
+        border-radius: 5px;
+        border: 1px solid var(--border);
+        height: 10px;
+        width: 460px;
+    }
+    .for-two img, .for-there img {
+        padding-top: 0px;
+        width: 380px;
+        height: 380px;
+    }
+    .twochick {
+        display: block;
+        margin-left: 0px;
+    }
+
+
+    .forone-sale .saleone {
+        background-color: var(--yellow);
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+        left: 470px;
+        font-size: 12px;
+        top: 1950px;
+    }
+    .forchi-sale .salechi {
+        background-color: var(--yellow);
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+        left: 470px;
+        font-size: 12px;
+        top: 2630px;
+    }
+
+    .for-sale .sale {
+        background-color: var(--yellow);
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+        left: 470px;
+        font-size: 12px;
+        top: 3330px;
+    }
+
+
 }

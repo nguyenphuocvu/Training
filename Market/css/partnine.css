@@ -283,3 +283,66 @@ font-size: 18px;
     margin-left: 590px;
 }
 }
+@media only screen and  (max-width: 600px){
+    .part-nine {
+        display: flex;
+        gap: 30px;
+        padding-top: 40px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        margin-right: 25px;
+    }
+    .nine-product {
+        border: 1px solid var(--border);
+        width: 290px;
+        height: 440px;
+        padding-top: 15px;
+    }
+    .nine-product-there {
+        border: 1px solid var(--border);
+        width: 290px;
+        height: 440px;
+        padding-top: 15px;
+    }
+   .nine-product-there hr {
+        width:450px;
+        margin-left: 20px;
+    }
+    .nine-there .next .next-header {
+        margin-left: 330px;
+    }
+    
+    .nine-product hr {
+        width:250px;
+        margin-left: 20px;
+    }
+
+    .nine-product-there {
+        border: 1px solid var(--border);
+        width: 490px;
+        height: 440px;
+        padding-top: 15px;
+        margin-left: 0px;
+    }
+    .nine-there .next {
+       margin-left: 0px;
+       
+    }
+    .nine-one
+  {
+        margin-right: 170px;
+    }
+    .part-nine {
+        display: flex;
+        gap: 30px;
+        padding-top: 40px;
+        margin-left: 40px;
+        /* flex-wrap: wrap; */
+    }
+    .nine-two {
+        margin-right: 190px;
+    }
+    .nine-there {
+        margin-right: 30px;
+    }
+}

@@ -95,3 +95,22 @@
        display: none;
     }
 }
+@media only screen and  (max-width: 600px) {
+.part-eleven h5 {
+    font-size: 18px;
+    margin-left: 45px;
+}
+.eleven-home {
+    display: flex;
+    gap: 30px;
+    margin-left: 45px;
+}
+
+.eleven-home .eleven-one img {
+    max-width: 242px;
+    margin-bottom: 15px;
+}
+.one-one {
+    display: none;
+}
+}

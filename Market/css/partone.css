@@ -172,7 +172,7 @@
     .part-one img {
         width: 700px;
         position: relative;
-        height: 250px;
+        height: 350px;
         padding:0px;
     }
     .righto{
@@ -186,5 +186,33 @@
     }
 }
 @media only screen and (max-width: 600px) { 
-
+    .part-one {
+        margin: 20px;
+        width: 100%;
+        max-width: 465px;
+        height: auto;
+        height: auto;
+        display: block;
+        justify-content: center;
+        margin-left: 45px;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .one-all {
+        font-size: 12px;
+        padding-left: 5px;
+        margin-bottom: 10px;
+    }
+    .one-right {
+        padding-top: 15px;
+        padding: 0px;
+        padding-right: 0px;
+    }
+    .part-one img {
+        width: 460px;
+        position: relative;
+        height: 250px;
+        padding: 0px;
+    }
 }

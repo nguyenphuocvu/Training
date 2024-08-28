@@ -244,3 +244,36 @@
         display: none;
     }
 }
+
+@media only screen and  (max-width: 600px) {
+    .footer-one div img {
+        padding-top: 12px;
+        margin-left: 0px;
+        padding-right: 420px;
+        width: 110px;
+        padding-top: 18px;
+    }
+    .footer-two {
+        display: block;
+        padding-left: 55px;
+    }
+    .two-my,
+    .two-there{
+        display: none;
+    }
+    .footer-for{
+        display: block;
+    }
+    .footer-for p {
+        font-size: 14px;
+        padding-left: 10px;
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .footer-for img {
+        margin-left: 10px;
+        height: 30px;
+        width: 400px;
+    }
+}
