@@ -177,6 +177,9 @@
     margin-left: 310px;
     height: 25px;
 }
+.footer-two .special-overlay{
+    display: none;
+}
 @media only screen and  (max-width: 900px) {
     .one-there{
         display: none
@@ -243,6 +246,29 @@
     .two-for{
         display: none;
     }
+    .footer-two .special-overlay {
+        top: 5165px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 130px; 
+        width: 100%;
+        background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   
+    }
+    .view-button {
+        background-color: transparent;
+        color: var(--gray);
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 0;
+        text-decoration: none;
+        
+    }
 }
 
 @media only screen and  (max-width: 600px) {
@@ -273,7 +299,60 @@
     }
     .footer-for img {
         margin-left: 10px;
-        height: 30px;
+        height: 25px;
         width: 400px;
     }
+    .footer-two .special-overlay {
+        top: 6700px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100px; 
+        width: 100%;
+        background: linear-gradient(180deg, rgba(247, 246, 253, 0.04) 0%, rgba(247, 246, 253, 0.78) 0.01%, #f7f6fd 55.21%, #f7f6fd 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   
+    }
+    .view-button {
+        background-color: transparent;
+        color: var(--gray);
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 0;
+        text-decoration: none;
+        
+    }
+}
+@media only screen and  (max-width: 400px) {
+    .footer-one div img {
+        padding-top: 12px;
+        margin-left: 20px;
+        padding-right: 0px;
+        width: 110px;
+        padding-top: 18px;
+        margin-right: 300px;
+    }
+        .footer-two {
+            display: block;
+            padding-left: 20px;
+        }
+        .footer-for {
+            padding-top: 20px;
+            display: block;
+            max-width: 100%;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            gap: 30px;
+        }
+        .footer-for img {
+            margin-left: 10px;
+            height: 25px;
+            width: 360px;
+        }
+        .footer-two .special-overlay {
+            top: 8440px;
+        }
 }

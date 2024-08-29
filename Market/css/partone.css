@@ -182,7 +182,6 @@
         width: 100%;
         max-width: 465px;
         height: auto;
-        height: auto;
         display: block;
         justify-content: center;
         margin-left: 45px;
@@ -207,3 +206,22 @@
         padding: 0px;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .part-one {
+        margin: 10px;
+        max-width: 330px;
+        display: block;
+        justify-content: center;
+        margin-left: 14px;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .part-one img {
+        width: 330px;
+        position: relative;
+        height: 150px;
+        padding: 0px;
+    }
+ }

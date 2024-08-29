@@ -18,6 +18,14 @@
         width: 100%;
         height: auto;
         max-width: 510px;
-        margin-right: 6px;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .part-there  img{
+        width: 100%;
+        height: auto;
+        max-width: 370px;
+        margin-right: 0px;
     }
 }

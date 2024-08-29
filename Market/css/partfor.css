@@ -448,3 +448,85 @@
         top: 3330px;
     }
 }
+
+
+@media only screen and (max-width: 400px) {
+    .part-for h4 {
+        margin-right: 215px;
+    }
+    .part-for h4 hr {
+        margin-top: 20px;
+        width: 150px;
+        margin-left: 15px;
+    }
+    .part-for .for-container {
+        border: 1px solid var(--border);
+        max-width: 365px;
+        margin-left: 15px;
+        overflow: value;
+        height: auto;
+        flex-wrap: wrap;
+    }
+    .for-one {
+        padding: 20px;
+        margin-left: 15px;
+        margin-bottom: 0px;
+    }
+    .for-one img {
+        padding-top: 15px;
+        height: auto;
+        width: 320px;
+        padding-left: 0px;
+    }
+    .for-two img, .for-there img {
+        padding-top: 15px;
+        height: auto;
+        width: 320px;
+        padding-left: 5px;
+    }
+    .kevinone {
+        flex-wrap: nowrap;
+        line-height: 35px;
+    }
+    .load {
+        background-color: var(--border);
+        border-radius: 5px;
+        border: 1px solid var(--border);
+        height: 10px;
+        width: 330px;
+    }
+    .kevin {
+        flex-wrap: wrap;
+        padding-left: 0px;
+        line-height: 35px;
+        padding-top: 20px;
+    }
+    .forone-sale .saleone, .forchi-sale .salechi, .for-sale .sale {
+        background-color: var(--yellow);
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+        left: 300px;
+        font-size: 12px;
+    }
+    .forone-sale .saleone {
+        top: 3090px;
+    }
+    .for-sale .sale {
+        top: 4380px;
+    }
+    .forchi-sale .salechi {
+        top: 3730px;
+    }
+    .sold {
+        padding-left: 200px;
+        margin-left: 0px;
+    }
+}

@@ -114,3 +114,27 @@
     display: none;
 }
 }
+@media only screen and  (max-width: 400px) {
+    .ele-for{
+        display: none;
+    }
+    .hr {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        border: 1px solid var(--border);
+    }
+    .part-eleven h5 {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .eleven-home .eleven-one img {
+        max-width: 360px;
+        margin-bottom: 15px;
+    }
+    .eleven-home {
+        display: flex;
+        gap: 30px;
+        margin-left: 20px;
+    }
+}

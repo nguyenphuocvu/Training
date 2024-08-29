@@ -30,7 +30,7 @@
     line-height: 40px;
     position: absolute;
     text-transform: uppercase;
-    bottom: -3100px;
+    bottom: -3220px;
     font-size: 17px;
 }
 .ten-right {
@@ -79,7 +79,7 @@
     position: absolute;
     text-transform: uppercase;
     font-size: 17px;
-    bottom: -3580px;
+    bottom: -3720px;
 }
 .ten-right {
     z-index: 2;
@@ -122,5 +122,42 @@
     }
     .ten-left {
         right: 540px;
+    }
+}
+@media only screen and  (max-width: 400px) {
+    .part-ten {
+        margin-top: 40px;
+        height: 130px;
+        max-width: 360px;
+        margin-left: 20px;
+        gap: 60px;
+    }
+    .part-ten img {
+        opacity: 0.5;
+        width: 200px;
+        margin-left: 100px;    
+        padding-top: 30px;
+    }
+    .ten-right, .ten-left {
+        border: 1px solid var(--gray);
+        text-align: center;
+        border-radius: 50%;
+        color: var(--gray);
+        display: block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        text-transform: uppercase;
+        font-size: 17px;
+        bottom: -6940px;
+    }
+    .ten-right {
+        z-index: 2;
+        left: 355px;
+
+    }
+    .ten-left {
+        right: 355px;
     }
 }

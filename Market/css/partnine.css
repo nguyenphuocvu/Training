@@ -9,9 +9,10 @@
 .nine-product,
 .nine-product-there {
     border: 1px solid var(--border);
-    width: 369px;
+    width: 379px;
     height: 440px;
     padding-top: 15px;
+    margin-right: 5px;
 }
 .nine-one,
 .nine-two,
@@ -200,6 +201,9 @@
  .hover-nine {
     gap: 10px;
 }
+.flex-nine{
+    display: flex;
+}
 @media only screen and  (max-width: 900px){
 .part-nine {
     display: flex;
@@ -210,7 +214,7 @@
 }
 .nine-product {
     border: 1px solid var(--border);
-    width: 350px;
+    width: 360px;
     height: 440px;
     padding-top: 15px;
 }
@@ -226,6 +230,11 @@
 .nine-there .next .next-header {
     margin-left: 590px;
 }
+  .flex-nine {
+        display: flex;
+        gap: 20px;
+        margin-right: 0px;
+     }
 }
 @media only screen and  (max-width: 600px){
     .nine-flex-one, .nine-flex-two, .nine-flex-there, .nine-flex-for, .nine-flex-five, .nine-flex-six, .nine-flex-seven, .nine-flex-eight, .nine-flex-nine {
@@ -303,5 +312,43 @@
     .call{
         z-index: 999;
        
+    }
+}
+
+@media only screen and  (max-width: 400px){
+    .part-nine {
+        display: flex;
+        gap: 30px;
+        padding-top: 40px;
+        margin-left: 50px;
+        flex-wrap: wrap;
+    }
+    .flex-nine {
+        display: block;
+    }
+    .nine-product ,
+    .nine-product-there{
+        border: 1px solid var(--border);
+        width: 360px;
+        height: 440px;
+        padding-top: 15px;
+    }
+    .nine-product-there {
+
+        margin-left: 10px;
+    }
+    .nine-one .next .next-header, .nine-two .next .next-header  {
+        margin-left: 220px;
+    }
+    .nine-there .next .next-header {
+        margin-left: 220px;
+    }
+    .nine-one .next h4, .nine-two .next h4, .nine-there .next h4 {
+        font-size: 16px;
+    }
+    .nine-product hr,
+    .nine-product-there hr {
+        width: 320px;
+        margin-left: 20px;
     }
 }

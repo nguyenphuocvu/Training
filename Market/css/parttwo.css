@@ -329,3 +329,53 @@ margin: 20px;
         padding-left: 85px;
     }
 }
+@media only screen and  (max-width: 400px) {
+    .two-header h4 {
+        font-size: 18px;
+        padding-top: 3px;
+        margin-left: 0px;
+    }
+    .two-button h4 {
+        margin-left: 15px;
+        font-size: 17px;
+    }
+    .two-button .two-bacon {
+        border: 1px solid var(--border);
+        height: 220px;
+        width: 328px;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+    .two-header ul {
+        color: var(--gray);
+        margin-left: 0px;
+        border: 1px solid var(--border);
+        margin-bottom: 0px;
+        
+    }
+    .two-header{
+        flex-wrap: wrap;
+        display: block;
+    }
+
+    .two-layout {
+        border:none;
+        display: flex;
+        width: 10px;
+        height: auto;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        margin-left: 5px;
+    }
+    .right-one img, .right-two img, .right-there img, .right-for img {
+        height: 300px;
+        padding-top: 10px;
+    }
+    .layout-right {
+        padding-left: 0px;
+        padding: 10px;
+        padding-right: 40px;
+    }
+    
+}
