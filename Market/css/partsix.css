@@ -228,8 +228,8 @@
     .part-six {
         border: none;
         border-radius: 5px;
-        width: 770px;
-        margin-left: 35px;
+        width: 500px;
+        margin-left: 65px;
     }
     .six-right ul li p {
         font-size: 13px;
@@ -270,5 +270,9 @@
         font-weight: 700px;
         left: 190px;
         font-size: 12px;
+    }
+    .cellphone{
+        margin-right: 0px;
+        
     }
 }

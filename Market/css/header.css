@@ -35,11 +35,15 @@ display: flex;
     font-size: 12px;
 }
 .home-us .us .elus{
-    border: 1px;
+    border: 1px solid transparent; /* Adjust as needed, currently set to invisible */
     color: var(--gray);
-    padding: 10px;
+    padding: 5px 10px; /* Adjust padding for better alignment */
     background: var(--gray-mo);
     font-size: 12px;
+    display: flex; /* Flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 5px; /* Add space between elements */
+    cursor: pointer; /* Optional: Make the button look clickable */
 }
 
 
@@ -301,17 +305,24 @@ display: flex;
     }
 
 /* Sub Hover HOME */
+.menu-navigation .navi  li.hover .sub-home,
+.menu-navigation .navi  li.hover .sub-pages,
+.menu-navigation .navi  li.hover .sub-blog,
+.menu-navigation .navi  li.hover .sub-collection,
+.menu-navigation .navi  li.hover .sub-shop{
+    border: 1px solid var(--border);
+    background-color: var(--white);
+    position: absolute;
+    z-index: 999;
+    line-height: 30px;
+    display: none;
+}
+
  .menu-navigation .navi  li.hover .sub-home{
-        border: 1px solid var(--border);
-        background-color: var(--white);
         width: 800px;
         height: 340px;
-        display: none;
         padding: 20px 30px;
-        position: absolute;
-        z-index: 999;
         bottom: -380px;
-        line-height: 30px;
 }
 .menu-navigation .navi li .sub-home{
     display: flex;
@@ -320,64 +331,33 @@ display: flex;
 
 /* Sub Hover PAGES */
 .menu-navigation .navi  li.hover .sub-pages{
-        border: 1px solid var(--border);
-        background-color: var(--white);
         width: 850px;
         height: 440px;
-        display: none;
         padding: 20px;
-        position: absolute;
-        z-index: 999;
-        bottom: -480px;
-        line-height: 30px;
-     
+        bottom: -480px;  
 }
-
-
 /* Sub Hover Blog */
 .menu-navigation .navi  li.hover .sub-blog{
-    border: 1px solid var(--border);
-    background-color: var(--white);
     width: 500px;
     height: 270px;
-    display: none;
     gap: 20px;
     padding: 20px;
-    position: absolute;
-    z-index: 999;
     bottom: -310px;
-    line-height: 30px;
 }
-
-
 .menu-navigation .navi  li.hover .sub-collection{
-    border: 1px solid var(--border);
-    background-color: var(--white);
     width: 850px;
     height: 240px;
-    display: none;
     padding: 20px;
-    position: absolute;
-    z-index: 999;
     bottom: -280px;
-    line-height: 30px;
     gap: 90px;
  
 }
-
 .menu-navigation .navi  li.hover .sub-shop{
-    border: 1px solid var(--border);
-    background-color: var(--white);
     width: 850px;
     height: 440px;
-    display: none;
     padding: 20px;
-    position: absolute;
-    z-index: 999;
     bottom: -480px;
-    line-height: 30px;
     gap: 90px;
- 
 }
 .menu-navigation .navi  li .sub-pages ul hr{
     border: 1px solid var(--border);
@@ -453,9 +433,6 @@ display: flex;
     .header-two .two-part {
         display: none;
     }
-
-
-
    /* Header-There */
     .header-there .there-container .menu-navigation .navi {
         display: none;

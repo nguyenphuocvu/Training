@@ -95,41 +95,9 @@
 
 .for-sale {
     background: var(--yellow);
-   
-
  }
- .for-sale .sale {
-    background-color: var(--yellow);
-    text-align: center;
-    border-radius: 50%;
-    color: white;
-    display:block;
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    position: absolute;
-    text-transform: uppercase;
-    z-index: 2;
-    left: 1070px;
-    font-size: 12px; 
-    top: 1640px;
- }
- .forchi-sale .salechi{
-    background-color: var(--yellow);
-    text-align: center;
-    border-radius: 50%;
-    color: white;
-    display:block;
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    position: absolute;
-    text-transform: uppercase;
-    z-index: 2;
-    left: 1070px;
-    font-size: 12px; 
-    top: 1975px;
- }
+ .for-sale .sale,
+ .forchi-sale .salechi,
  .forone-sale .saleone {
     background-color: var(--yellow);
     text-align: center;
@@ -141,9 +109,19 @@
     line-height: 40px;
     position: absolute;
     text-transform: uppercase;
-    z-index: 2;
-    left: 695px;
     font-size: 12px; 
+    z-index: 2;
+ }
+ .for-sale .sale {
+    left: 1070px;
+    top: 1640px;
+ }
+ .forchi-sale .salechi{
+    left: 1070px;
+    top: 1975px;
+ }
+ .forone-sale .saleone {
+    left: 695px;
     top: 1640px;
  }
 
@@ -183,45 +161,31 @@
     margin-left: 45px;
     border: 1px solid var(--border);
  }
- 
  .forline{
     border: 1px solid var(--border);
     height: 600px; 
     margin: 0 5px; 
-
 }
-
-
-.for-two .sub-six{
-    position: absolute;
-    top:1650px;
-    display: flex;
-    flex-direction: column;
-    left: 850px;
-    opacity: 0;
-    transform: translateX(1%);
-    transition: opacity .2s ease, transform .2s ease;
-}
+.for-one .sub-six,
+.for-two .sub-six,
 .for-there .sub-six{
     position: absolute;
-    top:1980px;
     display: flex;
     flex-direction: column;
-    left: 850px;
     opacity: 0;
     transform: translateX(1%);
     transition: opacity .2s ease, transform .2s ease;
 }
-
+.for-two .sub-six{
+    top:1650px;
+    left: 850px;
+}
+.for-there .sub-six{
+    top:1980px;
+    left: 850px;
+}
 .for-one .sub-six{
-    position: absolute;
     top:1700px;
-    display: flex;
-    flex-direction: column;
-    /* left: 20px; */
-    opacity: 0;
-    transform: translate(1%);
-    transition: opacity .2s ease, transform .2s ease;
 }
 
 .for-one:hover .sub-six,
@@ -333,38 +297,8 @@
     height: 600px;
     margin: 0 5px;
 }
-.forone-sale .saleone {
-        background-color: var(--yellow);
-        text-align: center;
-        border-radius: 50%;
-        color: white;
-        display: block;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        position: absolute;
-        text-transform: uppercase;
-        z-index: 2;
-        left: 270px;
-        font-size: 12px;
-        top: 1780px;
-}
-.for-sale .sale {
-    background-color: var(--yellow);
-    text-align: center;
-    border-radius: 50%;
-    color: white;
-    display: block;
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    position: absolute;
-    text-transform: uppercase;
-    z-index: 2;
-    left: 490px;
-    font-size: 12px;
-    top: 1780px;
-}
+.forone-sale .saleone,
+.for-sale .sale ,
 .forchi-sale .salechi {
     background-color: var(--yellow);
     text-align: center;
@@ -377,42 +311,41 @@
     position: absolute;
     text-transform: uppercase;
     z-index: 2;
-    left: 490px;
     font-size: 12px;
+    top: 1780px;
+}
+.forone-sale .saleone {     
+    left: 270px;
+}
+.for-sale .sale,
+.forchi-sale .salechi {
+    left: 490px;
+}
+.forchi-sale .salechi {
     top: 2095px;
 }
-
-
 /* Hover */
-.for-one .sub-six {
-    position: absolute;
-    top: 1690px;
-    display: flex;
-    flex-direction: column;
-    left: 120px;
-    opacity: 0;
-    transform: translate(1%);
-    transition: opacity .2s ease, transform .2s ease;
-}
-.for-two .sub-six {
-    position: absolute;
-    top: 1680px;
-    display: flex;
-    flex-direction: column;
-    left: 390px;
-    opacity: 0;
-    transform: translateX(1%);
-    transition: opacity .2s ease, transform .2s ease;
-}
+.for-one .sub-six,
+.for-two .sub-six ,
 .for-there .sub-six {
     position: absolute;
-    top: 1996px;
     display: flex;
     flex-direction: column;
-    left: 390px;
     opacity: 0;
     transform: translateX(1%);
     transition: opacity .2s ease, transform .2s ease;
+}
+.for-one .sub-six {
+    top: 1690px;
+    left: 120px;
+}
+.for-two .sub-six {
+    top: 1680px;
+    left: 390px;
+}
+.for-there .sub-six {
+    top: 1996px;
+    left: 390px;
 }
 
 .for-one .sub-six i, .for-two .sub-six i, .for-there .sub-six i {
@@ -488,40 +421,8 @@
         margin-left: 0px;
     }
 
-
-    .forone-sale .saleone {
-        background-color: var(--yellow);
-        text-align: center;
-        border-radius: 50%;
-        color: white;
-        display: block;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        position: absolute;
-        text-transform: uppercase;
-        z-index: 2;
-        left: 470px;
-        font-size: 12px;
-        top: 1950px;
-    }
-    .forchi-sale .salechi {
-        background-color: var(--yellow);
-        text-align: center;
-        border-radius: 50%;
-        color: white;
-        display: block;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        position: absolute;
-        text-transform: uppercase;
-        z-index: 2;
-        left: 470px;
-        font-size: 12px;
-        top: 2630px;
-    }
-
+    .forone-sale .saleone,
+    .forchi-sale .salechi,
     .for-sale .sale {
         background-color: var(--yellow);
         text-align: center;
@@ -536,8 +437,14 @@
         z-index: 2;
         left: 470px;
         font-size: 12px;
+    }
+    .forone-sale .saleone {
+        top: 1950px;
+    }
+    .forchi-sale .salechi {
+        top: 2630px;
+    }
+    .for-sale .sale {
         top: 3330px;
     }
-
-
 }

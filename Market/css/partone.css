@@ -14,7 +14,6 @@
 .one-right{
     padding-top: 15px;
     padding: 20px;
-    /* padding-right: 830px; */
 }
 .one-all{
   font-weight: bold;
@@ -85,41 +84,34 @@
     display: flex; 
 }
 /* HOVER  */
-.one-right .all-cate li.gifts  .sub-bathroom {
+.one-right .all-cate li.gifts  .sub-bathroom,
+.one-right .all-cate li.gifts  .sub-gifts ,
+.one-right .all-cate li.gifts  .sub-optimum {
     border: 1px solid var(--border);
     background-color: var(--white);
+    padding: 10px 10px;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+.one-right .all-cate li.gifts  .sub-bathroom {
     width: 200px;
     height: 150px;
-    padding: 10px 10px;
-    position: absolute;
-    z-index: 999;
     top: 500px;
     left: 625px;
-    display: none;
+
 } 
 .one-right .all-cate li.gifts  .sub-gifts {
-    border: 1px solid var(--border);
-    background-color: var(--white);
     width: 600px;
     height: 450px;
-    padding: 10px 10px;
-    position: absolute;
-    z-index: 999;
     top: 280px;
     left: 625px;
-    display: none;
 } 
 .one-right .all-cate li.gifts  .sub-optimum{
-    border: 1px solid var(--border);
-    background-color: var(--white);
     width: 600px;
     height: 450px;
-    padding: 10px 10px;
-    position: absolute;
-    z-index: 999;
     top: 280px;
     left: 628px;
-    display: none;
 } 
 .one-right .all-cate li.gifts:hover .sub-bathroom,
 .one-right .all-cate li.gifts:hover .sub-gifts,
@@ -157,7 +149,6 @@
 
 @media only screen and  (max-width: 900px) {
     .part-one {
-        /* margin: 40px; */
         width: 100%;
         max-width: 705px;
         height: auto;
