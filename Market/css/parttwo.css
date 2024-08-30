@@ -21,7 +21,7 @@
     align-content: center;
     border: 1px;
     padding: 7px ;
-    border-radius: 10px;
+    border-radius: 20px;
     color: var(--gray);
     align-content: flex-start
 }

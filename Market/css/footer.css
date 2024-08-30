@@ -52,6 +52,7 @@
     margin-bottom: 20px;
     max-width: 2000px;
     margin-left: 240px;
+  
 }
 .footer-two .two-one ul {
     background: url(https://opencart4.magentech.com/themes/so_emarket/layout3/extension/so_theme/catalog/view/template/images/icon/icon-contact.png) no-repeat left top;
@@ -98,7 +99,7 @@
 .two-hr{
     width: 1180px;
     margin-left: 370px;
-    color: var(--gray);
+ 
 }
 
 .footer-there {
@@ -242,12 +243,13 @@
         max-width: 1000;
         margin-left: 0px;
         flex-wrap: wrap;
+        position: relative;
     }
     .two-for{
         display: none;
     }
     .footer-two .special-overlay {
-        top: 5165px;
+        top: 60%;
         position: absolute;
         left: 0;
         right: 0;
@@ -303,7 +305,7 @@
         width: 400px;
     }
     .footer-two .special-overlay {
-        top: 6700px;
+        /* top: 6700px; */
         position: absolute;
         left: 0;
         right: 0;
@@ -356,6 +358,7 @@
             width: 360px;
         }
         .footer-two .special-overlay {
-            top: 8440px;
+           /* bottom: 0;
+           border: 1px solid var(--border); */
         }
 }

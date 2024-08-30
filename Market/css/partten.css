@@ -7,6 +7,7 @@
     margin-left: 370px;
     gap: 60px;
     justify-content: center;
+    position: relative;
 
 }
 .part-ten img {
@@ -30,15 +31,17 @@
     line-height: 40px;
     position: absolute;
     text-transform: uppercase;
-    bottom: -3220px;
     font-size: 17px;
+    z-index: 2; 
+    top: 50%; 
+    transform: translateY(-50%);
 }
 .ten-right {
-    z-index: 2;
-    left: 1520px;
+    right: 0px; 
 }
-.ten-left{
-    right: 1510px;
+
+.ten-left {
+    left: 0px; 
 }
 
 
@@ -82,11 +85,10 @@
     bottom: -3610px;
 }
 .ten-right {
-    z-index: 2;
-    left: 460px;
+    right: 0px;
 }
 .ten-left {
-    right: 800px;
+    left: 0px;
 }
 }
 
@@ -117,11 +119,10 @@
         text-transform: uppercase;
     }
     .ten-right {
-        z-index: 2;
-        left: 330px;
+        right: 0px;
     }
     .ten-left {
-        right: 540px;
+        left: 0px;
     }
 }
 @media only screen and  (max-width: 400px) {
@@ -153,12 +154,10 @@
         bottom: -6830px;
     }
     .ten-right {
-        z-index: 2;
-        left: 355px;
-
+        right: 0px;
     }
     .ten-left {
-        right: 355px;
+        left: 0px;
     }
     .tenss{
         display: none;
