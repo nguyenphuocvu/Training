@@ -336,16 +336,16 @@
     transition: opacity .2s ease, transform .2s ease;
 }
 .for-one .sub-six {
-    top: 1690px;
-    left: 120px;
+    top: 1790px;
+    left: 105px;
 }
 .for-two .sub-six {
-    top: 1680px;
-    left: 390px;
+    top: 1780px;
+    left: 370px;
 }
 .for-there .sub-six {
-    top: 1996px;
-    left: 390px;
+    top: 2096px;
+    left: 370px;
 }
 
 .for-one .sub-six i, .for-two .sub-six i, .for-there .sub-six i {
@@ -418,7 +418,7 @@
     }
     .twochick {
         display: block;
-        margin-left: 0px;
+        margin-left: 15px;
     }
 
     .forone-sale .saleone,
@@ -446,6 +446,26 @@
     }
     .for-sale .sale {
         top: 3330px;
+    }
+    .for-one .sub-six i, .for-two .sub-six i, .for-there .sub-six i {
+        background-color: var(--gray);
+        padding: 10px;
+        margin-bottom: 10px;
+        color: var(--white);
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    .for-one .sub-six {
+        top: 2120px;
+        left: 75px;
+    }
+    .for-two .sub-six {
+        top: 2800px;
+        left: 75px;
+    }
+    .for-there .sub-six {
+        top: 3480px;
+        left: 75px;
     }
 }
 
@@ -501,6 +521,14 @@
         line-height: 35px;
         padding-top: 20px;
     }
+    .for-one .sub-six, .for-two .sub-six, .for-there .sub-six {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateX(1%);
+        transition: opacity .2s ease, transform .2s ease;
+    }
     .forone-sale .saleone, .forchi-sale .salechi, .for-sale .sale {
         background-color: var(--yellow);
         text-align: center;
@@ -528,5 +556,22 @@
     .sold {
         padding-left: 200px;
         margin-left: 0px;
+    }
+    .twochick {
+        display: block;
+        margin-left: 5px;
+    }
+    /* Chỉnh kích thước phần icon hover */
+    .for-one .sub-six {
+        top: 3190px;
+        left: 35px;
+    }
+    .for-two .sub-six {
+        top: 3790px;
+        left: 35px;
+    }
+    .for-there .sub-six {
+        top: 4450px;
+        left: 35px;
     }
 }

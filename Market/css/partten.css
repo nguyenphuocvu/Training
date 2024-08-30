@@ -79,7 +79,7 @@
     position: absolute;
     text-transform: uppercase;
     font-size: 17px;
-    bottom: -3720px;
+    bottom: -3610px;
 }
 .ten-right {
     z-index: 2;
@@ -113,7 +113,7 @@
     .ten-right,
     .ten-left{
         display: block;
-        bottom: -5290px;
+        bottom: -5180px;
         text-transform: uppercase;
     }
     .ten-right {
@@ -150,7 +150,7 @@
         position: absolute;
         text-transform: uppercase;
         font-size: 17px;
-        bottom: -6940px;
+        bottom: -6830px;
     }
     .ten-right {
         z-index: 2;
@@ -159,5 +159,8 @@
     }
     .ten-left {
         right: 355px;
+    }
+    .tenss{
+        display: none;
     }
 }

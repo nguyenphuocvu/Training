@@ -12,6 +12,9 @@
         height: auto;
         max-width: 748px;
     }
+    .part-there {
+        width: 98%;
+    }
 }
 @media only screen and  (max-width: 600px) {
     .part-there  img{

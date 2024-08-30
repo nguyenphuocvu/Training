@@ -126,32 +126,10 @@ margin: 20px;
  .hover-two {
     display: none;
  }
-
- .right-one .hover-two{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateX(1%);
-    transition: opacity .2s ease, transform .2s ease ;
- }
- .right-two .hover-two{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateX(1%);
-    transition: opacity .2s ease, transform .2s ease ;
- }
- .right-there .hover-two{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateX(1%);
-    transition: opacity .2s ease, transform .2s ease ;
- }
- .right-for .hover-two{
+ .right-one .hover-two,
+ .right-two .hover-two,
+ .right-there .hover-two,
+ .right-for .hover-two {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -182,12 +160,11 @@ margin: 20px;
  }
   .hover-two .hover-woicon a i {
    z-index: 999; 
-   background-color: red;
- margin-right: 100px;
+   background-color: var(--gray);
+   margin-right: 100px;
  }
  .hover-two .hover-con {
-    padding-left: 285px;
-     
+    padding-left: 285px; 
     
  }
  .two-header ul button {
@@ -275,6 +252,10 @@ margin: 20px;
         margin-top: 20px;
         width: 150px;
     }
+    .hover-two .hover-con {
+        padding-left: 238px;
+      
+    }
 }
 @media only screen and  (max-width: 600px) {
     .two-button {
@@ -328,6 +309,18 @@ margin: 20px;
     .hover-two .hover-con {
         padding-left: 85px;
     }
+    .right-one .hover-two,
+    .right-two .hover-two,
+    .right-there .hover-two,
+    .right-for .hover-two {
+       position: absolute;
+       display: flex;
+       flex-direction: column;
+       opacity: 0;
+       transform: translateX(1%);
+       transition: opacity .2s ease, transform .2s ease ;
+    }
+
 }
 @media only screen and  (max-width: 400px) {
     .two-header h4 {
@@ -352,10 +345,11 @@ margin: 20px;
         margin-left: 0px;
         border: 1px solid var(--border);
         margin-bottom: 0px;
-        
+        width: 187px;
+        gap: 0px;
+        display: flex;
     }
     .two-header{
-        flex-wrap: wrap;
         display: block;
     }
 
@@ -377,5 +371,28 @@ margin: 20px;
         padding: 10px;
         padding-right: 40px;
     }
-    
+    .right-one .hover-two,
+    .right-two .hover-two,
+    .right-there .hover-two,
+    .right-for .hover-two {
+       position: absolute;
+       display: flex;
+       flex-direction: column;
+       opacity: 0;
+       transform: translateX(1%);
+       transition: opacity .2s ease, transform .2s ease ;
+    }
+    .right-one .hover-two{
+        bottom: -750px;
+    }
+    .right-two .hover-two{
+        bottom: -1215px;
+    }
+    .right-there .hover-two{
+        bottom: -1710px;
+    }
+    .right-for .hover-two{
+        bottom: -2205px;
+    }
+      
 }

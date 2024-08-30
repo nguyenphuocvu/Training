@@ -410,9 +410,20 @@ display: flex;
 .re-header{
     display: none;
 }
+
 /* Reponsive */
 
 @media only screen and  (max-width: 900px) {
+    .header-one {
+        background: var(--border);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        overflow: visible;
+        width: 100%;
+    }
+
     .noneel{
         display: none;
     }
@@ -460,11 +471,17 @@ display: flex;
         font-size: 20px;
         padding-top: 10px;
     }
-    
+    .header-there {
+        margin-top: 10px;
+        width: 100%;
+        background-color: var(--yellow);
+        height: 50px;
+    }
      
 }
 
 @media only screen and (max-width: 600px) { 
+    
     .re-header {
         display: flex;
         margin-left: 50px;
@@ -477,14 +494,15 @@ display: flex;
         display: none;
     }
     .header-one {
-        background: var(--border);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 30px;
-        overflow: visible;
+
         width: 100%;
     }
+    .header-there {
+
+        width: 100%;
+
+    }
+     
     .home-us {
         padding-top: 8px;
         display: flex;

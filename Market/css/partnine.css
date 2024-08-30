@@ -235,6 +235,44 @@
         gap: 20px;
         margin-right: 0px;
      }
+     .nine-flex-one .hover-nine,
+     .nine-flex-for .hover-nine {
+        top: 3350px;
+    }
+    .nine-flex-two .hover-nine ,
+    .nine-flex-five .hover-nine{
+        top: 3490px;
+    }
+    .nine-flex-there .hover-nine ,
+    .nine-flex-six .hover-nine{
+        top: 3640px;
+    }
+    .nine-flex-for .hover-nine ,
+    .nine-flex-five .hover-nine,
+    .nine-flex-six .hover-nine {
+        left: 480px; 
+    }
+    .nine-flex-one .hover-nine ,
+    .nine-flex-two .hover-nine ,
+    .nine-flex-there .hover-nine ,
+    .nine-flex-seven .hover-nine ,
+    .nine-flex-eight .hover-nine,
+    .nine-flex-nine .hover-nine{
+        left: 90px;
+    }
+    .nine-flex-seven .hover-nine {
+        top: 3910px; 
+    }
+    .nine-flex-eight .hover-nine{
+        top: 4050px;  
+    }
+    .nine-flex-nine .hover-nine{
+        top: 4195px;  
+    }
+    .nine-product hr, .nine-product-there hr {
+    width: 330px;
+    margin-left: 20px;
+    }
 }
 @media only screen and  (max-width: 600px){
     .nine-flex-one, .nine-flex-two, .nine-flex-there, .nine-flex-for, .nine-flex-five, .nine-flex-six, .nine-flex-seven, .nine-flex-eight, .nine-flex-nine {
@@ -297,7 +335,6 @@
         gap: 30px;
         padding-top: 40px;
         margin-left: 40px;
-        /* flex-wrap: wrap; */
     }
 
     .nine-there {
@@ -313,6 +350,51 @@
         z-index: 999;
        
     }
+    .nine-flex-one .hover-nine, 
+    .nine-flex-two .hover-nine,
+     .nine-flex-there .hover-nine,
+    .nine-flex-for .hover-nine, 
+    .nine-flex-five .hover-nine,
+    .nine-flex-six .hover-nine,
+    .nine-flex-seven .hover-nine,
+    .nine-flex-eight .hover-nine,
+    .nine-flex-nine .hover-nine {
+        display: block;
+    }
+   .nine-flex-for .hover-nine ,
+   .nine-flex-five .hover-nine,
+   .nine-flex-six .hover-nine {
+       left: 380px; 
+   }
+   .nine-flex-one .hover-nine ,
+   .nine-flex-two .hover-nine ,
+   .nine-flex-there .hover-nine ,
+   .nine-flex-seven .hover-nine ,
+   .nine-flex-eight .hover-nine,
+   .nine-flex-nine .hover-nine{
+       left: 100px;
+   }
+   .nine-flex-one .hover-nine,
+   .nine-flex-for .hover-nine {
+      top: 4940px;
+  }
+  .nine-flex-two .hover-nine ,
+  .nine-flex-five .hover-nine{
+      top: 5050px;
+  }
+  .nine-flex-there .hover-nine ,
+  .nine-flex-six .hover-nine{
+      top: 5170px;
+  }
+   .nine-flex-seven .hover-nine {
+       top: 5450px; 
+   }
+   .nine-flex-eight .hover-nine{
+       top: 5590px;  
+   }
+   .nine-flex-nine .hover-nine{
+       top: 5735px;  
+   }
 }
 
 @media only screen and  (max-width: 400px){
@@ -351,4 +433,47 @@
         width: 320px;
         margin-left: 20px;
     }
+    .nine-flex-one .hover-nine ,
+    .nine-flex-two .hover-nine ,
+    .nine-flex-there .hover-nine ,
+    .nine-flex-for .hover-nine, 
+    .nine-flex-five .hover-nine,
+    .nine-flex-six .hover-nine,
+    .nine-flex-seven .hover-nine ,
+    .nine-flex-eight .hover-nine,
+    .nine-flex-nine .hover-nine{
+        left: 80px;
+    }
+    .nine-flex-one .hover-nine ,
+    .nine-flex-there .hover-nine ,
+    .nine-flex-for .hover-nine, 
+    .nine-flex-five .hover-nine,
+    .nine-flex-six .hover-nine,
+    .nine-flex-seven .hover-nine ,
+    .nine-flex-eight .hover-nine,
+    .nine-flex-nine .hover-nine{
+        top: 6020px;
+    }
+    .nine-flex-two .hover-nine {
+        top: 6160px;
+    }
+    .nine-flex-there .hover-nine {
+        top: 6300px;
+    }
+    .nine-flex-for .hover-nine {
+        top: 6540px;
+    }
+    .nine-flex-five .hover-nine {
+        top: 6690px;
+    }
+    .nine-flex-six .hover-nine {
+        top: 6830px;
+    }
+      .nine-flex-seven .hover-nine {
+        top: 7100px;
+    } 
+    .nine-flex-eight .hover-nine {
+        top: 7240px;
+    } 
+
 }
