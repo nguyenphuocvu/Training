@@ -40,7 +40,7 @@
 }
 .menu .left  {
     display: flex;
-    justify-center: center;
+   justify-content: center;
     gap:12px;
     height: 45px;
     width: 345px;
@@ -48,18 +48,22 @@
 .one{
    background:var(--blue); 
    color:var(--white);
-   width: 130px;
+   width: 150px;
    text-align: center;
    font-size: 17px;
-   padding: 12px 20px;
+   padding: 10px 20px;
+   border-radius: 5px;
+   border: 1px;
 }
 .two {
     background: var(--pink); 
     color:var(--white);
-    width: 130px;
+    width: 150px;
     text-align: center;
     font-size: 17px;
     margin-left: 20px;
+    border-radius: 5px;
+    border: 1px;
    
 }
 .one:hover, .one:active,
@@ -132,11 +136,11 @@
         order: 1;
         display: block;
         cursor: pointer;
-        margin-top: 15px;
+ 
         margin-left: 100px;
         width: 70%;
         text-align: left;
-        
+        margin-bottom: 15px;
     }
 
     .containerMenu .menu .right {

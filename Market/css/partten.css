@@ -39,12 +39,11 @@
 .ten-right {
     right: 0px; 
 }
-
 .ten-left {
     left: 0px; 
 }
 
-
+/* Reponsive */
 @media only screen and  (max-width: 900px) {
 .part-ten {
     margin-top: 40px;

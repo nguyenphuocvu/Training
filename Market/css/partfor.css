@@ -15,7 +15,7 @@
     margin-left: 370px;
 }
 .part-for .for-container {
-    border: 3px solid var(--border);
+    border: 1px solid var(--border);
     max-width: 1170px ;
     margin-left: 370px;
 
@@ -159,10 +159,10 @@
  }
  .for-basic hr {
     margin-left: 45px;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
  }
  .forline{
-    border: 1px solid var(--border);
+    border-left: 1px solid var(--border);
     height: 600px; 
     margin: 0 5px; 
 }

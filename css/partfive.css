@@ -117,8 +117,14 @@
     }
     .part-five{
         margin-left: 90px;
- 
+        max-width: 92%;
     
+    }
+    .part-five .text-five > div {
+        margin-right: 100px;
+        width: 100%;
+        max-width: 95%;
+       
     }
     .part-five div {
             font-weight: bold;
