@@ -39,6 +39,7 @@ const LIST_USER = {
         this.users.splice(id, 1);
         this.saveUsers();
         this.renderListUser();
+        pagination()
     },
 
     //Hiển thị người dùng
@@ -63,6 +64,7 @@ const LIST_USER = {
         });
         listenUpdateUser();
         listenDeleteUser();
+        pagination();
 
     },
 
@@ -115,9 +117,24 @@ const LIST_USER = {
         document.getElementById('update').style.display = 'block';
         document.getElementById('title-add').style.display = 'none';
         document.getElementById('title-update').style.display = 'block'; 
-    }
+    },
+    //Search
+    searchUser: function(query) {
+        const valueSearch = query.toLowerCase();
+        const filterUser = this.users.filter(user =>{
+            return (
+              user.lastName.toLowerCase().includes(valueSearch) ||
+              user.name.toLowerCase().includes(valueSearch) ||
+              user.address.toLowerCase().includes(valueSearch) ||
+              user.city.toLowerCase().includes(valueSearch) ||
+              user.code.toLowerCase().includes(valueSearch) ||
+              user.country.toLowerCase().includes(valueSearch) 
+            );
+        });
+        return filterUser;
+    },
 
-}
+};
 
 
  // Sự kiện
@@ -161,11 +178,84 @@ function listenDeleteUser(){
         })
     });  
 }
+//Search User
+function searchUser() {
+    const SearchUser = document.querySelector('#searchUsers');
+    const Search = document.querySelector('.search button')
+    Search.addEventListener('click',function() {
+        LIST_USER.loadUsersFromLocalStorage();
+        const query = SearchUser.value.trim();
+        if(query === ''){
+            LIST_USER.init();
+        }else{
+            const filterUser = LIST_USER.searchUser(query);
+            LIST_USER.users = filterUser;
+            LIST_USER.renderListUser();
+            pagination(); 
+        }
+    });
+}
+//Pagination
+function pagination() {
+    let currentPage = 1;
+    const parPage = 5;
+    const listItem = document.querySelectorAll('tbody tr');
+    function loadItem() {
+        const beginGet = parPage * (currentPage -1);
+        const endGet= parPage * currentPage - 1;
+        listItem.forEach((item,key)=>{
+            if(key>= beginGet && key <= endGet){
+                item.style.display = 'table-row';
+            }else{
+                item.style.display = 'none';
+            }
+        });
+        listPage();
+    }
+    loadItem()
+    function listPage() {
+         let count = Math.ceil(listItem.length / parPage);
+         document.querySelector('.pagination').innerHTML = '';
+        if(currentPage != 1){
+            let  prev = document.createElement('span');
+            prev.innerHTML = '<<';
+            prev.addEventListener('click', function () {
+                changePage(currentPage - 1);
+            });
+            document.querySelector('.pagination').appendChild(prev);
+        } 
+        for (let i = 1; i <= count ; i++){
+            let newPage = document.createElement('span');
+            newPage.innerText = i;
+            if(i == currentPage){ 
+                 newPage.classList.add('active');
+            }
+            newPage.addEventListener('click', function () {
+                changePage(i);
+            });
+            document.querySelector('.pagination').appendChild(newPage)
+        }
+        if(currentPage != count){
+            let next = document.createElement('span');
+            next.innerHTML = '>>';
+            next.addEventListener('click', function(){
+                changePage(currentPage + 1);
+            });
+            document.querySelector('.pagination').appendChild(next);
+        }
+    }
+    function changePage(i){
+        currentPage = i;
+        loadItem();
+    }
+}
 
 function listUsers() {
     LIST_USER.renderListUser();
     listenDeleteUser();
     listenUpdateUser();
+    searchUser();
+    pagination();
 }
 
 function main() {
