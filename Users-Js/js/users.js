@@ -120,19 +120,39 @@ const LIST_USER = {
     },
     //Search
     searchUser: function(query) {
-        const valueSearch = query.toLowerCase();
-        const filterUser = this.users.filter(user =>{
+        const valueSearch = query.toUpperCase();
+        const filterUser = this.users.filter(user => {
             return (
-              user.lastName.toLowerCase().includes(valueSearch) ||
-              user.name.toLowerCase().includes(valueSearch) ||
-              user.address.toLowerCase().includes(valueSearch) ||
-              user.city.toLowerCase().includes(valueSearch) ||
-              user.code.toLowerCase().includes(valueSearch) ||
-              user.country.toLowerCase().includes(valueSearch) 
+                user.lastName.toUpperCase().includes(valueSearch) ||
+                user.name.toUpperCase().includes(valueSearch) ||
+                user.address.toUpperCase().includes(valueSearch) ||
+                user.city.toUpperCase().includes(valueSearch) ||
+                user.code.toUpperCase().includes(valueSearch) ||
+                user.country.toUpperCase().includes(valueSearch)
             );
         });
         return filterUser;
     },
+
+    //Tăng dần
+    sortUp: function (key) {
+        this.users.sort((a,b) => {
+            if (a[key] < b[key]) return -1;
+            if (a[key] > b[key]) return 1;
+            return 0;
+        });
+        this.renderListUser;
+    },
+    //Giảm dần
+    sortDown: function (key) {
+        this.users.sort((a,b)=>{
+            if (a[key] > b[key]) return -1;
+            if (a[key] > b[key]) return 1;
+            return 0;
+        });
+        this.renderListUser();
+    },
+
 
 };
 
@@ -141,7 +161,7 @@ const LIST_USER = {
 //  Save User
  function listenNewUser(){
     var form = document.getElementById('save');
-    form.addEventListener('click', function(e){
+    form.addEventListener('click', function(e){ 
         e.preventDefault();
        LIST_USER.handleFormSubmit();
     });
@@ -179,10 +199,10 @@ function listenDeleteUser(){
     });  
 }
 //Search User
-function searchUser() {
+function searchUsers() {
     const SearchUser = document.querySelector('#searchUsers');
-    const Search = document.querySelector('.search button')
-    Search.addEventListener('click',function() {
+    const SearchButton = document.querySelector('.search button');
+    SearchButton.addEventListener('click',function() {
         LIST_USER.loadUsersFromLocalStorage();
         const query = SearchUser.value.trim();
         if(query === ''){
@@ -195,6 +215,8 @@ function searchUser() {
         }
     });
 }
+
+
 //Pagination
 function pagination() {
     let currentPage = 1;
@@ -249,13 +271,42 @@ function pagination() {
         loadItem();
     }
 }
+// Sort
+function listenSort(){
+    var sortTable = document.querySelectorAll('.sortable');
+    sortTable.forEach(column => {
+        const key = column.getAttribute('data-key');
+        const SortUp = column.querySelector('.fa-sort-up');
+        const SortDown = column.querySelector('.fa-sort-down');
+
+        SortUp.addEventListener('click', function () {
+            LIST_USER.sortUp(key);
+            SortUp.classList.add('active-i');
+            SortDown.classList.remove('active-i');
+        });
+
+        SortDown.addEventListener('click', function () {
+            LIST_USER.sortDown(key);
+            SortDown.classList.add('active-i');
+            SortUp.classList.remove('active-i');
+           
+        });
+    });
+
+};
+//Hide
+function hideUser(){
+
+}
 
 function listUsers() {
     LIST_USER.renderListUser();
     listenDeleteUser();
     listenUpdateUser();
-    searchUser();
+    searchUsers();
     pagination();
+    listenSort();
+    hideUser();
 }
 
 function main() {
