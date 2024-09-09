@@ -12,7 +12,7 @@
     <!-- Form -->
     <div class="container">
         <div class="overflow">
-            <div class="form-add">
+            <div class="form-add" >
                 <div class="title-form">
                      <h2 id="title-add" >Add User</h2>
                      <h2 id="title-update">Update User</h2>
@@ -24,7 +24,7 @@
                 <form id="user-form">
                      <div class="box-name">
                          <div  class="last-name">
-                             <label for="#">Last Name</label>
+                             <label for="lastName">Last Name</label>
                              <input  type="text" id="lastName" placeholder="Nhập họ...">
                          </div>
                          <div class="fisrt-name">
@@ -63,14 +63,68 @@
                      </div>
                 </form>
             </div>
+            <div class="form-hide" id="hide">
+                <div class="title-hide">
+                    <h2 id="title-show">Show Details</h2>
+                    <div class="close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+               
+    
+                <div class="hr"></div>
+               
+                    <form id="user-form">
+                        <div class="box-name">
+                            <div  class="last-name">
+                                <label for="lastName">Last Name</label>
+                                <input  type="text" id="lastName" placeholder="Nhập họ...">
+                            </div>
+                            <div class="fisrt-name">
+                               <label for="#">First Name</label>
+                               <input  type="text" id="name" placeholder="Nhập tên...">
+                            </div>
+                        </div>
+   
+   
+                        <div class="box-address">
+                           <div class="address">
+                               <label for="#">Address</label>
+                               <input type="text" id="address" placeholder="Nhập địa chỉ">
+                            </div>
+                            <div class="city">
+                               <label for="#">City</label>
+                               <input type="text" id="city" placeholder="Nhập thành phố">
+                            </div>
+                            <div class="code">
+                               <label for="#">Pin Code</label>
+                               <input type="text" id="code" placeholder="Nhập Pin Code">
+                            </div>
+                            <div class="country">
+                               <label for="#">Country</label>
+                               <input type="text" id="country" placeholder="Nhập quốc gia">
+                            </div>
+                        </div>
+   
+                        <div class="hr"></div>
+   
+                        <div class="box">
+                            <input type="hidden" id="user-index">
+                            <button type="submit" class="save" name="save" id="save"> Save </button>
+                            <button type="submit" class="update" name="update" id="update"> Update</button>
+                            <button type="reset" class="reset"  name="reset" id="reset"  >Reset</button>
+                        </div>
+                   </form>
+           </div>
         </div>
-
+         
+       
         <!-- Table -->
         <div class="box-table">
             <div class="inline-top">
                 <div class="title-form">
                     <h2>List Users</h2>
-                    <a href="#" class="add">+ Add</a>
+                    <a href="#" class="btn-add">+ Add</a>
                 </div>
                 <div class="search">
                     <input type="text" name="search" placeholder="Search..." id="searchUsers">

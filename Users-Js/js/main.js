@@ -1,8 +1,9 @@
-var add = document.querySelector('.add');
+var add = document.querySelector('.btn-add');
 var formAdd = document.querySelector('.form-add');
 var close = document.querySelector('.close')
 var overflow = document.querySelector('.overflow');
-var update = document.querySelector('.update')
+var update = document.querySelector('.btn-update');
+var hide = document.querySelector('.btn-hide');
     add.addEventListener('click', function(){
         overflow.classList.add('active');
     });
