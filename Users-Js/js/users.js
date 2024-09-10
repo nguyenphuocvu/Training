@@ -67,12 +67,12 @@ const LIST_USER = {
         });
         listenUpdateUser();
         listenDeleteUser();
-        // listenHide();
+        listenHide();
         pagination();
 
     },
 
-//  class="btn-hide" data-hide="${index}"
+
 
     //Xử lý form
     handleFormSubmit:function() {
@@ -91,15 +91,12 @@ const LIST_USER = {
             
         } else {
             this.editUser(index, user);  
-            this.hideUserForm(index, user);  
+            this.hideUser(index, user);  
         }
  
     },
-    addUser: function () {
-        document.getElementById('update').style.display = 'none';
-      
-    },
-
+ 
+  
     // Reset Form
     resetForm: function() {
         document.getElementById('lastName').value = "";
@@ -123,12 +120,19 @@ const LIST_USER = {
         document.getElementById('code').value = user.code;
         document.getElementById('country').value = user.country;
 
-        document.getElementById('user-index').value = index;
-
-        
+        document.getElementById('user-index').value = index;    
+        document.getElementById('title-hide').style.display = 'block'; 
+        document.getElementById('title-update').style.display = 'none'; 
+        document.getElementById('title-add').style.display = 'none'; 
+        document.getElementById('save').style.display = 'none';
+        document.getElementById('reset').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+    },
+    addUserForm:function () {
+      document.getElementById('title-update').style.display = 'none';  
     },
     //  Form Edit
-    editUser: function(index) {
+    editUserForm: function(index) {
         const user = this.users[index];
         document.getElementById('lastName').value = user.lastName;
         document.getElementById('name').value = user.name;
@@ -142,6 +146,7 @@ const LIST_USER = {
         document.getElementById('update').style.display = 'block';
         document.getElementById('title-add').style.display = 'none';
         document.getElementById('title-update').style.display = 'block'; 
+        document.getElementById('title-hide').style.display = 'none'; 
     },
     //Search
     searchUsers: function(query) {
@@ -212,30 +217,37 @@ function listenHide() {
     });
 }
 //Edit Form
-function listenUpdateUser() {
+
+function listenUpdateUser(){
     const btnUpdate = document.querySelectorAll('.btn-update');
     btnUpdate.forEach(function(item){
         item.addEventListener('click', function(){
             const index = this.getAttribute('data-edit');
-            LIST_USER.editUser(index); 
-            overflow.classList.add('active'); 
+           LIST_USER.editUserForm(index); 
         })
     });  
+    btnUpdate.forEach(element => {
+        element.addEventListener('click', function(){
+            overflow.classList.add('active');
+        });
+    });
 }
-// function listenUpdateUser(){
-//     const Update = document.querySelectorAll('.btn-update');
-//     Update.forEach(function(item){
-//         item.addEventListener('click', function(){
-//             const index = this.getAttribute('data-edit');
-//            LIST_USER.editUser(index); 
-//         })
-//     });
-//     Update.forEach(element => {
-//         element.addEventListener('click', function(){
-//             overflow.classList.add('active');
-//         });
-//     });
-// }
+
+function listenAddUser(){
+    const btnAdd = document.querySelectorAll('.form-add');
+    btnAdd.forEach(function(item){
+        item.addEventListener('click', function(){
+           LIST_USER.addUserForm(index); 
+        
+        })
+    });  
+    btnAdd.forEach(element => {
+        element.addEventListener('click', function(){
+            overflow.classList.add('active');
+        });
+    });
+}
+
 
 //Delete User
 function listenDeleteUser(){
@@ -264,12 +276,6 @@ function searchUsers() {
         }
     });
 }
-// function getUsers() {
-//     return LIST_USER.users;
-// }
-// function createUser(data){
-//    LIST_USER.addUser(data);
-// }
 //Pagination
 function pagination() {
     let currentPage = 1;
@@ -347,7 +353,6 @@ function listenSort(){
     });
 
 };
-
 
 function listUsers() {
     LIST_USER.renderListUser();

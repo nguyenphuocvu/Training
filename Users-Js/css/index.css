@@ -111,7 +111,8 @@ body{
     align-items: center;
     position: relative;
 }
-.title-form #title-update{
+.title-form #title-update,
+.title-form #title-hide{
     display: none;
 }
 .fa-xmark{
