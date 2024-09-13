@@ -36,6 +36,7 @@ const LIST_USER = {
       this.users[id] = updateUser;
       this.saveUsers();
       this.renderListUser();  
+ 
     },
     //Xóa User
     deleteUser: function(id){
@@ -93,7 +94,7 @@ const LIST_USER = {
             this.editUser(index, user);  
             this.hideUser(index, user);  
         }
- 
+    this.renderListUser();
     },
  
   
@@ -276,60 +277,79 @@ function searchUsers() {
         }
     });
 }
+//Phân trang
+function savePage() {
+    localStorage.setItem('currentPage', currentPage);
+}
+//Phân trang
+function loadPage() {
+    const storedPage = localStorage.getItem('currentPage');
+    if (storedPage) {
+        currentPage = parseInt(storedPage, 10);
+    }
+}
+
+let currentPage = 1; //Phân trang
+
 //Pagination
+
 function pagination() {
-    let currentPage = 1;
     const parPage = 5;
     const listItem = document.querySelectorAll('tbody tr');
+
     function loadItem() {
-        const beginGet = parPage * (currentPage -1);
-        const endGet= parPage * currentPage - 1;
-        listItem.forEach((item,key)=>{
-            if(key>= beginGet && key <= endGet){
-                item.style.display = 'table-row';
-            }else{
-                item.style.display = 'none';
-            }
+        const beginGet = parPage * (currentPage - 1);
+        const endGet = parPage * currentPage - 1;
+        listItem.forEach((item, key) => {
+            item.style.display = (key >= beginGet && key <= endGet) ? 'table-row' : 'none';
         });
         listPage();
     }
-    loadItem()
+
     function listPage() {
-         let count = Math.ceil(listItem.length / parPage);
-         document.querySelector('.pagination').innerHTML = '';
-        if(currentPage != 1){
-            let  prev = document.createElement('span');
+        let count = Math.ceil(listItem.length / parPage);
+        document.querySelector('.pagination').innerHTML = '';
+
+        if (currentPage != 1) {
+            let prev = document.createElement('span');
             prev.innerHTML = '<<';
             prev.addEventListener('click', function () {
                 changePage(currentPage - 1);
             });
             document.querySelector('.pagination').appendChild(prev);
-        } 
-        for (let i = 1; i <= count ; i++){
+        }
+
+        for (let i = 1; i <= count; i++) {
             let newPage = document.createElement('span');
             newPage.innerText = i;
-            if(i == currentPage){ 
-                 newPage.classList.add('active');
+            if (i == currentPage) {
+                newPage.classList.add('active');
             }
             newPage.addEventListener('click', function () {
                 changePage(i);
             });
-            document.querySelector('.pagination').appendChild(newPage)
+            document.querySelector('.pagination').appendChild(newPage);
         }
-        if(currentPage != count){
+
+        if (currentPage != count) {
             let next = document.createElement('span');
             next.innerHTML = '>>';
-            next.addEventListener('click', function(){
+            next.addEventListener('click', function () {
                 changePage(currentPage + 1);
             });
             document.querySelector('.pagination').appendChild(next);
         }
     }
-    function changePage(i){
+
+    function changePage(i) {
         currentPage = i;
         loadItem();
+        savePage(); ///Phân trang
     }
+
+    loadItem();
 }
+
 // Sort
 function listenSort(){
     var sortTable = document.querySelectorAll('.sortable');
@@ -366,8 +386,13 @@ function listUsers() {
 }
 
 function main() {
+    loadPage(); //Phân trang
     LIST_USER.init();
     listUsers();
     listenNewUser();
 }
 main();
+
+
+
+
