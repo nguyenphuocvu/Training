@@ -38,13 +38,26 @@ const LIST_USER = {
       this.renderListUser();  
  
     },
-    //Xóa User
+
+    // Xóa User
     deleteUser: function(id){
-        this.users.splice(id, 1);
-        this.saveUsers();
-        this.renderListUser();
-        pagination()
-    },
+    this.users.splice(id, 1); 
+    this.saveUsers();
+    
+    
+    const parPage = 5; 
+    const totalItems = this.users.length; 
+    const totalPages = Math.ceil(totalItems / parPage); 
+
+   
+    if (currentPage > totalPages && currentPage > 1) {
+        currentPage--; 
+    }
+
+    this.renderListUser();
+    pagination(); 
+},
+
 
     //Hiển thị người dùng
     renderListUser: function(){
@@ -292,7 +305,6 @@ function loadPage() {
 let currentPage = 1; //Phân trang
 
 //Pagination
-
 function pagination() {
     const parPage = 5;
     const listItem = document.querySelectorAll('tbody tr');
