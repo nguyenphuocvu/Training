@@ -5,21 +5,30 @@ const LIST_USER = {
     // stringify chuyển đổi thành chuỗi Json
 
     // Hàm lấy dữ liệu Storage
-    loadUsersFromLocalStorage: function () {
+    loadUsersFromLocalStorage: function() {
         const storedUsers = localStorage.getItem('admin');
-        this.users = storedUsers ? JSON.parse(storedUsers) : [];  
-
+        const originalUsers = localStorage.getItem('adminOriginal');
+    
+        if (originalUsers) {
+            this.users = JSON.parse(originalUsers);  
+        } else {
+            this.users = storedUsers ? JSON.parse(storedUsers) : [];
+        }
     },
-
     init:function() {
         this.loadUsersFromLocalStorage();
         this.renderListUser();
+        this.saveUsers();  
+    },
+
+
+    saveUsers: function() {
+        if (!localStorage.getItem('adminOriginal')) {
+            localStorage.setItem('adminOriginal', localStorage.getItem('admin'));  
+        }
     },
     //Lưu danh sách dữ liệu
-    saveUsers: function() {
-        localStorage.setItem('admin',JSON.stringify(this.users));
-    },
-    
+   
     // Thêm User
     addUser: function(user) {
         this.users.unshift(user);
@@ -41,8 +50,6 @@ const LIST_USER = {
       this.renderListUser();  
  
     },
-  
- 
 
     // Xóa User
     deleteUser: function(id){
@@ -62,7 +69,7 @@ const LIST_USER = {
     this.renderListUser();
     pagination(); 
     },
-
+ 
    
 
     //Hiển thị người dùng
@@ -199,6 +206,7 @@ const LIST_USER = {
         });
         this.renderListUser();
     },
+  
 
 
 };
