@@ -6,8 +6,9 @@ const LIST_USER = {
 
     // Hàm lấy dữ liệu Storage
     loadUsersFromLocalStorage: function () {
-        const storedUsers = localStorage.getItem('user');
-        this.users = storedUsers ? JSON.parse(storedUsers) : [];   
+        const storedUsers = localStorage.getItem('admin');
+        this.users = storedUsers ? JSON.parse(storedUsers) : [];  
+
     },
 
     init:function() {
@@ -16,7 +17,7 @@ const LIST_USER = {
     },
     //Lưu danh sách dữ liệu
     saveUsers: function() {
-        localStorage.setItem('user',JSON.stringify(this.users));
+        localStorage.setItem('admin',JSON.stringify(this.users));
     },
     
     // Thêm User
@@ -25,6 +26,8 @@ const LIST_USER = {
         this.saveUsers();
         this.renderListUser();
     },
+
+  
     //Hide User
     hideUser: function(id, hideUser){
         this.users[id] = hideUser;
@@ -38,6 +41,8 @@ const LIST_USER = {
       this.renderListUser();  
  
     },
+  
+ 
 
     // Xóa User
     deleteUser: function(id){
@@ -56,8 +61,9 @@ const LIST_USER = {
 
     this.renderListUser();
     pagination(); 
-},
+    },
 
+   
 
     //Hiển thị người dùng
     renderListUser: function(){
@@ -85,9 +91,6 @@ const LIST_USER = {
         pagination();
 
     },
-
-
-
     //Xử lý form
     handleFormSubmit:function() {
         var lastName = document.getElementById('lastName').value;
@@ -269,22 +272,30 @@ function listenDeleteUser(){
     Delete.forEach(function(item){
         item.addEventListener('click', function(){
             const index = this.getAttribute('data-index');
-            LIST_USER.deleteUser(index);        
+            LIST_USER.deleteUser(index);  
+           
         })
-    });  
+    }); 
+ 
 }
+
 //Search User
 function searchUsers() {
     const SearchUser = document.querySelector('#searchUsers');
     const SearchButton = document.querySelector('.search button');
-    SearchButton.addEventListener('click',function() {
+    
+    SearchButton.addEventListener('click', function () {
         LIST_USER.loadUsersFromLocalStorage();
         const query = SearchUser.value.trim();
-        if(query === ''){
+        
+        if (query === '') {
             LIST_USER.init();
-        }else{
+        } else {
             const filterUser = LIST_USER.searchUsers(query);
             LIST_USER.users = filterUser;
+            
+            // Reset lại currentPage về 1 khi search
+            currentPage = 1; 
             LIST_USER.renderListUser();
             pagination(); 
         }
