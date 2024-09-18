@@ -5,30 +5,21 @@ const LIST_USER = {
     // stringify chuyển đổi thành chuỗi Json
 
     // Hàm lấy dữ liệu Storage
-    loadUsersFromLocalStorage: function() {
+    loadUsersFromLocalStorage: function () {
         const storedUsers = localStorage.getItem('admin');
-        const originalUsers = localStorage.getItem('adminOriginal');
-    
-        if (originalUsers) {
-            this.users = JSON.parse(originalUsers);  
-        } else {
-            this.users = storedUsers ? JSON.parse(storedUsers) : [];
-        }
+        this.users = storedUsers ? JSON.parse(storedUsers) : [];  
+
     },
+
     init:function() {
         this.loadUsersFromLocalStorage();
         this.renderListUser();
-        this.saveUsers();  
-    },
-
-
-    saveUsers: function() {
-        if (!localStorage.getItem('adminOriginal')) {
-            localStorage.setItem('adminOriginal', localStorage.getItem('admin'));  
-        }
     },
     //Lưu danh sách dữ liệu
-   
+    saveUsers: function() {
+        localStorage.setItem('admin',JSON.stringify(this.users));
+    },
+    
     // Thêm User
     addUser: function(user) {
         this.users.unshift(user);
@@ -50,26 +41,24 @@ const LIST_USER = {
       this.renderListUser();  
  
     },
-
+  
     // Xóa User
     deleteUser: function(id){
-    this.users.splice(id, 1); 
-    this.saveUsers();
-    
-    
-    const parPage = 5; 
-    const totalItems = this.users.length; 
-    const totalPages = Math.ceil(totalItems / parPage); 
+        this.users.splice(id, 1); 
+        this.saveUsers();
+        
+        const parPage = 5; 
+        const totalItems = this.users.length; 
+        const totalPages = Math.ceil(totalItems / parPage); 
 
-   
-    if (currentPage > totalPages && currentPage > 1) {
-        currentPage--; 
-    }
+        if (currentPage > totalPages && currentPage > 1) {
+            currentPage--; 
+        }
 
-    this.renderListUser();
-    pagination(); 
+        this.renderListUser();
+        pagination(); 
     },
- 
+
    
 
     //Hiển thị người dùng
@@ -206,7 +195,6 @@ const LIST_USER = {
         });
         this.renderListUser();
     },
-  
 
 
 };
