@@ -5,28 +5,47 @@ const LIST_USER = {
     // stringify chuyển đổi thành chuỗi Json
 
     // Hàm lấy dữ liệu Storage
-    loadUsersFromLocalStorage: function () {
+    loadUsersFromLocalStorage: function() {
         const storedUsers = localStorage.getItem('admin');
-        this.users = storedUsers ? JSON.parse(storedUsers) : [];  
-
+        const originalUsers = localStorage.getItem('adminOriginal');
+    
+        if (originalUsers) {
+            this.users = JSON.parse(originalUsers);  
+        } else {
+            this.users = storedUsers ? JSON.parse(storedUsers) : [];
+        }
     },
+    // loadUsersFromLocalStorage: function () {
+    //     const storedUsers = localStorage.getItem('admin');
+    //     this.users = storedUsers ? JSON.parse(storedUsers) : [];  
+
+    // },
 
     init:function() {
         this.loadUsersFromLocalStorage();
         this.renderListUser();
+        this.saveUsers(); 
     },
     //Lưu danh sách dữ liệu
-    saveUsers: function() {
-        localStorage.setItem('admin',JSON.stringify(this.users));
-    },
-    
+    // saveUsers: function() {
+    //     localStorage.setItem('admin',JSON.stringify(this.users));
+    // },
+
+ //Lưu danh sách dữ liệu
+ saveUsers: function() {
+    localStorage.setItem('admin', JSON.stringify(this.users));
+    if (!localStorage.getItem('adminOriginal')) {
+        localStorage.setItem('adminOriginal', localStorage.getItem('admin'));  
+    }
+},
+   
     // Thêm User
     addUser: function(user) {
+        user.isDeleted = false; xóa
         this.users.unshift(user);
         this.saveUsers();
         this.renderListUser();
     },
-
   
     //Hide User
     hideUser: function(id, hideUser){
@@ -41,52 +60,57 @@ const LIST_USER = {
       this.renderListUser();  
  
     },
-  
+
     // Xóa User
-    deleteUser: function(id){
-        this.users.splice(id, 1); 
+    deleteUser: function(id) {
+        this.users[id].isDeleted = true;  
         this.saveUsers();
         
-        const parPage = 5; 
-        const totalItems = this.users.length; 
-        const totalPages = Math.ceil(totalItems / parPage); 
-
+        const parPage = 5;
+        const totalItems = this.users.filter(user => !user.isDeleted).length; // Đếm người dùng chưa bị xóa
+        const totalPages = Math.ceil(totalItems / parPage);
+    
         if (currentPage > totalPages && currentPage > 1) {
             currentPage--; 
         }
-
+    
         this.renderListUser();
-        pagination(); 
+        pagination();
     },
-
+    
    
 
     //Hiển thị người dùng
-    renderListUser: function(){
+    renderListUser: function() {
         const userListContainer = document.querySelector('#table-user tbody');
         userListContainer.innerHTML = '';
-        this.users.forEach((user, index) => {
+        
+        // Lọc ra những người dùng chưa bị xóa
+        const activeUsers = this.users.filter(user => !user.isDeleted);
+        
+        activeUsers.forEach((user, index) => {
             userListContainer.innerHTML += `
-                 <tr>
-                        <td>${user.name}</td>
-                        <td>${user.address}</td>
-                        <td>${user.city}</td>
-                        <td>${user.code}</td>
-                        <td>${user.country}</td>
-                        <td class="action">
-                            <button class="btn-hide" data-hide="${index}"><i class="fa-regular fa-eye"></i></button> 
-                            <button class="btn-update" data-edit="${index}" ><i class="fa-regular fa-pen-to-square"></i></button>
-                            <button class="delete " data-index="${index}" ><i class="fa-regular fa-trash-can"></i></button> 
-                        </td>
-                </tr> 
+                <tr>
+                    <td>${user.name}</td>
+                    <td>${user.address}</td>
+                    <td>${user.city}</td>
+                    <td>${user.code}</td>
+                    <td>${user.country}</td>
+                    <td class="action">
+                        <button class="btn-hide" data-hide="${index}"><i class="fa-regular fa-eye"></i></button> 
+                        <button class="btn-update" data-edit="${index}"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class="delete" data-index="${index}"><i class="fa-regular fa-trash-can"></i></button> 
+                    </td>
+                </tr>
             `;
         });
+    
         listenUpdateUser();
         listenDeleteUser();
         listenHide();
         pagination();
-
     },
+    
     //Xử lý form
     handleFormSubmit:function() {
         var lastName = document.getElementById('lastName').value;
@@ -195,6 +219,7 @@ const LIST_USER = {
         });
         this.renderListUser();
     },
+  
 
 
 };
