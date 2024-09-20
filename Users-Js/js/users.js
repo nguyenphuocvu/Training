@@ -3,50 +3,56 @@ const LIST_USER = {
 
     // Object => JSON.stringify => localStorage => JSON.parse => Object
     // stringify chuyển đổi thành chuỗi Json
-
+ 
     // Hàm lấy dữ liệu Storage
     loadUsersFromLocalStorage: function() {
-        const storedUsers = localStorage.getItem('admin');
-        const originalUsers = localStorage.getItem('adminOriginal');
+        const storedUsers = localStorage.getItem('adminUser');
+        this.users = storedUsers ? JSON.parse(storedUsers) : [];
     
-        if (originalUsers) {
-            this.users = JSON.parse(originalUsers);  
-        } else {
-            this.users = storedUsers ? JSON.parse(storedUsers) : [];
-        }
+        // Lọc ra người dùng chưa bị xóa
+        const activeUsers = this.users.filter(user => !user.isDeleted);
+        this.users = activeUsers; 
+    
+        this.updatePagination(); 
     },
-    // loadUsersFromLocalStorage: function () {
-    //     const storedUsers = localStorage.getItem('admin');
-    //     this.users = storedUsers ? JSON.parse(storedUsers) : [];  
-
-    // },
-
+    
     init:function() {
         this.loadUsersFromLocalStorage();
         this.renderListUser();
         this.saveUsers(); 
     },
     //Lưu danh sách dữ liệu
-    // saveUsers: function() {
-    //     localStorage.setItem('admin',JSON.stringify(this.users));
-    // },
-
- //Lưu danh sách dữ liệu
- saveUsers: function() {
-    localStorage.setItem('admin', JSON.stringify(this.users));
-    if (!localStorage.getItem('adminOriginal')) {
-        localStorage.setItem('adminOriginal', localStorage.getItem('admin'));  
-    }
-},
+    saveUsers: function() {
+        localStorage.setItem('adminUser',JSON.stringify(this.users));
+    },
    
     // Thêm User
     addUser: function(user) {
-        user.isDeleted = false; xóa
-        this.users.unshift(user);
+        user.isDeleted = false; 
+        this.users.push(user);
         this.saveUsers();
         this.renderListUser();
+        pagination(); 
+
+        // Tính toán trang cuối
+        const totalItems = this.users.filter(user => !user.isDeleted).length;
+        const parPage = 5;
+        const lastPage = Math.ceil(totalItems / parPage);  
+    
+        // Chuyển về trang cuối
+        currentPage = lastPage;
+        
+    
+        setTimeout(() => {
+            const newRow = document.querySelector(`#table-user tbody tr:last-child`);
+            newRow.classList.add('highlight');
+          
+            setTimeout(() => {
+                newRow.classList.remove('highlight');
+            }, 3000);
+        }, 100);
     },
-  
+    
     //Hide User
     hideUser: function(id, hideUser){
         this.users[id] = hideUser;
@@ -65,29 +71,32 @@ const LIST_USER = {
     deleteUser: function(id) {
         this.users[id].isDeleted = true;  
         this.saveUsers();
-        
-        const parPage = 5;
-        const totalItems = this.users.filter(user => !user.isDeleted).length; // Đếm người dùng chưa bị xóa
-        const totalPages = Math.ceil(totalItems / parPage);
-    
-        if (currentPage > totalPages && currentPage > 1) {
-            currentPage--; 
-        }
-    
+        this.updatePagination();
         this.renderListUser();
         pagination();
     },
     
-   
-
+    updatePagination: function() {
+        const parPage = 5;
+        const totalItems = this.users.filter(user => !user.isDeleted).length; 
+        const totalPages = Math.ceil(totalItems / parPage);
+    
+        // Điều chỉnh currentPage nếu cần
+        if (currentPage > totalPages && currentPage > 1) {
+            currentPage--;
+        }
+    
+        savePage(); // Lưu currentPage vào localStorage
+    },
+    
     //Hiển thị người dùng
     renderListUser: function() {
         const userListContainer = document.querySelector('#table-user tbody');
         userListContainer.innerHTML = '';
-        
+    
         // Lọc ra những người dùng chưa bị xóa
         const activeUsers = this.users.filter(user => !user.isDeleted);
-        
+    
         activeUsers.forEach((user, index) => {
             userListContainer.innerHTML += `
                 <tr>
@@ -100,6 +109,12 @@ const LIST_USER = {
                         <button class="btn-hide" data-hide="${index}"><i class="fa-regular fa-eye"></i></button> 
                         <button class="btn-update" data-edit="${index}"><i class="fa-regular fa-pen-to-square"></i></button>
                         <button class="delete" data-index="${index}"><i class="fa-regular fa-trash-can"></i></button> 
+    
+                        <!-- Popover xác nhận -->
+                        <div class="popover-confirm" id="popover-${index}" style="display: none;">
+                        <p>Bạn có chắc muốn xóa?</p>
+                        <button class="confirm-delete" data-index="${index}">Xác nhận</button>
+                        <button class="cancel-delete" data-index="${index}">Hủy</button>
                     </td>
                 </tr>
             `;
@@ -110,30 +125,50 @@ const LIST_USER = {
         listenHide();
         pagination();
     },
-    
     //Xử lý form
-    handleFormSubmit:function() {
+    handleFormSubmit: function() {
         var lastName = document.getElementById('lastName').value;
         var name = document.getElementById('name').value;
         var address = document.getElementById('address').value;
         var city = document.getElementById('city').value;
         var code = document.getElementById('code').value;
-        var country= document.getElementById('country').value;
+        var country = document.getElementById('country').value;
         var index = document.getElementById('user-index').value;
+    
+        var hasError = false; 
+    
+        // Xóa các thông báo lỗi trước đó
+        document.getElementById('error-last-name').innerText = "";
+        document.getElementById('error-first-name').innerText = "";
 
-        const user = { lastName, name, address, city, code,country};
+    
+        // Kiểm tra các trường
+        if (!lastName) {
+            document.getElementById('error-last-name').innerText = "Họ bắt buộc.";
+            hasError = true;
+        }
+        if (!name) {
+            document.getElementById('error-first-name').innerText = "Tên bắt buộc.";
+            hasError = true;
+        }
+       
+    
+        // Nếu có lỗi, ngừng việc gửi biểu mẫu
+        if (hasError) {
+            return; 
+        }
+
+        const user = { lastName, name, address, city, code, country };
         if (index === '') {
             this.addUser(user); 
             this.resetForm();
-            
         } else {
             this.editUser(index, user);  
             this.hideUser(index, user);  
         }
-    this.renderListUser();
+    
+        this.renderListUser();
     },
- 
-  
     // Reset Form
     resetForm: function() {
         document.getElementById('lastName').value = "";
@@ -219,8 +254,6 @@ const LIST_USER = {
         });
         this.renderListUser();
     },
-  
-
 
 };
 
@@ -288,17 +321,35 @@ function listenAddUser(){
 
 
 //Delete User
-function listenDeleteUser(){
-    const Delete = document.querySelectorAll('.delete');
-    Delete.forEach(function(item){
-        item.addEventListener('click', function(){
+
+function listenDeleteUser() {
+    const deleteButtons = document.querySelectorAll('.delete');
+
+    deleteButtons.forEach(function (deleteButton) {
+        deleteButton.addEventListener('click', function () {
             const index = this.getAttribute('data-index');
-            LIST_USER.deleteUser(index);  
-           
-        })
-    }); 
- 
+            const popover = document.getElementById(`popover-${index}`);
+
+            // Show confirmation popover
+            popover.style.display = 'block';
+
+            // Handle the "Confirm" button click
+            const confirmButton = popover.querySelector('.confirm-delete');
+            confirmButton.addEventListener('click', function () {
+                LIST_USER.deleteUser(index);  
+                popover.style.display = 'none'; 
+            });
+
+            // Handle the "Cancel" button click
+            const cancelButton = popover.querySelector('.cancel-delete');
+            cancelButton.addEventListener('click', function () {
+                popover.style.display = 'none'; 
+            });
+        });
+    });
 }
+
+
 
 //Search User
 function searchUsers() {
