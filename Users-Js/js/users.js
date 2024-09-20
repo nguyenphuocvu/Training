@@ -75,7 +75,6 @@ const LIST_USER = {
         this.renderListUser();
         pagination();
     },
-    
     updatePagination: function() {
         const parPage = 5;
         const totalItems = this.users.filter(user => !user.isDeleted).length; 
@@ -88,7 +87,7 @@ const LIST_USER = {
     
         savePage(); // Lưu currentPage vào localStorage
     },
-    
+
     //Hiển thị người dùng
     renderListUser: function() {
         const userListContainer = document.querySelector('#table-user tbody');
