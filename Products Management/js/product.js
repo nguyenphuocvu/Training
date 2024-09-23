@@ -51,10 +51,9 @@ const products = [
         </div>
       `;
       
-
-      productContainer.insertAdjacentHTML('beforeend', productHTML);
+      productContainer.innerHTML += productHTML;
     });
   }
 
-  document.addEventListener('DOMContentLoaded', renderProducts);
   
+  renderProducts();
