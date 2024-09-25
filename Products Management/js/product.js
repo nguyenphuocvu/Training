@@ -1,48 +1,60 @@
+const PRODUCT_INFO = {
+  products: [],
+  // Lấy dữ liệu Local
+  loadProductLocalStorage: function () {
+    const loadProduct = localStorage.getItem('admin')
+    this.products = loadProduct ? JSON.parse(loadProduct) : [];
+    this.renderProducts();
+  },
+  // Lưu dữ liệu
+  saveProduct: function() {
+    localStorage.setItem('admin', JSON.stringify(this.products));
+  },
+  addProduct: function (product) {
+    this.products.push(product);
+    this.renderProducts();
+    this.saveProduct();
+  },
+  validateForm: function() {
+    var fileupload = document.getElementById('fileupload').value;
+    var name = document.getElementById('name').value;
+    var sellingprice = document.getElementById('selling-price').value;
+    var originalprice = document.getElementById('original-price').value;
+    var rate = document.getElementById('rate').value;
+    var address= document.getElementById('address').value;
+    
+    const product = {fileupload, name, sellingprice, originalprice,rate,address}
 
-const products = [
-    {
-      imgSrc: 'https://opencart4.magentech.com/themes/so_emarket/layout3/image/cache/catalog/demo/product/index2/10-270x270.jpg',
-      title: 'Doenpuis consuat',
-      priceNew: '$45.00',
-      priceOld: '$49.00',
-      rating: 5.0,
-      address: 'Đà Nẵng'
-    },
-    {
-      imgSrc: 'https://opencart4.magentech.com/themes/so_emarket/layout3/image/cache/catalog/demo/product/index2/12-270x270.jpg',
-      title: 'Consuat Product',
-      priceNew: '$50.00',
-      priceOld: '$60.00',
-      rating: 4.5,
-      address: 'Hà Nội'
-    }
-
-  ];
+    this.addProduct(product);
+    this.addProduct(product);
+    this.renderProducts();
+  },
   
 
-  function renderProducts() {
+  // Hiển thị sản phẩm
+  renderProducts: function() {
     const productContainer = document.querySelector('.products'); 
     productContainer.innerHTML = '';
     
-    products.forEach(product => {
+    this.products.forEach(product => {
       const productHTML = `
         <div class="product">
           <button class="item-ellip">
             <i class="fa-solid fa-ellipsis"></i> 
           </button>
-          <div class="product-img">
-            <img src="${product.imgSrc}" alt="">
-          </div>
+         <div class="product-img">
+          <img src="${product.fileupload}" alt="Product Image">
+        </div>
           <h2 class="product-title">
-            ${product.title}
+            ${product.name}
           </h2>
           <div class="price">
-            <span class="price-new-ol">${product.priceNew}</span>
-            <span class="price-old"><del>${product.priceOld}</del></span>
+            <span class="price-new-ol">${product.sellingprice }</span>
+            <span class="price-old"><del>${product.originalprice}</del></span>
           </div>
           <div class="star">
             <i class="fa fa-star" aria-hidden="true"></i>
-            <p>${product.rating}</p>
+            <p>${product.rate}</p>
           </div>
           <div class="address-form">
             <i class="fa-solid fa-location-dot"></i>
@@ -51,9 +63,32 @@ const products = [
         </div>
       `;
       
-      productContainer.innerHTML += productHTML;
+ productContainer.innerHTML += productHTML;     
     });
-  }
-
+  },
+ 
   
-  renderProducts();
+
+
+  };
+
+  // EvenListenner
+  //Save Product
+    function listNewSave() {
+      var form = document.getElementById('save');
+      form.addEventListener('click', function (event) {
+        event.preventDefault();  
+        PRODUCT_INFO.validateForm();
+      })
+    }
+    function  listAddProduct() {
+      const btnAdd = document.querySelectorAll('.form-add');
+      btnAdd.forEach(element => {
+          element.addEventListener('click', function(){
+            formhome.classList.add('active');
+          });
+      });
+    }
+  PRODUCT_INFO.loadProductLocalStorage();
+  listNewSave();
+  listAddProduct();

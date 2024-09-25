@@ -121,7 +121,7 @@ label {
 }
 
 /* Form AddProduct */
-.product-home{
+.formhome{
     position: fixed;
     top: 0;
     left: 0;
@@ -132,6 +132,10 @@ label {
     display: none;
 }
 
+
+.formhome.active {
+    display: block;
+}
 .close {
     margin-left: auto; 
     cursor: pointer; 
@@ -245,17 +249,4 @@ label {
 }
 
 
-.drag-drop-text {
-    padding-left: 0.25rem;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
-    color: #4b5563; 
-}
 
-
-.file-info-text {
-    font-size: 0.75rem; 
-    line-height: 1.25rem; 
-    color: #4b5563; 
-    margin-top: 0.5rem;
-}
