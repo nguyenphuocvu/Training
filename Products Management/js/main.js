@@ -3,7 +3,7 @@ var formAdd = document.querySelector('.form-add');
 var formhome = document.querySelector('.formhome');
 var closeBtn = document.querySelector('.close i');
 
-add.addEventListener('click', function () {
+add.addEventListener('click', function (event) {
     event.preventDefault();  
     formhome.classList.add('active');  
 });
