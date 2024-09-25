@@ -24,31 +24,27 @@ const PRODUCT_INFO = {
     var rate = document.getElementById('rate').value;
     var address = document.getElementById('address').value;
   
-
-    if (fileupload && fileupload.files && fileupload.files[0]) {
+    // Tạo đối tượng product
+    const product = {
+      fileupload: fileupload.value, // Bạn muốn lưu giá trị của fileupload, nhưng cần kiểm tra giá trị này.
+      name,
+      sellingprice,
+      originalprice,
+      rate,
+      address
+    };
+  
+    this.addProduct(product);  // Lưu sản phẩm
+    this.renderProducts();     // Hiển thị lại danh sách sản phẩm
+  
+    fileupload.addEventListener('change', function (e) {
       var img = document.createElement('img');
-      img.src = URL.createObjectURL(fileupload.files[0]);
-  
- 
-      var uploadArea = document.querySelector('.upload-content');
-      uploadArea.innerHTML = ''; 
-      uploadArea.appendChild(img);
-  
-      const product = {
-        fileupload: URL.createObjectURL(fileupload.files[0]), 
-        name, sellingprice, originalprice, rate, address
-      };
-  
-      this.addProduct(product);
-    } else {
-      const product = {
-        fileupload: '',
-        name, sellingprice, originalprice, rate, address
-      };
-      this.addProduct(product);
-    }
+      img.src = URL.createObjectURL(fileupload.files[0]);  // Chuyển file ảnh thành URL tạm thời
+      var uploadButton = document.querySelector('.upload-content'); // Giả sử bạn có .upload-content là nơi bạn muốn hiển thị hình ảnh
+      uploadButton.innerHTML = '';  // Xóa nội dung trước đó
+      uploadButton.appendChild(img); // Thêm hình ảnh mới vào
+    });
   },
-  
   
   renderProducts: function () {
     const productContainer = document.querySelector('.products'); 
@@ -86,15 +82,37 @@ const PRODUCT_INFO = {
 };
 
 // EvenListener
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('fileupload').addEventListener('change', function (e) {
-    var img = document.createElement('img');
-    img.src = URL.createObjectURL(e.target.files[0]);
+
+  // document.getElementById('fileupload').addEventListener('change', function (e) {
+  //   var img = document.createElement('img');
+  //   img.src = URL.createObjectURL(e.target.files[0]);
     
-    var uploadArea = document.querySelector('.upload-content');
-    uploadArea.innerHTML = ''; 
-    uploadArea.appendChild(img);
+  //   var uploadArea = document.querySelector('.upload-content');
+  //   uploadArea.innerHTML = ''; 
+  //   uploadArea.appendChild(img);
+  // });
+  
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var fileUpload = document.getElementById('fileupload');
+    if (fileUpload) {
+      fileUpload.addEventListener('change', function (e) {
+        var img = document.createElement('img');
+        img.src = URL.createObjectURL(e.target.files[0]);
+        
+        var uploadArea = document.querySelector('.upload-content');
+        uploadArea.innerHTML = ''; 
+        uploadArea.appendChild(img);
+      });
+    } else {
+      console.error('Element with ID "fileupload" not found.');
+    }
+  
+    // Save Product
+    listNewSave();
+    listAddProduct();
   });
+  
 
   // Save Product
   function listNewSave() {
@@ -118,4 +136,4 @@ document.addEventListener('DOMContentLoaded', function () {
   PRODUCT_INFO.loadProductLocalStorage();
   listNewSave();
   listAddProduct();
-});
+
