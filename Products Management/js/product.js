@@ -16,34 +16,28 @@ const PRODUCT_INFO = {
     this.saveProduct();
     this.renderProducts();
   },
+  
+  
   validateForm: function() {
-    var fileupload = document.getElementById('fileupload');
+    var fileupload = document.getElementById('fileupload').files[0];
     var name = document.getElementById('name').value;
     var sellingprice = document.getElementById('selling-price').value;
     var originalprice = document.getElementById('original-price').value;
     var rate = document.getElementById('rate').value;
     var address = document.getElementById('address').value;
   
-    // Tạo đối tượng product
+
+    var imgUrl = fileupload ? URL.createObjectURL(fileupload) : '';
     const product = {
-      fileupload: fileupload.value, // Bạn muốn lưu giá trị của fileupload, nhưng cần kiểm tra giá trị này.
+      fileupload: imgUrl, 
       name,
       sellingprice,
       originalprice,
       rate,
       address
     };
-  
-    this.addProduct(product);  // Lưu sản phẩm
-    this.renderProducts();     // Hiển thị lại danh sách sản phẩm
-  
-    fileupload.addEventListener('change', function (e) {
-      var img = document.createElement('img');
-      img.src = URL.createObjectURL(fileupload.files[0]);  // Chuyển file ảnh thành URL tạm thời
-      var uploadButton = document.querySelector('.upload-content'); // Giả sử bạn có .upload-content là nơi bạn muốn hiển thị hình ảnh
-      uploadButton.innerHTML = '';  // Xóa nội dung trước đó
-      uploadButton.appendChild(img); // Thêm hình ảnh mới vào
-    });
+
+    this.addProduct(product);     
   },
   
   renderProducts: function () {
@@ -51,7 +45,8 @@ const PRODUCT_INFO = {
     productContainer.innerHTML = '';
     
     this.products.forEach(product => {
-      const productHTML = `
+      
+      productContainer.innerHTML += `
         <div class="product">
           <button class="item-ellip">
             <i class="fa-solid fa-ellipsis"></i> 
@@ -76,64 +71,55 @@ const PRODUCT_INFO = {
           </div>
         </div>
       `;
-      productContainer.innerHTML += productHTML;     
+    
     });
+
   },
 };
 
 // EvenListener
 
-  // document.getElementById('fileupload').addEventListener('change', function (e) {
-  //   var img = document.createElement('img');
-  //   img.src = URL.createObjectURL(e.target.files[0]);
-    
-  //   var uploadArea = document.querySelector('.upload-content');
-  //   uploadArea.innerHTML = ''; 
-  //   uploadArea.appendChild(img);
-  // });
-  
+  // UploadImg
+  function ListUploadImg() {
+    const fileupload = document.getElementById('fileupload');
+    fileupload.addEventListener('change', function () {
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var fileUpload = document.getElementById('fileupload');
-    if (fileUpload) {
-      fileUpload.addEventListener('change', function (e) {
-        var img = document.createElement('img');
-        img.src = URL.createObjectURL(e.target.files[0]);
-        
-        var uploadArea = document.querySelector('.upload-content');
-        uploadArea.innerHTML = ''; 
-        uploadArea.appendChild(img);
-      });
-    } else {
-      console.error('Element with ID "fileupload" not found.');
-    }
-  
-    // Save Product
-    listNewSave();
-    listAddProduct();
-  });
-  
+      var img = document.createElement('img');
+      img.src = URL.createObjectURL(fileupload.files[0]);  
+      
 
+      var uploadButton = document.querySelector('.upload-content'); 
+      uploadButton.innerHTML = ''; 
+      uploadButton.appendChild(img);
+    });
+  }
+  
+ 
   // Save Product
   function listNewSave() {
     var form = document.getElementById('save');
-    form.addEventListener('click', function (event) {
-      event.preventDefault();  
+    form.addEventListener('click', function (e) {
+      e.preventDefault();  
       PRODUCT_INFO.validateForm();
     });
   }
-
+  
   function listAddProduct() {
     const btnAdd = document.querySelectorAll('.form-add');
+  
     btnAdd.forEach(element => {
       element.addEventListener('click', function() {
-        const formhome = document.querySelector('.form-home'); 
+        const formhome = document.querySelector('.formhome'); 
         formhome.classList.add('active');
       });
     });
   }
+  
+
+
 
   PRODUCT_INFO.loadProductLocalStorage();
   listNewSave();
   listAddProduct();
+  ListUploadImg();
 
