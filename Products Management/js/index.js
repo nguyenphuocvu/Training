@@ -1,4 +1,3 @@
-
 const PRODUCT_INFO = {
     products: [],
 
@@ -41,7 +40,7 @@ const PRODUCT_INFO = {
 
             this.addProduct(product); 
         };
-        reader.createObjectURL(file); 
+        reader.readAsDataURL(file); 
 
         const uploadText = document.querySelector('.uploadbutton');
         if (uploadText) {
@@ -67,9 +66,7 @@ const PRODUCT_INFO = {
         this.products.forEach(product => {
             productContainer.innerHTML += `
                 <div class="product">
-                    <button class="item-ellip">
-                        <i class="fa-solid fa-ellipsis"></i> 
-                    </button>
+                    <button class="item-ellip" data-index="${index}"><i class="fa-solid fa-ellipsis"></i></button>
                     <div class="product-img">
                         <img src="${product.fileupload}" alt="Product Image">
                     </div>
@@ -107,31 +104,26 @@ const PRODUCT_INFO = {
     
     // Img Base64
     document.getElementById('fileupload').addEventListener('change', function (e) {
-        // const file = e.target.files[0]; 
-        const file = fileupload.files[0]; 
+        const file = e.target.files[0]; 
         const uploadArea = document.querySelector('.upload-area'); 
         const img = document.createElement('img'); 
         const uploadText = document.querySelector('.uploadbutton'); 
 
+       
         uploadArea.querySelector('img')?.remove();
 
         if (file) {
-            img.src = URL.createObjectURL(file)
-             uploadArea.appendChild(img); 
-             if (uploadText) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                img.src = e.target.result; 
+
+                uploadArea.appendChild(img); 
+
+                if (uploadText) {
                     uploadText.style.display = 'none';
-             }
-            // const reader = new FileReader();
-            // reader.onload = function (e) {
-            //     img.src = e.target.result; 
-
-            //     uploadArea.appendChild(img); 
-
-            //     if (uploadText) {
-            //         uploadText.style.display = 'none';
-            //     }
-            // };
-            // reader.createObjectURL(file); 
+                }
+            };
+            reader.readAsDataURL(file); 
         }
     });
 
