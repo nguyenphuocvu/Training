@@ -176,7 +176,6 @@ const PRODUCT_INFO = {
       if (file) {
           reader.readAsDataURL(file); 
       } else {
-     
           alert("Please upload an image file.");
       }
   },
@@ -246,7 +245,7 @@ document.getElementById('fileupload').addEventListener('change', function (event
   const uploadArea = document.querySelector('.upload-area'); 
   const imgElement = document.createElement('img'); 
 
-  // Clear any previous image
+  
   uploadArea.querySelector('img')?.remove();
 
   if (file) {
