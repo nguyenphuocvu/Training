@@ -95,47 +95,33 @@ const PRODUCT_INFO = {
 };
 
    // Event listeners
+
+    // Save
     function listNewSave() {
     var form = document.getElementById('save');
     form.addEventListener('click', function (event) {
         event.preventDefault();
         PRODUCT_INFO.validateForm(); 
     });
-    }
-
-    function listAddProduct() {
-        const btnAdd = document.querySelectorAll('.form-add');
-        const btnClose = document.querySelector('.close');
-        const formhome = document.querySelector('.formhome'); 
-        btnAdd.forEach(item => {
-            item.addEventListener('click', function() {
-                formhome.classList.add('active');
-            });
-        });
-        btnClose.addEventListener('click', function(){
-                formhome.classList.remove('active');
-           })
-    }
+    };
     
- 
-    
-    document.getElementById('fileupload').addEventListener('change', function (event) {
-        const file = event.target.files[0]; 
+    // Img Base64
+    document.getElementById('fileupload').addEventListener('change', function (e) {
+        const file = e.target.files[0]; 
         const uploadArea = document.querySelector('.upload-area'); 
-        const imgElement = document.createElement('img'); 
+        const img = document.createElement('img'); 
         const uploadText = document.querySelector('.uploadbutton'); 
 
-        // Xóa ảnh cũ nếu có
+       
         uploadArea.querySelector('img')?.remove();
 
         if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                imgElement.src = e.target.result; 
+                img.src = e.target.result; 
 
-                uploadArea.appendChild(imgElement); 
+                uploadArea.appendChild(img); 
 
-                // Ẩn chữ "Upload a file"
                 if (uploadText) {
                     uploadText.style.display = 'none';
                 }
@@ -147,4 +133,4 @@ const PRODUCT_INFO = {
 
 PRODUCT_INFO.loadProductLocalStorage();
 listNewSave();
-listAddProduct();
+

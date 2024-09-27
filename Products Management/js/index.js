@@ -1,129 +1,141 @@
-// const PRODUCT_INFO = {
-//   products: [],
-  
-//   loadProductLocalStorage: function () {
-//     const loadProduct = localStorage.getItem('admin');
-//     this.products = loadProduct ? JSON.parse(loadProduct) : [];
-//     this.renderProducts();
-//   },
-  
-//   saveProduct: function () {
-//     localStorage.setItem('admin', JSON.stringify(this.products));
-//   },
-  
-//   addProduct: function (product) {
-//     this.products.push(product);
-//     this.saveProduct();
-//     this.renderProducts();
-//   },
-  
-  
-  
-//   validateForm: function() {
-//     var fileupload = document.getElementById('fileupload')?.files[0];
-//     var name = document.getElementById('name').value;
-//     var sellingprice = document.getElementById('selling-price').value;
-//     var originalprice = document.getElementById('original-price').value;
-//     var rate = document.getElementById('rate').value;
-//     var address = document.getElementById('address').value;
-  
 
-//     var imgUrl = fileupload ? URL.createObjectURL(fileupload) : '';
-//     const product = {
-//       fileupload: imgUrl, 
-//       name,
-//       sellingprice,
-//       originalprice,
-//       rate,
-//       address
-//     };
+const PRODUCT_INFO = {
+    products: [],
 
-//     this.addProduct(product);     
-//   },
-  
+    loadProductLocalStorage: function () {
+        const loadProduct = localStorage.getItem('admin');
+        this.products = loadProduct ? JSON.parse(loadProduct) : [];
+        this.renderProducts();
+    },
 
-//   renderProducts: function() {
-//     const productContainer = document.querySelector('.products'); 
-//     productContainer.innerHTML = '';
+    saveProduct: function () {
+        localStorage.setItem('admin', JSON.stringify(this.products));
+    },
+
+    addProduct: function (product) {
+        this.products.push(product);
+        this.renderProducts();
+        this.saveProduct();
+        this.resetForm();
+    },
+
+    validateForm: function () {
+        const fileupload = document.getElementById('fileupload');
+        const file = fileupload.files[0]; 
+        const name = document.getElementById('name').value;
+        const sellingprice = document.getElementById('selling-price').value;
+        const originalprice = document.getElementById('original-price').value;
+        const rate = document.getElementById('rate').value;
+        const address = document.getElementById('address').value;
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const product = {
+                fileupload: reader.result, 
+                name,
+                sellingprice,
+                originalprice,
+                rate,
+                address
+            };
+
+            this.addProduct(product); 
+        };
+        reader.createObjectURL(file); 
+
+        const uploadText = document.querySelector('.uploadbutton');
+        if (uploadText) {
+            uploadText.style.display = 'block'; 
+        }
+    },
+    resetForm: function () {
+        document.getElementById('fileupload').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('selling-price').value = '';
+        document.getElementById('original-price').value = '';
+        document.getElementById('rate').value = '';
+        document.getElementById('address').value = '';
+
+        const uploadArea = document.querySelector('.upload-area');
+        uploadArea.querySelector('img')?.remove();
+    },
+
+    renderProducts: function () {
+        const productContainer = document.querySelector('.products');
+        productContainer.innerHTML = '';
+
+        this.products.forEach(product => {
+            productContainer.innerHTML += `
+                <div class="product">
+                    <button class="item-ellip">
+                        <i class="fa-solid fa-ellipsis"></i> 
+                    </button>
+                    <div class="product-img">
+                        <img src="${product.fileupload}" alt="Product Image">
+                    </div>
+                    <h2 class="product-title">
+                        ${product.name}
+                    </h2>
+                    <div class="price">
+                        <span class="price-new-ol">${product.sellingprice}</span>
+                        <span class="price-old"><del>${product.originalprice}</del></span>
+                    </div>
+                    <div class="star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <p>${product.rate}</p>
+                    </div>
+                    <div class="address-form">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>${product.address}</p>
+                    </div>
+                </div>
+            `;
+        });
+    },
+};
+
+   // Event listeners
+
+    // Save
+    function listNewSave() {
+    var form = document.getElementById('save');
+    form.addEventListener('click', function (event) {
+        event.preventDefault();
+        PRODUCT_INFO.validateForm(); 
+    });
+    };
     
-//     this.products.forEach(product => {
-     
-      
-//       const productHTML = `
-//         <div class="product">
-//           <button class="item-ellip">
-//             <i class="fa-solid fa-ellipsis"></i> 
-//           </button>
-//           <div class="product-img">
-//              <img src="${product.fileupload}" alt="">
-//           </div>
-//           <h2 class="product-title">
-//             ${product.name}
-//           </h2>
-//           <div class="price">
-//             <span class="price-new-ol">${product.sellingprice }</span>
-//             <span class="price-old"><del>${product.originalprice}</del></span>
-//           </div>
-//           <div class="star">
-//             <i class="fa fa-star" aria-hidden="true"></i>
-//             <p>${product.rate}</p>
-//           </div>
-//           <div class="address-form">
-//             <i class="fa-solid fa-location-dot"></i>
-//             <p id="address">${product.address}</p>
-//           </div>
-//         </div>
-//       `;
-      
-//       productContainer.innerHTML += productHTML;     
-//     });
-//   },
- 
-  
-// };
+    // Img Base64
+    document.getElementById('fileupload').addEventListener('change', function (e) {
+        // const file = e.target.files[0]; 
+        const file = fileupload.files[0]; 
+        const uploadArea = document.querySelector('.upload-area'); 
+        const img = document.createElement('img'); 
+        const uploadText = document.querySelector('.uploadbutton'); 
 
-// // EvenListener
+        uploadArea.querySelector('img')?.remove();
 
-//   // UploadImg
-//   function ListUploadImg() {
-//     const fileupload = document.getElementById('fileupload');
-//     fileupload.addEventListener('change', function () {
+        if (file) {
+            img.src = URL.createObjectURL(file)
+             uploadArea.appendChild(img); 
+             if (uploadText) {
+                    uploadText.style.display = 'none';
+             }
+            // const reader = new FileReader();
+            // reader.onload = function (e) {
+            //     img.src = e.target.result; 
 
-//       var img = document.createElement('img');
-//       img.src = URL.createObjectURL(fileupload.files[0]);  
-      
+            //     uploadArea.appendChild(img); 
 
-//       var uploadButton = document.querySelector('.upload-content'); 
-//       uploadButton.innerHTML = ''; 
-//       uploadButton.appendChild(img);
-//     });
-//   }
+            //     if (uploadText) {
+            //         uploadText.style.display = 'none';
+            //     }
+            // };
+            // reader.createObjectURL(file); 
+        }
+    });
 
 
-//   // Save Product
-//   function listNewSave() {
-//     var form = document.getElementById('save');
-//     form.addEventListener('click', function (e) {
-//       e.preventDefault();  
-//       PRODUCT_INFO.validateForm();
-//     });
-//   }
-  
-//   function listAddProduct() {
-//     const btnAdd = document.querySelectorAll('.form-add');
-  
-//     btnAdd.forEach(element => {
-//       element.addEventListener('click', function() {
-//         const formhome = document.querySelector('.formhome'); 
-//         formhome.classList.add('active');
-//       });
-//     });
-//   }
-  
+PRODUCT_INFO.loadProductLocalStorage();
+listNewSave();
 
-
-
-//   PRODUCT_INFO.loadProductLocalStorage();
-//   listNewSave();
-//   listAddProduct();
-//   ListUploadImg();
