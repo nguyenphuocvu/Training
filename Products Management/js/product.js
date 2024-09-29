@@ -6,7 +6,7 @@ const PRODUCT_INFO = {
     loadProductLocalStorage: function () {
         const loadProduct = localStorage.getItem('admin');
         this.products = loadProduct ? JSON.parse(loadProduct) : [];
-        this.renderProducts();
+        // this.renderProducts();
     },
 
     saveProduct: function () {
