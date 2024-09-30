@@ -1,3 +1,4 @@
+
 *{
     padding: 0;
     margin: 0;
@@ -33,7 +34,9 @@ label {
    align-items: center;
    position: relative;
 }
-
+.title-form #title-update{
+    display: none;
+}
 .header-title .btn-add {
     border: 1px solid;
     border-radius: 5px;
@@ -110,6 +113,8 @@ label {
 .product-img{
     position: relative;
     display: inline-block;
+    border: 1px solid;
+    border-radius: 10px;
 }
 .product-img img{
     display: block; 
@@ -276,6 +281,23 @@ label {
   }
 .upload-button:hover {
     color: #4338ca; 
+}
+.popover-confirm {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 250px;
+}
+.popover-confirm p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.popover-confirm button {
+    margin-right: 5px;
 }
 
 
