@@ -10,6 +10,7 @@ const PRODUCT_INFO = {
     saveProduct: function () {
         localStorage.setItem('admin', JSON.stringify(this.products));
     },
+
     //Thêm sản phẩm
     addProduct: function (product) {
         this.products.push(product);
@@ -23,6 +24,7 @@ const PRODUCT_INFO = {
       this.products.splice(id, 1);
       this.saveProduct();
       this.renderProducts();
+      pagination();
     },
     // Sửa sản phẩm
     editButton: function (id) {
@@ -58,8 +60,6 @@ const PRODUCT_INFO = {
         }
         this.resetForm();
         this.addProduct(product);
-        this.editProduct(index, product);
-
         this.renderProducts();
     },
 
@@ -125,36 +125,32 @@ const PRODUCT_INFO = {
     editProductForm: function (index) {
         const product = this.products[index];
     
-        // Đưa thông tin sản phẩm vào form
+       
         document.getElementById('name').value = product.name;
         document.getElementById('selling-price').value = product.sellingprice;
         document.getElementById('original-price').value = product.originalprice;
         document.getElementById('rate').value = product.rate;
         document.getElementById('address').value = product.address;
     
-  
         const uploadArea = document.querySelector('.upload-area');
-        uploadArea.querySelector('img')?.remove(); 
+        uploadArea.querySelector('img')?.remove();
         const img = document.createElement('img');
         img.src = product.fileupload ? product.fileupload : '';
         uploadArea.appendChild(img);
     
-
         document.getElementById('save').style.display = 'none';
         document.getElementById('update').style.display = 'block';
         document.getElementById('title-add').style.display = 'none';
         document.getElementById('title-update').style.display = 'block';
     
-
         document.getElementById('update').onclick = () => {
             const fileupload = document.getElementById('fileupload');
-            const file = fileupload.files[0]; 
+            const file = fileupload.files[0];
     
-         
             const imgUrl = file ? URL.createObjectURL(file) : product.fileupload;
     
             const updatedProduct = {
-                fileupload: imgUrl,  // Cập nhật ảnh mới nếu có
+                fileupload: imgUrl,  
                 name: document.getElementById('name').value,
                 sellingprice: document.getElementById('selling-price').value,
                 originalprice: document.getElementById('original-price').value,
@@ -162,13 +158,16 @@ const PRODUCT_INFO = {
                 address: document.getElementById('address').value
             };
     
-            // Lưu lại sản phẩm đã cập nhật
+        
             this.products[index] = updatedProduct;
-            this.saveProduct();  
-            this.renderProducts();  
-            this.resetForm();  
+            this.saveProduct();
+            this.renderProducts();
+
+            pagination();
+            this.resetForm();
         };
     },
+    
     
     
   
@@ -271,38 +270,54 @@ const PRODUCT_INFO = {
         })
     }
     //Phân trang 
-  
-    // function pagination() {
-    //     let currentPage = 1;
-    //     let perPage = 8; 
-        
-    //     function loadItems() {
-    //         const beginGet = (currentPage - 1) * perPage;
-    //         const endGet = beginGet + perPage; 
-    //         listItem.forEach((item, key) => {
-    //             item.style.display = (key >= beginGet && key <= endGet) ? 'table-row' : 'none';
-    //         });
-    //         listPage();
-    //     }
-    //     function listPage() {
-    //         let count = Math.ceil(listItem.length / perPage);
+    let currentPage = 1;
 
-    //         for (let i = 1; i <= count; i++) {
-    //             let newPage = document.createElement('span');
-    //             newPage.innerText = i;
-    //             if (i == currentPage) {
-    //                 newPage.classList.add('active');
-    //             }
-    //             newPage.addEventListener('click', function () {
-    //                 changePage(i);
-    //             });
-    //             document.querySelector('.pagination').appendChild(newPage);
-    //         }
-    //     }
-    //     currentPage = i;
-    //     loadItems();
-    //     listPage();
-    // }
+    function pagination() {
+    
+        let perPage = 8; 
+        const listItem = document.querySelectorAll('.product');
+        
+        // Làm hiển  thị trên trang
+        function loadItems() {
+            const beginGet = (currentPage - 1) * perPage;
+            const endGet =  beginGet + perPage; 
+            
+            listItem.forEach((item, key) => {
+                item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
+            });
+ 
+            listPage();
+        }
+        //Làm các nút khi chọn trang
+        function listPage() {
+            const totalItems = listItem.length;         
+            const pageCount = Math.ceil(totalItems / perPage);  
+    
+            const paginationContainer = document.querySelector('.pagination');
+            paginationContainer.innerHTML = ''; 
+    
+            for (let i = 1; i <= pageCount; i++) {
+                let newPage = document.createElement('span');
+                newPage.innerText = i;
+                newPage.classList.add('page-number'); 
+                if (i === currentPage) {
+                    newPage.classList.add('active');  
+                }
+    
+                // Xử lý khi nhấn vào số trang
+                newPage.addEventListener('click', function () {
+                    currentPage = i;
+                    loadItems();  
+                });
+    
+                paginationContainer.appendChild(newPage);
+            }
+        }
+        
+      
+        loadItems();
+      
+    }
     
 
 PRODUCT_INFO.loadProductLocalStorage();
