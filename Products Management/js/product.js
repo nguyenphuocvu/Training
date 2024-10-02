@@ -61,6 +61,14 @@ const PRODUCT_INFO = {
         this.resetForm();
         this.addProduct(product);
         this.renderProducts();
+
+    // if (index === ''){
+    //     this.addProduct(product);
+    //     this.resetForm();
+    // }else{
+    //     this.editButton( index , product);
+    //     this.deleteProduct (index , product);
+    // }
     },
 
     resetForm: function () {
@@ -117,15 +125,14 @@ const PRODUCT_INFO = {
                 </div>
             `;
         });
-        EllipButtons();
+        listEllipButtons();
         listDeleteProduct();
         listEditProduct();
-        pagination();
+        // pagination();
     },
     editProductForm: function (index) {
         const product = this.products[index];
     
-       
         document.getElementById('name').value = product.name;
         document.getElementById('selling-price').value = product.sellingprice;
         document.getElementById('original-price').value = product.originalprice;
@@ -143,7 +150,8 @@ const PRODUCT_INFO = {
         document.getElementById('title-add').style.display = 'none';
         document.getElementById('title-update').style.display = 'block';
     
-        document.getElementById('update').onclick = () => {
+        document.getElementById('update').onclick = (e) => {
+            e.preventDefault()
             const fileupload = document.getElementById('fileupload');
             const file = fileupload.files[0];
     
@@ -162,16 +170,17 @@ const PRODUCT_INFO = {
             this.products[index] = updatedProduct;
             this.saveProduct();
             this.renderProducts();
-
             pagination();
-            this.resetForm();
         };
     },
     
-    
-    
-  
+    sortLeft: function () {
+        
+    },
 
+    sortRight: function () {
+        
+    }
 };
 
    // Event listeners
@@ -205,7 +214,7 @@ const PRODUCT_INFO = {
     });
 
     //Nút ba chấm
-    function EllipButtons() {
+    function listEllipButtons() {
         const ellipButtons = document.querySelectorAll('.item-ellip');
         ellipButtons.forEach(button => {
             button.addEventListener('click', function(event) {
@@ -258,7 +267,8 @@ const PRODUCT_INFO = {
        //Xử lý phần sửa sản phẩm
         const editButton = document.querySelectorAll('.edit-btn');
         editButton.forEach(item => {
-            item.addEventListener('click', function (){
+            item.addEventListener('click', function (e){
+                e.preventDefault();
                 const index = this.getAttribute('data-edit');
                 PRODUCT_INFO.editProductForm(index);
             })
@@ -270,61 +280,60 @@ const PRODUCT_INFO = {
         })
     }
     //Phân trang 
-    let currentPage = 1;
+    // let currentPage = 1;
 
-    function pagination() {
-    
-        let perPage = 8; 
-        const listItem = document.querySelectorAll('.product');
+    // function pagination() {
+    //     let perPage = 8; 
+    //     const listItem = document.querySelectorAll('.product');
         
-        // Làm hiển  thị trên trang
-        function loadItems() {
-            const beginGet = (currentPage - 1) * perPage;
-            const endGet =  beginGet + perPage; 
+    //     // Làm hiển  thị trên trang
+    //     function loadItems() {
+    //         const beginGet = (currentPage - 1) * perPage;
+    //         const endGet =  beginGet + perPage; 
             
-            listItem.forEach((item, key) => {
-                item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
-            });
+    //         listItem.forEach((item, key) => {
+    //             item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
+    //         });
  
-            listPage();
-        }
-        //Làm các nút khi chọn trang
-        function listPage() {
-            const totalItems = listItem.length;         
-            const pageCount = Math.ceil(totalItems / perPage);  
+    //         listPage();
+    //     }
+    //     //Làm các nút khi chọn trang
+    //     function listPage() {
+    //         const totalItems = listItem.length;         
+    //         const pageCount = Math.ceil(totalItems / perPage);  
     
-            const paginationContainer = document.querySelector('.pagination');
-            paginationContainer.innerHTML = ''; 
+    //         const paginationContainer = document.querySelector('.pagination');
+    //         paginationContainer.innerHTML = ''; 
     
-            for (let i = 1; i <= pageCount; i++) {
-                let newPage = document.createElement('span');
-                newPage.innerText = i;
-                newPage.classList.add('page-number'); 
-                if (i === currentPage) {
-                    newPage.classList.add('active');  
-                }
+    //         for (let i = 1; i <= pageCount; i++) {
+    //             let newPage = document.createElement('span');
+    //             newPage.innerText = i;
+    //             newPage.classList.add('page-number'); 
+    //             if (i === currentPage) {
+    //                 newPage.classList.add('active');  
+    //             }
     
-                // Xử lý khi nhấn vào số trang
-                newPage.addEventListener('click', function () {
-                    currentPage = i;
-                    loadItems();  
-                });
+    //             // Xử lý khi nhấn vào số trang
+    //             newPage.addEventListener('click', function () {
+    //                 currentPage = i;
+    //                 loadItems();  
+    //             });
     
-                paginationContainer.appendChild(newPage);
-            }
-        }
+    //             paginationContainer.appendChild(newPage);
+    //         }
+    //     }
         
       
-        loadItems();
+    //     loadItems();
       
-    }
+    // }
     
 
 PRODUCT_INFO.loadProductLocalStorage();
 listNewSave();
 listEditProduct();
 listDeleteProduct();
-pagination();
+// pagination();
 
 
 
