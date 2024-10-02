@@ -181,6 +181,7 @@ const PRODUCT_INFO = {
     sortRight: function () {
         
     }
+    
 };
 
    // Event listeners
@@ -212,7 +213,24 @@ const PRODUCT_INFO = {
             }
         }
     });
-
+   
+    closeImg.addEventListener('click', function () {
+        sronly.classList.remove('active');
+    
+     
+        const fileupload = document.getElementById('fileupload');
+        fileupload.value = ''; 
+    
+     
+        const uploadArea = document.querySelector('.upload-area');
+        uploadArea.querySelector('img')?.remove();
+    
+   
+        const uploadText = document.querySelector('.uploadbutton');
+        if (uploadText) {
+            uploadText.style.display = 'block';
+        }
+    });
     //Nút ba chấm
     function listEllipButtons() {
         const ellipButtons = document.querySelectorAll('.item-ellip');
@@ -279,6 +297,7 @@ const PRODUCT_INFO = {
             })
         })
     }
+ 
     //Phân trang 
     // let currentPage = 1;
 

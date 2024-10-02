@@ -178,7 +178,8 @@ label {
 .formhome.active {
     display: block;
 }
-.close {
+.close,
+.close-img{
     margin-left: auto; 
     cursor: pointer; 
 }

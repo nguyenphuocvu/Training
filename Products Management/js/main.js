@@ -2,7 +2,8 @@ var add = document.querySelector('.btn-add');
 var formAdd = document.querySelector('.form-add');
 var formhome = document.querySelector('.formhome');
 var closeBtn = document.querySelector('.close ');
-
+var sronly = document.querySelector('.sr-only')
+var closeImg = document.querySelector('.close-img')
 
 add.addEventListener('click', function (event) {
     event.preventDefault();  
@@ -11,6 +12,9 @@ add.addEventListener('click', function (event) {
 closeBtn.addEventListener('click', function () {
     formhome.classList.remove('active'); 
 });
+closeImg.addEventListener('click', function () {
+     sronly.classList.remove('active')
+})
 formhome.addEventListener('click', function () {
     formhome.classList.remove('active');
 });
@@ -18,3 +22,4 @@ formhome.addEventListener('click', function () {
 formAdd.addEventListener('click',function(e){
     e.stopPropagation();
 })
+
