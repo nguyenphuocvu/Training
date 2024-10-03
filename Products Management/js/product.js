@@ -62,13 +62,7 @@ const PRODUCT_INFO = {
         this.addProduct(product);
         this.renderProducts();
 
-    // if (index === ''){
-    //     this.addProduct(product);
-    //     this.resetForm();
-    // }else{
-    //     this.editButton( index , product);
-    //     this.deleteProduct (index , product);
-    // }
+        formhome.classList.remove('active');
     },
 
     resetForm: function () {
@@ -170,7 +164,9 @@ const PRODUCT_INFO = {
             this.products[index] = updatedProduct;
             this.saveProduct();
             this.renderProducts();
-            pagination();
+            // pagination();
+
+            formhome.classList.remove('active');
         };
     },
     
@@ -184,16 +180,7 @@ const PRODUCT_INFO = {
     
 };
 
-   // Event listeners
-
-    // Save
-    function listNewSave() {
-    var form = document.getElementById('save');
-    form.addEventListener('click', function (event) {
-        event.preventDefault();
-        PRODUCT_INFO.validateForm(); 
-    });
-    };
+    // Event listeners
 
     // Hàm xử lý img ảnh
     document.getElementById('fileupload').addEventListener('change', function (e) {
@@ -231,6 +218,18 @@ const PRODUCT_INFO = {
             uploadText.style.display = 'block';
         }
     });
+
+    
+    // Save
+    function listNewSave() {
+    var form = document.getElementById('save');
+    form.addEventListener('click', function (event) {
+        event.preventDefault();
+        PRODUCT_INFO.validateForm(); 
+    });
+    };
+
+ 
     //Nút ba chấm
     function listEllipButtons() {
         const ellipButtons = document.querySelectorAll('.item-ellip');

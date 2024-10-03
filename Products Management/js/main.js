@@ -4,6 +4,7 @@ var formhome = document.querySelector('.formhome');
 var closeBtn = document.querySelector('.close ');
 var sronly = document.querySelector('.sr-only')
 var closeImg = document.querySelector('.close-img')
+// var upDate = document.querySelector('btn-update');
 
 add.addEventListener('click', function (event) {
     event.preventDefault();  
