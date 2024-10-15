@@ -17,6 +17,10 @@ const PRODUCT_INFO = {
         this.renderProducts();
         this.saveProduct();
         this.resetForm();
+
+        const totalItems = this.products.length;
+        const perPage = 4;
+        currentPage = Math.ceil(totalItems /  perPage)
     },
 
     // Xóa sản phẩm
@@ -63,6 +67,23 @@ const PRODUCT_INFO = {
         this.renderProducts();
 
         formhome.classList.remove('active');
+
+        //Error 
+        const hasError = false;
+        if(hasError){
+            return;
+        }
+        document.getElementById('error-name').innerText = "";
+        document.getElementById('error-selling').innerText = "";
+
+        if (!name){
+            document.getElementById('error-name').innerText = "Tên bắt buộc";
+            hasError = true;
+        }
+        if(!selling){
+            document.getElementById('error-selling').innerText = "Giá bắt buộc."
+            hasError = true
+        }
     },
 
     resetForm: function () {
@@ -122,7 +143,7 @@ const PRODUCT_INFO = {
         listEllipButtons();
         listDeleteProduct();
         listEditProduct();
-        // pagination();
+        pagination();
     },
     editProductForm: function (index) {
         const product = this.products[index];
@@ -164,19 +185,29 @@ const PRODUCT_INFO = {
             this.products[index] = updatedProduct;
             this.saveProduct();
             this.renderProducts();
-            // pagination();
+            pagination();
 
             formhome.classList.remove('active');
         };
     },
     
-    sortLeft: function () {
-        
+    sortLeft: function (key) {
+         this.products.sort((a,b)=>{
+            if (a[key] > b[key]) return -1;
+            if (a[key] < b[key]) return 1;
+            return 0;
+         })
+         this.renderProducts(); 
     },
 
-    sortRight: function () {
-        
-    }
+    sortRight: function (key) {
+        this.products.sort((a,b)=>{
+            if (a[key] < b[key]) return +1;
+            if(a[key] > b[key]) return 1
+            return 0;
+        })
+        this.renderProducts(); 
+    }   
     
 };
 
@@ -297,61 +328,90 @@ const PRODUCT_INFO = {
         })
     }
  
-    //Phân trang 
-    // let currentPage = 1;
+    // Phân trang 
+    let currentPage = 1;
 
-    // function pagination() {
-    //     let perPage = 8; 
-    //     const listItem = document.querySelectorAll('.product');
+    function pagination() {
+        const perPage = 4; 
+        const listItem = document.querySelectorAll('.product');
         
-    //     // Làm hiển  thị trên trang
-    //     function loadItems() {
-    //         const beginGet = (currentPage - 1) * perPage;
-    //         const endGet =  beginGet + perPage; 
+        // Làm hiển  thị trên trang
+        function loadItems() {
+            const beginGet = (currentPage - 1) * perPage;
+            const endGet =  beginGet + perPage;
             
-    //         listItem.forEach((item, key) => {
-    //             item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
-    //         });
+            listItem.forEach((item, key) => {
+                item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
+            });
  
-    //         listPage();
-    //     }
-    //     //Làm các nút khi chọn trang
-    //     function listPage() {
-    //         const totalItems = listItem.length;         
-    //         const pageCount = Math.ceil(totalItems / perPage);  
+            listPage();
+        }
+        //Làm các nút khi chọn trang
+        function listPage() {
+            const totalItems = listItem.length;         
+            const pageCount = Math.ceil(totalItems / perPage);  
     
-    //         const paginationContainer = document.querySelector('.pagination');
-    //         paginationContainer.innerHTML = ''; 
+            const paginationContainer = document.querySelector('.pagination');
+            paginationContainer.innerHTML = ''; 
     
-    //         for (let i = 1; i <= pageCount; i++) {
-    //             let newPage = document.createElement('span');
-    //             newPage.innerText = i;
-    //             newPage.classList.add('page-number'); 
-    //             if (i === currentPage) {
-    //                 newPage.classList.add('active');  
-    //             }
+            
+            if (currentPage !== 1) {
+                let prev = document.createElement('span');
+                prev.innerHTML = '<';
+                prev.addEventListener('click', function () {
+                    changePage(currentPage - 1);
+                });
+                paginationContainer.appendChild(prev);
+            }
+
+
+
+            for (let i = 1; i <= pageCount; i++) {
+                let newPage = document.createElement('span');
+                newPage.innerText = i;
+                newPage.classList.add('page-number'); 
+                if (i === currentPage) {
+                    newPage.classList.add('active');  
+                }
     
-    //             // Xử lý khi nhấn vào số trang
-    //             newPage.addEventListener('click', function () {
-    //                 currentPage = i;
-    //                 loadItems();  
-    //             });
+                // Xử lý khi nhấn vào số trang
+                newPage.addEventListener('click', function () {
+                    currentPage = i;
+                    loadItems();  
+                });
     
-    //             paginationContainer.appendChild(newPage);
-    //         }
-    //     }
+                paginationContainer.appendChild(newPage);
+            }
+
+            if (currentPage !== pageCount) {
+                let next = document.createElement('span');
+                next.innerHTML = '>';
+                next.addEventListener('click', function () {
+                    changePage(currentPage + 1);
+                });
+                paginationContainer.appendChild(next);
+            }
+
+       
+        }
+        function changePage(i){
+            currentPage = i;
+            loadItems();
+            saveProduct();
+        }
         
       
-    //     loadItems();
+        loadItems();
       
-    // }
+    }
+    
     
 
 PRODUCT_INFO.loadProductLocalStorage();
 listNewSave();
 listEditProduct();
 listDeleteProduct();
-// pagination();
+pagination();
 
 
 
