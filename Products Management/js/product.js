@@ -329,81 +329,81 @@ const PRODUCT_INFO = {
     }
  
     // Phân trang 
-    let currentPage = 1;
+    // let currentPage = 1;
 
-    function pagination() {
-        const perPage = 4; 
-        const listItem = document.querySelectorAll('.product');
+    // function pagination() {
+    //     const perPage = 4; 
+    //     const listItem = document.querySelectorAll('.product');
         
-        // Làm hiển  thị trên trang
-        function loadItems() {
-            const beginGet = (currentPage - 1) * perPage;
-            const endGet =  beginGet + perPage;
+    //     // Làm hiển  thị trên trang
+    //     function loadItems() {
+    //         const beginGet = (currentPage - 1) * perPage;
+    //         const endGet =  beginGet + perPage;
             
-            listItem.forEach((item, key) => {
-                item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
-            });
+    //         listItem.forEach((item, key) => {
+    //             item.style.display = (key >= beginGet && key < endGet) ? 'block' : 'none';
+    //         });
  
-            listPage();
-        }
-        //Làm các nút khi chọn trang
-        function listPage() {
-            const totalItems = listItem.length;         
-            const pageCount = Math.ceil(totalItems / perPage);  
+    //         listPage();
+    //     }
+    //     //Làm các nút khi chọn trang
+    //     function listPage() {
+    //         const totalItems = listItem.length;         
+    //         const pageCount = Math.ceil(totalItems / perPage);  
     
-            const paginationContainer = document.querySelector('.pagination');
-            paginationContainer.innerHTML = ''; 
+    //         const paginationContainer = document.querySelector('.pagination');
+    //         paginationContainer.innerHTML = ''; 
     
             
-            if (currentPage !== 1) {
-                let prev = document.createElement('span');
-                prev.innerHTML = '<';
-                prev.addEventListener('click', function () {
-                    changePage(currentPage - 1);
-                });
-                paginationContainer.appendChild(prev);
-            }
+    //         if (currentPage !== 1) {
+    //             let prev = document.createElement('span');
+    //             prev.innerHTML = '<';
+    //             prev.addEventListener('click', function () {
+    //                 changePage(currentPage - 1);
+    //             });
+    //             paginationContainer.appendChild(prev);
+    //         }
 
 
 
-            for (let i = 1; i <= pageCount; i++) {
-                let newPage = document.createElement('span');
-                newPage.innerText = i;
-                newPage.classList.add('page-number'); 
-                if (i === currentPage) {
-                    newPage.classList.add('active');  
-                }
+    //         for (let i = 1; i <= pageCount; i++) {
+    //             let newPage = document.createElement('span');
+    //             newPage.innerText = i;
+    //             newPage.classList.add('page-number'); 
+    //             if (i === currentPage) {
+    //                 newPage.classList.add('active');  
+    //             }
     
-                // Xử lý khi nhấn vào số trang
-                newPage.addEventListener('click', function () {
-                    currentPage = i;
-                    loadItems();  
-                });
+    //             // Xử lý khi nhấn vào số trang
+    //             newPage.addEventListener('click', function () {
+    //                 currentPage = i;
+    //                 loadItems();  
+    //             });
     
-                paginationContainer.appendChild(newPage);
-            }
+    //             paginationContainer.appendChild(newPage);
+    //         }
 
-            if (currentPage !== pageCount) {
-                let next = document.createElement('span');
-                next.innerHTML = '>';
-                next.addEventListener('click', function () {
-                    changePage(currentPage + 1);
-                });
-                paginationContainer.appendChild(next);
-            }
+    //         if (currentPage !== pageCount) {
+    //             let next = document.createElement('span');
+    //             next.innerHTML = '>';
+    //             next.addEventListener('click', function () {
+    //                 changePage(currentPage + 1);
+    //             });
+    //             paginationContainer.appendChild(next);
+    //         }
 
        
-        }
-        function changePage(i){
-            currentPage = i;
-            loadItems();
-            saveProduct();
-        }
+    //     }
+    //     function changePage(i){
+    //         currentPage = i;
+    //         loadItems();
+    //         saveProduct();
+    //     }
         
       
-        loadItems();
+    //     loadItems();
       
-    }
+    // }
     
     
 
@@ -411,7 +411,7 @@ PRODUCT_INFO.loadProductLocalStorage();
 listNewSave();
 listEditProduct();
 listDeleteProduct();
-pagination();
+// pagination();
 
 
 
