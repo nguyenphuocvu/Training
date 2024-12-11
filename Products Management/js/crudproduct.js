@@ -129,7 +129,7 @@ editProductForm = (index) => {
     document.getElementById('rate').value = product.rate;
     document.getElementById('address').value = product.address;
 
-    // Hiển thị hình ảnh hiện tại (nếu có) trong upload area
+
     const uploadArea = document.querySelector('.upload-area');
     uploadArea.querySelector('img')?.remove();
     const img = document.createElement('img');
@@ -144,14 +144,14 @@ editProductForm = (index) => {
     document.getElementById('update').onclick = (e) => {
         e.preventDefault();
 
-        // Lấy file từ input file upload
+        
         const fileupload = document.getElementById('fileupload');
         const file = fileupload.files[0];
 
-        // Nếu có file, tạo URL mới; nếu không, giữ hình ảnh cũ
+     
         const imgUrl = file ? URL.createObjectURL(file) : product.fileupload;
 
-        // Cập nhật thông tin sản phẩm
+     
         const updatedProduct = {
             fileupload: imgUrl,
             name: document.getElementById('name').value,
@@ -161,7 +161,7 @@ editProductForm = (index) => {
             address: document.getElementById('address').value
         };
 
-        // Ghi đè sản phẩm tại vị trí index trong mảng products
+       
         products[index] = updatedProduct;   
         saveLocalStorage(products); 
         renderProduct(); 
@@ -188,7 +188,18 @@ fileUpload.addEventListener('change' , (e) => {
             }
         }     
 })
+closeImg.addEventListener('click' , () => {
+   sronly.classList.remove('active')
 
+   const fileupload = document.getElementById('fileupload')
+   fileupload.value = ''
+
+   const uploadArea = document.querySelector('.upload-area')
+   uploadArea.querySelector('img')?.remove();   
+
+   const uploadText = document.querySelector('.uploadbutton')
+   uploadText.style.display = 'block'
+})
 //Sự kiện click
 eventSave = () =>{
    var clickSave = document.getElementById('save')
@@ -247,42 +258,17 @@ eventDelete = () =>{
         })
     }) 
 }
-eventEdit = () =>{
-    const clickEdit = document.querySelectorAll('.edit-btn')
-    clickEdit.forEach(button => {
-        button.addEventListener('click' , (e) =>{
-            e.preventDefault()
-            const index = getAttribute('data-edit')
-            editProductForm(index)
-        })
-    })
-    clickEdit.forEach(e => {
-        e.addEventListener('click', () => {
-             formhome.classList.add('active')
-        })
-    })
-}
 eventEdit = () => {
     const clickEdit = document.querySelectorAll('.edit-btn');
     clickEdit.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Lấy chỉ số sản phẩm từ thuộc tính data-edit
+            e.preventDefault();     
             const index = button.getAttribute('data-edit');
-            
-          
             editProductForm(index); 
-            
-            // Hiển thị form sửa (ẩn form thêm nếu cần)
             document.querySelector('.formhome').classList.add('active');
         });
     });
 };
-
-
-
-
 
 eventSave()
 eventEdit()

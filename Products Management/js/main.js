@@ -7,7 +7,7 @@ var closeImg = document.querySelector('.close-img')
 
 
 add.addEventListener('click',(event) => {
-    event.preventDefault();  
+    event.preventDefault();   
     formhome.classList.add('active');  
 });
 closeBtn.addEventListener('click',() => {
