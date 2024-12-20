@@ -88,55 +88,6 @@ const validateForm = () => {
     renderTrello();
 };
 
-const editEvent = () => {
-    const editList = document.querySelectorAll('.title-list');
-
-    editList.forEach((listElement) => {
-        listElement.addEventListener('click', (e) => {
-            const target = e.target;
-            const previousValue = target.value;
-            target.dataset.previousValue = previousValue;
-        })
-    })
-    const editCard = document.querySelectorAll('.list-cart-item_title');
-     editCard.forEach((createElement) => {
-        createElement.addEventListener('click', (e) => {
-            const target = e.target;
-            const previousValue = target.value;
-            target.dataset.previousValue = previousValue;
-        })
-     })
-
-     editList.forEach((listElement) => {
-        listElement.addEventListener('blur', (e) => {
-            const target = e.target;
-            const newValue = target.value;
-            const previousValue = target.dataset.previousValue;
-            const index = target.getAttribute('date-index');
-            if(newValue !== previousValue){
-                editTrello(index, newValue);
-
-            }
-        })
-     })
-
-     editCard.forEach((createElement) => {
-        createElement.addEventListener('blur', (e) => {
-            const target = e.target;
-            const newValue = target.value;
-            const previousValue = target.dataset.previousValue;
-            const parentIndex  = target.getAttribute('data-parent-index');
-            const cartIndex = target.getAttribute('data-card-index');
-            if(newValue !== previousValue){
-                trellos[parentIndex].cards[cartIndex].title =newValue;
-                saveLocalStorage(trellos);
-                renderTrello();
-
-            }
-        })
-     })
-
-};
 
 const renderCard = () => {
     const formCard = document.createElement('div');
@@ -166,7 +117,9 @@ const saveCard = (button) => {
     const formCard = renderCard();
 
     const existingForm = parentCard.querySelector('.form-card');
-    if (existingForm) existingForm.remove();
+    if (existingForm) {
+        existingForm.remove();
+    }
 
     parentCard.appendChild(formCard);
 
@@ -184,42 +137,6 @@ const saveCard = (button) => {
         formCard.remove();
     });
 };
-
-const eventDelete = () => {
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const index = button.getAttribute('data-delete');
-            const popover = document.getElementById(`popover-${index}`);
-            if (popover) {
-                popover.style.display = 'block';
-            }
-
-            const confirmDelete = popover.querySelector('.confirm-delete');
-            const cancelDelete = popover.querySelector('.cancel-delete');
-
-            confirmDelete.addEventListener('click', () => {
-                deleteTrello(index);
-            });
-
-            cancelDelete.addEventListener('click', () => {
-                popover.style.display = 'none';
-            });
-        });
-    });
-};
-
-const eventCart = () => {
-    const addCartButton = document.querySelectorAll('.btn-card');
-    addCartButton.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            saveCard(button);
-        });
-    });
-};
-
 const evenAddColumn = () => {
     const clickAddColumn = document.getElementById('title-list');
     if (clickAddColumn) {
@@ -254,6 +171,83 @@ const evenDots = () => {
     });
 };
 
+const eventDelete = () => {
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = button.getAttribute('data-delete');
+            const popover = document.getElementById(`popover-${index}`);
+            if (popover) {
+                popover.style.display = 'block';
+            }
+
+            const confirmDelete = popover.querySelector('.confirm-delete');
+            const cancelDelete = popover.querySelector('.cancel-delete');
+
+            confirmDelete.addEventListener('click', () => {
+                deleteTrello(index);
+            });
+
+            cancelDelete.addEventListener('click', () => {
+                popover.style.display = 'none';
+            });
+        });
+    });
+};
+const eventCart = () => {
+    const addCartButton = document.querySelectorAll('.btn-card');
+    addCartButton.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            saveCard(button);
+        });
+    });
+};
+const editEvent = () => {
+    const editList = document.querySelectorAll('.title-list');
+    editList.forEach((listElement) => {
+        listElement.addEventListener('focus', (e) => {
+            const target = e.target;
+            const previousValue = target.value; 
+            target.setAttribute('data-previousValue', previousValue); 
+        });
+
+        listElement.addEventListener('blur', (e) => {
+            const target = e.target;
+            const newValue = target.value; 
+            const previousValue = target.getAttribute('data-previousValue'); 
+            const index = target.getAttribute('data-index'); 
+
+            if (newValue !== previousValue) {
+                editTrello(index, newValue); 
+            }
+        });
+    });
+
+    const editCard = document.querySelectorAll('.list-cart-item_title');
+    editCard.forEach((cardElement) => {
+        cardElement.addEventListener('focus', (e) => {
+            const target = e.target;
+            const previousValue = target.value;
+            target.setAttribute('data-previousValue', previousValue);
+        });
+
+        cardElement.addEventListener('blur', (e) => {
+            const target = e.target;
+            const newValue = target.value;
+            const previousValue = target.getAttribute('data-previousValue');
+            const parentIndex = target.getAttribute('data-parent-index');
+            const cardIndex = target.getAttribute('data-card-index');
+
+            if (newValue !== previousValue) {
+                trellos[parentIndex].cards[cardIndex].title = newValue;
+                saveLocalStorage(trellos);
+                renderTrello();
+            }
+        });
+    });
+};
 
 
 
