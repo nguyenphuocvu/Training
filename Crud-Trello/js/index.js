@@ -1,6 +1,6 @@
-var addAnother = document.querySelector('.btn-another');
+var addAnother = document.querySelector('.btn-another')
 var formHomeadd = document.querySelector('.form-homeadd'); 
-var formAdd = document.querySelector('.form-add'); 
+var formCard = document.querySelector('.form-card')
 var closeBtn = document.querySelector('.close');
 var clickDots = document.querySelector('.dots')
 
