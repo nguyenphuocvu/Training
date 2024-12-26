@@ -10,13 +10,14 @@ const getFromLocalStorage = () => {
 let trellos = getFromLocalStorage();
 
 const addTrello = (trello) => {
+    trello.isDelete = false;
     trellos.push(trello);
     saveLocalStorage(trellos); 
     renderTrello();
 };
 
 const deleteTrello = (id) => {
-    trellos.splice(id, 1);
+    trellos[id].isDelete = true;
     saveLocalStorage(trellos);
     renderTrello();
 };
@@ -32,8 +33,10 @@ const editTrello = (id, newTitle) => {
 const renderTrello = () => {
     const trelloContainer = document.querySelector('.trello-column');
     trelloContainer.innerHTML = '';
+    
+    const filteredTrellos = trellos.filter((trello) => !trello.isDelete);
 
-    trellos.forEach((trello, index) => {
+    filteredTrellos.forEach((trello, index) => {
         const cardsHTML = trello.cards
             ? trello.cards.map((card, cardIndex) =>
                 `<div class="list-cart-item">
@@ -73,11 +76,13 @@ const renderTrello = () => {
             </div>
         `;
     });
+
     editEvent();
     eventDelete();
     eventCart();
-    evenDots();
+    eventDots();
 };
+
 
 const validateForm = () => {
     const title = document.getElementById('title').value; 
@@ -112,6 +117,22 @@ const renderCard = () => {
     return formCard;
 };
 
+const eventAddColumn = () => {
+    const clickAddColumn = document.getElementById('title-list');
+    if (clickAddColumn) {
+        clickAddColumn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const newTrello = validateForm();
+            if (newTrello) {
+                addTrello(newTrello);
+            }
+
+            document.querySelector('.form-homeadd').classList.remove('active');
+        });
+    }
+};
+
 const saveCard = (button) => {
     const parentCard = button.closest('.another-card');
     const formCard = renderCard();
@@ -137,23 +158,8 @@ const saveCard = (button) => {
         formCard.remove();
     });
 };
-const evenAddColumn = () => {
-    const clickAddColumn = document.getElementById('title-list');
-    if (clickAddColumn) {
-        clickAddColumn.addEventListener('click', (e) => {
-            e.preventDefault();
 
-            const newTrello = validateForm();
-            if (newTrello) {
-                addTrello(newTrello);
-            }
-
-            document.querySelector('.form-homeadd').classList.remove('active');
-        });
-    }
-};
-
-const evenDots = () => {
+const eventDots = () => {
     const clickDots = document.querySelectorAll('.dots');
     clickDots.forEach((button) => {
         button.addEventListener('click', (e) => {
@@ -252,6 +258,6 @@ const editEvent = () => {
 
 
 eventDelete();
-evenAddColumn();
+eventAddColumn();
 renderTrello();
-evenDots();
+eventDots();
