@@ -1,3 +1,26 @@
+var addAnother = document.querySelector('.btn-another');
+var formHomeadd = document.querySelector('.form-homeadd'); 
+var closeBtn = document.querySelector('.close');
+var formAdd = document.querySelector('.form-add');
+
+addAnother.addEventListener('click', (e) => {
+    e.preventDefault();
+    formHomeadd.classList.add('active'); 
+});
+
+closeBtn.addEventListener('click', (e) => {
+    formHomeadd.classList.remove('active');
+});
+
+
+
+formHomeadd.addEventListener('click', (e) => {
+    if (!e.target.closest('.form-add')) {
+        formHomeadd.classList.remove('active');
+    }
+});
+
+
 const saveLocalStorage = (trellos) => {
     localStorage.setItem('trellos', JSON.stringify(trellos));
 };
@@ -256,8 +279,10 @@ const editEvent = () => {
 };
 
 
-
-eventDelete();
-eventAddColumn();
-renderTrello();
-eventDots();
+function main() {
+    eventDelete();
+    eventAddColumn();
+    renderTrello();
+    eventDots();
+}
+main();
