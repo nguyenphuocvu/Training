@@ -1,24 +1,4 @@
-var addAnother = document.querySelector('.btn-another');
-var formHomeadd = document.querySelector('.form-homeadd'); 
-var closeBtn = document.querySelector('.close');
-var formAdd = document.querySelector('.form-add');
-
-addAnother.addEventListener('click', (e) => {
-    e.preventDefault();
-    formHomeadd.classList.add('active'); 
-});
-
-closeBtn.addEventListener('click', (e) => {
-    formHomeadd.classList.remove('active');
-});
-
-formHomeadd.addEventListener('click', (e) => {
-    if (!e.target.closest('.form-add')) {
-        formHomeadd.classList.remove('active');
-    }
-});
-
-
+// var formAdd = document.querySelector('.form-add');
 const saveLocalStorage = (trellos) => {
     localStorage.setItem('trellos', JSON.stringify(trellos));
 };
@@ -99,13 +79,14 @@ const renderTrello = () => {
     eventCart();
     eventDots();
 };
-const  checkID = () => {
-    if(trellos.length === 0){
-        return 1;
-    }
-    return trellos[trellos.length - 1].id + 1;
-}
+
 const validateForm = () => {
+    const  checkID = () => {
+        if(trellos.length === 0){
+            return 1;
+        }
+        return trellos[trellos.length - 1].id + 1;
+    }
     const title = document.getElementById('title').value; 
     const trello = {
         id: checkID(),
@@ -142,7 +123,26 @@ const renderCard = () => {
 };
 
 const eventAddColumn = () => {
+    var formHomeadd = document.querySelector('.form-homeadd'); 
+    formHomeadd.addEventListener('click', (e) => {
+        if (!e.target.closest('.form-add')) {
+            formHomeadd.classList.remove('active');
+        }
+    });
+        
+    var addAnother = document.querySelector('.btn-another');
+    addAnother.addEventListener('click', (e) => {
+        e.preventDefault();
+        formHomeadd.classList.add('active'); 
+    });
+
+    var closeBtn = document.querySelector('.close');
+    closeBtn.addEventListener('click', (e) => {
+        formHomeadd.classList.remove('active');
+    });
+
     const clickAddColumn = document.getElementById('title-list');
+
     if (clickAddColumn) {
         clickAddColumn.addEventListener('click', (e) => {
             e.preventDefault();
