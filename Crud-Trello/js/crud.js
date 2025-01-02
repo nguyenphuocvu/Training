@@ -1,4 +1,4 @@
-// var formAdd = document.querySelector('.form-add');
+
 const saveLocalStorage = (trellos) => {
     localStorage.setItem('trellos', JSON.stringify(trellos));
 };
@@ -123,18 +123,18 @@ const renderCard = () => {
 };
 
 const eventAddColumn = () => {
-    var formHomeadd = document.querySelector('.form-homeadd'); 
-    formHomeadd.addEventListener('click', (e) => {
-        if (!e.target.closest('.form-add')) {
-            formHomeadd.classList.remove('active');
-        }
-    });
-        
     var addAnother = document.querySelector('.btn-another');
     addAnother.addEventListener('click', (e) => {
         e.preventDefault();
         formHomeadd.classList.add('active'); 
     });
+
+    var formHomeadd = document.querySelector('.form-homeadd'); 
+    formHomeadd.addEventListener('click', (e) => {
+        if (!e.target.closest('.form-add')) {
+            formHomeadd.classList.remove('active');
+        }
+    }); 
 
     var closeBtn = document.querySelector('.close');
     closeBtn.addEventListener('click', (e) => {
