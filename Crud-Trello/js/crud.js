@@ -16,6 +16,17 @@ const addTrello = (trello) => {
     saveLocalStorage(trellos); 
     renderTrello();
 };
+const addCard = (id, newCard) => {
+   
+    const trello = trellos.find(t => t.id === +id)
+    if(trello){
+        trello.cards = trello.cards || [];
+        trello.cards.push(newCard)
+        saveLocalStorage(trellos);
+        renderTrello();
+    }
+   
+}
 const deleteTrello = (id) => {
     const trello = trellos.find(t => t.id === +id);
     trello.isDelete = true;
@@ -80,25 +91,6 @@ const renderTrello = () => {
     eventDots();
 };
 
-const validateForm = () => {
-    const  checkID = () => {
-        if(trellos.length === 0){
-            return 1;
-        }
-        return trellos[trellos.length - 1].id + 1;
-    }
-    const title = document.getElementById('title').value; 
-    const trello = {
-        id: checkID(),
-        title,
-        card: [],
-        isDelete: false
-    };
-    addTrello(trello);
-    renderTrello();
-};
-
-
 const renderCard = () => {
     const formCard = document.createElement('div');
     formCard.classList.add('form-card');
@@ -121,6 +113,25 @@ const renderCard = () => {
 
     return formCard;
 };
+
+const validateForm = () => {
+    const  checkID = () => {
+        if(trellos.length === 0){
+            return 1;
+        }
+        return trellos[trellos.length - 1].id + 1;
+    }
+    const title = document.getElementById('title').value; 
+    const trello = {
+        id: checkID(),
+        title,
+        card: [],
+        isDelete: false
+    };
+    addTrello(trello);
+    renderTrello();
+};
+
 
 const eventAddColumn = () => {
     var addAnother = document.querySelector('.btn-another');
@@ -156,7 +167,8 @@ const eventAddColumn = () => {
         });
     }
 };
-const saveCard = (button) => {
+
+const eventAddCard = (button) => {
     const parentCard = button.closest('.another-card');
     const formCard = renderCard();
 
@@ -170,15 +182,12 @@ const saveCard = (button) => {
     const saveButton = formCard.querySelector('.btn-save-card');
     saveButton.addEventListener('click', () => {
         const title = formCard.querySelector('.new-card-title').value;
-        const id = parentCard.querySelector('.title-list').getAttribute('data-id'); 
+        const id = parentCard.getAttribute('data-id'); 
 
-        const newCard = { title };
-        const trello = trellos.find(t => t.id === parseInt(id));
-        trello.cards = trello.cards || [];
-        trello.cards.push(newCard);
-
-        saveLocalStorage(trellos);
-        renderTrello();
+       if(title){
+           const newCard = {title }
+           addCard(id, newCard)
+       }
         formCard.remove();
     });
 };
@@ -231,7 +240,7 @@ const eventCart = () => {
     addCartButton.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            saveCard(button);
+            eventAddCard(button);
         });
     });
 };
