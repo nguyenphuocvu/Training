@@ -17,7 +17,6 @@ const addTrello = (trello) => {
     renderTrello();
 };
 const addCard = (id, newCard) => {
-   
     const trello = trellos.find(t => t.id === +id)
     if(trello){
         trello.cards = trello.cards || [];
@@ -33,12 +32,29 @@ const deleteTrello = (id) => {
     saveLocalStorage(trellos);
     renderTrello();
 };
+const deleteCard = (id, cardIndex) => {
+    const trello = trellos.find(t => t.id === +id);
+    if (trello && trello.cards && trello.cards.length > cardIndex) {
+        trello.cards.splice(cardIndex, 1); 
+        saveLocalStorage(trellos); 
+        renderTrello();
+    }
+};
+
 
 const editTrello = (id, newTitle) => {
     const trello = trellos.find(t => t.id === +id);
     trello.title = newTitle;
     saveLocalStorage(trellos);
     renderTrello();
+};
+const editCardTitle = (trelloId, cardIndex, newValue) => {
+    const trello = trellos.find(t => t.id === +trelloId);
+    if (trello && trello.cards && trello.cards[cardIndex]) {
+        trello.cards[cardIndex].title = newValue;
+        saveLocalStorage(trellos);
+        renderTrello();
+    }
 };
 
 
@@ -58,6 +74,19 @@ const renderTrello = () => {
                         data-card-id="${index}" 
                         data-card-index="${cardIndex}" 
                     />
+
+                      <button class="dot-card">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                     <div class="drop-card">
+                        <button class="delete-card" data-deletecard="${trello.id}"><i class="fa-solid fa-trash"></i>Xóa</button>
+                        <div class="popover-card" id='popovercard-${trello.id}' style="display: none;">
+                            <p>Bạn có chắc chắn xóa?</p>
+                            <button class="delete-card">Xác nhận</button>
+                            <button class="cancel-card">Hủy</button>
+                        </div>
+                     </div>
+
                 </div>`
               ).join('')
             : '';
@@ -87,8 +116,10 @@ const renderTrello = () => {
 
     editEvent();
     eventDelete();
+    eventDeleteCard()
     eventCart();
     eventDots();
+    eventDotsCard()
 };
 
 const renderCard = () => {
@@ -210,7 +241,24 @@ const eventDots = () => {
         });
     });
 };
+const eventDotsCard = () => {
+    const clickDotsCard = document.querySelectorAll('.dot-card')
+    clickDotsCard.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation()
+           
+            const dropCard = button.nextElementSibling
+            dropCard.style.display = dropCard.style.display === 'block' ? 'none' : 'block';
+        })
+    })
 
+    document.addEventListener('click', () => {
+        const dropCards = document.querySelectorAll('.drop-card');
+        dropCards.forEach((menu) => {
+            menu.style.display = 'none';
+        });
+    });
+}
 const eventDelete = () => {
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach((button) => {
@@ -232,6 +280,33 @@ const eventDelete = () => {
             cancelDelete.addEventListener('click', () => {
                 popover.style.display = 'none';
             });
+        });
+    });
+};
+const eventDeleteCard = () => {
+    const deleteButtonCards = document.querySelectorAll('.delete-card');
+    deleteButtonCards.forEach((button) => {
+        button.addEventListener('click', (e) => {
+     
+            e.stopPropagation();
+            const trelloId = button.getAttribute('data-deletecard');
+            const popoverCard = document.getElementById(`popovercard-${trelloId}`);
+
+            if (popoverCard) {
+                popoverCard.style.display = 'block';
+
+                const confirmDelete = popoverCard.querySelector('.delete-card');
+                const cancelDelete = popoverCard.querySelector('.cancel-card');
+
+                confirmDelete.addEventListener('click', () => {
+                    const cardIndex = button.closest('.list-cart-item').querySelector('input').getAttribute('data-card-index');
+                    deleteCard(trelloId, cardIndex);
+                });
+
+                cancelDelete.addEventListener('click', () => {
+                    popoverCard.style.display = 'none';
+                });
+            }
         });
     });
 };
@@ -275,7 +350,7 @@ const editEvent = () => {
             const previousValue = target.value;
             target.setAttribute('data-previousValue', previousValue);
         });
-
+    
         cardElement.addEventListener('blur', (e) => {
             const target = e.target;
             const newValue = target.value;
@@ -284,14 +359,9 @@ const editEvent = () => {
             const parentCardElement = target.closest('.another-card'); 
             const parentId = parentCardElement.getAttribute('data-id'); 
             const cardIndex = Array.from(parentCardElement.querySelectorAll('.list-cart-item_title')).indexOf(target); 
-
+    
             if (newValue !== previousValue) {
-                const trello = trellos.find(t => t.id === +parentId); 
-                if (trello && trello.cards && trello.cards[cardIndex]) {
-                    trello.cards[cardIndex].title = newValue;
-                    saveLocalStorage(trellos);
-                    renderTrello();
-                }
+                editCardTitle(parentId, cardIndex, newValue);
             }
         });
     });
@@ -303,5 +373,7 @@ function main() {
     eventAddColumn();
     renderTrello();
     eventDots();
+    eventDotsCard()
+    eventDeleteCard()
 }
 main();
