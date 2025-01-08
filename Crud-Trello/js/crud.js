@@ -40,16 +40,14 @@ const deleteCard = (id, cardIndex) => {
         renderTrello();
     }
 };
-
-
 const editTrello = (id, newTitle) => {
     const trello = trellos.find(t => t.id === +id);
     trello.title = newTitle;
     saveLocalStorage(trellos);
     renderTrello();
 };
-const editCardTitle = (trelloId, cardIndex, newValue) => {
-    const trello = trellos.find(t => t.id === +trelloId);
+const editCardTitle = (id, cardIndex, newValue) => {
+    const trello = trellos.find(t => t.id === +id);
     if (trello && trello.cards && trello.cards[cardIndex]) {
         trello.cards[cardIndex].title = newValue;
         saveLocalStorage(trellos);
