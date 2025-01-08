@@ -254,14 +254,14 @@ textarea{
     padding: 12px;
   }
   
-  .dot-card {
+  /* .dot-card {
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 10px;
     font-size: 17px;
     color: #333;
-  }
+  } */
   .dots{
     background-color: transparent;
     cursor: pointer;
@@ -279,7 +279,7 @@ textarea{
   .list-cart-item {
     background-color: #ffffff;
     border-radius: 4px;
-    padding: 8px 12px;
+    padding: 5px 5px;
     margin-bottom: 8px;
     margin-top: 20px;
     display: flex;
@@ -336,10 +336,7 @@ textarea{
     align-items: center;
 }
 
-.drop-card {
-    position: relative;
-    display: none;
-  }
+
   
   /* Nút Xóa */
   .delete-card {
@@ -352,6 +349,7 @@ textarea{
     display: inline-flex;
     align-items: center;
     gap: 5px; 
+    background-color: white;
   }
   
   .delete-card i {

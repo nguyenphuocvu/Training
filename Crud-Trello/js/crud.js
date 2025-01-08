@@ -72,19 +72,12 @@ const renderTrello = () => {
                         data-card-id="${index}" 
                         data-card-index="${cardIndex}" 
                     />
-
-                      <button class="dot-card">
-                        <i class="fas fa-ellipsis-h"></i>
-                      </button>
-                     <div class="drop-card">
-                        <button class="delete-card" data-deletecard="${trello.id}"><i class="fa-solid fa-trash"></i>Xóa</button>
-                        <div class="popover-card" id='popovercard-${trello.id}' style="display: none;">
-                            <p>Bạn có chắc chắn xóa?</p>
-                            <button class="delete-card">Xác nhận</button>
-                            <button class="cancel-card">Hủy</button>
-                        </div>
-                     </div>
-
+                    <button 
+                       class="delete-card" 
+                       data-deletecard="${trello.id}"
+                    >
+                       <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>`
               ).join('')
             : '';
@@ -285,29 +278,18 @@ const eventDeleteCard = () => {
     const deleteButtonCards = document.querySelectorAll('.delete-card');
     deleteButtonCards.forEach((button) => {
         button.addEventListener('click', (e) => {
-     
             e.stopPropagation();
+            
             const trelloId = button.getAttribute('data-deletecard');
-            const popoverCard = document.getElementById(`popovercard-${trelloId}`);
+            const cardIndex = button.closest('.list-cart-item').querySelector('input').getAttribute('data-card-index');
 
-            if (popoverCard) {
-                popoverCard.style.display = 'block';
-
-                const confirmDelete = popoverCard.querySelector('.delete-card');
-                const cancelDelete = popoverCard.querySelector('.cancel-card');
-
-                confirmDelete.addEventListener('click', () => {
-                    const cardIndex = button.closest('.list-cart-item').querySelector('input').getAttribute('data-card-index');
-                    deleteCard(trelloId, cardIndex);
-                });
-
-                cancelDelete.addEventListener('click', () => {
-                    popoverCard.style.display = 'none';
-                });
+            if (trelloId && cardIndex !== null) {
+                deleteCard(trelloId, cardIndex);
             }
         });
     });
 };
+
 const eventCart = () => {
     const addCartButton = document.querySelectorAll('.btn-card');
     addCartButton.forEach((button) => {
