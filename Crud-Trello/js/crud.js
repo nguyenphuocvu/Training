@@ -9,13 +9,26 @@ const getFromLocalStorage = () => {
 };
 
 let trellos = getFromLocalStorage();
-
+//Trello
 const addTrello = (trello) => {
     trello.isDelete = false;
     trellos.push(trello);
     saveLocalStorage(trellos); 
     renderTrello();
 };
+const deleteTrello = (id) => {
+    const trello = trellos.find(t => t.id === +id);
+    trello.isDelete = true;
+    saveLocalStorage(trellos);
+    renderTrello();
+};
+const editTrello = (id, newTitle) => {
+    const trello = trellos.find(t => t.id === +id);
+    trello.title = newTitle;
+    saveLocalStorage(trellos);
+    renderTrello();
+};
+//Card
 const addCard = (id, newCard) => {
     const trello = trellos.find(t => t.id === +id)
     if(trello){
@@ -24,30 +37,17 @@ const addCard = (id, newCard) => {
         saveLocalStorage(trellos);
         renderTrello();
     }
-   
 }
-const deleteTrello = (id) => {
-    const trello = trellos.find(t => t.id === +id);
-    trello.isDelete = true;
-    saveLocalStorage(trellos);
-    renderTrello();
-};
-const deleteCard = (id, cardIndex) => {
-    const trello = trellos.find(t => t.id === +id);
+const deleteCard = (idTrello, cardIndex) => {
+    const trello = trellos.find(t => t.idTrello === +idTrello);
     if (trello && trello.cards && trello.cards.length > cardIndex) {
         trello.cards.splice(cardIndex, 1); 
         saveLocalStorage(trellos); 
         renderTrello();
     }
 };
-const editTrello = (id, newTitle) => {
-    const trello = trellos.find(t => t.id === +id);
-    trello.title = newTitle;
-    saveLocalStorage(trellos);
-    renderTrello();
-};
-const editCardTitle = (id, cardIndex, newValue) => {
-    const trello = trellos.find(t => t.id === +id);
+const editCardTitle = (idTrello, cardIndex, newValue) => {
+    const trello = trellos.find(t => t.idTrello === +idTrello);
     if (trello && trello.cards && trello.cards[cardIndex]) {
         trello.cards[cardIndex].title = newValue;
         saveLocalStorage(trellos);
@@ -110,7 +110,6 @@ const renderTrello = () => {
     eventDeleteCard()
     eventCart();
     eventDots();
-    eventDotsCard()
 };
 
 const renderCard = () => {
@@ -336,7 +335,6 @@ function main() {
     eventAddColumn();
     renderTrello();
     eventDots();
-    eventDotsCard()
     eventDeleteCard()
 }
 main();
