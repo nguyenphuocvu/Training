@@ -232,24 +232,7 @@ const eventDots = () => {
         });
     });
 };
-const eventDotsCard = () => {
-    const clickDotsCard = document.querySelectorAll('.dot-card')
-    clickDotsCard.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation()
-           
-            const dropCard = button.nextElementSibling
-            dropCard.style.display = dropCard.style.display === 'block' ? 'none' : 'block';
-        })
-    })
 
-    document.addEventListener('click', () => {
-        const dropCards = document.querySelectorAll('.drop-card');
-        dropCards.forEach((menu) => {
-            menu.style.display = 'none';
-        });
-    });
-}
 const eventDelete = () => {
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach((button) => {
