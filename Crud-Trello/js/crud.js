@@ -39,7 +39,7 @@ const addCard = (id, newCard) => {
     }
 }
 const deleteCard = (idTrello, cardIndex) => {
-    const trello = trellos.find(t => t.idTrello === +idTrello);
+    const trello = trellos.find(t => t.id === +idTrello);
     if (trello && trello.cards && trello.cards.length > cardIndex) {
         trello.cards.splice(cardIndex, 1); 
         saveLocalStorage(trellos); 
@@ -47,7 +47,7 @@ const deleteCard = (idTrello, cardIndex) => {
     }
 };
 const editCardTitle = (idTrello, cardIndex, newValue) => {
-    const trello = trellos.find(t => t.idTrello === +idTrello);
+    const trello = trellos.find(t => t.id === +idTrello);
     if (trello && trello.cards && trello.cards[cardIndex]) {
         trello.cards[cardIndex].title = newValue;
         saveLocalStorage(trellos);
