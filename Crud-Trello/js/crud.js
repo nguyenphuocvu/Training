@@ -29,8 +29,8 @@ const editTrello = (id, newTitle) => {
     renderTrello();
 };
 //Card
-const addCard = (id, newCard) => {
-    const trello = trellos.find(t => t.id === +id)
+const addCard = (idTrello, newCard) => {
+    const trello = trellos.find(t => t.id === +idTrello)
     if(trello){
         trello.cards = trello.cards || [];
         trello.cards.push(newCard)
