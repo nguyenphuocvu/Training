@@ -1,4 +1,3 @@
-
 const saveLocalStorage = (trellos) => {
     localStorage.setItem('trellos', JSON.stringify(trellos));
 };
@@ -7,8 +6,19 @@ const getFromLocalStorage = () => {
     const data = localStorage.getItem('trellos'); 
     return data ? JSON.parse(data) : [];
 };
+// Local Card
+const saveLocalCard = (cards) => {
+    localStorage.setItem('cards', JSON.stringify(cards));
+};
+
+const getFromLocalCard = () => {
+    const data = localStorage.getItem('cards');
+    return data ? JSON.parse(data) : [];
+};
+
 
 let trellos = getFromLocalStorage();
+let cards = getFromLocalCard();
 //Trello
 const addTrello = (trello) => {
     trello.isDelete = false;
@@ -28,60 +38,63 @@ const editTrello = (id, newTitle) => {
     saveLocalStorage(trellos);
     renderTrello();
 };
+
 //Card
-const addCard = (idTrello, newCard) => {
-    const trello = trellos.find(t => t.id === +idTrello)
-    if(trello){
-        trello.cards = trello.cards || [];
-        trello.cards.push(newCard)
-        saveLocalStorage(trellos);
-        renderTrello();
-    }
-}
-const deleteCard = (idTrello, cardIndex) => {
-    const trello = trellos.find(t => t.id === +idTrello);
-    if (trello && trello.cards && trello.cards.length > cardIndex) {
-        trello.cards.splice(cardIndex, 1); 
-        saveLocalStorage(trellos); 
-        renderTrello();
-    }
-};
-const editCardTitle = (idTrello, cardIndex, newValue) => {
-    const trello = trellos.find(t => t.id === +idTrello);
-    if (trello && trello.cards && trello.cards[cardIndex]) {
-        trello.cards[cardIndex].title = newValue;
-        saveLocalStorage(trellos);
-        renderTrello();
-    }
+
+const addCard = (newCard) => {
+    cards.push(newCard); 
+    saveLocalCard(cards); 
+    renderTrello();
 };
 
+
+const deleteCard = (cardId) => {
+    const index = cards.findIndex((card) => card.id === +cardId);
+    if (index > -1) {
+        cards.splice(index, 1); 
+        saveLocalCard(cards); 
+        renderTrello(); 
+    }
+};
+const editCardTitle = (cardId, newTitle) => {
+    const card = cards.find((c) => c.id === +cardId);
+    if (card) {
+        card.title = newTitle; 
+        saveLocalCard(cards); 
+        renderTrello(); 
+    }
+};
 
 const renderTrello = () => {
     const trelloContainer = document.querySelector('.trello-column');
     trelloContainer.innerHTML = '';
-    
+
     const filteredTrellos = trellos.filter((trello) => !trello.isDelete);
 
-    filteredTrellos.forEach((trello, index) => {
-        const cardsHTML = trello.cards
-            ? trello.cards.map((card, cardIndex) =>
+    filteredTrellos.forEach((trello) => {
+       
+        const trelloCards = cards.filter((card) => card.idTrello === String(trello.id));
+
+
+        const cardsHTML = trelloCards
+            .map((card) =>
                 `<div class="list-cart-item">
                     <input 
                         class="list-cart-item_title" 
                         value="${card.title}" 
-                        data-card-id="${index}" 
-                        data-card-index="${cardIndex}" 
+                        data-card-id="${card.id}" 
                     />
                     <button 
                        class="delete-card" 
-                       data-deletecard="${trello.id}"
+                       data-deletecard="${card.id}"
                     >
                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>`
-              ).join('')
-            : '';
+            )
+            .join('');
 
+   
         trelloContainer.innerHTML += `
             <div class="another-card" data-id="${trello.id}">
                 <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
@@ -107,10 +120,12 @@ const renderTrello = () => {
 
     editEvent();
     eventDelete();
-    eventDeleteCard()
+    eventDeleteCard();
     eventCart();
     eventDots();
 };
+
+
 
 const renderCard = () => {
     const formCard = document.createElement('div');
@@ -146,7 +161,6 @@ const validateForm = () => {
     const trello = {
         id: checkID(),
         title,
-        card: [],
         isDelete: false
     };
     addTrello(trello);
@@ -190,6 +204,13 @@ const eventAddColumn = () => {
 };
 
 const eventAddCard = (button) => {
+    const checkIdCard = () => {
+        if (cards.length === 0) {
+            return 1;
+        }
+        return Math.max(...cards.map((card) => card.id)) + 1;
+    };
+
     const parentCard = button.closest('.another-card');
     const formCard = renderCard();
 
@@ -203,16 +224,19 @@ const eventAddCard = (button) => {
     const saveButton = formCard.querySelector('.btn-save-card');
     saveButton.addEventListener('click', () => {
         const title = formCard.querySelector('.new-card-title').value;
-        const id = parentCard.getAttribute('data-id'); 
+        const idTrello = parentCard.getAttribute('data-id');
 
-       if(title){
-           const newCard = {title }
-           addCard(id, newCard)
-       }
+        if (title) {
+            const newCard = {
+                id: checkIdCard(),
+                title,
+                idTrello, 
+            };
+            addCard(newCard);
+        }
         formCard.remove();
     });
 };
-
 
 const eventDots = () => {
     const clickDots = document.querySelectorAll('.dots');
@@ -256,21 +280,22 @@ const eventDelete = () => {
         });
     });
 };
+ 
 const eventDeleteCard = () => {
     const deleteButtonCards = document.querySelectorAll('.delete-card');
     deleteButtonCards.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            
-            const trelloId = button.getAttribute('data-deletecard');
-            const cardIndex = button.closest('.list-cart-item').querySelector('input').getAttribute('data-card-index');
+            const cardId = button.getAttribute('data-deletecard');
 
-            if (trelloId && cardIndex !== null) {
-                deleteCard(trelloId, cardIndex);
+            if (cardId) {
+                deleteCard(cardId);
             }
         });
     });
 };
+
+
 
 const eventCart = () => {
     const addCartButton = document.querySelectorAll('.btn-card');
@@ -283,7 +308,6 @@ const eventCart = () => {
 };
 
 const editEvent = () => {
-    
     const editList = document.querySelectorAll('.title-list');
     editList.forEach((listElement) => {
         listElement.addEventListener('focus', (e) => {
@@ -303,8 +327,7 @@ const editEvent = () => {
             }
         });
     });
-
-  
+    
     const editCard = document.querySelectorAll('.list-cart-item_title');
     editCard.forEach((cardElement) => {
         cardElement.addEventListener('focus', (e) => {
@@ -318,16 +341,15 @@ const editEvent = () => {
             const newValue = target.value;
             const previousValue = target.getAttribute('data-previousValue');
             
-            const parentCardElement = target.closest('.another-card'); 
-            const parentId = parentCardElement.getAttribute('data-id'); 
-            const cardIndex = Array.from(parentCardElement.querySelectorAll('.list-cart-item_title')).indexOf(target); 
-    
-            if (newValue !== previousValue) {
-                editCardTitle(parentId, cardIndex, newValue);
+            const cardId = target.getAttribute('data-card-id');
+            
+            if (newValue !== previousValue && cardId) {
+                editCardTitle(cardId, newValue); 
             }
         });
     });
 };
+
 
 
 function main() {
@@ -336,5 +358,6 @@ function main() {
     renderTrello();
     eventDots();
     eventDeleteCard()
+    eventAddCard()
 }
 main();
