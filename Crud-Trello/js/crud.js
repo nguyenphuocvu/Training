@@ -6,19 +6,9 @@ const getFromLocalStorage = () => {
     const data = localStorage.getItem('trellos'); 
     return data ? JSON.parse(data) : [];
 };
-// Local Card
-const saveLocalCard = (cards) => {
-    localStorage.setItem('cards', JSON.stringify(cards));
-};
-
-const getFromLocalCard = () => {
-    const data = localStorage.getItem('cards');
-    return data ? JSON.parse(data) : [];
-};
-
 
 let trellos = getFromLocalStorage();
-let cards = getFromLocalCard();
+
 //Trello
 const addTrello = (trello) => {
     trello.isDelete = false;
@@ -39,6 +29,16 @@ const editTrello = (id, newTitle) => {
     renderTrello();
 };
 
+// Local Card
+const saveLocalCard = (cards) => {
+    localStorage.setItem('cards', JSON.stringify(cards));
+};
+
+const getFromLocalCard = () => {
+    const data = localStorage.getItem('cards');
+    return data ? JSON.parse(data) : [];
+};
+let cards = getFromLocalCard();
 //Card
 
 const addCard = (newCard) => {
@@ -46,7 +46,6 @@ const addCard = (newCard) => {
     saveLocalCard(cards); 
     renderTrello();
 };
-
 
 const deleteCard = (cardId) => {
     const index = cards.findIndex((card) => card.id === +cardId);
@@ -295,8 +294,6 @@ const eventDeleteCard = () => {
     });
 };
 
-
-
 const eventCart = () => {
     const addCartButton = document.querySelectorAll('.btn-card');
     addCartButton.forEach((button) => {
@@ -340,7 +337,6 @@ const editEvent = () => {
             const target = e.target;
             const newValue = target.value;
             const previousValue = target.getAttribute('data-previousValue');
-            
             const cardId = target.getAttribute('data-card-id');
             
             if (newValue !== previousValue && cardId) {
