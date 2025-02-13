@@ -1,0 +1,406 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  
+}
+.container {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+}
+.add-column{
+display: flex;
+position: relative;
+align-items: center;
+
+}
+.add-column h2{
+  color: 17px;
+}
+.another {
+  display: flex; 
+  align-items: center; 
+  background-color: rgba(187, 192, 197, 0.829);
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 17px;
+  height: 50px;
+  width: 200px;
+  padding: 8px 15px; 
+  margin-top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+.another-card{
+  display: flex;
+  flex-direction: column; 
+  background-color: rgba(187, 192, 197, 0.829);
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 13px;
+  height: auto; 
+  width: 250px;
+  padding: 8px 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.icon-and-text {
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-top: 20px; 
+}
+
+.another svg {
+  margin-right: 10px; 
+}
+.another h2 {
+  margin: 0; 
+  font-size: 15px;
+}
+
+.form-add{
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  position: relative;
+}
+
+.title-list {
+  font-size: 18px;
+  font-weight: bold; 
+  border: none;
+  background: transparent;
+  color: #333; 
+  width: 100%;
+  outline: none; 
+  padding: 4px 0;
+  text-align: left; 
+}
+
+.title-list:focus {
+  outline: 2px solid #4a90e2; 
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+
+.add-title {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  width: 230px;
+  height: auto;
+  font-size: 15px;
+  box-shadow: 0 9px 12px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.06);
+  margin: 10px 10px 7px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.item-ellip {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+  padding: 0;
+  margin-left: auto; 
+}
+.add-name{
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+.title-another{
+  font-size: 17px;
+}
+.title-and-button {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+}
+.control{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.control button{
+ background-color: #0079bf;
+ color: #fff;
+ margin-right: 7px;
+}
+.btn{
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1,5;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+}
+
+
+.control #edit-list{
+  display: none;
+}
+.cart, .new-card-title{
+  background-color: #fff;
+  border-bottom: 1px solid #a6a8af;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1,5em;
+  margin-bottom: 7px;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 6px 8px 2px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  
+}
+.cart-composer{
+  border: none;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+}
+textarea{
+  resize: vertical;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+.close {
+  right: 20px;
+   cursor: pointer;
+   position: absolute;
+   color: #333;
+}
+.homepage, .section-column{
+  display: flex;
+}
+.form-homeadd {
+  display: none; 
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1000;
+  margin-top: -10px; 
+}
+
+.form-homeadd.active {
+  display: block; 
+}
+
+.drop-menu{
+  position: absolute;
+ display: none;
+ top: 5%;
+ margin-left: 85px;
+ background-color: #fff;
+ border: 1px solid #ccc;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+ padding: 5px 0;
+ width: 150px;
+ z-index: 1000;
+ border-radius: 4px;
+ font-weight: bold;
+}
+.drop-menu button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+.drop-menu button i {
+  margin-right: 8px;
+  font-size: 16px; 
+}
+
+.drop-menu button:hover {
+  background-color: #f1f1f1; 
+}
+.drop-menu.active {
+  display: block; 
+}
+
+.trello-cart {
+  width: 280px;
+  margin: 20px auto;
+  padding: 12px;
+}
+
+/* .dot-card {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 17px;
+  color: #333;
+} */
+.dots{
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 10%;
+  padding: 5px;
+  z-index: 1;
+  position: absolute;
+  margin-left: 200px;
+}
+
+.dot-card:hover {
+  color: #007BFF;
+}
+.list-cart-item {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 5px 5px;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.list-cart-item_title {
+  font-size: 14px; 
+  border: none;
+  background: transparent;
+  color: #333;
+  width: 100%; 
+  outline: none;
+  padding: 4px 0;
+  text-align: left;
+  font-weight: normal; 
+}
+
+.list-cart-item_title:focus {
+  outline: 2px solid #4a90e2;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.list-cart-item_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 8px;
+}
+
+
+.trello-column{
+  display: flex;
+}
+.btn-save-card {
+  background-color: #0079bf;
+  border: none;
+  padding:10px ;
+  border-radius: 5px ;
+  font-size: 16px;
+  margin: 0; 
+  margin-left: 10px;
+}
+.btn-save-card {
+  background-color: #0079bf;
+  color: #fff;
+}
+
+.control-cart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+/* Nút Xóa */
+.delete-card {
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; 
+  background-color: white;
+}
+
+.delete-card i {
+  font-size: 16px;
+}
+
+.delete-card:hover {
+  background-color: #c0392b;
+}
+
+
+.popover-card {
+  position: absolute;
+  top: 40px; 
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+}
+
+.popover-card p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.popover-card button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popover-card button.cancel-card {
+  background-color: #bbb;
+  margin-left: 10px;
+}
+
+.popover-card button:hover {
+  opacity: 0.9;
+}
+
+
+
+
