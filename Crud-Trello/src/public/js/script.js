@@ -39,23 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
     }
 
-    addListBtn.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const titleValue = titleInput.value.trim();
-        if (!titleValue) {
-            alert("Vui lòng nhập tên danh sách!");
-            return;
-        }
-
-        try {
-            await ajaxRequest('/trello', 'POST', { title: titleValue });
-            titleInput.value = '';
-            loadTrellos();
-        } catch (error) {
-            alert("Error: " + error.message);
-        }
-    });
-
     async function loadTrellos() {
         try {
             const response = await ajaxRequest('/trello', 'GET');
@@ -147,24 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
 
-    async function deleteTrello(trelloId) {
-        try {
-            await ajaxRequest(`/trello/${trelloId}`, 'DELETE');
-            loadTrellos();
-        } catch (error) {
-            alert('Error: ' + error.message);
-        }
-    }
-
-    async function deleteCard(cardId, trelloId, cardContainer) {
-        try {
-            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE');
-            loadCards(trelloId, cardContainer);
-        } catch (error) {
-            alert('Error: ' + error.message);
-        }
-    }
-
     function renderCardForm() {
         const formCard = document.createElement('div');
         formCard.classList.add('form-card');
@@ -223,17 +188,59 @@ document.addEventListener("DOMContentLoaded", function () {
                 const cardTitleInput = cardForm.querySelector('.new-card-title');
                 const cardTitle = cardTitleInput.value.trim();
                 const trelloId = e.target.closest('.another-card').dataset.id;
-
-                try {
-                    await ajaxRequest('/cards/card', 'POST', { title: cardTitle, trelloId: trelloId });
-                    loadCards(trelloId, cardContainer);
-                } catch (error) {
-                    alert("Error: " + error.message);
-                }
+                
+                postCard(cardTitle, trelloId , cardContainer);
             });
         }
     });
+    //ADD 
+    addListBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const titleValue = titleInput.value.trim();
+        if (!titleValue) {
+            alert("Vui lòng nhập tên danh sách!");
+            return;
+        }
 
+        try {
+            await ajaxRequest('/trello', 'POST', { title: titleValue });
+            titleInput.value = '';
+            loadTrellos();
+        } catch (error) {
+            alert("Error: " + error.message);
+        }
+    });
+
+    async function postCard(cardTitle, trelloId, cardContainer) {
+        try {
+            await ajaxRequest('/cards/card', 'POST', { title: cardTitle, trelloId: trelloId });
+            loadCards(trelloId, cardContainer);
+        } catch (error) {
+            alert("Error: " + error.message);
+        }
+    }
+
+    
+    //DELETE 
+    async function deleteTrello(trelloId) {
+        try {
+            await ajaxRequest(`/trello/${trelloId}`, 'DELETE');
+            loadTrellos();
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }
+
+    async function deleteCard(cardId, trelloId, cardContainer) {
+        try {
+            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE');
+            loadCards(trelloId, cardContainer);
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }
+
+    //UPDATE
     async function updatedTrello(trelloId, title) {
         try{
             await ajaxRequest(`/trello/${trelloId}`, 'PATCH', {title})
