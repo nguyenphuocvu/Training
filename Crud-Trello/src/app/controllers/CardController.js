@@ -1,21 +1,30 @@
 
 const Card = require('../models/Card');
+const {mutipleMongooseToObject} = require('../../util/mongoose.js')
 
 class CardController {
 
-  async renderCard(req, res) {
-    return res.render('home')
+ // [GET] /
+ async getCard(req, res, next) {
+  try{
+    const cards = await Card.find({});
+    res.render('home', {
+      cards: mutipleMongooseToObject(cards)
+    })
+  }catch(error){
+    next(error);
   }
+}
 
-  async getCard(req, res){
-    try {
-      const cards = await Card.find({})
-      return res.json(cards)
-    }
-    catch (error ){
-      next(error)
-    }
+async getCardData(req, res) {
+  try {
+    const cards = await Card.find({});
+    res.json({cards: mutipleMongooseToObject(cards)});
   }
+  catch(error){
+    res.status(500).json({error: 'Failed to get Card data'})
+  }
+}
 
   // [POST] /cards/card
   async addCard(req, res, next) {

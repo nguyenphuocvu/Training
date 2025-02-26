@@ -3,11 +3,10 @@ const router = express.Router();
 
 const CardController = require('../app/controllers/CardController');
 
-//Render Card
-router.get  ('/', CardController.renderCard)
 
 //API Card
-router.get('/card', CardController.getCard);
+router.get('/', CardController.getCard);
+router.get('/card', CardController.getCardData);
 router.post('/card', CardController.addCard);
 router.delete('/card/:id', CardController.deleteCard);
 router.patch('/card/:id', CardController.updateCard);

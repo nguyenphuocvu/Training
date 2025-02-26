@@ -6,10 +6,11 @@ const { engine } = require('express-handlebars');
 const cors = require('cors'); 
 
 const app = express(); 
-const port = process.env.PORT_RUN_MAIN || 3001;
+const port = process.env.PORT_RUN_MAIN || 3002;
 
 // Kết nối database
-const db = require('./config/db');
+const connectDB = require('./config/db');
+
 const route = require('./routes');
 
 app.use(cors());
@@ -25,6 +26,8 @@ app.engine('hbs', engine({
   extname: '.hbs',
   defaultLayout: 'main', 
   layoutsDir: path.join(__dirname, 'resources/views/layouts'),
+  partialsDir: 'views/partials',
+
 }));
 
 app.set('view engine', 'hbs');
@@ -35,7 +38,7 @@ route(app);
 
 async function main() {
   try {
-    await db.connect();
+    await connectDB();
 
     app.listen(port, () => {
       console.log(`App listening on port http://localhost:${port}`);
@@ -45,4 +48,4 @@ async function main() {
   }
 }
 
-main();
+main()

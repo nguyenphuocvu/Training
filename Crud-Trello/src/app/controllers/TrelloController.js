@@ -1,30 +1,38 @@
 const Trello = require('../models/Trello.js');
+const { mutipleMongooseToObject } = require('../../util/mongoose.js');
 
 class TrelloController {
-  // [GET] / render trang home
-  async renderTrello(req, res) {
-    return res.render('home'); 
-  }
-
-  // [GET] /trello - Lấy danh sách Trello
+   // [GET] /
   async getTrello(req, res, next) {
-    try {
-      const trellos = await Trello.find({});
-      return res.json(trellos);
-    } catch (error) {
-      next(error);
-    }
+     try {
+        const trellos = await Trello.find({});
+        res.render("home", {
+            trellos: mutipleMongooseToObject(trellos)
+        });
+     } catch (error) {
+        next(error);
+     }
   }
+  async getTrelloData(req, res) {
+    try {
+       const trellos = await Trello.find({});
+       res.json({ trellos: mutipleMongooseToObject(trellos) });
+    } catch (error) {
+       res.status(500).json({ error: "Không thể lấy dữ liệu" });
+    }
+ }
+ 
 
   // [POST] /trello 
   async addTrello(req, res) {
     try {
       const newTrello = new Trello(req.body);
       await newTrello.save();
+
       const trellos = await Trello.find({});
       res.status(201).json({ newTrello, trellos });
     } catch (error) {
-      res.status(500).json({ error: 'Thêm không thành công' });
+      res.status(500).json({ error: 'Thêm không thành công', details: error.message });
     }
   }
 
