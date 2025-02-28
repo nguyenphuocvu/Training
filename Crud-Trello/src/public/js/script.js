@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function loadTrellos() {
         try {
             const response = await ajaxRequest('/trello', 'GET');
-            const trellos = response.trellos;
+            const trellos = response.trellos.filter(trello => !trello.isDelete );;
             trelloColumn.innerHTML = '';
 
             trellos.forEach(trello => {
@@ -193,17 +193,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
-    //ADD 
+
+
+    //POST 
     addListBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         const titleValue = titleInput.value.trim();
+        
+
         if (!titleValue) {
             alert("Vui lòng nhập tên danh sách!");
             return;
         }
 
         try {
-            await ajaxRequest('/trello', 'POST', { title: titleValue });
+            await ajaxRequest('/trello', 'POST', { title: titleValue , isDelete : false });
             titleInput.value = '';
             loadTrellos();
         } catch (error) {
@@ -224,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //DELETE 
     async function deleteTrello(trelloId) {
         try {
-            await ajaxRequest(`/trello/${trelloId}`, 'DELETE');
+            await ajaxRequest(`/trello/${trelloId}`, 'DELETE' , {isDelete: true});
             loadTrellos();
         } catch (error) {
             alert('Error: ' + error.message);
@@ -233,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function deleteCard(cardId, trelloId, cardContainer) {
         try {
-            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE');
+            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE' , );
             loadCards(trelloId, cardContainer);
         } catch (error) {
             alert('Error: ' + error.message);
