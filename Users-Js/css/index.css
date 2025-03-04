@@ -1,0 +1,338 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f7f9;
+}
+.container{
+    display: flex;
+    gap: 30px;
+    /* padding: 50px 50px; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.hr{
+    border: 1px solid #eee;
+    margin: 20px 0;
+}
+/* Overflow */
+.overflow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    display: none;
+}
+.overflow.active{
+    display: block;
+}
+#hide{
+    display: none;
+}
+.form-add,
+.form-hide{
+    background-color: #fff;
+    padding: 20px 20px;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 700px;
+    z-index: 999;
+    margin: 0 auto;
+    animation: inFade .4s linear;
+    margin-top: 20px;
+}
+
+@keyframes inFade{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.form-add .box-name,
+.form-hide .box-name{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.form-add .box-address{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.box{
+    display: flex;
+}
+.box button{
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+.box .save{
+    background-color: #0079bf;
+    border: 1px solid #0079bf;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.box .update{
+    background-color: #db2d0e;
+    border: 1px solid #db2d0e;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: none;
+}
+.box .reset {
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #ddd;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.title-form{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.title-form #title-update,
+.title-form #title-hide{
+    display: none;
+}
+.fa-xmark{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    cursor: pointer;
+}
+.title-form .btn-add{
+    background-color: #0079bf;
+    padding: 8px 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+.title-form .btn-add:hover{
+    background-color: #1f0dc2;
+}
+   
+/* 
+Table */
+.box-table{
+    background-color: #fff;
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 100%;
+}
+.box-table table{
+    border-collapse:collapse ;
+    width: 100%;
+    border-color: #ddd ;
+}
+.box-table table thead tr th{
+    font-weight: 700;
+    padding: 10px 10px;
+    position: relative;
+    max-width: 100%;
+    width: 400px;
+}
+
+.box-table table tr td{
+    padding: 10px 10px;
+    color: #333;
+    max-width: 100%;
+    width: 400px;
+
+}
+.title-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}.title-form h2{
+    font-size: 25px;
+    color: #1624e7;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.inline-top {
+    display: flex;
+    justify-content: space-between;
+}
+.inline-top .search{
+    position: relative;
+}
+.inline-top .search input{
+    width: 250px;
+    padding:10px 50px ;
+
+}
+
+label{
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+input {
+    width: 100%;
+    padding: 10px 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    outline: none;
+}
+.inline-top i {
+    position: absolute;
+    top: 12px;
+    right: 230px;
+    cursor: pointer;
+    color: gainsboro;
+}
+.title-form .add{
+    background-color: #0079bf;
+    padding: 8px 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+.title-form .add:hover{
+    background-color: #333;
+}
+
+
+.sort{
+    right: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ddd;
+}
+/* Icon */
+.action{
+    text-align: center;
+    gap: 30px;
+}
+.active-i{
+    color: #333;
+}
+.action button {
+    background-color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;   
+}
+.action a,
+.action button {
+    margin-right: 10px; 
+}
+.action i {
+    font-size: 16px; 
+}
+.fa-eye{
+    color: #0079bf;
+}
+.fa-pen-to-square{
+    color: #ffd43b;
+}
+.fa-trash-can{
+    color: red;
+}
+.fa-sort{
+    cursor: pointer;
+}
+.fa-solid, .fas {
+    font-weight: 900;
+}
+/* Phân trang */
+.quantity{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+.quantity .entries span {
+    font-weight: 600;
+}
+.pagination{
+    display: flex;
+    position: relative;
+    right: 100px;
+}
+.pagination span{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.pagination .active {
+    background: #0079bf;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+}
+.btns .btn{
+    position: absolute;
+    display: flex;
+}
+.prev{
+    left: -30px;
+    top: 3px;
+}
+.next{
+    right: -30px;
+    top: 3px;
+}
+
+
+/* Nút xác nhận xóa */
+.popover-confirm {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 250px;
+}
+
+.popover-confirm p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.popover-confirm button {
+    margin-right: 5px;
+}
+
+.highlight {
+    background-color: red; 
+    transition: background-color 1s ease; 
+}
+

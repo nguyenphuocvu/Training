@@ -1,0 +1,35 @@
+.part-eight{
+    justify-content: center;
+    margin-left: 370px;
+    padding-top: 30px;
+}
+@media only screen and  (max-width: 900px) {
+    .part-eight{
+        justify-content: center;
+        margin-left: 80px;
+        padding-top: 30px;
+    }
+    .part-eight img{
+        width: 92%;
+    };
+}
+@media only screen and  (max-width: 600px) {
+    .part-eight{
+        justify-content: center;
+        margin-left: 45px;
+        padding-top: 30px;
+    }
+    .part-eight img{
+        width: 92.5%;
+    };
+}
+@media only screen and  (max-width: 400px) {
+    .part-eight{
+        justify-content: center;
+        margin-left: 15px;
+        padding-top: 30px;
+    }
+    .part-eight img{
+        width: 96%;
+    };
+}

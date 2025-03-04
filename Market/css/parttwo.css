@@ -1,0 +1,398 @@
+.part-two {
+    display: flex;
+}
+.two-button {
+    margin-left: 370px;
+}
+.two-button h4 {
+    font-size: 19px;
+}
+.two-button .two-bacon{
+    border: 1px solid var(--border);
+    height: 360px;
+    width: 250px;
+    padding: 20px ;
+    margin-bottom: 20px;
+   
+}
+
+.two-button .two-bacon button {
+    margin: 5px ;
+    align-content: center;
+    border: 1px;
+    padding: 7px ;
+    border-radius: 20px;
+    color: var(--gray);
+    align-content: flex-start
+}
+.two-button .two-bacon button:hover{
+    background-color: var(--yellow);
+}
+div i {
+    color: var(--gray);
+    font-size: 10px;
+    padding-bottom: 8px;
+}
+.two-header{
+    display: flex;
+}
+.two-header ul {
+    gap: 18px;
+    font-size: 14px;
+   margin-left: 170px;
+   list-style-type: none;
+ margin-top: 8px;
+   display: flex;
+   color: var(--gray);
+}
+
+.two-layout{
+    border: 1px solid var(--border);
+    display: flex;
+    width: 850px;
+    height: 430px;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+}
+.layout-right  {
+    line-height: 30px;
+}
+ .layout-right p  {
+   font-size: 14px;;
+}
+.layout-right span {
+    font-weight: bold;
+}
+ .layout-right button {
+   padding-top: 5px;
+    width: 100px;
+    background-color: var(--black-mo);
+    color: var(--white);
+    border: 1px;
+    border-radius: 5px;
+}
+
+ .layout-right button  i{
+     padding-right: 5px; 
+    font-size: 12px;
+     color: var(--white);
+ }
+
+.two-home {
+    margin-left: 30px;
+}
+ .two-header h4 {
+    font-size: 18px;
+   padding-top: 3px;
+}
+
+.right-one , .right-two ,.right-there ,.right-for{
+flex-basis: 45%;
+margin: 20px;
+
+}
+.right-one ,.right-two ,.right-there ,.right-for {
+    display: flex;
+}
+.layout-right{
+    padding-left: 20px;
+   padding: 25px;
+}
+.allproduct{
+    color: var(--yellow);
+}
+.two-button h4 hr {
+    margin-top: 10px;
+    width: 90px;
+ }
+ 
+ .two-header h4 hr {
+    margin-top: 10px;
+    width: 150px;
+ }
+ .two-header ul li hr {
+    margin-top: 10px;
+    width: 65px;
+ }
+ .fashion{
+    display: flex;
+    gap: 20px;
+ }
+ .fashion li:hover{
+    color: var(--yellow);
+ }
+
+
+ .hover-two {
+    display: none;
+ }
+ .right-one .hover-two,
+ .right-two .hover-two,
+ .right-there .hover-two,
+ .right-for .hover-two {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateX(1%);
+    transition: opacity .2s ease, transform .2s ease ;
+ }
+ .right-one:hover .hover-two,
+ .right-two:hover .hover-two,
+ .right-there:hover .hover-two ,
+ .right-for:hover .hover-two   {
+    opacity: 1;
+    transform: translateX(10%);
+ }
+ .right-one .hover-two div i,
+ .right-two .hover-two div i,
+ .right-there .hover-two div i,
+ .right-for .hover-two div i{
+    background-color: var(--gray);
+    padding: 10px;
+    color: var(--white);
+    font-size: 12px;
+    border-radius: 4px;
+ }
+ .hover-two .hover-woicon img{
+    margin: -34px;
+    padding-top: 36px;
+ }
+  .hover-two .hover-woicon a i {
+   z-index: 999; 
+   background-color: var(--gray);
+   margin-right: 100px;
+ }
+ .hover-two .hover-con {
+    padding-left: 285px; 
+    
+ }
+ .two-header ul button {
+    display: none;
+}
+
+ @media only screen and  (max-width: 900px) {
+    .part-two{
+        display: block;
+    }
+    .two-button {
+        margin-left: 0px;
+    }
+    .two-button .two-bacon {
+        border: 1px solid var(--border);
+        height: 150px;
+        width: 700px;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 80px;
+  
+    }
+    .two-button h4{
+        margin-left: 80px;
+    }
+    .two-layout {
+        border: 1px solid var(--border);
+        display: flex;
+        width: 740px;
+        height: 430px;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        margin-left: 50px;
+    }
+    .two-header h4 {
+        font-size: 18px;
+        padding-top: 3px;
+        margin-left: 50px;
+    }
+    .fashion{
+        display: none;
+    }
+    .right-one , .right-two ,.right-there ,.right-for{
+        flex-basis: 44%;
+
+    }
+    .layout-right {
+            padding-left: 20px;
+            padding: 10px;
+    }
+  .two-header ul {
+        color: var(--gray);
+        margin-left: 378px;
+        border: 1px solid var(--border);
+    }
+    .hr-add{
+        color: white;
+        display: none;
+    }
+    .allproduct {
+        color: var(--gray);
+    }
+    .right-one img,
+    .right-two img ,
+    .right-there img ,
+    .right-for img  {
+        height: 150px;
+        padding-top: 10px;
+    }
+    .two-header ul button {
+        padding: 8px;
+        padding-left: 10px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        display: block;
+    }
+    .two-header ul li {
+        padding-right: 80px;
+        font-size: 13px;
+        padding-top: 8px;
+        padding-left: 10px;
+    }
+        
+    .two-header h4 hr {
+        margin-top: 20px;
+        width: 150px;
+    }
+    .hover-two .hover-con {
+        padding-left: 238px;
+      
+    }
+}
+@media only screen and  (max-width: 600px) {
+    .two-button {
+        margin-left: 0px;
+    }
+    .two-button h4 {
+        margin-left: 45px;
+        font-size: 17px;
+    }
+    .two-button .two-bacon {
+        border: 1px solid var(--border);
+        height: 150px;
+        width: 470px;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 45px;
+    }
+    .two-header h4 {
+        font-size: 18px;
+        padding-top: 3px;
+        margin-left: 15px;
+    }
+    .two-header ul {
+        color: var(--gray);
+        margin-left: 152px;
+        border: 1px solid var(--border);
+        margin-bottom: 2px;
+    }
+    .two-layout {
+        border: 1px solid var(--border);
+        display: flex;
+        width: 510px;
+        height: 830px;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        margin-left: 15px;
+    }
+    .right-one, .right-two, .right-there, .right-for {
+        flex-basis: 20%;
+    }
+    .right-one img,
+    .right-two img ,
+    .right-there img ,
+    .right-for img  {
+        height: 200px;
+        padding-top: 10px;
+    }
+    .right-one, .right-two, .right-there, .right-for {
+        display: block;
+    }
+    .hover-two .hover-con {
+        padding-left: 85px;
+    }
+    .right-one .hover-two,
+    .right-two .hover-two,
+    .right-there .hover-two,
+    .right-for .hover-two {
+       position: absolute;
+       display: flex;
+       flex-direction: column;
+       opacity: 0;
+       transform: translateX(1%);
+       transition: opacity .2s ease, transform .2s ease ;
+    }
+
+}
+@media only screen and  (max-width: 400px) {
+    .two-header h4 {
+        font-size: 18px;
+        padding-top: 3px;
+        margin-left: 0px;
+    }
+    .two-button h4 {
+        margin-left: 15px;
+        font-size: 17px;
+    }
+    .two-button .two-bacon {
+        border: 1px solid var(--border);
+        height: 220px;
+        width: 328px;
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+    .two-header ul {
+        color: var(--gray);
+        margin-left: 0px;
+        border: 1px solid var(--border);
+        margin-bottom: 0px;
+        width: 187px;
+        gap: 0px;
+        display: flex;
+    }
+    .two-header{
+        display: block;
+    }
+
+    .two-layout {
+        border:none;
+        display: flex;
+        width: 10px;
+        height: auto;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        margin-left: 5px;
+    }
+    .right-one img, .right-two img, .right-there img, .right-for img {
+        height: 300px;
+        padding-top: 10px;
+    }
+    .layout-right {
+        padding-left: 0px;
+        padding: 10px;
+        padding-right: 40px;
+    }
+    .right-one .hover-two,
+    .right-two .hover-two,
+    .right-there .hover-two,
+    .right-for .hover-two {
+       position: absolute;
+       display: flex;
+       flex-direction: column;
+       opacity: 0;
+       transform: translateX(1%);
+       transition: opacity .2s ease, transform .2s ease ;
+    }
+    .right-one .hover-two{
+        bottom: -750px;
+    }
+    .right-two .hover-two{
+        bottom: -1215px;
+    }
+    .right-there .hover-two{
+        bottom: -1710px;
+    }
+    .right-for .hover-two{
+        bottom: -2205px;
+    }
+      
+}

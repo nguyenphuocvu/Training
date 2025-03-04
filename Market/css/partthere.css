@@ -1,0 +1,34 @@
+.part-there {
+    padding-top: 50px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding-left: 3px;
+}
+
+@media only screen and  (max-width: 900px) {
+    .part-there  img{
+        width: 100%;
+        height: auto;
+        max-width: 748px;
+    }
+    .part-there {
+        width: 98%;
+    }
+}
+@media only screen and  (max-width: 600px) {
+    .part-there  img{
+        width: 100%;
+        height: auto;
+        max-width: 510px;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .part-there  img{
+        width: 100%;
+        height: auto;
+        max-width: 370px;
+        margin-right: 0px;
+    }
+}

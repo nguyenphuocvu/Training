@@ -1,0 +1,140 @@
+.part-eleven{
+    padding-top: 40px;
+    margin-bottom: 30px;
+}
+
+.part-eleven h5 {
+    font-size: 18px; 
+    margin-left: 370px;
+   
+}
+
+.eleven-home {
+    display: flex;
+    gap: 30px;
+    margin-left: 370px;
+}
+.eleven-home .eleven-one  img{
+    max-width: 370px;
+    margin-bottom: 15px;
+}
+.eleven-home .eleven-one p {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.eleven-home .eleven-one p:hover {
+ color: var(--yellow);
+}
+.eleven-home .eleven-one .eleven-back {
+    display: flex;
+    font-size: 12px;
+    gap: 20px;
+    color: var(--gray);
+}
+.hr{
+    width: 61.5%;
+    margin-bottom: 20px;
+    margin-left: 370px;
+    border: 1px solid var(--border);
+}
+.part-eleven h5 hr {
+    width: 200px;
+    margin-top: 10px;
+   
+}
+.yello-icon {
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    width: 30px;
+    height: 8px;
+    border-radius: 5px;
+    float: none;
+}
+.black-icon{
+    background-color: var(--black);
+    border: 1px solid var(--black);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.eleven-icon {
+    display: flex;
+    gap: 8px;
+    margin-left: 910px;
+    margin-top: 10px;
+}
+.blogs{
+    display: flex;
+}
+
+@media only screen and  (max-width: 900px) {
+    .ele{
+        display: none;
+    }
+    .part-eleven h5 {
+        font-size: 18px;
+        margin-left: 80px;
+    }
+    .hr {
+        width: 80%;
+        margin-bottom: 20px;
+        margin-left: 80px;
+        border: 1px solid var(--border);
+    }
+    .eleven-home {
+        display: flex;
+        gap: 30px;
+        margin-left: 80px;
+    }
+    .eleven-home .eleven-one img {
+        max-width: 350px;
+        margin-bottom: 15px;
+    }
+    .eleven-icon {
+       display: none;
+    }
+}
+@media only screen and  (max-width: 600px) {
+.part-eleven h5 {
+    font-size: 18px;
+    margin-left: 45px;
+}
+.eleven-home {
+    display: flex;
+    gap: 30px;
+    margin-left: 45px;
+}
+
+.eleven-home .eleven-one img {
+    max-width: 242px;
+    margin-bottom: 15px;
+}
+.one-one {
+    display: none;
+}
+}
+@media only screen and  (max-width: 400px) {
+    .ele-for{
+        display: none;
+    }
+    .hr {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        border: 1px solid var(--border);
+    }
+    .part-eleven h5 {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .eleven-home .eleven-one img {
+        max-width: 360px;
+        margin-bottom: 15px;
+    }
+    .eleven-home {
+        display: flex;
+        gap: 30px;
+        margin-left: 20px;
+    }
+}

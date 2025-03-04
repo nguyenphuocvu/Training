@@ -1,0 +1,362 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+}
+input {
+  
+    padding: 10px 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    outline: none;
+}
+label {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.hr {
+    border: 1px solid #eee;
+    margin: 20px 0;
+}
+.container{
+  display: flex;
+  height: auto;
+   padding: 10px 10px;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+.title-form #title-update{
+    display: none;
+}
+.header-title .btn-add {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #FFDEAD;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 20px;
+    margin-left: 1100px;
+}
+.header-title .btn-add:hover{
+    background-color: yellow;
+}
+.header-title {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 20px;
+}
+.show-form{
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    margin-top: 30px;
+}
+.dropdown-menu {
+    position: absolute; 
+    top: 10%; 
+    left: 122px; 
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    padding: 5px 0; 
+    width: 120px; 
+    display: none; 
+    z-index: 1000; 
+    border-radius: 4px; 
+}
+
+.dropdown-menu button {
+    display: flex;
+    align-items: center; 
+    width: 100%; 
+    padding: 8px 12px; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer; 
+    font-size: 14px;
+    color: #333; 
+    text-align: left; 
+}
+
+.dropdown-menu button i {
+    margin-right: 8px;
+    font-size: 16px; 
+}
+
+.dropdown-menu button:hover {
+    background-color: #f1f1f1; 
+}
+.products {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 30px;
+    margin-left: 115px;
+    grid-template-columns: repeat(4,1fr);
+    display: grid;
+    padding: 30px;
+}
+.product {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+}
+.product-img{
+    position: relative;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.product-img img{
+    display: block; 
+    width: 100%; 
+    height: auto;
+    border-radius: 10px;
+}
+.product-title{
+    font-size: 15px;
+    margin-left: 10px;
+}
+.star{
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+.star i {
+    color: #FFD700; 
+  }
+.address-form{
+    display: flex;
+    gap: 5px;
+    color: #6b5858;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.price-old{
+    font-size: 13px;
+}
+.price{
+    color: red;
+    margin-left: 10px;
+}
+.item-ellip {
+    position: absolute;
+    top: 15px; 
+    right: 20px; 
+    background: white; 
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10%; 
+    z-index: 1;
+}
+.item-ellip i {
+    font-size: 16px; 
+    color: #000; 
+}
+
+/* Form AddProduct */
+.formhome{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    display: none;
+}
+.formhome.active {
+    display: block;
+}
+.close,
+.close-img{
+    margin-left: auto; 
+    cursor: pointer; 
+}
+.fa-solid, .fas {
+    font-weight: 900;
+}
+.title-form{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.title-form h2 {
+    font-size: 25px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.form-add{
+    background-color: #fff;
+    padding: 20px 20px;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 700px;
+    z-index: 999;
+    margin: 0 auto;
+    animation: inFade .4s linear;
+    margin-top: 20px;
+}
+@keyframes inFade{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.form-add .box-product{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.box{
+    display: flex;
+}
+.box button{
+    padding: 10px 30px;
+}
+.box .save{
+    background-color: #0079bf;
+    border: 1px solid #0079bf;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+
+}
+.box .reset {
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #ddd;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.box .update {
+    background-color: #db2d0e;
+    border: 1px solid #db2d0e;
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: none;
+}
+.box button {
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+/* Cover photo */
+.cover-photo-container {
+    grid-column: span 12; 
+}
+.cover-photo-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500; 
+    line-height: 1.5rem; 
+    color: #1f2937; 
+}
+.upload-area {
+    margin-top: 0.5rem; 
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 1.5rem; 
+    border-radius: 0.75rem; 
+    border: 2px dashed rgba(31, 41, 55, 0.25);
+    height: 300px;
+}
+
+
+.upload-content {
+    text-align: center;
+}
+  
+.upload-icon {
+    margin: 0 auto; 
+    height: 3rem; 
+    width: 3rem; 
+    color: #d1d5db; 
+}
+.upload-content img {
+    max-width: 100%;
+    max-height: 100%; 
+    object-fit: cover; 
+  }
+.upload-button:hover {
+    color: #4338ca; 
+}
+.popover-confirm {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 250px;
+}
+.popover-confirm p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.popover-confirm button {
+    margin-right: 5px;
+}
+.quantity{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+.quantity .entries span {
+    font-weight: 600;
+}
+.pagination{
+    display: flex;
+    position: relative;
+    right: 100px;
+}
+.pagination span{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.pagination .active {
+    background: #4338ca;
+    color: #4338ca;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+}
+.btns .btn{
+    position: absolute;
+    display: flex;
+}
+.prev{
+    left: -30px;
+    top: 3px;
+}
+.next{
+    right: -30px;
+    top: 3px;
+}
+
