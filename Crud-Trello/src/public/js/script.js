@@ -211,9 +211,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            await ajaxRequest('/trello', 'POST', { title: titleValue , isDelete : false });
+            await ajaxRequest('/trello', 'POST', { title: titleValue });
             titleInput.value = '';
-            loadTrellos();
+            renderTrello({title: titleValue})
         } catch (error) {
             alert("Error: " + error.message);
         }
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //DELETE 
     async function deleteTrello(trelloId) {
         try {
-            await ajaxRequest(`/trello/${trelloId}`, 'DELETE' , {isDelete: true});
+            await ajaxRequest(`/trello/${trelloId}`, 'DELETE' );
             document.querySelector(`.another-card[data-id="${trelloId}"]`).remove();
         } catch (error) {
             alert('Error: ' + error.message);
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function deleteCard(cardId) {
         try {
-            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE' , );
+            await ajaxRequest(`/cards/card/${cardId}`, 'DELETE'  );
             document.querySelector(`.card[data-id="${cardId}"]`).remove()
         } catch (error) {
             alert('Error: ' + error.message);
