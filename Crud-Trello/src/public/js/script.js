@@ -42,51 +42,55 @@ document.addEventListener("DOMContentLoaded", function () {
     async function loadTrellos() {
         try {
             const response = await ajaxRequest('/trello', 'GET');
-            const trellos = response.trellos.filter(trello => !trello.isDelete );;
+            const trellos = response.trellos;
             trelloColumn.innerHTML = '';
 
             trellos.forEach(trello => {
-                const column = document.createElement('div');
-                column.classList.add('another-card');
-                column.dataset.id = trello._id;
-
-                column.innerHTML = `
-                    <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
-                    <div class="drop-menu" style="display: none;">
-                        <button class="delete-btn" data-delete="${trello._id}">
-                            <i class="fa-solid fa-trash"></i> Xóa
-                        </button>
-                        <div class="popover" style="display: none;">
-                            <p>Bạn có chắc chắn xóa?</p>
-                            <button class="confirm-delete">Xác nhận</button>
-                            <button class="cancel-delete">Hủy</button>
-                        </div>
-                    </div>
-                    <input class="title-list" value="${trello.title}" data-id="${trello._id}" />
-                    <div class="icon-and-text">
-                        <svg class="iconss-ss" height="18" width="18">
-                            <path fill="none" stroke="#000" stroke-width="2" d="M12,18 L12,6 M6,12 L18,12"></path>
-                        </svg>
-                        <h2 class="btn-card">Add a card</h2>
-                    </div>
-                    <div class="list-cards"></div>
-                `;
-
-                trelloColumn.appendChild(column);
-                loadCards(trello._id, column.querySelector('.list-cards'));
-
-
-                column.querySelector('.title-list').addEventListener('blur' , async (e) => {
-                    const newTitle = e.target.value.trim();
-                    if(newTitle){
-                        await updatedTrello(trello._id, newTitle);
-                    }
-                })
+                renderTrello(trello)
             });
 
         } catch (error) {
             alert('Error: ' + error.message);
         }
+    }
+
+    function renderTrello(trello) {
+         const column = document.createElement('div')
+         column.classList.add('another-card');
+         column.dataset.id = trello._id;
+         
+         column.innerHTML = `
+          <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
+            <div class="drop-menu" style="display: none;">
+                <button class="delete-btn" data-delete="${trello._id}">
+                    <i class="fa-solid fa-trash"></i> Xóa
+                </button>
+                <div class="popover" style="display: none;">
+                    <p>Bạn có chắc chắn xóa?</p>
+                    <button class="confirm-delete">Xác nhận</button>
+                    <button class="cancel-delete">Hủy</button>
+                </div>
+            </div>
+            <input class="title-list" value="${trello.title}" data-id="${trello._id}" />
+            <div class="icon-and-text">
+                <svg class="iconss-ss" height="18" width="18">
+                    <path fill="none" stroke="#000" stroke-width="2" d="M12,18 L12,6 M6,12 L18,12"></path>
+                </svg>
+                <h2 class="btn-card">Add a card</h2>
+            </div>
+            <div class="list-cards"></div>
+         `
+
+         trelloColumn.appendChild(column);
+         loadCards(trello._id, column.querySelector('.list-cards'));
+ 
+         column.querySelector('.title-list').addEventListener('blur', async (e) => {
+             const newTitle = e.target.value.trim();
+             if (newTitle) {
+                 await updatedTrello(trello._id, newTitle);
+             }
+         });
+        
     }
 
     async function loadCards(trelloId, cardContainer) {
@@ -229,16 +233,16 @@ document.addEventListener("DOMContentLoaded", function () {
     async function deleteTrello(trelloId) {
         try {
             await ajaxRequest(`/trello/${trelloId}`, 'DELETE' , {isDelete: true});
-            loadTrellos();
+            document.querySelector(`.another-card[data-id="${trelloId}"]`).remove();
         } catch (error) {
             alert('Error: ' + error.message);
         }
     }
 
-    async function deleteCard(cardId, trelloId, cardContainer) {
+    async function deleteCard(cardId) {
         try {
             await ajaxRequest(`/cards/card/${cardId}`, 'DELETE' , );
-            loadCards(trelloId, cardContainer);
+            document.querySelector(`.card[data-id="${cardId}"]`).remove()
         } catch (error) {
             alert('Error: ' + error.message);
         }

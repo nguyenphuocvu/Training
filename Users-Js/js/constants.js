@@ -1,2 +1,0 @@
-const USERS_ENDPOINT = ``;
-export {USERS_ENDPOINT}
