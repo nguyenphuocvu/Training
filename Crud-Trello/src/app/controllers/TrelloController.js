@@ -24,18 +24,16 @@ class TrelloController {
  
 
   // [POST] /trello 
+
   async addTrello(req, res) {
     try {
-      const newTrello = new Trello(req.body);
-      await newTrello.save();
-
-      const trellos = await Trello.find({});
-      res.status(201).json({ newTrello, trellos });
+        const newTrello = new Trello(req.body); 
+        await newTrello.save(); 
+        res.status(201).json(newTrello);
     } catch (error) {
-      res.status(500).json({ error: 'Thêm không thành công', details: error.message });
+        res.status(500).json({ error: 'Thêm không thành công', details: error.message });
     }
   }
-
   // [DELETE] /trello/:id 
   async deleteTrello(req, res) {
     try {

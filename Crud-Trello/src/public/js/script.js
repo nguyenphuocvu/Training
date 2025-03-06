@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function renderTrello(trello) {
+    function renderTrello( trello) {
          const column = document.createElement('div')
          column.classList.add('another-card');
          column.dataset.id = trello._id;
@@ -198,26 +198,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
-    //POST 
     addListBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         const titleValue = titleInput.value.trim();
-        
-
-        if (!titleValue) {
-            alert("Vui lòng nhập tên danh sách!");
-            return;
-        }
-
-        try {
-            await ajaxRequest('/trello', 'POST', { title: titleValue });
-            titleInput.value = '';
-            renderTrello({title: titleValue})
-        } catch (error) {
-            alert("Error: " + error.message);
+        if (titleValue) {
+            await postTrello(titleValue);
+            titleInput.value = "";
+        } else {
+            alert("Vui lòng nhập tiêu đề!");
         }
     });
+    
+    //POST 
+
+    async function postTrello(titleValue) {
+        try {
+            const newTrello = await ajaxRequest('/trello', 'POST', { title: titleValue });
+    
+            if (newTrello && newTrello._id) {
+                renderTrello(newTrello); 
+            } else {
+                throw new Error('API không trả về _id');
+            }
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }
+    
 
     async function postCard(cardTitle, trelloId, cardContainer) {
         try {
