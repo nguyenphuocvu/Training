@@ -39,21 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
     }
 
-    async function loadTrellos() {
-        try {
-            const response = await ajaxRequest('/trello', 'GET');
-            const trellos = response.trellos;
-            trelloColumn.innerHTML = '';
-
-            trellos.forEach(trello => {
-                renderTrello(trello)
-            });
-
-        } catch (error) {
-            alert('Error: ' + error.message);
-        }
-    }
-
     function renderTrello( trello) {
          const column = document.createElement('div')
          column.classList.add('another-card');
@@ -93,47 +78,34 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
 
-    async function loadCards(trelloId, cardContainer) {
-        try {
-            const response = await ajaxRequest(`/cards/card?trelloId=${trelloId}`, 'GET');
-            const cards = response.cards;
-    
-            cardContainer.innerHTML = '';
-    
-            cards.forEach(card => {
-                if (card.trelloId === trelloId) { 
-                    const cardElement = document.createElement('div');
-                    cardElement.classList.add('card');
-                    cardElement.dataset.id = card._id;
-                    cardElement.innerHTML = `
-                        <div class="list-cart-item">
-                            <input class="list-cart-item_title" value="${card.title}" data-card-id="${card._id}" />
-                            <button class="delete-card" data-card-id="${card._id}">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    `;
-                    cardContainer.appendChild(cardElement);
 
-                    cardElement.querySelector('.delete-card').addEventListener('click', async () => {
-                        await deleteCard(card._id, trelloId, cardContainer);
-                    });
-
-                    cardElement.querySelector('.list-cart-item_title').addEventListener('blur', async (e) => {
-                        const newTitle = e.target.value.trim();
-                        if(newTitle){
-                            await updatedCard(card._id, newTitle);
-                        }   
-                    })
-                }
-            });
+    function renderCard(card, cardContainer) {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.dataset.id = card._id;
+        cardElement.innerHTML = `
+            <div class="list-cart-item">
+                <input class="list-cart-item_title" value="${card.title}" data-card-id="${card._id}" />
+                <button class="delete-card" data-card-id="${card._id}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        `;
     
-        } catch (error) {
-            alert('Error: ' + error.message);
-        }
+        cardContainer.appendChild(cardElement);
+    
+        cardElement.querySelector('.delete-card').addEventListener('click', async () => {
+            await deleteCard(card._id);
+        });
+    
+        cardElement.querySelector('.list-cart-item_title').addEventListener('blur', async (e) => {
+            const newTitle = e.target.value.trim();
+            if (newTitle) {
+                await updatedCard(card._id, newTitle);
+            }
+        });
     }
     
-
     function renderCardForm() {
         const formCard = document.createElement('div');
         formCard.classList.add('form-card');
@@ -188,13 +160,20 @@ document.addEventListener("DOMContentLoaded", function () {
             const cardForm = renderCardForm();
             cardContainer.appendChild(cardForm);
 
+
             cardForm.querySelector('.btn-save-card').addEventListener('click', async () => {
                 const cardTitleInput = cardForm.querySelector('.new-card-title');
                 const cardTitle = cardTitleInput.value.trim();
                 const trelloId = e.target.closest('.another-card').dataset.id;
                 
-                postCard(cardTitle, trelloId , cardContainer);
+                if (cardTitle) {
+                    await postCard(cardTitle, trelloId, cardContainer);
+                    cardForm.remove();
+                } else {
+                    alert("Vui lòng nhập tiêu đề cho Card!");
+                }
             });
+            
         }
     });
 
@@ -208,6 +187,40 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Vui lòng nhập tiêu đề!");
         }
     });
+
+    //GET
+    async function loadTrellos() {
+        try {
+            const response = await ajaxRequest('/trello', 'GET');
+            const trellos = response.trellos;
+            trelloColumn.innerHTML = '';
+
+            trellos.forEach(trello => {
+                renderTrello(trello)
+            });
+
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }
+
+    async function loadCards(trelloId, cardContainer) {
+        try {
+            const response = await ajaxRequest(`/cards/card?trelloId=${trelloId}`, 'GET');
+            const cards = response.cards;
+    
+            cardContainer.innerHTML = '';
+    
+            cards.forEach(card => {
+                if (card.trelloId === trelloId) { 
+                   renderCard(card,cardContainer)
+                }
+            });
+    
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }
     
     //POST 
 
@@ -228,8 +241,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function postCard(cardTitle, trelloId, cardContainer) {
         try {
-            await ajaxRequest('/cards/card', 'POST', { title: cardTitle, trelloId: trelloId });
-            loadCards(trelloId, cardContainer);
+           const newCard =  await ajaxRequest('/cards/card', 'POST', { title: cardTitle, trelloId: trelloId });
+            renderCard(newCard, cardContainer);
         } catch (error) {
             alert("Error: " + error.message);
         }

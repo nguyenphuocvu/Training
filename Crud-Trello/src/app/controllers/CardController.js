@@ -32,12 +32,12 @@ async getCardData(req, res) {
       const { title, trelloId } = req.body;
       const newCard = new Card({ title, trelloId });
       await newCard.save();
-      const cards = await Card.find({});
-      res.status(201).json({ newCard, cards });
+      res.status(201).json(newCard);
     } catch (error) {
       res.status(500).json({ error: 'Failed to create Card' });
     }
   }
+
 
   // [DELETE] /cards/card/:id
   async deleteCard(req, res, next) {
