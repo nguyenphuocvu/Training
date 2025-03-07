@@ -6,7 +6,7 @@ const { engine } = require('express-handlebars');
 const cors = require('cors'); 
 
 const app = express(); 
-const port = process.env.PORT_RUN_MAIN || 3002;
+const port = process.env.PORT_RUN_MAIN || 4040;
 
 // Kết nối database
 const connectDB = require('./config/db');

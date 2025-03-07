@@ -39,13 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
     }
 
-    function renderTrello( trello) {
-         const column = document.createElement('div')
-         column.classList.add('another-card');
-         column.dataset.id = trello._id;
-         
-         column.innerHTML = `
-          <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
+
+    function renderTrello(trello, isNew = false) {
+        const column = document.createElement('div');
+        column.classList.add('another-card');
+        column.dataset.id = trello._id;
+    
+        column.innerHTML = `
+            <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
             <div class="drop-menu" style="display: none;">
                 <button class="delete-btn" data-delete="${trello._id}">
                     <i class="fa-solid fa-trash"></i> Xóa
@@ -64,19 +65,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2 class="btn-card">Add a card</h2>
             </div>
             <div class="list-cards"></div>
-         `
-
-         trelloColumn.appendChild(column);
-         loadCards(trello._id, column.querySelector('.list-cards'));
- 
-         column.querySelector('.title-list').addEventListener('blur', async (e) => {
-             const newTitle = e.target.value.trim();
-             if (newTitle) {
-                 await updatedTrello(trello._id, newTitle);
-             }
-         });
-        
+        `;
+    
+        trelloColumn.appendChild(column);
+    
+       
+        if (!isNew) {
+            loadCards(trello._id, column.querySelector('.list-cards'));
+        }
+    
+        // Sự kiện thay đổi tiêu đề
+        column.querySelector('.title-list').addEventListener('blur', async (e) => {
+            const newTitle = e.target.value.trim();
+            if (newTitle) {
+                await updatedTrello(trello._id, newTitle);
+            }
+        });
     }
+    
 
 
     function renderCard(card, cardContainer) {
@@ -223,13 +229,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     //POST 
-
     async function postTrello(titleValue) {
         try {
             const newTrello = await ajaxRequest('/trello', 'POST', { title: titleValue });
     
             if (newTrello && newTrello._id) {
-                renderTrello(newTrello); 
+                renderTrello(newTrello, true); 
             } else {
                 throw new Error('API không trả về _id');
             }
