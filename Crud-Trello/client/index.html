@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></head>
+</head>
+<body>
+
+    <div class="homepage">
+        <div class="another">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="iconss-ss" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#000" stroke-width="2" d="M12,18 L12,6 M6,12 L18,12"></path>
+            </svg>
+            <h2 class="btn-another">Add another column</h2>
+        </div>
+    
+        <section class="section-column">
+            <div id="trello-column" class="trello-column">
+                    <div class="another-card" data-id="{{_id}}">
+                        <button class="dots"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="drop-menu">
+                            <button class="delete-btn" data-delete="{{_id}}">
+                                <i class="fa-solid fa-trash"></i> Xóa
+                            </button>
+                            <div class="popover" id="popover-{{_id}}" style="display: none;">
+                                <p>Bạn có chắc chắn xóa?</p>
+                                <button class="confirm-delete">Xác nhận</button>
+                                <button class="cancel-delete">Hủy</button>
+                            </div>
+                        </div>
+                        <input class="title-list" value="{{title}}" data-id="{{_id}}" />
+                        <div class="icon-and-text">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="iconss-ss" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="none" stroke="#000" stroke-width="2" d="M12,18 L12,6 M6,12 L18,12"></path>
+                            </svg>
+                            <h2 class="btn-card">Add a card</h2>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    
+        <!-- Form Add Trello -->
+        <div class="form-homeadd">
+            <div class="form-add">
+                <form id="form-trello" method="POST" action="/trello">
+                    <div class="cart">
+                        <textarea class="cart-composer" id="title" placeholder="Enter a title for this cart"></textarea>
+                    </div>
+                </form>
+                <div class="control">
+                    <button id="add-list-btn" class="btn">Add List</button>
+                    <div class="close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/index.js"></script>
+  
+</body>
+</html>
