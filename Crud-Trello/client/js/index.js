@@ -6,7 +6,7 @@
     const titleInput = document.getElementById("title");
     const trelloColumn = document.getElementById("trello-column");
      
-    const baseURL = "http://localhost:3030";
+    const baseURL = "http://localhost:5001";
 
     if (btnAnother) {
         btnAnother.addEventListener("click", (e) => {
@@ -41,7 +41,7 @@
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
     }
-
+    
 
     function renderTrello(trello, isNew = false) {
         const column = document.createElement('div');
@@ -245,7 +245,6 @@
             alert('Error: ' + error.message);
         }
     }
-    
 
     async function postCard(cardTitle, trelloId, cardContainer) {
         try {
@@ -256,7 +255,6 @@
         }
     }
 
-    
     //DELETE 
     async function deleteTrello(trelloId) {
         try {
