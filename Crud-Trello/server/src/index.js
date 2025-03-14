@@ -1,42 +1,33 @@
 const express = require('express');
-const path = require('path');
-require('dotenv').config();
 const cors = require('cors');
-
+require('dotenv').config();
 const connectDB = require('./config/db');
 const route = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 5001;
 
-// Middleware xử lý JSON
+
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+
+// Middleware xử lý JSON
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Kết nối database
 connectDB();
 
-// API routes
+// Định tuyến API
 route(app);
-
-
-// Phục vụ static files từ folder "client"
-app.use(express.static(path.join(__dirname, '../client')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'index.html'));
-});
-
 
 // Chạy server
 async function main() {
   try {
-    app.listen(port, () => {
-      console.log(`Server chạy tại: http://localhost:${port}`);
-    });
+      app.listen(port, () => {
+          console.log(`Running server: http://localhost:${port}`);
+      });
   } catch (error) {
-    console.error("Unable to connect to database:", error);
+      console.error("Unable to connect to database:", error);
   }
 }
 

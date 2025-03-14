@@ -33,7 +33,6 @@
         const options = {
             method: method,
             headers: { 'Content-Type': 'application/json' }
-        
         };
         if (data) options.body = JSON.stringify(data);
 
