@@ -7,7 +7,6 @@ const route = require('./routes');
 const app = express();
 const port = process.env.PORT || 5001;
 
-
 app.use(cors());
 
 // Middleware xử lý JSON
@@ -17,7 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 // Kết nối database
 connectDB();
 
-// Định tuyến API
 route(app);
 
 // Chạy server

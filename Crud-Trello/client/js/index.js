@@ -76,7 +76,7 @@
             loadCards(trello._id, column.querySelector('.list-cards'));
         }
     
-        // Sự kiện thay đổi tiêu đề
+        //Edit 
         column.querySelector('.title-list').addEventListener('blur', async (e) => {
             const newTitle = e.target.value.trim();
             if (newTitle) {
