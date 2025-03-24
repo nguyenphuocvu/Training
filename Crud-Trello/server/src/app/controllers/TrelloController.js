@@ -43,11 +43,6 @@ class TrelloController {
             const { id } = req.params;
             const { title } = req.body;
             const trello = await Trello.findById(id);
-
-            if (!trello) {
-                return res.status(404).json({ error: 'Không tìm thấy Trello' });
-            }
-
             trello.title = title;
             await trello.save();
             res.status(200).json({ message: 'Cập nhật thành công', trello });

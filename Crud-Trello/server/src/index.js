@@ -4,9 +4,11 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 const route = require('./routes');
 
+//Khởi tạo ứng dụng express
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 
+//Dùng để chia sẽ tài nguyên fontend và back end 
 app.use(cors());
 
 // Middleware xử lý JSON
@@ -18,7 +20,7 @@ connectDB();
 
 route(app);
 
-// Chạy server
+// Running Server
 async function main() {
   try {
       app.listen(port, () => {
