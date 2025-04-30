@@ -1,0 +1,2 @@
+Tìm các bài toán có sử dụng filter, some, every
+5 bài

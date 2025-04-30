@@ -8,7 +8,7 @@ const route = require('./routes');
 const app = express();
 const port = process.env.PORT || 5002;
 
-//Dùng để chia sẽ tài nguyên fontend và back end 
+
 app.use(cors());
 
 // Middleware xử lý JSON

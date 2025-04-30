@@ -1,0 +1,3 @@
+Xong map,every some 
+
+//sort trả về 3 trường hợp lớn hơn , nhỏ hơn , bằng nhau (-1,0 1)

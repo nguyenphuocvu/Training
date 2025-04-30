@@ -5,10 +5,9 @@ async function loadTrellos() {
         const trellos = response.trellos;
         trelloColumn.innerHTML = '';
 
-        for(let i = 0 ; i < trellos.length ; i++){
-          renderTrello(trellos[i])
-        }
-
+        trellos.forEach( (trello) => {
+            renderTrello(trello)
+        })
     } catch (error) {
         alert('Error: ' + error.message);
     }
