@@ -46,144 +46,190 @@ body {
   background: #f0f0f0;
 }
 
-
-
-
-.edit-city{
-   border: none;
-   background: white;
-   color: black;
+.edit-city {
+  border: none;
+  background: white;
+  color: black;
 }
 .save-btn {
-    border: 1px solid black;
-    display: none;
-    border-radius: 3px;
+  border: 1px solid black;
+  display: none;
+  border-radius: 3px;
 }
-
 
 .edit-form {
-    display: none;
-    background: #ffffff;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-  }
-  
-  .edit-form label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .edit-form input {
-    width: 300px;
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-top: 5px;
-  }
-  
-  .edit-form .save-btn {
-    display: block;
-    width: 100%;
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 15px;
-    cursor: pointer;
-  }
-  
-  .edit-form .save-btn:hover {
-    background: #218838;
-  }
-
-.delete-area{
-    width: 200px;
-    height: 100px;
-    margin: 20px auto;
-    border: 2px dashed red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: red;
-    background-color: #fff8f8;
-    transition: background-color 0.3s;
-    position: absolute;
-    right: -50%;
-    top: 30%;
-    transform: translateY(-50%);
-    z-index: 2;
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
 }
 
-#delete-area.over-trash{
-    background-color: #ffe6e6;
-    box-shadow: 0 0 10px red;
+.edit-form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-
-.drop-area.over{
-    background-color: #f0f0f0;
-    border-color: red;
+.edit-form input {
+  width: 300px;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
+.edit-form .save-btn {
+  display: block;
+  width: 100%;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.edit-form .save-btn:hover {
+  background: #218838;
+}
+
+.delete-area {
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px dashed red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: red;
+  background-color: #fff8f8;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: -50%;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+#delete-area.over-trash {
+  background-color: #ffe6e6;
+  box-shadow: 0 0 10px red;
+}
+
+.drop-area.over {
+  background-color: #f0f0f0;
+  border-color: red;
+}
 
 .btn-add:hover {
-    background-color: red;
+  background-color: red;
 }
 
 .drop-area {
-    flex-direction: column;
-    list-style: none;
-    width: 400px;
-    min-height: 100px;
-    margin: 20px auto;
-    border: 1px solid #e91313;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    font-weight: bold;
-    color: white;
-    background-color: #fff8f8;
-    transition: background-color 0.3s;
-    position: absolute;
-    right: -70%;
-    top: 300%;
-    transform: translateY(-50%);
-    z-index: 2;
-    border-radius: 10px;
+  flex-direction: column;
+  list-style: none;
+  width: 400px;
+  min-height: 100px;
+  margin: 20px auto;
+  border: 1px solid #e91313;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: bold;
+  color: white;
+  background-color: #fff8f8;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: -70%;
+  top: 300%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 10px;
 }
-.btn-add{
-    z-index: 2;    
-    right: -40%;
-    top: 600%;
-    color: white;
-    background-color: red;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    position: absolute;
-    border: none;
-    margin: 20px auto;
-    display: block;
+.btn-add {
+  z-index: 2;
+  right: -40%;
+  top: 600%;
+  color: white;
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  border: none;
+  margin: 20px auto;
+  display: block;
 }
-
 
 .new-drop-area {
-    width: 300px;
-    min-height: 150px;
-    border: 2px dashed #ccc;
-    margin: 20px auto;
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 10px;
-    top: 900%;
-} 
+  width: 300px;
+  min-height: 150px;
+  border: 2px dashed #ccc;
+  margin: 20px auto;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  top: 900%;
+}
+
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+}
+
+
+.add-form input {
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.add-form input:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+
+.add-form button {
+  padding: 10px;
+  background-color: #2196f3;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-form button:hover {
+  background-color: #1976d2;
+}
+
+
+.all-citylist{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+}

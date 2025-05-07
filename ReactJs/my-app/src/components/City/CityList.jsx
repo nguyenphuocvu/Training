@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import CityItem from "./CityItem";
+import CityForm from "./CityForm";
 import "./index.css";
 
 const CityList = () => {
   const [cities, setCities] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [editCityId, setEditCityId] = useState(null);
-  const [editFormData, setEditFormData] = useState({
+  const [isFocus, setIsFocus] = useState(false);
+  const [isAddForm, setIsAddForm] = useState(false);
+  const [newCity, setNewCity] = useState({
+    rank: "",
     city: "",
     state: "",
     latitude: "",
@@ -17,139 +21,84 @@ const CityList = () => {
   );
 
   const handleDelete = (rank) => {
-    setCities((prevCities) => {
-      const index = prevCities.findIndex(
-        (city) => parseInt(city.rank) === parseInt(rank)
-      );
-      if (index !== -1) {
-        const newCities = [...prevCities];
-        newCities.splice(index, 1);
-        return newCities;
-      }
-      return prevCities;
-    });
+    setCities((prev) =>
+      prev.filter((city) => parseInt(city.rank) !== parseInt(rank))
+    );
   };
 
-  const handleEdit = (city) => {
-    setEditCityId(city.rank);
-    setEditFormData({
-      city: city.city,
-      state: city.state,
-      latitude: city.latitude,
-      longitude: city.longitude,
-    });
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEditFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSave = (rank) => {
+  const handleSave = (updatedCity) => {
     setCities((prevCities) =>
       prevCities.map((city) =>
-        city.rank === rank ? { ...city, ...editFormData } : city
+        city.rank === updatedCity.rank ? updatedCity : city
       )
     );
-    setEditCityId(null);
   };
 
-  const fetchCity = () => {
-    fetch("/cities.json")
-      .then((res) => res.json())
-      .then((data) => setCities(data));
+  const handleAddNew = () => {
+    if (
+      newCity.rank &&
+      newCity.city &&
+      newCity.state &&
+      newCity.latitude &&
+      newCity.longitude
+    ) {
+      setCities((prev) => [newCity, ...prev]);
+      setNewCity({
+        rank: "",
+        city: "",
+        state: "",
+        latitude: "",
+        longitude: "",
+      });
+      setIsAddForm(false);
+      setIsFocus(true);
+    }
   };
 
   useEffect(() => {
-    fetchCity();
+    fetch("/cities.json")
+      .then((res) => res.json())
+      .then((data) => setCities(data));
   }, []);
 
   return (
     <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-      <input
-        type="text"
-        className="search"
-        placeholder="City or State"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      {searchTerm && (
+      <div className="all-citylist">
+        <button
+          className="add-form"
+          type="button"
+          onClick={() => setIsAddForm(!isAddForm)}
+        >
+          +
+        </button>
+        <input
+          type="text"
+          className="search"
+          placeholder="City or State"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onFocus={() => setIsFocus(true)}
+        />
+      </div>
+
+      {isAddForm && (
+        <CityForm
+          city={newCity}
+          setCity={setNewCity}
+          onSubmit={handleAddNew}
+          submitLabel="Thêm"
+        />
+       
+      )}
+      {isFocus && (
         <ul className="suggestions">
-          {filteredCities.map((city) => (
-            <li key={city.rank} className="city-item" draggable="true">
-              <input
-                type="text"
-                className="edit-city"
-                value={city.city}
-                disabled
-              />
-
-              <button
-                className="edit-btn"
-                type="button"
-                onClick={() => {
-                  handleEdit(city);
-                }}
-              >
-                Chỉnh sửa
-              </button>
-
-              <button
-                className="delete-btn"
-                type="button"
-                onClick={() => handleDelete(city.rank)}
-              >
-                Xóa
-              </button>
-
-              {/* Edit Form */}
-              {editCityId  &&  (
-                <div className="edit-form" data-rank={city.rank}   style={{ display: editCityId === city.rank ? "block" : "none" }}  >
-                  <label>Tên thành phố:</label>
-                  <input
-                    type="text"
-                    className="edit-city-name"
-                    name="city"
-                    value={editFormData.city}
-                    onChange={handleChange}
-                  />
-                  <label>Bang:</label>
-                  <input
-                    type="text"
-                    className="edit-state"
-                    name="state"
-                    value={editFormData.state}
-                    onChange={handleChange}
-                  />
-                  <label>Vĩ độ:</label>
-                  <input
-                    type="text"
-                    className="edit-lat"
-                    name="latitude"
-                    value={editFormData.latitude}
-                    onChange={handleChange}
-                  />
-                  <label>Kinh độ:</label>
-                  <input
-                    type="text"
-                    className="edit-long"
-                    name="longitude"
-                    value={editFormData.longitude}
-                    onChange={handleChange}
-                  />
-                  <button
-                    className="save-btn"
-                    type="button"
-                    onClick={() => handleSave(city.rank)}
-                  >
-                    Lưu
-                  </button>
-                </div>
-              )}
-            </li>
+          {(searchTerm ? filteredCities : cities).map((city) => (
+            <CityItem
+              key={city.rank}
+              city={city}
+              onDelete={handleDelete}
+              onSave={handleSave}
+            />
           ))}
         </ul>
       )}

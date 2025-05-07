@@ -1,11 +1,12 @@
-
-import "./index.css";
-import CityList from "./components/City/CityList"
-
+import "./App.css";
+import CityList from "./components/City/CityList";
+// import Content from "./Content";
 const App = () => {
+
   return (
     <>
-      <CityList/>
+      <CityList />
+      {/* <Content /> */}
     </>
   );
 };
