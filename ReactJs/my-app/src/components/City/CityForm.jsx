@@ -1,49 +1,52 @@
-const CityForm = ({ city, setCity, onSubmit, submitLabel }) => {
+import { Button, Input } from "antd";
+const CityForm = ({ city, setCity, onSubmit, submitLabel , onCancel }) => {
     const handleChange = (e) => {
       const { name, value } = e.target;
       setCity((prev) => ({ ...prev, [name]: value }));
     };
-  
     return (
       <div className="add-form">
-        <input
+        <Input
           type="text"
           name="rank"
           placeholder="Rank"
           value={city.rank}
           onChange={handleChange}
         />
-        <input
+        <Input
           type="text"
           name="city"
           placeholder="City"
           value={city.city}
           onChange={handleChange}
         />
-        <input
+        <Input
           type="text"
           name="state"
           placeholder="State"
           value={city.state}
           onChange={handleChange}
         />
-        <input
+        <Input
           type="text"
           name="latitude"
           placeholder="Latitude"
           value={city.latitude}
           onChange={handleChange}
         />
-        <input
+        <Input
           type="text"
           name="longitude"
           placeholder="Longitude"
           value={city.longitude}
           onChange={handleChange}
         />
-        <button type="button" onClick={onSubmit}>
+        <Button type="button" onClick={onSubmit}>
           {submitLabel}
-        </button>
+        </Button>
+        <Button type="default" onClick={onCancel}>
+          Hủy
+        </Button>
       </div>
     );
   };

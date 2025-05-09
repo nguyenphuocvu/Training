@@ -226,10 +226,10 @@ body {
   background-color: #1976d2;
 }
 
-
-.all-citylist{
+.pagination {
   display: flex;
-  gap: 15px;
-  align-items: center;
-
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
 }
+

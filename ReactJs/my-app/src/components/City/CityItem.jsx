@@ -1,34 +1,36 @@
-import { useState } from "react";
+import { useEffect , useState } from "react";
 import CityForm from "./CityForm";
-
-const CityItem = ({ city, onDelete, onSave  }) => {
+import { Button, Input } from "antd";
+const CityItem = ({ city, onDelete, onSave }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...city });
+
+  useEffect(() => {
+    if (!isEditing) {
+      setFormData({ ...city });
+    }
+  }, [isEditing, city]);
 
   const handleSave = () => {
     onSave(formData);
     setIsEditing(false);
   };
-
+   
+  const handleCancel = () => {
+    setIsEditing(false); 
+  };
   return (
     <li className="city-item" draggable="true">
       {!isEditing ? (
         <>
-          <input type="text" className="edit-city" value={city.city} disabled />
-          <button
-            type="button"
-            className="edit-btn"
-            onClick={() => setIsEditing(true)}
-          >
+       
+          <Input className="edit-city" value={city.city} />
+          <Button type="default" onClick={() => setIsEditing(true)}>
             Chỉnh sửa
-          </button>
-          <button
-            type="button"
-            className="delete-btn"
-            onClick={() => onDelete(city.rank)}
-          >
+          </Button>
+          <Button type="default" onClick={() => onDelete(city.rank)}>
             Xóa
-          </button>
+          </Button>
         </>
       ) : (
         <CityForm
@@ -36,40 +38,8 @@ const CityItem = ({ city, onDelete, onSave  }) => {
           setCity={setFormData}
           onSubmit={handleSave}
           submitLabel="Lưu"
+          onCancel={handleCancel}
         />
-        // <div className="edit-form">
-        //   <label>Tên thành phố:</label>
-        //   <input
-        //     type="text"
-        //     name="city"
-        //     value={formData.city}
-        //     onChange={handleChange}
-        //   />
-        //   <label>Bang:</label>
-        //   <input
-        //     type="text"
-        //     name="state"
-        //     value={formData.state}
-        //     onChange={handleChange}
-        //   />
-        //   <label>Vĩ độ:</label>
-        //   <input
-        //     type="text"
-        //     name="latitude"
-        //     value={formData.latitude}
-        //     onChange={handleChange}
-        //   />
-        //   <label>Kinh độ:</label>
-        //   <input
-        //     type="text"
-        //     name="longitude"
-        //     value={formData.longitude}
-        //     onChange={handleChange}
-        //   />
-        //   <button type="button" className="save-btn" onClick={handleSave}>
-        //     Lưu
-        //   </button>
-        // </div>
       )}
     </li>
   );

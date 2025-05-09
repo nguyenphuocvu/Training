@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
+import { Form, Button, Input, Pagination } from "antd";
 import "./index.css";
 
 const CityList = () => {
@@ -15,9 +16,21 @@ const CityList = () => {
     latitude: "",
     longitude: "",
   });
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const citiesPerPage = 9;
   const filteredCities = cities.filter((city) =>
     city.city.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const displayedCities = searchTerm ? filteredCities : cities;
+
+  const indexOfLastCity = currentPage * citiesPerPage;
+
+  const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+
+  const currentCities = displayedCities.slice(
+    indexOfFirstCity,
+    indexOfLastCity
   );
 
   const handleDelete = (rank) => {
@@ -52,34 +65,66 @@ const CityList = () => {
       });
       setIsAddForm(false);
       setIsFocus(true);
+      setCurrentPage(1);
     }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // useEffect(() => {
+  //   fetch("/cities.json")
+  //     .then((res) => res.json())
+  //     // .then((data) => setCities(data));
+  // }, []);
+
   useEffect(() => {
+    let isMounted = true;
+  
     fetch("/cities.json")
       .then((res) => res.json())
-      .then((data) => setCities(data));
+      .then((data) => {
+        setTimeout(() => {
+          if (isMounted) {
+            setCities(data); 
+          } else {
+            console.warn("⛔ Component đã bị unmount, bỏ qua setCities");
+          }
+        }, 3000);
+      });
+  
+    return () => {
+      isMounted = false;
+      console.log("🛑 CityList unmounted");
+    };
   }, []);
-
+  
+  
   return (
-    <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-      <div className="all-citylist">
-        <button
-          className="add-form"
-          type="button"
-          onClick={() => setIsAddForm(!isAddForm)}
-        >
-          +
-        </button>
-        <input
-          type="text"
-          className="search"
-          placeholder="City or State"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onFocus={() => setIsFocus(true)}
-        />
-      </div>
+    <Form className="search-form" onSubmit={(e) => e.preventDefault()}>
+      <Form.Item>
+        <div className="flex items-center gap-2">
+          <Button
+            className="add-form"
+            type="button"
+            onClick={() => setIsAddForm(!isAddForm)}
+          >
+            +
+          </Button>
+          <Input
+            type="text"
+            className="search"
+            placeholder="City or State"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+            onFocus={() => setIsFocus(true)}
+          />
+        </div>
+      </Form.Item>
 
       {isAddForm && (
         <CityForm
@@ -88,21 +133,31 @@ const CityList = () => {
           onSubmit={handleAddNew}
           submitLabel="Thêm"
         />
-       
       )}
+
       {isFocus && (
-        <ul className="suggestions">
-          {(searchTerm ? filteredCities : cities).map((city) => (
-            <CityItem
-              key={city.rank}
-              city={city}
-              onDelete={handleDelete}
-              onSave={handleSave}
-            />
-          ))}
-        </ul>
+        <>
+          <ul className="suggestions">
+            {currentCities.map((city) => (
+              <CityItem
+                key={city.rank}
+                city={city}
+                onDelete={handleDelete}
+                onSave={handleSave}
+              />
+            ))}
+          </ul>
+
+          <Pagination
+            style={{ marginTop: "800px" }}
+            onChange={handlePageChange}
+            current={currentPage}
+            pageSize={citiesPerPage}
+            total={displayedCities.length}
+          />
+        </>
       )}
-    </form>
+    </Form>
   );
 };
 
