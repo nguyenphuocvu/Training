@@ -73,34 +73,25 @@ const CityList = () => {
     setCurrentPage(page);
   };
 
-  // useEffect(() => {
-  //   fetch("/cities.json")
-  //     .then((res) => res.json())
-  //     // .then((data) => setCities(data));
-  // }, []);
-
   useEffect(() => {
-    let isMounted = true;
-  
     fetch("/cities.json")
       .then((res) => res.json())
-      .then((data) => {
-        setTimeout(() => {
-          if (isMounted) {
-            setCities(data); 
-          } else {
-            console.warn("⛔ Component đã bị unmount, bỏ qua setCities");
-          }
-        }, 3000);
-      });
-  
-    return () => {
-      isMounted = false;
-      console.log("🛑 CityList unmounted");
-    };
+      .then((data) => setCities(data));
   }, []);
-  
-  
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      const formWrapper = document.querySelector(".add-form-wrapper");
+      if (formWrapper && !formWrapper.contains(e.target)) {
+        setIsAddForm(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <Form className="search-form" onSubmit={(e) => e.preventDefault()}>
       <Form.Item>
@@ -112,6 +103,7 @@ const CityList = () => {
           >
             +
           </Button>
+
           <Input
             type="text"
             className="search"
@@ -126,13 +118,16 @@ const CityList = () => {
         </div>
       </Form.Item>
 
+     
       {isAddForm && (
-        <CityForm
-          city={newCity}
-          setCity={setNewCity}
-          onSubmit={handleAddNew}
-          submitLabel="Thêm"
-        />
+        <div className="add-form-wrapper">
+          <CityForm
+            city={newCity}
+            setCity={setNewCity}
+            onSubmit={handleAddNew}
+            submitLabel="Thêm"
+          />
+        </div>
       )}
 
       {isFocus && (
