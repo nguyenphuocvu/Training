@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
+import { useCityContext } from "./CityContext";
 import { Form, Button, Input, Pagination } from "antd";
 import "./index.css";
 
 const CityList = () => {
-  const [cities, setCities] = useState([]);
+  const { cities, addCity } = useCityContext();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isAddForm, setIsAddForm] = useState(false);
@@ -17,35 +19,23 @@ const CityList = () => {
     longitude: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const citiesPerPage = 9;
-  const filteredCities = cities.filter((city) =>
-    city.city.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const citiesPerPage = 18;
 
-  const displayedCities = searchTerm ? filteredCities : cities;
-
-  const indexOfLastCity = currentPage * citiesPerPage;
-
-  const indexOfFirstCity = indexOfLastCity - citiesPerPage;
-
-  const currentCities = displayedCities.slice(
-    indexOfFirstCity,
-    indexOfLastCity
-  );
-
-  const handleDelete = (rank) => {
-    setCities((prev) =>
-      prev.filter((city) => parseInt(city.rank) !== parseInt(rank))
+  const filteredCities = useMemo(() => {
+    return cities.filter((city) =>
+      city.city.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  };
+  }, [cities, searchTerm]);
 
-  const handleSave = (updatedCity) => {
-    setCities((prevCities) =>
-      prevCities.map((city) =>
-        city.rank === updatedCity.rank ? updatedCity : city
-      )
-    );
-  };
+  const displayedCities = useMemo(() => {
+    return searchTerm ? filteredCities : cities;
+  }, [searchTerm, filteredCities, cities]);
+
+  const currentCities = useMemo(() => {
+    const indexOfLastCity = currentPage * citiesPerPage;
+    const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+    return displayedCities.slice(indexOfFirstCity, indexOfLastCity);
+  }, [displayedCities, currentPage, citiesPerPage]);
 
   const handleAddNew = () => {
     if (
@@ -55,7 +45,7 @@ const CityList = () => {
       newCity.latitude &&
       newCity.longitude
     ) {
-      setCities((prev) => [newCity, ...prev]);
+      addCity(newCity);
       setNewCity({
         rank: "",
         city: "",
@@ -63,6 +53,7 @@ const CityList = () => {
         latitude: "",
         longitude: "",
       });
+
       setIsAddForm(false);
       setIsFocus(true);
       setCurrentPage(1);
@@ -73,11 +64,8 @@ const CityList = () => {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    fetch("/cities.json")
-      .then((res) => res.json())
-      .then((data) => setCities(data));
-  }, []);
+  const leftCities = currentCities.slice(0, 9);
+  const rightCities = currentCities.slice(9, 18);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -118,7 +106,6 @@ const CityList = () => {
         </div>
       </Form.Item>
 
-     
       {isAddForm && (
         <div className="add-form-wrapper">
           <CityForm
@@ -129,22 +116,23 @@ const CityList = () => {
           />
         </div>
       )}
-
       {isFocus && (
         <>
-          <ul className="suggestions">
-            {currentCities.map((city) => (
-              <CityItem
-                key={city.rank}
-                city={city}
-                onDelete={handleDelete}
-                onSave={handleSave}
-              />
-            ))}
-          </ul>
+          <div className="suggestion-lists">
+            <ul className="suggestions">
+              {leftCities.map((city) => (
+                <CityItem key={`left-${city.rank}`} city={city} />
+              ))}
+            </ul>
+            <ul className="suggestions">
+              {rightCities.map((city) => (
+                <CityItem key={`right-${city.rank}`} city={city} />
+              ))}
+            </ul>
+          </div>
 
           <Pagination
-            style={{ marginTop: "800px" }}
+            style={{ marginTop: "20px", textAlign: "center" }}
             onChange={handlePageChange}
             current={currentPage}
             pageSize={citiesPerPage}

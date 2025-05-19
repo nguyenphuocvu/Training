@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CityForm from "./CityForm";
 import { Button, Input } from "antd";
+import { useCityContext } from "./CityContext";
 
-const CityItem = ({ city, onDelete, onSave }) => {
+const CityItem = ({ city }) => {
+const {deleteCity , updateCity } = useCityContext()
+
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...city });
+
   useEffect(() => {
     if (!isEditing) {
       setFormData({ ...city });
@@ -12,7 +16,7 @@ const CityItem = ({ city, onDelete, onSave }) => {
   }, [isEditing, city]);
 
   const handleSave = () => {
-    onSave(formData);
+    updateCity(formData);
     setIsEditing(false);
   };
 
@@ -22,15 +26,13 @@ const CityItem = ({ city, onDelete, onSave }) => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      const formWrapper = document.querySelector(".edit-form-wrapper")
-      if(formWrapper && !formWrapper.contains(e.target)){
-        setIsEditing(false)
+      const formWrapper = document.querySelector(".edit-form-wrapper");
+      if (formWrapper && !formWrapper.contains(e.target)) {
+        setIsEditing(false);
       }
     };
 
-    document.addEventListener("mousedown" , handleClickOutside)
-    
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -44,12 +46,12 @@ const CityItem = ({ city, onDelete, onSave }) => {
           <Button type="default" onClick={() => setIsEditing(true)}>
             Chỉnh sửa
           </Button>
-          <Button type="default" onClick={() => onDelete(city.rank)}>
+          <Button type="default" onClick={() =>deleteCity(city.rank)}>
             Xóa
           </Button>
         </>
       ) : (
-        <div className="edit-form-wrapper" >
+        <div className="edit-form-wrapper">
           <CityForm
             city={formData}
             setCity={setFormData}
@@ -63,4 +65,5 @@ const CityItem = ({ city, onDelete, onSave }) => {
   );
 };
 
-export default CityItem;
+
+export default React.memo(CityItem);
