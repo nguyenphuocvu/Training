@@ -19,7 +19,7 @@ const CityList = () => {
     longitude: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const citiesPerPage = 18;
+  const citiesPerPage = 9;
 
   const filteredCities = useMemo(() => {
     return cities.filter((city) =>
@@ -63,9 +63,6 @@ const CityList = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
-  const leftCities = currentCities.slice(0, 9);
-  const rightCities = currentCities.slice(9, 18);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -118,18 +115,11 @@ const CityList = () => {
       )}
       {isFocus && (
         <>
-          <div className="suggestion-lists">
-            <ul className="suggestions">
-              {leftCities.map((city) => (
-                <CityItem key={`left-${city.rank}`} city={city} />
-              ))}
-            </ul>
-            <ul className="suggestions">
-              {rightCities.map((city) => (
-                <CityItem key={`right-${city.rank}`} city={city} />
-              ))}
-            </ul>
-          </div>
+          <ul className="suggestions">
+            {currentCities.map((city) => (
+              <CityItem key={city.rank} city={city} />
+            ))}
+          </ul>
 
           <Pagination
             style={{ marginTop: "20px", textAlign: "center" }}

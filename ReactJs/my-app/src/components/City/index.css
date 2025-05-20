@@ -15,7 +15,7 @@ body {
 }
 
 .search {
-  width: 100%;
+  width: 70%;
   padding: 10px;
   font-size: 18px;
   border: 2px solid #ddd;
@@ -23,15 +23,6 @@ body {
   outline: none;
 }
 
-.suggestion-lists {
-  display: flex;
-  gap: 20px;
-  width: 700px;
-  margin: 0 auto;
-  justify-content: center;
-  position: relative;
-}
-
 .suggestions {
   list-style: none;
   padding: 0;
@@ -40,33 +31,16 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 2;
-
+  
   position: relative;
-  width: 50%;
+  width: 80%;
 }
 
 .suggestions li {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
-}
-
-/* 
-.suggestions {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-  position: absolute;
-} */
-/* .suggestions li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-} */
+} 
 
 .suggestions li:last-child {
   border-bottom: none;
