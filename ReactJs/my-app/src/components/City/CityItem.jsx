@@ -3,7 +3,7 @@ import CityForm from "./CityForm";
 import { Button, Input } from "antd";
 import { useCityContext } from "./CityContext";
 
-const CityItem = ({ city }) => {
+const CityItem = ({ city, group }) => {
 const {deleteCity , updateCity } = useCityContext()
 
   const [isEditing, setIsEditing] = useState(false);
@@ -16,7 +16,7 @@ const {deleteCity , updateCity } = useCityContext()
   }, [isEditing, city]);
 
   const handleSave = () => {
-    updateCity(formData);
+    updateCity(formData, group);
     setIsEditing(false);
   };
 
@@ -46,7 +46,7 @@ const {deleteCity , updateCity } = useCityContext()
           <Button type="default" onClick={() => setIsEditing(true)}>
             Chỉnh sửa
           </Button>
-          <Button type="default" onClick={() =>deleteCity(city.rank)}>
+          <Button type="default" onClick={() =>deleteCity(city.rank, group )}>
             Xóa
           </Button>
         </>
