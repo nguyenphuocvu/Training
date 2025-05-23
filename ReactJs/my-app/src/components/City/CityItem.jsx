@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CityForm from "./CityForm";
 import { Button, Input } from "antd";
 import { useCityContext } from "./CityContext";
+import useClickOutSide from "../../hook/useClickOutSide";
 
 const CityItem = ({ city, group }) => {
 const {deleteCity , updateCity } = useCityContext()
@@ -24,19 +25,7 @@ const {deleteCity , updateCity } = useCityContext()
     setIsEditing(false);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      const formWrapper = document.querySelector(".edit-form-wrapper");
-      if (formWrapper && !formWrapper.contains(e.target)) {
-        setIsEditing(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isEditing]);
+  useClickOutSide(isEditing , setIsEditing);
 
   return (
     <li className="city-item" draggable="true">
