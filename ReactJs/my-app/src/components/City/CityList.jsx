@@ -4,20 +4,20 @@ import { useCityContext } from "./CityContext";
 import "./index.css";
 
 const CityList = () => {
-  const {  leftCities, rightCities, addCity } = useCityContext();
+  const { isCities, addCity } = useCityContext();
 
   return (
     <div className="flex gap-5">
       <div className="w-1/2">
         <CitySection
-          cities={leftCities}
-          addCity={(city) => addCity( city,  "left" )}
+          cities={isCities.left}
+          addCity={(city) => addCity(city, "left")}
           group="left"
         />
       </div>
       <div className="w-1/2">
         <CitySection
-          cities={rightCities}
+          cities={isCities.right}
           addCity={(city) => addCity(city, "right")}
           group="right"
         />

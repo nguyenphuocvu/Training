@@ -14,16 +14,12 @@ const CitySection = ({ cities, addCity, group }) => {
     latitude: "",
     longitude: "",
   });
-
-  const citiesForGroup = useMemo(() => {
-    return cities.filter((city) => city.group === group);
-  }, [cities, group]);
-
+  
   const filteredCities = useMemo(() => {
-    return citiesForGroup.filter((city) =>
+    return cities.filter((city) =>
       city.city.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [citiesForGroup, searchTerm]);
+  }, [cities, searchTerm]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const citiesPerPage = 9;
@@ -50,7 +46,7 @@ const CitySection = ({ cities, addCity, group }) => {
       newCity.latitude &&
       newCity.longitude
     ) {
-      addCity({...newCity, group} , group);
+      addCity({ ...newCity, group }, group);
       setNewCity({
         rank: "",
         city: "",

@@ -11,54 +11,57 @@ const CityContext = createContext();
 export const useCityContext = () => useContext(CityContext);
 
 export const CityProvider = ({ children }) => {
-  const [leftCities, setLeftCities] = useState([]);
-  const [rightCities, setRightCities] = useState([]);
+  const [isCities, setIsCities] = useState({
+    left: [],
+    right: [],
+  });
 
   useEffect(() => {
-    fetch("/cities-left.json")
-      .then((res) => res.json())
-      .then((data) => setLeftCities(data));
-
-    fetch("/cities-right.json")
-      .then((res) => res.json())
-      .then((data) => setRightCities(data));
+    const fetchCities = async () => {
+      try {
+        const leftRes = await fetch("/cities-left.json");
+        const leftCities = await leftRes.json();
+  
+        const rightRes = await fetch("/cities-right.json");
+        const rightCities = await rightRes.json();
+  
+        setIsCities({ left: leftCities, right: rightCities });
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+  
+    fetchCities();
   }, []);
 
   const addCity = (newCity, group) => {
-    if (group === "left") {
-      setLeftCities((prev) => [newCity, ...prev]);
-    } else {
-      setRightCities((prev) => [newCity, ...prev]);
-    }
+    setIsCities((prev) => ({
+      ...prev,
+      [group]: [newCity, ...prev[group]],
+    }));
   };
 
   const deleteCity = useCallback((rank, group) => {
-    if(group === "left"){
-      setLeftCities((prev) => prev.filter((city) => parseInt(city.rank) !== parseInt(rank)))
-    }
-    else{
-      setRightCities((prev) => prev.filter((city) => parseInt(city.rank) !== parseInt(rank)))
-    }
+    setIsCities((prev) => ({
+      ...prev,
+      [group]: prev[group].filter(
+        (city) => parseInt(city.rank) !== parseInt(rank)
+      ),
+    }));
   }, []);
   const updateCity = useCallback((updateCity, group) => {
-    const updater = (prev) =>
-      prev.map((city) =>
+    setIsCities((prev) => ({
+      ...prev,
+      [group]: prev[group].map((city) =>
         city.rank === updateCity.rank ? updateCity : city
-      );
-
-    if (group === "left") { 
-      setLeftCities(updater);
-    } else {
-      setRightCities(updater);
-    }
+      ),
+    }));
   }, []);
-  
 
   return (
     <CityContext.Provider
       value={{
-        leftCities,
-        rightCities,
+        isCities,
         addCity,
         deleteCity,
         updateCity,

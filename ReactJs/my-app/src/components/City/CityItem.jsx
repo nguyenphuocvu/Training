@@ -52,7 +52,7 @@ const {deleteCity , updateCity } = useCityContext()
         </>
       ) : (
         <div className="edit-form-wrapper">
-          <CityForm
+          <CityForm 
             city={formData}
             setCity={setFormData}
             onSubmit={handleSave}
