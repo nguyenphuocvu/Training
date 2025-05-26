@@ -11,27 +11,13 @@ const CityContext = createContext();
 export const useCityContext = () => useContext(CityContext);
 
 export const CityProvider = ({ children }) => {
-  const [isCities, setIsCities] = useState({
-    left: [],
-    right: [],
-  });
+  const [isCities, setIsCities] = useState({});
 
-  useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const leftRes = await fetch("/cities-left.json");
-        const leftCities = await leftRes.json();
-  
-        const rightRes = await fetch("/cities-right.json");
-        const rightCities = await rightRes.json();
-  
-        setIsCities({ left: leftCities, right: rightCities });
-      } catch (error) {
-        console.error("Error fetching cities:", error);
-      }
-    };
-  
-    fetchCities();
+  const addList = useCallback((name) => {
+    setIsCities((prev) => ({
+      ...prev,
+      [name]: [],
+    }));
   }, []);
 
   const addCity = (newCity, group) => {
@@ -58,6 +44,13 @@ export const CityProvider = ({ children }) => {
     }));
   }, []);
 
+  useEffect(() => {
+    fetch("/cities.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setIsCities(data);
+      });
+  }, []);
   return (
     <CityContext.Provider
       value={{
@@ -65,6 +58,7 @@ export const CityProvider = ({ children }) => {
         addCity,
         deleteCity,
         updateCity,
+        addList,
       }}
     >
       {children}

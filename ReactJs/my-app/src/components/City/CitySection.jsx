@@ -14,8 +14,9 @@ const CitySection = ({ cities, addCity, group }) => {
     latitude: "",
     longitude: "",
   });
-  
+
   const filteredCities = useMemo(() => {
+    if (!Array.isArray(cities)) return [];
     return cities.filter((city) =>
       city.city.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -25,6 +26,7 @@ const CitySection = ({ cities, addCity, group }) => {
   const citiesPerPage = 9;
 
   const displayedCities = useMemo(() => {
+    if (!Array.isArray(cities)) return [];
     return searchTerm ? filteredCities : cities;
   }, [searchTerm, filteredCities, cities]);
 
@@ -70,7 +72,6 @@ const CitySection = ({ cities, addCity, group }) => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
@@ -85,10 +86,9 @@ const CitySection = ({ cities, addCity, group }) => {
           >
             +
           </Button>
-
-          <Input
+          <input
+            className="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
             type="text"
-            className="search"
             placeholder="City or State"
             value={searchTerm}
             onChange={(e) => {
@@ -113,13 +113,9 @@ const CitySection = ({ cities, addCity, group }) => {
 
       {isFocus && (
         <>
-          <ul className="suggestions">
+          <ul>
             {currentCities.map((city) => (
-              <CityItem
-                key={`${city.rank}-${group}`}
-                city={city}
-                group={group}
-              />
+              <CityItem key={city.id} city={city} group={group} />
             ))}
           </ul>
 
