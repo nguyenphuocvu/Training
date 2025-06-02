@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddList from "./AddCityForm/AddList";
 import CitySection from "./CitySection";
-import { CityProvider } from "./CityContext";
+
 const CityList = () => {
   const [lists, setLists] = useState([]);
 
@@ -20,9 +20,9 @@ const CityList = () => {
             className="bg-white shadow-md rounded-lg p-5 w-full sm:w-[300px] flex flex-col"
           >
             <h2 className="text-xl font-bold mb-3 text-gray-800">{name}</h2>
-            <CityProvider>
+
               <CitySection />
-            </CityProvider>
+      
           </div>
         ))}
       </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CityForm from "./CityForm";
 import { Button, Input } from "antd";
-import { useCityContext } from "./CityContext";
+import useCityStore from "./useCityStore";
 import useClickOutSide from "../../hook/useClickOutSide";
 
 const CityItem = ({ city, group }) => {
-const {deleteCity , updateCity } = useCityContext()
+
+const {deleteCity , updateCity} = useCityStore()
 
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...city });

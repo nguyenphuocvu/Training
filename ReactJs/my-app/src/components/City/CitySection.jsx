@@ -2,12 +2,16 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Button, Input, Pagination, Form } from "antd";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
-import { useCityContext } from "./CityContext";
+import useCityStore from "./useCityStore";
 
 const CitySection = ({ group }) => {
+   const {cities , fetchCities , addCity} = useCityStore()
 
-  const {cities = [], addCity } = useCityContext();
+  useEffect(() => {
+    fetchCities();
+  },[])
 
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isAddForm, setIsAddForm] = useState(false);
