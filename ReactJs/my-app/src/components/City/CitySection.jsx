@@ -2,8 +2,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Button, Input, Pagination, Form } from "antd";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
+import { useCityContext } from "./CityContext";
 
-const CitySection = ({ cities, addCity, group }) => {
+const CitySection = ({ group }) => {
+
+  const {cities = [], addCity } = useCityContext();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isAddForm, setIsAddForm] = useState(false);
@@ -31,10 +35,12 @@ const CitySection = ({ cities, addCity, group }) => {
   }, [searchTerm, filteredCities, cities]);
 
   const currentCities = useMemo(() => {
+    if(!Array.isArray(displayedCities)) return [];
     const indexOfLastCity = currentPage * citiesPerPage;
-    const indexOfFirstCity = indexOfLastCity - citiesPerPage;
-    return displayedCities.slice(indexOfFirstCity, indexOfLastCity);
-  }, [displayedCities, currentPage, citiesPerPage]);
+    const inddexOfFirstCity = indexOfLastCity - citiesPerPage;
+    return displayedCities.slice(inddexOfFirstCity, indexOfLastCity);
+  }, [displayedCities, currentPage, citiesPerPage])
+
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -133,3 +139,6 @@ const CitySection = ({ cities, addCity, group }) => {
 };
 
 export default CitySection;
+
+
+

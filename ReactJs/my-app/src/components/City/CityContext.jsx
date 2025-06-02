@@ -11,54 +11,37 @@ const CityContext = createContext();
 export const useCityContext = () => useContext(CityContext);
 
 export const CityProvider = ({ children }) => {
-  const [isCities, setIsCities] = useState({});
-
-  const addList = useCallback((name) => {
-    setIsCities((prev) => ({
-      ...prev,
-      [name]: [],
-    }));
-  }, []);
-
-  const addCity = (newCity, group) => {
-    setIsCities((prev) => ({
-      ...prev,
-      [group]: [newCity, ...prev[group]],
-    }));
-  };
-
-  const deleteCity = useCallback((rank, group) => {
-    setIsCities((prev) => ({
-      ...prev,
-      [group]: prev[group].filter(
-        (city) => parseInt(city.rank) !== parseInt(rank)
-      ),
-    }));
-  }, []);
-  const updateCity = useCallback((updateCity, group) => {
-    setIsCities((prev) => ({
-      ...prev,
-      [group]: prev[group].map((city) =>
-        city.rank === updateCity.rank ? updateCity : city
-      ),
-    }));
-  }, []);
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     fetch("/cities.json")
       .then((res) => res.json())
-      .then((data) => {
-        setIsCities(data);
-      });
+      .then((data) => setCities(data));
   }, []);
+
+  const addCity = (newCity) => {
+    setCities((prev) => [newCity, ...prev]);
+  };
+
+  const deleteCity = useCallback((rank) => {
+    setCities((prev) =>
+      prev.filter((city) => parseInt(city.rank) !== parseInt(rank))
+    );
+  }, []);
+
+  const updateCity = useCallback((updatedCity) => {
+    setCities((prev) =>
+      prev.map((city) => (city.rank === updatedCity.rank ? updatedCity : city))
+    );
+  }, []);
+
   return (
     <CityContext.Provider
       value={{
-        isCities,
+        cities,
         addCity,
         deleteCity,
         updateCity,
-        addList,
       }}
     >
       {children}
