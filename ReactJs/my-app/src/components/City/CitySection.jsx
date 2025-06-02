@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Button, Input, Pagination, Form } from "antd";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
-import useCityStore from "./useCityStore";
+import useCityStore from "../../hook/useCityStore";
 
 const CitySection = ({ group }) => {
    const {cities , fetchCities , addCity} = useCityStore()
@@ -11,7 +11,7 @@ const CitySection = ({ group }) => {
     fetchCities();
   },[])
 
-  
+
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [isAddForm, setIsAddForm] = useState(false);

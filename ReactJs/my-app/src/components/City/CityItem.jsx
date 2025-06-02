@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CityForm from "./CityForm";
 import { Button, Input } from "antd";
-import useCityStore from "./useCityStore";
+import useCityStore from "../../hook/useCityStore";
 import useClickOutSide from "../../hook/useClickOutSide";
 
 const CityItem = ({ city, group }) => {
