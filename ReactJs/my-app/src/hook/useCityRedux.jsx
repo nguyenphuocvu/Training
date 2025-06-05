@@ -4,18 +4,18 @@ import {
   addCity,
   deleteCity,
   updateCity,
-} from "../redux/citySlice";
+} from "../store/citySlice";
 
-const useCityRedux = () => {
+const useCityRedux = (group) => {
   const dispatch = useDispatch();
-  const cities = useSelector((state) => state.cities.cities);
+  const cities = useSelector((state) => state.cities.cities[group] || []);
 
   return {
     cities,
-    fetchCities: (group) => dispatch(fetchCities(group)),
-    addCity: (group, city) => dispatch(addCity({ group, city })),
-    deleteCity: (group, rank) => dispatch(deleteCity({ group, rank })),
-    updateCity: (group, city) => dispatch(updateCity({ group, city })),
+    fetchCities: () => dispatch(fetchCities(group)),
+    addCity: (city) => dispatch(addCity({ group, city })),
+    deleteCity: (rank) => dispatch(deleteCity({ group, rank })),
+    updateCity: (city) => dispatch(updateCity({ group, city })),
   };
 };
 

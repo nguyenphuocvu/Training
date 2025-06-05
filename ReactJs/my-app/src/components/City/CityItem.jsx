@@ -5,7 +5,7 @@ import useClickOutSide from "../../hook/useClickOutSide";
 import useCityRedux from "../../hook/useCityRedux";
 
 const CityItem = ({ city, group }) => {
-  const { deleteCity, updateCity } = useCityRedux();
+  const { deleteCity, updateCity } = useCityRedux(group);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...city });
 
@@ -16,7 +16,7 @@ const CityItem = ({ city, group }) => {
   }, [isEditing, city]);
 
   const handleSave = () => {
-    updateCity(group, formData);
+    updateCity(formData);
     setIsEditing(false);
   };
 
@@ -34,7 +34,7 @@ const CityItem = ({ city, group }) => {
           <Button type="default" onClick={() => setIsEditing(true)}>
             Chỉnh sửa
           </Button>
-          <Button type="default" onClick={() => deleteCity(group, city.rank)}>
+          <Button type="default" onClick={() => deleteCity(city.rank)}>
             Xóa
           </Button>
         </>

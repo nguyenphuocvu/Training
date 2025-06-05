@@ -5,12 +5,10 @@ import CityForm from "./CityForm";
 import useCityRedux from "../../hook/useCityRedux";
 
 const CitySection = ({ group }) => {
-  const { cities: allCities, fetchCities, addCity } = useCityRedux();
-  const cities = allCities[group] || [];
-
+  const { cities, fetchCities, addCity } = useCityRedux(group);
   useEffect(() => {
-    fetchCities(group);
-  }, [group]);
+    fetchCities();
+  }, []);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
@@ -57,7 +55,7 @@ const CitySection = ({ group }) => {
       newCity.latitude &&
       newCity.longitude
     ) {
-      addCity(group, newCity);
+      addCity(newCity);
       setNewCity({
         rank: "",
         city: "",
