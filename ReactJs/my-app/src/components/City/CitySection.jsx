@@ -2,15 +2,15 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Button, Input, Pagination, Form } from "antd";
 import CityItem from "./CityItem";
 import CityForm from "./CityForm";
-import useCityStore from "../../hook/useCityStore";
+import useCityRedux from "../../hook/useCityRedux";
 
 const CitySection = ({ group }) => {
-   const {cities , fetchCities , addCity} = useCityStore()
+  const { cities: allCities, fetchCities, addCity } = useCityRedux();
+  const cities = allCities[group] || [];
 
   useEffect(() => {
-    fetchCities();
-  },[])
-
+    fetchCities(group);
+  }, [group]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [isFocus, setIsFocus] = useState(false);
@@ -39,12 +39,11 @@ const CitySection = ({ group }) => {
   }, [searchTerm, filteredCities, cities]);
 
   const currentCities = useMemo(() => {
-    if(!Array.isArray(displayedCities)) return [];
+    if (!Array.isArray(displayedCities)) return [];
     const indexOfLastCity = currentPage * citiesPerPage;
-    const inddexOfFirstCity = indexOfLastCity - citiesPerPage;
-    return displayedCities.slice(inddexOfFirstCity, indexOfLastCity);
-  }, [displayedCities, currentPage, citiesPerPage])
-
+    const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+    return displayedCities.slice(indexOfFirstCity, indexOfLastCity);
+  }, [displayedCities, currentPage, citiesPerPage]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -58,7 +57,7 @@ const CitySection = ({ group }) => {
       newCity.latitude &&
       newCity.longitude
     ) {
-      addCity({ ...newCity, group }, group);
+      addCity(group, newCity);
       setNewCity({
         rank: "",
         city: "",
@@ -66,7 +65,6 @@ const CitySection = ({ group }) => {
         latitude: "",
         longitude: "",
       });
-
       setIsAddForm(false);
       setIsFocus(true);
       setCurrentPage(1);
@@ -80,7 +78,6 @@ const CitySection = ({ group }) => {
         setIsAddForm(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -143,6 +140,3 @@ const CitySection = ({ group }) => {
 };
 
 export default CitySection;
-
-
-

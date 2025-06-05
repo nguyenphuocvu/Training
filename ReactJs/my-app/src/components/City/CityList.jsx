@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import AddList from "./AddCityForm/AddList";
 import CitySection from "./CitySection";
+import React, { useState } from "react";
 
 const CityList = () => {
   const [lists, setLists] = useState([]);
@@ -21,8 +21,7 @@ const CityList = () => {
           >
             <h2 className="text-xl font-bold mb-3 text-gray-800">{name}</h2>
 
-              <CitySection />
-      
+            <CitySection group={name} />
           </div>
         ))}
       </div>

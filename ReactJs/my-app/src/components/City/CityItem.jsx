@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CityForm from "./CityForm";
 import { Button, Input } from "antd";
-import useCityStore from "../../hook/useCityStore";
 import useClickOutSide from "../../hook/useClickOutSide";
+import useCityRedux from "../../hook/useCityRedux";
 
 const CityItem = ({ city, group }) => {
-
-const {deleteCity , updateCity} = useCityStore()
-
+  const { deleteCity, updateCity } = useCityRedux();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...city });
 
@@ -18,7 +16,7 @@ const {deleteCity , updateCity} = useCityStore()
   }, [isEditing, city]);
 
   const handleSave = () => {
-    updateCity(formData, group);
+    updateCity(group, formData);
     setIsEditing(false);
   };
 
@@ -26,7 +24,7 @@ const {deleteCity , updateCity} = useCityStore()
     setIsEditing(false);
   };
 
-  useClickOutSide(isEditing , setIsEditing);
+  useClickOutSide(isEditing, setIsEditing);
 
   return (
     <li className="city-item" draggable="true">
@@ -36,13 +34,13 @@ const {deleteCity , updateCity} = useCityStore()
           <Button type="default" onClick={() => setIsEditing(true)}>
             Chỉnh sửa
           </Button>
-          <Button type="default" onClick={() =>deleteCity(city.rank, group )}>
+          <Button type="default" onClick={() => deleteCity(group, city.rank)}>
             Xóa
           </Button>
         </>
       ) : (
         <div className="edit-form-wrapper">
-          <CityForm 
+          <CityForm
             city={formData}
             setCity={setFormData}
             onSubmit={handleSave}
@@ -54,6 +52,5 @@ const {deleteCity , updateCity} = useCityStore()
     </li>
   );
 };
-
 
 export default React.memo(CityItem);
