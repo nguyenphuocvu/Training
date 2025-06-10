@@ -1,27 +1,31 @@
-'use client'
+"use client";
 import AddList from "../AddCityForm/AddList";
-import CitySection from "./CitySection";
 import { useState } from "react";
+import Link from "next/link";
 const CityList = () => {
   const [lists, setLists] = useState<string[]>([]);
 
-  const handleAddList = (name : string) =>  {
-     setLists((prev) => [...prev, name]);
-  }
+  const handleAddList = (name: string) => {
+    setLists((prev) => [...prev, name]);
+  };
 
   return (
     <div className="p-5 bg-gray-100 min-h-screen">
-      <AddList onAdd={handleAddList}/>
+      <AddList onAdd={handleAddList} />
       <div className="flex flex-wrap gap-5 mt-5">
         {lists.map((name, index) => (
-          <div
+          <Link
+            href={`/list/${encodeURIComponent(name)}`}
             key={index}
-            className="bg-white shadow-md rounded-lg p-5 w-full sm:w-[300px] flex flex-col"
+            className="w-full sm:w-[300px]"
           >
-            <h2 className="text-xl font-bold mb-3 text-gray-800">{name}</h2>
-
-            <CitySection group={name}/>
-          </div> 
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg p-5 w-full sm:w-[300px] flex flex-col"
+            >
+              <h2 className="text-xl font-bold mb-3 text-gray-800">{name}</h2>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

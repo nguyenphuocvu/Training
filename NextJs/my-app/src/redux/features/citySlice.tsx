@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { City } from "@/types";
 // City type
-
 interface CityState {
   cities: {
     [group: string]: City[];

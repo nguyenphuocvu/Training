@@ -1,11 +1,9 @@
-import { Layout } from "antd";
-import CityList from "./components/City/CityList";
-import "../styles/index.css"
+import { redirect } from 'next/navigation';
 
 export default function Home() {
   return (
-    <Layout>
-       <CityList/>
-    </Layout>
+      redirect('/home')
   );
 }
+
+
