@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
-import { Form, Button, Pagination } from "antd";
+import { Button, Pagination } from "antd";
 import CityForm from "../CityForm/CityForm";
 import CityItem from "./CityItem";
 import useCityRedux from "@/hooks/useCityRedux";
@@ -20,13 +20,6 @@ const CitySection = ({ group }: Props) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isAddForm, setIsAddForm] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
-  const [newCity, setNewCity] = useState<City>({
-    rank: 0, 
-    city: "",
-    state: "",
-    latitude: 0, 
-    longitude: 0, 
-  });
   const citiesPerPage = 9;
 
   const filteredCities = useMemo(() => {
@@ -36,87 +29,67 @@ const CitySection = ({ group }: Props) => {
     );
   }, [cities, searchTerm]);
 
-  const displayedCities = useMemo(() => {
-    if (!Array.isArray(cities)) return [];
-    return searchTerm ? filteredCities : cities;
-  }, [searchTerm, filteredCities, cities]);
+    const displayedCities = useMemo(() => {
+      if (!Array.isArray(cities)) return [];
+      return searchTerm ? filteredCities : cities;
+    }, [searchTerm, filteredCities, cities]);
 
-  const currentCities = useMemo(() => {
-    if (!Array.isArray(displayedCities)) return [];
-    const indexOfLastCity = currentPage * citiesPerPage;
-    const indexOfFirstCity = indexOfLastCity - citiesPerPage;
-    return displayedCities.slice(indexOfFirstCity, indexOfLastCity);
-  }, [displayedCities, currentPage, citiesPerPage]);
+    const currentCities = useMemo(() => {
+      if (!Array.isArray(displayedCities)) return [];
+      const indexOfLastCity = currentPage * citiesPerPage;
+      const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+      return displayedCities.slice(indexOfFirstCity, indexOfLastCity);
+    }, [displayedCities, currentPage, citiesPerPage]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const handleAddNew = () => {
-    if (
-      newCity.rank &&
-      newCity.city &&
-      newCity.state &&
-      newCity.latitude &&
-      newCity.longitude
-    ) {
-
-
-      addCity(newCity);
-
-      setNewCity({
-        rank: 0,
-        city: "",
-        state: "",
-        latitude: 0,
-        longitude: 0, 
-      });
-      setIsAddForm(false);
-      setIsFocus(true);
-      setCurrentPage(1);
-    }
+  const handleAddNew = (data: City) => {
+    addCity(data);
+    setIsAddForm(false);
+    setIsFocus(true);
+    setCurrentPage(1);
+    setSearchTerm("");
   };
 
   useEffect(() => {
     const handleClickOutSide = (e: MouseEvent) => {
       const formWrapper = document.querySelector(".add-form-wrapper");
-      if (formWrapper && !formWrapper.contains(e.target as Node)) {// as Node
+      if (formWrapper && !formWrapper.contains(e.target as Node)) {
         setIsFocus(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutSide);
     return () => document.removeEventListener("mousedown", handleClickOutSide);
   }, []);
+
   return (
-    <Form>
-      <div>
-        <div>
-          <Button
-            className="add-form"
-            htmlType="button"
-            onClick={() => setIsAddForm(!isAddForm)}
-          >
-            +
-          </Button>
-          <input
-            className="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
-            type="text"
-            placeholder="City or State"
-            value={searchTerm}
-            onFocus={() => setIsFocus(true)}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
-        </div>
+    <>
+      <div className="flex gap-1 mb-2">
+        <Button
+           className="bg-[#2196f3] text-white font-semibold text-[15px] border-none rounded-[8px] cursor-pointer transition-colors duration-200 ease-in hover:bg-[#1976d2] w-[40px] h-[40px] flex items-center justify-center"
+          htmlType="button"
+          onClick={() => setIsAddForm(!isAddForm)}
+        >
+          +
+        </Button>
+        <input
+          className="border border-gray-300 rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
+          type="text"
+          placeholder="City or State"
+          value={searchTerm}
+          onFocus={() => setIsFocus(true)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setCurrentPage(1);
+          }}
+        />
       </div>
 
       {isAddForm && (
         <div className="add-form-wrapper">
           <CityForm
-            city={newCity}
-            setCity={setNewCity}
             onSubmit={handleAddNew}
             submitLabel="Thêm"
             onCancel={() => setIsAddForm(false)}
@@ -141,7 +114,7 @@ const CitySection = ({ group }: Props) => {
           />
         </>
       )}
-    </Form>
+    </>
   );
 };
 

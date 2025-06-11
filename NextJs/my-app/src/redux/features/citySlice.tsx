@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { City } from "@/types";
 // City type
 interface CityState {
+  groups: string[];
   cities: {
     [group: string]: City[];
   };
@@ -13,6 +14,10 @@ interface FetchCitiesPayload {
 }
 
 const initialState: CityState = {
+  groups:
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("citiesGroup") || "[]")
+      : [],
   cities: {},
 };
 
@@ -29,21 +34,30 @@ const citySlice = createSlice({
   name: "cities",
   initialState,
   reducers: {
-    addCity: (
-      state,
-      action: PayloadAction<{ group: string; city: City }>
-    ) => {
+    addList: (state, action: PayloadAction<string>) => {
+      const listName = action.payload;
+      if (!state.groups.includes(listName)) {
+        state.groups.push(listName);
+        localStorage.setItem("citiesGroup", JSON.stringify(state.groups));
+      }
+    },
+    addCity: (state, action: PayloadAction<{ group: string; city: City }>) => {
       const { group, city } = action.payload;
-      if (!state.cities[group])
-      state.cities[group] = [];
+      if (!state.cities[group]) state.cities[group] = [];
       state.cities[group].unshift(city);
     },
-    deleteCity: (state, action: PayloadAction<{ group: string; rank: number }>) => {
+    deleteCity: (
+      state,
+      action: PayloadAction<{ group: string; rank: number }>
+    ) => {
       const { group, rank } = action.payload;
       if (!state.cities[group]) return;
       state.cities[group] = state.cities[group].filter((c) => c.rank !== rank);
     },
-    updateCity: (state, action: PayloadAction<{ group: string; city: City }>) => {
+    updateCity: (
+      state,
+      action: PayloadAction<{ group: string; city: City }>
+    ) => {
       const { group, city } = action.payload;
       if (!state.cities[group]) return;
       state.cities[group] = state.cities[group].map((c) =>
@@ -59,7 +73,5 @@ const citySlice = createSlice({
   },
 });
 
-export const { addCity, deleteCity, updateCity } = citySlice.actions;
+export const { addCity, addList, deleteCity, updateCity } = citySlice.actions;
 export default citySlice.reducer;
-
-
