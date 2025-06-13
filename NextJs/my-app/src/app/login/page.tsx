@@ -53,10 +53,10 @@ const LoginForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-md rounded-2xl p-8 w-full max-w-md">
-        <Title className="text-center mb-6"> Đăng nhập </Title>
+        <Title className="text-center mb-6"> Login </Title>
         {!otpSent ? (
           <>
-            <Text className="block mb-2">Nhập email</Text>
+            <Text className="block mb-2">Enter email</Text>
             <Input
               placeholder="email@example.com"
               value={email}
@@ -69,7 +69,7 @@ const LoginForm = () => {
           </>
         ) : (
           <>
-            <Text className="block mb-2"> Nhập mã OTP </Text>
+            <Text className="block mb-2"> Nhập mã OTP</Text>
             <Input
               value={otp}
               maxLength={6}
@@ -87,5 +87,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-
