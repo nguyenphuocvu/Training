@@ -24,7 +24,6 @@ const CityForm = ({
   } = useForm<City>({ defaultValues: initialValues });
 
   useEffect(() => {
-    console.log("Initial values:", initialValues);
     if (initialValues) {
       reset(initialValues);
     }

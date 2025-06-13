@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 import CityForm from "../CityForm/CityForm";
 import useCityRedux from "@/hooks/useCityRedux";
 import useClickOutSide from "@/hooks/useClickOutSide";
 import { City } from "@/types";
+import socket from "@/utils/socket";
 interface CityItemProps {
   city: City;
   group: string;
@@ -17,12 +18,26 @@ const CityItem = ({ city, group }: CityItemProps) => {
   const handleSave = (data: City) => {
     updateCity(data);
     setIsEditing(false);
+    socket.emit("edit-city" , {roomId: group, city: data});
   };
 
   const handleCancel = () => {
     setIsEditing(false);
   };
 
+  //Socket.on Edit City
+  useEffect(() => {
+    const handleCityEdited = (editedCity: City) => {
+      updateCity(editedCity);
+    };
+  
+    socket.on("city-edited", handleCityEdited);
+  
+    return () => {
+      socket.off("city-edited", handleCityEdited); 
+    };
+  }, []);
+  
   useClickOutSide(isEditing, setIsEditing);
 
   return (

@@ -5,6 +5,7 @@ import CityForm from "../CityForm/CityForm";
 import CityItem from "./CityItem";
 import useCityRedux from "@/hooks/useCityRedux";
 import { City } from "@/types";
+import socket from "@/utils/socket";
 type Props = {
   group: string;
 };
@@ -14,6 +15,16 @@ const CitySection = ({ group }: Props) => {
 
   useEffect(() => {
     fetchCities();
+    socket.connect();
+    socket.emit("join-room" , group);
+    
+    socket.on("city-added" , (city: City) => {
+        addCity(city)
+    })
+
+    return () => {
+       socket.off("city-added");
+    }
   }, []);
 
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -51,6 +62,7 @@ const CitySection = ({ group }: Props) => {
     setIsFocus(true);
     setCurrentPage(1);
     setSearchTerm("");
+    socket.emit("add-city", { roomId: group, city: data });
   };
 
   useEffect(() => {
