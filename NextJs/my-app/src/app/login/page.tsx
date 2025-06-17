@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Input, Button, Typography, message } from "antd";
 import { useRouter } from "next/navigation";
 
@@ -10,12 +10,6 @@ const LoginForm = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState<string>("");
   const router = useRouter();
-
-  useEffect(() => {
-    const token = localStorage.getItem("auth_token");
-    if (token) router.push("/home");
-  }, []);
-
   //Gửi OTP
   const sendOTP = async () => {
     if (!email) return message.error("Vui lòng nhập email");
@@ -23,7 +17,7 @@ const LoginForm = () => {
     const res = await fetch("/api/send-otp", {
       method: "POST",
       body: JSON.stringify({ email }),
-      headers: { "Content-Type": "application" },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (res.ok) {
@@ -34,16 +28,16 @@ const LoginForm = () => {
     }
   };
   //Xác thực OTP
+
   const verifyOTP = async () => {
     const res = await fetch("/api/verify-otp", {
       method: "POST",
       body: JSON.stringify({ email, otp }),
-      headers: { "Content-Type": "application" },
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", 
     });
 
     if (res.ok) {
-      const data = await res.json();
-      localStorage.setItem("auth_token", data.token);
       router.push("/home");
     } else {
       message.error("OTP không đúng");
@@ -87,3 +81,4 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+

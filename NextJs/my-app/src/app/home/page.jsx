@@ -1,35 +1,37 @@
- "use client";
+"use client";
 import { useEffect } from "react";
-import { Layout, Button } from "antd";
-import { useRouter } from "next/navigation";
+import { Layout } from "antd";
 import CityList from "../components/City/CityList";
 import socket from "@/utils/socket";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem("auth_token");
-    if (!token) {
-      router.push("/login");
-    }
-
-    socket.connect();
-    return () => socket.disconnect();
+    fetch("/home", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => {
+        if (res.status === 401) {
+          router.push("/login");
+        } else {
+          socket.connect();
+        }
+      })
+      .catch(() => {
+        router.push("/login");
+      });
+  
+    return () => {
+      socket.disconnect();
+    };
   }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("auth_token");
-    router.push("/login");
-  };
+  
 
   return (
     <Layout className="p-4 min-h-screen">
-      <div className="flex justify-end mb-4">
-        <Button danger type="primary" onClick={handleLogout}>
-          Đăng xuất
-        </Button>
-      </div>
       <CityList />
     </Layout>
   );

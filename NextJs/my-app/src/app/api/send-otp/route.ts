@@ -7,6 +7,7 @@ export async function POST(req: NextRequest) {
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
   otpStore.set(email, otp);
+  console.log("OTP đã lưu:", otp);
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
