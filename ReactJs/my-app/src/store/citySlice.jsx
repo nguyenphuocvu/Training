@@ -8,6 +8,7 @@ export const fetchCities = createAsyncThunk(
   }
 );
 
+
 const citySlice = createSlice({
   name: "cities",
   initialState: {

@@ -19,17 +19,7 @@ phần tử thứ 2 là set State ` hàm cho phép bạn cập nhật trạng th
 gọi useState() nhiều lần để các state được độc lập với nhau tránh conflict
 
 có thể trả về 1 string 1 array không cần là một object 
-# useEffect 
-1 : Cập nhật lại state
-2 : Cập nhât DOM (mutated)
-3: Render lại UI
-4: Gọi cleanup nếu deps thay đổi
-5: Gọi useEffect callback
 
-có 2 tham số 
-quản lý side effects bằng method useEffect
-tham số đầu tiên là một funtion
-tham số thứ 2 là array rỗng tham số không được gọi lại nữa và sẽ khong bị vòng lăp vô hạng nữa
 
 
 # useLayoutEffect
@@ -57,12 +47,6 @@ React useMemoHook trả về một giá trị được ghi nhớ.
 
 # Phân biệt 2 cái useCallback vs useMemo 
  Sự khác biệt chính là useMemo trả về giá trị được ghi nhớ và useCallback trả về hàm được ghi nhớ. 
-
-
-
-# useRef
-- Lưu giá trị qua một tham chiếu bên ngoài
-//function component 
 
 # useContext  
 CompA -> CompB -> CompC

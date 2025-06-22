@@ -16,14 +16,14 @@ const FormAddList = ({ onAddList, onCancel }: Props) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="flex align-center mt-2 gap-2">
+    <form  className="flex align-center mt-2 gap-2">
       <Input
         placeholder="Enter list name"
         style={{ width: "200px" }}
         value={listName}
         onChange={(e) => setListName(e.target.value)}
       />
-      <Button type="primary" htmlType="submit">
+      <Button type="primary" onClick={handleSubmit}>
         Add List
       </Button>
 

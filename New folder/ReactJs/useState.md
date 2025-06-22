@@ -1,19 +1,13 @@
-# useState Hook lý do gọi hook là gắn vào component
 # Dùng khi nào 
 Khi muốn dữ liệu thayy đổi thì giao diện tự động được cập nhật (render lại theo dữ liệu)
-
+Tạo và cập nhật giá trị
 
 # Cách dùng 
-
-import {useState} from 'react'
-
-function Component () {
-    const [state , setState] = useState(initState)
-}
-
-state đang là 1 nếu mình muốn nó là 2 thì mình phải dùng setState để thay đổi nó lên 2
-
-initState giá trị khởi tạo
+const [count , setCount] = useState(0)
+setCount(1) thay đổi giá trị thành 1
+// count giữ giá trị trạng thái
+// setCount dùng để cập nhật giá trị
+// useState tạo tài nguyên trạng thái và gắn giá trị là 0
 
 # Lưu ý 
 - COmponent được re-render sau khi `setState`

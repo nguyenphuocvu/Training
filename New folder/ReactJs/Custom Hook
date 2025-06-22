@@ -1,0 +1,6 @@
+Một custom hook trong React là một hàm JavaScript bắt đầu bằng tiền tố use và cho phép bạn tái sử dụng logic liên quan đến stateful hoặc side effects giữa các component. Custom hook giúp mã sạch hơn, dễ bảo trì hơn và tránh lặp lại code.
+
+Khi nào nên sử dụng 
+
+- Khi bạn lặp lại logic giống nhau ở nhiều component  (ví dụ : fetch Api , debounce , inpur , xử lý form ,toggle trang thái )
+Khi muốn chia nhỏ logic lớn trong một component để dễ test và dễ bảo trì 

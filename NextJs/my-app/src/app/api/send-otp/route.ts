@@ -4,6 +4,10 @@ import { otpStore } from "@/lib/otp-store";
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
+  if (!email) {
+    return NextResponse.json({ message: "Email is required" }, { status: 400 });
+  }
+
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
   otpStore.set(email, otp);
@@ -22,6 +26,7 @@ export async function POST(req: NextRequest) {
     to: email,
     subject: "Your OTP Code",
     text: `Your OTP is ${otp}`,
+    zzz : 1 , 
   });
 
   return NextResponse.json({ message: "OTP sent" });

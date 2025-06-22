@@ -1,0 +1,10 @@
+//Trả về một giá trị đã đựơc ghi nhớ , chỉ tính toán lại khi các phụ thuộc được định nghĩa thay đổi
+const area = useMemo(() => {
+    return calcSurfaceArea(size);
+}, [size])
+//area giữ giá trị được ghi nhớ trả về từ calcSurfaceArea
+//[size] cập nhật area mỗi khi kích thước thay đổi
+
+// Khi có tính toán nặng hoặc lọc/sắp xếp danh sách lớn.
+
+// Khi bạn muốn tránh tính toán lại nếu dữ liệu đầu vào không thay đổi.

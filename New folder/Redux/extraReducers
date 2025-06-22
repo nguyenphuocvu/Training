@@ -1,0 +1,35 @@
+extraReducers dùng để xử lý các action không được định nghĩa trực tiếp trong reduces
+
+fulfilled là action được gọi khi promise trả về kết quả thành công
+rejected là action được gọi khi promise trả về kết quả thất bại
+pending là action được gọi khi promise đang được thực hiện
+
+state là giá trị hiện tại của state cụ thể là state định của ban đầu của slice
+action là action được gọi khi promise trả về kết quả thành công hoặc thất bại
+
+
+✅ action.payload
+Là dữ liệu bạn trả về từ createAsyncThunk.
+
+Ví dụ trong fetchCities:
+return { group, cities: data }; // đây chính là payload
+
+
+✅ dispatch để làm gì?
+Hàm dispatch() được dùng để gửi một action đến Redux Store, để kích hoạt reducer tương ứng.
+
+Ví dụ:
+dispatch(fetchCities("group1")); // gửi yêu cầu lấy dữ liệu
+dispatch(addCity({ group: "group1", city: { name: "Hue", rank: 3 } }));
+Redux sẽ nhận được action và cập nhật state tương ứng.
+
+
+
+📝 Tóm tắt ngắn gọn
+Thành phần	Ý nghĩa
+state	Giá trị hiện tại của dữ liệu Redux
+action	Mô tả hành động đang diễn ra
+action.payload	Dữ liệu được trả về từ createAsyncThunk
+dispatch	Gửi action đến Redux để xử lý (gọi reducer)
+fulfilled	Trạng thái thành công của createAsyncThunk
+extraReducers	Xử lý các action async không nằm trong reducers

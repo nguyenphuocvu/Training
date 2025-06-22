@@ -1,0 +1,11 @@
+//useCallback Trả về một phiên bản đã ghi nhớ của một callback chỉ thay đổi khi 
+// các phụ thuộc thay đổi
+
+//handleRenderArea một phiên đã ghi nhớ của updateSurfaceArea
+const handleRenderArea = useCallback(() => {
+    updateSurfaceArea(size)
+}, [size]) //[size] handleRenderArea cập nhật khi kích thước thay đổi giá trị
+
+// Khi bạn dùng useCallback, mục đích không phải để ngăn render khi dữ liệu thay đổi,
+// mà là để ngăn component con render lại khi KHÔNG có gì thay đổi — đặc biệt là
+// tránh render thừa do props là hàm bị đổi địa chỉ trong bộ nhớ.

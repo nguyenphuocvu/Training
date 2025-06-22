@@ -1,0 +1,9 @@
+//useContext Nhận 1 đối tượng context được tạo ra bằng React.createContext và 
+//trả về giá trị hiện tại của context đó 
+const value = useContext(ThemeContext)
+//value Gía trị context hiện tại
+//ThemeContext Đối tượng context
+
+
+// Vậy e ghi nhớ lại là:
+// ContextProvider có thể dùng 1 lần hoặc nhiều lần

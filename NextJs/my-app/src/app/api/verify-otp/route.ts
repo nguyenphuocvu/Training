@@ -7,6 +7,12 @@ const JWT_SECRET = process.env.JWT_SECRET!;
 export async function POST(req: Request) {
   const { email, otp } = await req.json();
 
+  if (!email || !otp) {
+    return NextResponse.json({ message: "Invalid OTP" }, { status: 401 });
+  }
+
+  
+
   const validOtp = otpStore.get(email);
   if (otp === validOtp) {
     otpStore.delete(email);

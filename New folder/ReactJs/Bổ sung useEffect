@@ -1,0 +1,11 @@
+// Dùng để chạy các tác dụng trong thành phần như lấy dữ liệu hoặc thêm listener 
+useEffect(() => {
+    addListenners(); //Chay sau khi render ban đầu
+    return () => {
+        removeEventListener() //Chạy ngay trước khi thành component unmounts
+    }
+})
+
+useEffect(() => {
+    fetchUserInfo(userID) //Chay sau khi render lần đầu tgieen và mỗi khi userID thay đổi 
+}, [userID])
