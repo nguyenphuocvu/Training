@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nest-app:
+    container_name: nest-auth-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/nestdb
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  mongo:
+    container_name: mongo
+    image: mongo:6
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
