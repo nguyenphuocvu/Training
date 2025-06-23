@@ -16,6 +16,9 @@ export class Auth {
 
   @Prop({ type: Date, default: null })
   otpExpires: Date | null;
+
+  @Prop({ default: false })
+  isVerified: boolean;
 }
 
 export const AuthSchema = SchemaFactory.createForClass(Auth);

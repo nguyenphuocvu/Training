@@ -5,12 +5,13 @@ import { Auth, AuthDocument } from './schema/auth.schema';
 import { MailService } from 'src/mail/mail.service';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
-
+import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class AuthService {
   constructor(
     @InjectModel(Auth.name) private userModel: Model<AuthDocument>,
     private mailService: MailService,
+    private jwtService: JwtService,
   ) {}
 
   async register(dto: CreateAuthDto) {
@@ -37,10 +38,12 @@ export class AuthService {
     if (!user) throw new BadRequestException('Invalid email or password');
 
     const match = await bcrypt.compare(dto.password, user.password);
-
     if (!match) throw new BadRequestException('Invalid email or password');
 
-    return { message: 'Login successful' };
+    const payload = { email: user.email, id: user._id };
+    const token = await this.jwtService.signAsync(payload);
+
+    return { message: 'Login successful', token };
   }
 
   async sendOtp(email: string) {
@@ -71,6 +74,8 @@ export class AuthService {
     user.otpExpires = null;
     await user.save();
 
-    return { message: 'OTP verified successfully' };
+    const payload = { email: user.email, id: user._id };
+    const token = await this.jwtService.signAsync(payload);
+    return { message: 'OTP verified successfully', token };
   }
 }

@@ -1,7 +1,7 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
-
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -24,5 +24,14 @@ export class AuthController {
   @Post('verify-otp')
   async verifyOtp(@Body() body: { email: string; otp: string }) {
     return this.authService.verifyOtp(body.email, body.otp);
+  }
+
+  @Get('token')
+  @UseGuards(JwtAuthGuard)
+  checkToken(@Req() req) {
+    return {
+      success: true,
+      user: req.user,
+    };
   }
 }
